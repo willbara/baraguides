@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standard Setup · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="../index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../threat-modeling.html">threat modeling</a></li>
+      <li><a href="../setups/index.html" class="active">setups</a></li>
+      <li><a href="../tools/index.html">tools</a></li>
+      <li><a href="../changelog.html">changelog</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap content">
+
+  <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">setups</a><span class="sep">/</span><span class="here">standard</span></p>
+
+  <h1>Standard Setup</h1>
+  <p class="updated">last updated <b>2026-08-02</b> · a weekend + slow migration · ~€10/mo · <a href="../changelog.html">what changed</a></p>
+
+  <p class="intro">
+    Balanced security and usability for someone who's done the
+    <a href="setup-beginner.html">basics</a> and wants the structural changes too.
+    <strong>Who this is for:</strong> you've decided that ad-tech holding your whole
+    life is itself the problem, not just thieves and leaks. Costs about two coffees
+    a month and one weekend of focus.
+  </p>
+
+  <div class="headsup">
+    <span class="k">prerequisite</span>
+    This tier assumes the <a href="setup-beginner.html">beginner setup</a> is done:
+    password manager in daily use, a free Proton Mail account, 2FA on critical
+    accounts, Brave, Signal, encrypted DNS. <em>If any of those are missing, do them
+    first: they're the foundation this tier builds on.</em>
+  </div>
+
+  <p class="section-label">the setup</p>
+
+  <article class="provider a-purple reveal">
+    <div class="p-head">
+      <h3>Your own domain</h3>
+      <span class="verdict">foundation</span>
+    </div>
+    <div class="meta">
+      <span>~€10/yr</span><span>~30 min</span><span>any reputable registrar</span>
+    </div>
+    <p>
+      A domain you own means your email address is portable forever.
+      <strong>Why it's here:</strong> it converts every later choice from a commitment
+      into a preference: switch providers and nobody ever knows.
+    </p>
+    <ol class="steps">
+      <li>Buy a boring domain at a reputable registrar (Porkbun, Namecheap, Gandi,
+      ~€10/year). Nothing cute; you'll say it out loud at front desks for a decade.</li>
+      <li>Turn on WHOIS privacy (usually free and default now).</li>
+      <li>That's it for today: the next step connects it.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-blue reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/proton-mail.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Proton Mail</h3>
+      <span class="verdict">email</span>
+    </div>
+    <div class="meta">
+      <span>~€4/mo</span><span>~2 h + months of drift</span><span><a href="../tools/email-providers.html">category page</a></span>
+    </div>
+    <p>
+      Upgrade the free Proton Mail account from your
+      <a href="setup-beginner.html">beginner setup</a> to Mail Plus and attach the
+      domain you just bought. <strong>Why it's here:</strong> your inbox is the
+      master key to everything else; a custom domain turns switching providers into
+      a preference, not a commitment.
+      (<a href="../tools/email-providers.html">Mailbox.org</a> if you'd rather keep
+      IMAP and any client.) The paid plan also bundles <strong>SimpleLogin</strong>:
+      a unique forwarding address per signup, so a leak becomes traceable instead of
+      just annoying, and killing the alias kills the spam with it.
+    </p>
+    <ol class="steps">
+      <li>Upgrade your existing free account to Mail Plus, add your domain
+      (Settings → Domains), follow the DNS records it gives you.</li>
+      <li>Create <code>you@yourdomain</code> as the primary address.</li>
+      <li>Set Gmail to <strong>forward everything</strong> to it, don't delete Gmail;
+      let it become an empty hallway.</li>
+      <li>Move the heavy hitters this weekend: banks, government, employer, and every
+      account's <em>recovery address</em>. The long tail migrates itself as forwarded
+      mail reveals it.</li>
+      <li>Turn on SimpleLogin (Settings → Aliases) and install its browser extension.
+      Rule going forward: <strong>humans get the real address, companies get an
+      alias.</strong> Don't retrofit old accounts; migrate them when they email you.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-aqua reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/notesnook.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Notesnook</h3>
+      <span class="verdict">notes</span>
+    </div>
+    <div class="meta">
+      <span>free tier</span><span>~20 min</span><span><a href="../tools/notes.html">category page</a></span>
+    </div>
+    <p>
+      Notesnook keeps your notes end-to-end encrypted, with clients on every
+      platform and a real export if you ever want to leave. <strong>Why it's
+      here:</strong> the average notes app is a diary a company can read, and this
+      one just isn't.
+    </p>
+    <ol class="steps">
+      <li>Create an account, install the app on your phone and computer.</li>
+      <li>Import from your old notes app if it offers a plain export; a messy
+      import beats losing years of notes.</li>
+      <li>Turn on app lock (biometric or PIN) so an unlocked phone doesn't mean an
+      open notebook.</li>
+      <li>Send new notes here first, and migrate old ones as you actually need them.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-green reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/yubico.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>YubiKey ×2</h3>
+      <span class="verdict">hardware 2fa</span>
+    </div>
+    <div class="meta">
+      <span>~€110 one-off</span><span>~1 h</span><span><a href="../tools/2fa.html">category page</a></span>
+    </div>
+    <p>
+      YubiKeys give you phishing-proof login for the accounts that unlock the rest.
+      <strong>Why it's here:</strong> app codes can be phished in real time, hardware
+      keys can't. Two keys because one key is a lockout waiting to happen.
+    </p>
+    <ol class="steps">
+      <li>Buy two YubiKey 5s (one USB-C/NFC for daily use, one for the drawer).
+      <a href="../tools/2fa.html">Nitrokey</a> if open firmware matters to you.</li>
+      <li>Register <strong>both keys</strong> on: Proton, your password manager
+      (1Password supports keys natively; Bitwarden needs premium, ~$10/yr), Google
+      (while it exists), banking where supported.</li>
+      <li>Where keys are registered, remove SMS as a fallback method.</li>
+      <li>Backup key goes somewhere that isn't your bag. It only works if it exists
+      when the primary doesn't.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-yellow reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/proton-vpn.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Proton VPN</h3>
+      <span class="verdict">network</span>
+    </div>
+    <div class="meta">
+      <span>~€5/mo (less bundled)</span><span>~20 min</span><span><a href="../tools/vpns.html">category page</a></span>
+    </div>
+    <p>
+      Proton VPN is audited no-logs, fast, and it <strong>bundles with the Proton
+      Mail plan you just bought</strong> at a meaningful discount; at this tier the
+      suite deal is hard to beat. Why it's here: your ISP stops seeing where you go,
+      and public Wi-Fi stops being a consideration at all. Its free tier is a
+      genuinely usable fallback, unlimited data and no ads, just fewer server
+      locations and one device at a time, but the bundle discount here makes paying
+      the easy call.
+      (<a href="../tools/vpns.html">Mullvad</a> instead if anonymous payment matters
+      more than ecosystem value.)
+    </p>
+    <ol class="steps">
+      <li>Upgrade to Proton Unlimited (or add VPN Plus) from your existing Proton
+      account, compare against paying separately; the bundle usually wins.</li>
+      <li>Install the app on phone and computer, sign in.</li>
+      <li>Turn on the <strong>kill switch</strong> and <strong>NetShield</strong>
+      (Proton's DNS-level ad/tracker blocking).</li>
+      <li>Set it to auto-connect on untrusted Wi-Fi at minimum; always-on if speeds
+      hold up for you.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-orange reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/filen.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Filen</h3>
+      <span class="verdict">Cloud Storage</span>
+    </div>
+    <div class="meta">
+      <span>from ~€2/mo · free tier</span><span>~45 min</span><span><a href="../tools/cloud-storage.html">category page</a></span>
+    </div>
+    <p>
+      Filen keeps your photos and files on a zero-knowledge E2EE cloud, with proper
+      clients on every OS, Linux included. <strong>Why it's here:</strong> "Google
+      can read my files" stops being true, without losing sync. (On a Proton
+      Unlimited bundle, Proton Drive covers the same job, unless you're on Linux,
+      where it has no sync client.)
+    </p>
+    <ol class="steps">
+      <li>Create a Filen account (10GB free covers the trial run) and turn on camera
+      upload on your phone; let it run overnight.</li>
+      <li>Start the Google Takeout export now: it takes days to arrive, and the
+      photos archive is the thing people regret not having.</li>
+      <li>Keep one versioned backup outside the sync loop: an external drive plus
+      restic/BorgBackup, monthly.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-red reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/easyoptouts.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>EasyOptOuts</h3>
+      <span class="verdict">data brokers</span>
+    </div>
+    <div class="meta">
+      <span>$19.99/yr</span><span>~20 min + ongoing</span><span><a href="../tools/data-removal.html">category page</a></span>
+    </div>
+    <p>
+      EasyOptOuts scrubs your name, address, and phone number off the
+      people-search and data-broker sites that resell them, then keeps
+      re-removing you as those sites re-list you. <strong>Why it's here:</strong>
+      a locked-down inbox and an encrypted vault don't matter much if anyone can
+      still buy your home address for two dollars.
+    </p>
+    <ol class="steps">
+      <li>Sign up at easyoptouts.com and submit the personal details it needs to
+      find your listings: name, past addresses, birth year.</li>
+      <li>Let the first sweep run; it's the slowest one, expect removals to land
+      over the following weeks.</li>
+      <li>Leave monitoring on: brokers re-list you on their own schedule, and
+      ongoing removal is the point, not a one-time cleanup.</li>
+      <li>Check the dashboard after the first month to confirm removals are
+      actually landing, then let it run quietly in the background.</li>
+    </ol>
+  </article>
+
+  <p class="section-label">after setup</p>
+  <div class="notes">
+    <p>
+      <strong>The email migration is a season, not a step.</strong> Three months of
+      forwarded mail will surface accounts you forgot existed. Each one: log in,
+      change address (or alias it), move on. The day forwarding goes quiet is the day
+      you've actually left.
+    </p>
+    <p>
+      <strong>Don't delete the Google account.</strong> Empty it, secure it with a key,
+      and keep it: old recovery paths, the odd service that demands it, and YouTube
+      comments you forgot about all live there. An account you control is safer than
+      one recycled.
+    </p>
+    <p>
+      <strong>Common pitfall: alias sprawl without notes.</strong> Name each alias
+      after the service in SimpleLogin's note field as you create it, or in six
+      months you'll be scared to delete any of them.
+    </p>
+    <p>
+      <strong>Going further:</strong> if your threat model includes a specific
+      someone, or you want your phone itself out of the ecosystem, the
+      <a href="setup-hardened.html">hardened setup</a> is next. For most people,
+      though, <em>this tier is the destination.</em> Maintain it and live your life.
+    </p>
+  </div>
+
+  <p class="section-label">checklist</p>
+  <ul class="checklist">
+    <li><strong>Beginner setup</strong> fully done (it's the foundation)</li>
+    <li><strong>Domain</strong> registered, WHOIS privacy on</li>
+    <li><strong>Proton Mail</strong> upgraded to Mail Plus, live on <code>you@yourdomain</code>, Gmail forwarding</li>
+    <li>Banks, government, employer, and recovery addresses <strong>migrated</strong></li>
+    <li><strong>SimpleLogin aliases</strong> on for all new signups, extension installed</li>
+    <li><strong>Notesnook</strong> installed, app lock on, new notes going here</li>
+    <li><strong>Two YubiKeys</strong> registered on Proton, your password manager, banking; SMS fallback removed</li>
+    <li><strong>Proton VPN</strong> with kill switch + NetShield, auto-connect on untrusted Wi-Fi</li>
+    <li>Photos and files on <strong>Filen</strong>, Takeout archive saved</li>
+    <li>One <strong>versioned offline backup</strong> that sync can't touch</li>
+    <li><strong>EasyOptOuts</strong> running, personal info submitted for removal</li>
+  </ul>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="../about.html#source">source</a> &middot; <a href="../about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="../site-search/site-index.js"></script>
+<script src="../site-search/site-search.js"></script>
+
+</body>
+</html>

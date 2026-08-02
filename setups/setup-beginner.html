@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beginner Setup · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="../index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../threat-modeling.html">threat modeling</a></li>
+      <li><a href="../setups/index.html" class="active">setups</a></li>
+      <li><a href="../tools/index.html">tools</a></li>
+      <li><a href="../changelog.html">changelog</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap content">
+
+  <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">setups</a><span class="sep">/</span><span class="here">beginner</span></p>
+
+  <h1>Beginner Setup</h1>
+  <p class="updated">last updated <b>2026-08-02</b> · one afternoon · €0 · <a href="../changelog.html">what changed</a></p>
+
+  <p class="intro">
+    Sane defaults for someone starting from zero. <strong>Who this is for:</strong>
+    your adversaries are data brokers, ad networks, and opportunistic criminals,
+    the ones targeting everyone. Nothing here requires abandoning a platform,
+    explaining yourself to family, or spending money.
+  </p>
+
+  <div class="headsup">
+    <span class="k">the plan</span>
+    Seven changes, in order of impact. Do them top to bottom: the password manager
+    makes every later step easier. <em>If the afternoon runs out, stop after any step
+    and you're still better off than this morning.</em>
+  </div>
+
+  <p class="section-label">the setup</p>
+
+  <article class="provider a-green reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/bitwarden.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Bitwarden</h3>
+      <span class="verdict">password manager</span>
+    </div>
+    <div class="meta">
+      <span>free</span><span>~45 min</span><span><a href="../tools/password-managers.html">category page</a></span>
+    </div>
+    <p>
+      Bitwarden is the single highest-impact change available to anyone: the free
+      tier is fully usable, syncs everywhere, and it's open source and audited.
+      <strong>Why it's here:</strong> zero cost, zero excuses. (The
+      <a href="../tools/password-managers.html">category page</a> leads with 1Password
+      over recent company-level concerns at Bitwarden; at this tier, free wins, but
+      read the caveats and keep the export habit below.)
+    </p>
+    <ol class="steps">
+      <li>Create an account with a <strong>long passphrase</strong>: four random words
+      you can actually remember. Write it on paper for now; recycle the paper in a month.</li>
+      <li>Install the browser extension and the phone app, sign in to both.</li>
+      <li>Save your <strong>recovery code</strong> (Settings → Emergency access) somewhere
+      that isn't the vault.</li>
+      <li>Change three passwords today: email, banking, and your most-used social
+      account, to generated ones. Migrate the rest as you log into things naturally.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-blue reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/proton-mail.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Proton Mail</h3>
+      <span class="verdict">email</span>
+    </div>
+    <div class="meta">
+      <span>free tier</span><span>~20 min</span><span><a href="../tools/email-providers.html">category page</a></span>
+    </div>
+    <p>
+      Proton Mail's free tier gets you one encrypted <code>@proton.me</code> address,
+      no card required. <strong>Why it's here:</strong> your inbox is the recovery
+      address for everything else you own, and a provider that can't read it is a free
+      upgrade over Gmail. (Custom domains and the SimpleLogin bundle come later, at the
+      <a href="setup-standard.html">standard tier</a>, once you're ready for a full
+      migration.)
+    </p>
+    <ol class="steps">
+      <li>Sign up for a free account at proton.me/mail; no domain needed yet.</li>
+      <li>Install the app on your phone and add the browser extension.</li>
+      <li>Start using the new address for new signups and anything sensitive; leave
+      Gmail running for now, a full migration is a <a href="setup-standard.html">later</a>
+      project.</li>
+      <li>Add it as a secondary recovery address on your important accounts, alongside
+      (not instead of) your existing one.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-aqua reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/ente.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Ente Auth</h3>
+      <span class="verdict">two-factor codes</span>
+    </div>
+    <div class="meta">
+      <span>free</span><span>~30 min</span><span><a href="../tools/2fa.html">category page</a></span>
+    </div>
+    <p>
+      Ente Auth swaps SMS codes for app-based ones, with encrypted sync so a lost
+      phone isn't a lost identity. <strong>Why it's here:</strong> a stolen password
+      stops being enough to take an account from you.
+    </p>
+    <ol class="steps">
+      <li>Install Ente Auth (Android/iOS); Aegis is equally good if you're
+      Android-only.</li>
+      <li>Enable 2FA on your <strong>email first</strong>, then banking, then the vault
+      you just made. Each service shows a QR code; scan it with the app.</li>
+      <li>Each service hands you recovery codes: store them in Bitwarden.</li>
+      <li>Where a service offers both app codes and SMS, remove SMS once the app works.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-orange reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/brave.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Brave</h3>
+      <span class="verdict">browser</span>
+    </div>
+    <div class="meta">
+      <span>free</span><span>~20 min</span><span><a href="../tools/browsers.html">category page</a></span>
+    </div>
+    <p>
+      Brave is a private daily driver that doesn't break the web: tracker blocking
+      and anti-fingerprinting are built in, so there's <strong>nothing to install on
+      top</strong>. Why it's here: the browser is where the bulk of everyday tracking
+      happens, and Brave ends most of it before you touch a setting.
+    </p>
+    <ol class="steps">
+      <li>Install Brave, import bookmarks and passwords from your old browser
+      (then move passwords onward into Bitwarden).</li>
+      <li>Settings → turn off <strong>Rewards, Wallet, and News</strong>, two
+      minutes of de-cluttering and you're done.</li>
+      <li>Leave Shields on their defaults; they're already right.</li>
+      <li>Keep the default search engine: Brave Search runs its own independent
+      index. Give it an honest week before judging.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-blue reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/signal.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Signal</h3>
+      <span class="verdict">messaging</span>
+    </div>
+    <div class="meta">
+      <span>free</span><span>~15 min + persuasion</span><span><a href="../tools/messaging.html">category page</a></span>
+    </div>
+    <p>
+      Signal wraps end-to-end encryption in something that looks and feels like a
+      normal messenger. <strong>Why it's here:</strong> it's the one private tool
+      you can realistically move other people onto.
+    </p>
+    <ol class="steps">
+      <li>Install on your phone, register, set a PIN you'll remember.</li>
+      <li>Set a username (Settings → Profile) so you can share it instead of your number.</li>
+      <li>Turn on disappearing messages by default: Settings → Privacy →
+      Default timer → 1 week.</li>
+      <li>Move one group chat. The family one is usually easiest, start there,
+      not with your most stubborn friend.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-purple reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/adguard.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>AdGuard DNS</h3>
+      <span class="verdict">network</span>
+    </div>
+    <div class="meta">
+      <span>free</span><span>~15 min</span><span><a href="../tools/dns.html">category page</a></span>
+    </div>
+    <p>
+      AdGuard DNS is encrypted DNS that blocks ads, trackers, and malware domains,
+      with no account and no dashboard required. <strong>Why it's here:</strong> one
+      settings change, every device improves, nothing to maintain.
+    </p>
+    <ol class="steps">
+      <li>On the phone: Android → Private DNS → <code>dns.adguard-dns.com</code>;
+      iOS → install the profile from adguard-dns.io.</li>
+      <li>On the computer: set the OS or browser DNS-over-HTTPS to
+      <code>https://dns.adguard-dns.com/dns-query</code>.</li>
+      <li>If you're comfortable in your router's admin page, set
+      <code>94.140.14.14</code> there too: that covers the TV and everything else.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-yellow reveal">
+    <div class="p-head">
+      <h3>Update autopilot</h3>
+      <span class="verdict">hygiene</span>
+    </div>
+    <div class="meta">
+      <span>free</span><span>~15 min</span><span>no category page, just do it</span>
+    </div>
+    <p>
+      Most real-world compromises exploit a patch that existed for months.
+      <strong>Why it's here:</strong> automatic updates outperform every gadget on
+      this site, and they're free.
+    </p>
+    <ol class="steps">
+      <li>Turn on automatic OS updates (Windows, macOS, and phones all support it).</li>
+      <li>Turn on auto-update in app stores and the browser.</li>
+      <li>Uninstall what you don't use: every app is attack surface and most phones
+      carry twenty zombies.</li>
+      <li>While you're in the phone settings: review which apps have location,
+      microphone, and contacts access. Revoke freely; apps re-ask if they truly need it.</li>
+    </ol>
+  </article>
+
+  <p class="section-label">after setup</p>
+  <div class="notes">
+    <p>
+      <strong>Let the password migration happen naturally.</strong> Every time you log
+      into something over the next month, save it to Bitwarden and upgrade the password
+      if it's reused. Forcing it all in one sitting is how people burn out.
+    </p>
+    <p>
+      <strong>Old browser stays for two weeks, then goes.</strong> Keep it as a fallback
+      while Brave proves itself, then uninstall so you don't drift back.
+    </p>
+    <p>
+      <strong>Common pitfall: 2FA without recovery codes.</strong> The point of step
+      two in every section was the recovery codes. If you skipped them, go back:
+      lockouts hurt more than hackers at this tier.
+    </p>
+    <p>
+      <strong>When you're ready for more,</strong> the
+      <a href="setup-standard.html">standard setup</a> picks up exactly here,
+      starting with a domain of your own and upgrading the free Proton Mail account
+      you just made.
+    </p>
+  </div>
+
+  <p class="section-label">checklist</p>
+  <ul class="checklist">
+    <li><strong>Bitwarden</strong> installed on browser + phone, master passphrase on paper, recovery code saved</li>
+    <li><strong>Proton Mail</strong> free account created, added as a secondary recovery address</li>
+    <li>Email, banking, and top social account moved to <strong>generated passwords</strong></li>
+    <li><strong>2FA</strong> on email, banking, and Bitwarden; recovery codes stored in the vault</li>
+    <li><strong>Brave</strong> as default browser, rewards/wallet clutter switched off</li>
+    <li><strong>Signal</strong> installed, username set, one conversation moved</li>
+    <li><strong>AdGuard DNS</strong> set on phone and computer (router if you dared)</li>
+    <li>Auto-updates on everywhere; unused apps deleted; permissions reviewed</li>
+  </ul>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="../about.html#source">source</a> &middot; <a href="../about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="../site-search/site-index.js"></script>
+<script src="../site-search/site-search.js"></script>
+
+</body>
+</html>

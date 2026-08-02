@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Services · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="../index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../threat-modeling.html">threat modeling</a></li>
+      <li><a href="../setups/index.html">setups</a></li>
+      <li><a href="../tools/index.html" class="active">tools</a></li>
+      <li><a href="../changelog.html">changelog</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap layout">
+
+  <aside class="cats" aria-label="Tool categories">
+    <button class="cats-toggle" aria-expanded="false" onclick="toggleCats(this)">categories</button>
+    <p class="label">communication</p>
+    <ul>
+      <li><a href="messaging.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v11H9l-4 4v-4H3z"/></svg>Messengers</a></li>
+      <li><a href="email-providers.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email Providers</a></li>
+      <li><a href="social-media.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><line x1="8.3" y1="10.8" x2="14.7" y2="7.2"/><line x1="8.3" y1="13.2" x2="14.7" y2="16.8"/></svg>Social Media</a></li>
+      <li><a href="communities.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M13.5 20c.4-2.6 2-4.6 4.3-4.9"/></svg>Communities</a></li>
+      <li><a href="frontends.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12"/><path d="M13 4l3 3-3 3"/><path d="M20 17H8"/><path d="M11 14l-3 3 3 3"/></svg>Frontends</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">credentials &amp; identity</p>
+    <ul>
+      <li><a href="password-managers.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="15" r="3.2"/><line x1="9.3" y1="12.7" x2="19" y2="3"/><line x1="15.5" y1="6.5" x2="17.8" y2="8.8"/><line x1="12.7" y1="9.3" x2="15" y2="11.6"/></svg>Password Managers</a></li>
+      <li><a href="2fa.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12.5l2 2 4-4.5"/></svg>2FA &amp; Hardware Keys</a></li>
+      <li><a href="alias-services.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="11" rx="9" ry="4"/><circle cx="8" cy="11" r="1.3"/><circle cx="16" cy="11" r="1.3"/></svg>Alias Services</a></li>
+      <li><a href="data-removal.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 20 7"/><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><line x1="9" y1="11" x2="9" y2="17"/><line x1="15" y1="11" x2="15" y2="17"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>Personal Data Removers</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">network &amp; browsing</p>
+    <ul>
+      <li><a href="browsers.html" class="d-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>Browsers &amp; Search</a></li>
+      <li><a href="dns.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><line x1="7" y1="7" x2="7.01" y2="7"/><line x1="7" y1="17" x2="7.01" y2="17"/></svg>DNS &amp; Network</a></li>
+      <li><a href="vpns.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><circle cx="12" cy="11" r="1.6"/><line x1="12" y1="12.6" x2="12" y2="14.5"/></svg>VPNs</a></li>
+      <li><a href="anonymizing-networks.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><circle cx="5" cy="5.5" r="1.7"/><circle cx="19" cy="5.5" r="1.7"/><circle cx="5" cy="18.5" r="1.7"/><circle cx="19" cy="18.5" r="1.7"/><line x1="6.4" y1="6.9" x2="10.4" y2="10.4"/><line x1="17.6" y1="6.9" x2="13.6" y2="10.4"/><line x1="6.4" y1="17.1" x2="10.4" y2="13.6"/><line x1="17.6" y1="17.1" x2="13.6" y2="13.6"/></svg>Anonymizing Networks</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">data &amp; files</p>
+    <ul>
+      <li><a href="cloud-storage.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="13" r="3.2"/><circle cx="13" cy="10.5" r="4"/><circle cx="17.5" cy="13" r="2.8"/><rect x="5.5" y="13" width="14" height="4.5" rx="2.2"/></svg>Cloud Storage &amp; Sync</a></li>
+      <li><a href="notes.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="13" height="18" rx="1"/><polyline points="14 3 14 8 19 8"/><line x1="9" y1="12" x2="16" y2="12"/><line x1="9" y1="16" x2="16" y2="16"/></svg>Notes</a></li>
+      <li><a href="file-sharing.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8h16v-8"/><polyline points="8 8 12 4 16 8"/><line x1="12" y1="4" x2="12" y2="15"/></svg>File Sharing</a></li>
+      <li><a href="office-suites.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><rect x="9" y="2.5" width="6" height="3" rx="0.5"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="13" y2="18"/></svg>Office Suites</a></li>
+      <li><a href="encryption.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.3"/></svg>Encryption</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">platforms</p>
+    <ul>
+      <li><a href="mobile-os.html" class="d-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18.5" x2="12.01" y2="18.5"/></svg>Mobile OS</a></li>
+      <li><a href="desktop-os.html" class="d-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Desktop OS</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">money &amp; connectivity</p>
+    <ul>
+      <li><a href="financial-services.html" class="d-yellow current" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>Financial Services</a></li>
+      <li><a href="cellular.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="3" height="6"/><rect x="9" y="10" width="3" height="10"/><rect x="15" y="6" width="3" height="14"/><rect x="21" y="2" width="2" height="18"/></svg>Cellular Services</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">other</p>
+    <ul>
+      <li><a href="ai-tools.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 14.5 9 22 9 16 13.5 18 21 12 16.5 6 21 8 13.5 2 9 9.5 9"/></svg>AI Tools</a></li>
+      <li><a href="maps.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><polygon points="8 12 16 12 12 21"/><circle cx="12" cy="9" r="1.8" fill="currentColor" stroke="none"/></svg>Maps</a></li>
+      <li><a href="resources.html" class="d-mute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Resources</a></li>
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="../threat-modeling.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg>Threat Modeling</a></li>
+      <li><a href="../setups/index.html" class="d-mute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 3 2 8 12 13 22 8"/><polyline points="2 13 12 18 22 13"/><polyline points="2 17.5 12 22.5 22 17.5"/></svg>Full Setups</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">financial</span></p>
+
+    <h1>Financial Services</h1>
+    <p class="updated">last updated <b>2026-08-02</b> · 2 recommendations · <a href="../changelog.html">what changed</a></p>
+
+    <p class="intro">
+      Every merchant you pay gets your real card number, and every breach of
+      theirs hands that number, often tied to your real name and bank, to
+      whoever broke in. <strong>Virtual cards and identity-shielded financial
+      tools</strong> put a disposable layer between your money and the
+      growing list of companies that ask for it.
+    </p>
+
+    <p class="section-label">what actually matters</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>merchant-locked numbers</h4>
+        <p>A unique card number per merchant means one breach exposes one number, not your entire payment history across every site you've used it on.</p>
+      </div>
+      <div class="crit">
+        <h4>spend limits &amp; auto-expire</h4>
+        <p>Cap a card at the subscription price, set it to single-use, or kill it the moment a free trial should have ended, before the gym membership does it for you.</p>
+      </div>
+      <div class="crit">
+        <h4>identity requirement</h4>
+        <p>Some tools need just an email and a funding source; others want an SSN. The less deep-identity verification required, the less there is to leak.</p>
+      </div>
+    </div>
+
+    <p class="section-label">recommendations</p>
+
+    <!-- Privacy.com -->
+    <article class="provider a-aqua reveal" id="privacy-com">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/privacy-com.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Privacy.com</h3>
+        <span class="verdict">the virtual card pick</span>
+      </div>
+      <div class="meta">
+        <span>us only</span><span>virtual cards</span><span>free tier</span>
+      </div>
+      <p>
+        Privacy.com lets you generate a new virtual debit card number for every
+        merchant, cap each one at a set amount, and pause or close it in one
+        tap. <strong>A breach at one subscription service never touches the
+        others</strong>: they each got a different number. The free tier covers
+        most people; paid tiers add more cards per month and cashback.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Merchant-locked numbers contain breach damage to one card</li>
+            <li>Spend limits and auto-expire kill forgotten subscriptions</li>
+            <li>Close a card instantly without touching your real bank account</li>
+            <li>Free tier is genuinely usable, not a crippled trial</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>US-only: no service for most of the rest of the world</li>
+            <li>Still requires linking a real bank account or debit card to fund it</li>
+            <li>Cards-only: no phone numbers, email aliases, or broader identity cover</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b> tier · paid tiers add more cards &amp; cashback</span>
+        <span><a href="https://privacy.com" rel="noopener">privacy.com →</a></span>
+      </div>
+    </article>
+
+    <!-- MySudo -->
+    <article class="provider a-purple reveal" id="mysudo">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/mysudo.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>MySudo</h3>
+        <span class="verdict">the identity-compartmentalization pick</span>
+      </div>
+      <div class="meta">
+        <span>virtual cards</span><span>aliasing</span><span>paid</span>
+      </div>
+      <p>
+        MySudo goes wider than cards: it bundles virtual card numbers with
+        disposable phone numbers and email aliases into separate
+        <strong>"personas"</strong>, like one for online shopping, one for
+        classifieds, one for that one form you had to fill out once. The
+        financial piece is a feature of a broader identity-compartmentalization
+        tool, not the whole product.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>One persona bundles a card, phone number, and email together</li>
+            <li>Compartmentalizes identity across contexts, not just payments</li>
+            <li>Useful for classifieds, dating apps, and one-off forms beyond shopping</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Subscription cost: no meaningful free tier for ongoing use</li>
+            <li>More moving parts than a cards-only tool; more to configure up front</li>
+            <li>Card network and regional support is narrower than a dedicated card service</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>subscription</b> · tiered by persona count</span>
+        <span><a href="https://mysudo.com" rel="noopener">mysudo.com →</a></span>
+      </div>
+    </article>
+
+    <p class="section-label">at a glance</p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>service</th><th>scope</th><th>cost</th><th>region</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">Privacy.com</td><td>cards only</td><td>free + paid tiers</td><td>US only</td>
+          </tr>
+          <tr>
+            <td class="name">MySudo</td><td>full identity personas (cards, phone, email)</td><td>subscription</td><td>broader, check current coverage</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-note">both still require a real funding source behind the scenes; neither replaces your bank.</p>
+
+    <p class="section-label">worth knowing</p>
+    <div class="notes">
+      <p>
+        <strong>These complement, not replace, the rest of your stack.</strong>
+        A virtual card stops a merchant breach from exposing your real number;
+        it does nothing if your password is reused or your account has no
+        second factor. Pair this with a
+        <a href="../tools/password-managers.html">password manager</a> and 2FA,
+        and use an <a href="../tools/alias-services.html">alias service</a> for
+        the email and phone-number side of the same problem.
+      </p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="../about.html#source">source</a> &middot; <a href="../about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  function toggleCats(btn) {
+    const open = btn.parentElement.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="../site-search/site-index.js"></script>
+<script src="../site-search/site-search.js"></script>
+
+</body>
+</html>

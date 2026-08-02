@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Threat Modeling · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="threat-modeling.html" class="active">threat modeling</a></li>
+      <li><a href="setups/index.html">setups</a></li>
+      <li><a href="tools/index.html">tools</a></li>
+      <li><a href="changelog.html">changelog</a></li>
+      <li><a href="about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero hero-sm">
+  <div class="wrap">
+    <p class="prompt"><span class="user">guest</span>@<span class="path">~/privacy</span>$ <span class="cmd">cat start-here.txt</span></p>
+    <h1>Start here.</h1>
+    <p class="hero-sub">
+      Before you install anything, answer one question:
+      <strong>what are you actually protecting, and from whom?</strong>
+      Ten minutes of thinking here saves months of cargo-culting tools
+      that solve someone else's problem.
+    </p>
+  </div>
+</header>
+
+<main class="wrap content">
+
+  <p class="crumb"><a href="index.html">~</a><span class="sep">/</span><span class="here">threat-modeling</span></p>
+
+  <p class="section-label">what is threat modeling?</p>
+  <div class="notes">
+    <p>
+      Threat modeling is a fancy name for something you already do. You lock your bike
+      differently in a small town than outside a train station. You don't tell a
+      stranger what you told your doctor. <strong>You already adjust your defenses to
+      the threat</strong>; this page just applies that instinct to your digital life.
+    </p>
+    <p>
+      Without a threat model, privacy advice is noise. "Use Tor!" "Self-host
+      everything!" "Get off Google!": each one is useful for some people, pointless
+      overhead for others, and <strong>occasionally actively harmful</strong> (an
+      exotic setup can make you more conspicuous, not less). With a threat model, you
+      can read any recommendation (here or anywhere) and know whether it's
+      <em>for you</em>.
+    </p>
+    <p>
+      The goal isn't maximum security. Maximum security is a phone in a lake.
+      The goal is <strong>the right security for your actual situation</strong>,
+      at a cost you'll sustain past the first week.
+    </p>
+  </div>
+
+  <p class="section-label">the three questions</p>
+  <div class="criteria three">
+    <div class="crit">
+      <h4>1 · what are you protecting?</h4>
+      <p>Your assets. Browsing history, location, messages, photos, finances, identity,
+      a source's name, who you associate with. Be specific: "my privacy" is not an
+      asset, "my home address staying off people-search sites" is.</p>
+    </div>
+    <div class="crit">
+      <h4>2 · from whom?</h4>
+      <p>Your adversaries. Advertisers and data brokers? A thief with your phone? An
+      abusive ex? Your employer? Scammers? A government? Each one has different
+      capabilities, and most people's real list is shorter than they fear.</p>
+    </div>
+    <div class="crit">
+      <h4>3 · at what cost?</h4>
+      <p>Your budget: in money, time, and daily friction. A defense you abandon
+      protects nothing. The honest version of this question: what inconvenience will
+      you still be tolerating in six months?</p>
+    </div>
+  </div>
+
+  <p class="section-label">building your model</p>
+  <ol class="steps">
+    <li>
+      <strong>List what you'd hate to lose or leak.</strong> Write it down, actually.
+      Most lists converge on email account, photos, finances, private conversations,
+      location patterns, and one or two things specific to you. Health records,
+      immigration status, a business idea, who you date.
+    </li>
+    <li>
+      <strong>Name who'd want each item, realistically.</strong> For most people the
+      honest list is data brokers and ad networks (want everything, passively),
+      opportunistic criminals (want money, not you specifically), and maybe one
+      personal adversary. A hostile ex, a stalker, a bad landlord. Targeted
+      state surveillance is real but rare; designing for it first is how people burn
+      out and quit.
+    </li>
+    <li>
+      <strong>Rate likelihood × damage, roughly.</strong> Phone theft: likely, recoverable
+      if prepared. Password-reuse breach: very likely, expensive. Targeted hacking:
+      unlikely for most, catastrophic for a few. The point isn't precision: it's
+      noticing that the boring threats are the probable ones.
+    </li>
+    <li>
+      <strong>Defend the top of the list first.</strong> For nearly everyone that means:
+      a <a href="tools/password-managers.html">password manager</a>,
+      <a href="tools/2fa.html">2FA</a> on email and finance, automatic updates, and a
+      pause before granting any app its permissions. That set neutralizes the likely
+      threats before you spend a minute on the exotic ones.
+    </li>
+    <li>
+      <strong>Revisit when life changes.</strong> New job, new country, new
+      relationship, kids, activism, divorce: threat models have a shelf life.
+      A yearly skim of yours costs ten minutes.
+    </li>
+  </ol>
+
+  <div class="headsup">
+    <span class="k">worked example</span>
+    A nurse with a vindictive ex isn't worried about the NSA. Her model:
+    location data and her new address (assets) versus one specific person with
+    normal-person skills (adversary). That means: removing herself from
+    people-search sites, locking down social media, a new email he never had, and
+    checking the phone for shared accounts and stalkerware; <em>and Tor solves none
+    of it.</em> Same tools site, completely different page order. That's a threat
+    model doing its job.
+  </div>
+
+  <p class="section-label">your model in practice</p>
+  <div class="notes">
+    <p>
+      <strong>"Data brokers profile me" →</strong> a tracker-blocking
+      <a href="tools/browsers.html">browser</a>, filtered
+      <a href="tools/dns.html">DNS</a>, email aliases, and saying no to loyalty
+      programs. It's cheap, low-friction, and covers the adversary that targets
+      literally everyone.
+    </p>
+    <p>
+      <strong>"A stolen password ends me" →</strong> a
+      <a href="tools/password-managers.html">password manager</a> and
+      <a href="tools/2fa.html">hardware-key 2FA</a> on the accounts that matter.
+      This is the highest return-on-effort pairing on the entire site.
+    </p>
+    <p>
+      <strong>"My conversations are sensitive" →</strong>
+      <a href="tools/messaging.html">Signal</a> with disappearing messages, and a
+      provider that can't read your <a href="tools/email-providers.html">mail</a>.
+    </p>
+    <p>
+      <strong>"A person, not a corporation, is after me" →</strong> device access,
+      shared accounts, and location sharing first: the intimate-threat playbook is
+      different and mostly isn't about encryption. The
+      <a href="setups/setup-hardened.html">hardened setup</a> covers some of it;
+      specialist resources (like the Coalition Against Stalkerware) cover the rest.
+    </p>
+    <p>
+      <strong>"My government is in my model" →</strong> Tor,
+      <a href="tools/desktop-os.html">Tails</a>, compartmentalized identities, and
+      advice beyond this site's scope. Start with the
+      <a href="setups/setup-hardened.html">hardened setup</a>, then go deeper with
+      sources written for your specific situation.
+    </p>
+  </div>
+
+  <p class="section-label">where to go next</p>
+  <div class="grid">
+    <a class="card c-orange reveal" href="setups/index.html">
+      <span class="tag">guides</span>
+      <h3>Pick a setup</h3>
+      <p>Three complete configurations mapped to threat models: beginner, standard, and hardened. Tools, order, and setup steps included.</p>
+    </a>
+    <a class="card c-green reveal" href="tools/password-managers.html">
+      <span class="tag">highest impact</span>
+      <h3>Password manager first</h3>
+      <p>If your model says "do the basics," and it does, this is the basic that pays for all the others.</p>
+    </a>
+    <a class="card c-blue reveal" href="tools/index.html">
+      <span class="tag">browse</span>
+      <h3>All tool categories</h3>
+      <p>Ten categories of researched picks, each explaining what matters and who each tool is for.</p>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="about.html#source">source</a> &middot; <a href="about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="site-search/site-index.js"></script>
+<script src="site-search/site-search.js"></script>
+
+</body>
+</html>

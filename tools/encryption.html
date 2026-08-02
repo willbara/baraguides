@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encryption · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="../index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../threat-modeling.html">threat modeling</a></li>
+      <li><a href="../setups/index.html">setups</a></li>
+      <li><a href="../tools/index.html" class="active">tools</a></li>
+      <li><a href="../changelog.html">changelog</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap layout">
+
+  <aside class="cats" aria-label="Tool categories">
+    <button class="cats-toggle" aria-expanded="false" onclick="toggleCats(this)">categories</button>
+    <p class="label">communication</p>
+    <ul>
+      <li><a href="messaging.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v11H9l-4 4v-4H3z"/></svg>Messengers</a></li>
+      <li><a href="email-providers.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email Providers</a></li>
+      <li><a href="social-media.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><line x1="8.3" y1="10.8" x2="14.7" y2="7.2"/><line x1="8.3" y1="13.2" x2="14.7" y2="16.8"/></svg>Social Media</a></li>
+      <li><a href="communities.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M13.5 20c.4-2.6 2-4.6 4.3-4.9"/></svg>Communities</a></li>
+      <li><a href="frontends.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12"/><path d="M13 4l3 3-3 3"/><path d="M20 17H8"/><path d="M11 14l-3 3 3 3"/></svg>Frontends</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">credentials &amp; identity</p>
+    <ul>
+      <li><a href="password-managers.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="15" r="3.2"/><line x1="9.3" y1="12.7" x2="19" y2="3"/><line x1="15.5" y1="6.5" x2="17.8" y2="8.8"/><line x1="12.7" y1="9.3" x2="15" y2="11.6"/></svg>Password Managers</a></li>
+      <li><a href="2fa.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12.5l2 2 4-4.5"/></svg>2FA &amp; Hardware Keys</a></li>
+      <li><a href="alias-services.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="11" rx="9" ry="4"/><circle cx="8" cy="11" r="1.3"/><circle cx="16" cy="11" r="1.3"/></svg>Alias Services</a></li>
+      <li><a href="data-removal.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 20 7"/><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><line x1="9" y1="11" x2="9" y2="17"/><line x1="15" y1="11" x2="15" y2="17"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>Personal Data Removers</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">network &amp; browsing</p>
+    <ul>
+      <li><a href="browsers.html" class="d-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>Browsers &amp; Search</a></li>
+      <li><a href="dns.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><line x1="7" y1="7" x2="7.01" y2="7"/><line x1="7" y1="17" x2="7.01" y2="17"/></svg>DNS &amp; Network</a></li>
+      <li><a href="vpns.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><circle cx="12" cy="11" r="1.6"/><line x1="12" y1="12.6" x2="12" y2="14.5"/></svg>VPNs</a></li>
+      <li><a href="anonymizing-networks.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><circle cx="5" cy="5.5" r="1.7"/><circle cx="19" cy="5.5" r="1.7"/><circle cx="5" cy="18.5" r="1.7"/><circle cx="19" cy="18.5" r="1.7"/><line x1="6.4" y1="6.9" x2="10.4" y2="10.4"/><line x1="17.6" y1="6.9" x2="13.6" y2="10.4"/><line x1="6.4" y1="17.1" x2="10.4" y2="13.6"/><line x1="17.6" y1="17.1" x2="13.6" y2="13.6"/></svg>Anonymizing Networks</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">data &amp; files</p>
+    <ul>
+      <li><a href="cloud-storage.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="13" r="3.2"/><circle cx="13" cy="10.5" r="4"/><circle cx="17.5" cy="13" r="2.8"/><rect x="5.5" y="13" width="14" height="4.5" rx="2.2"/></svg>Cloud Storage &amp; Sync</a></li>
+      <li><a href="notes.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="13" height="18" rx="1"/><polyline points="14 3 14 8 19 8"/><line x1="9" y1="12" x2="16" y2="12"/><line x1="9" y1="16" x2="16" y2="16"/></svg>Notes</a></li>
+      <li><a href="file-sharing.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8h16v-8"/><polyline points="8 8 12 4 16 8"/><line x1="12" y1="4" x2="12" y2="15"/></svg>File Sharing</a></li>
+      <li><a href="office-suites.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><rect x="9" y="2.5" width="6" height="3" rx="0.5"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="13" y2="18"/></svg>Office Suites</a></li>
+      <li><a href="encryption.html" class="d-orange current" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.3"/></svg>Encryption</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">platforms</p>
+    <ul>
+      <li><a href="mobile-os.html" class="d-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18.5" x2="12.01" y2="18.5"/></svg>Mobile OS</a></li>
+      <li><a href="desktop-os.html" class="d-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Desktop OS</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">money &amp; connectivity</p>
+    <ul>
+      <li><a href="financial-services.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>Financial Services</a></li>
+      <li><a href="cellular.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="3" height="6"/><rect x="9" y="10" width="3" height="10"/><rect x="15" y="6" width="3" height="14"/><rect x="21" y="2" width="2" height="18"/></svg>Cellular Services</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">other</p>
+    <ul>
+      <li><a href="ai-tools.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 14.5 9 22 9 16 13.5 18 21 12 16.5 6 21 8 13.5 2 9 9.5 9"/></svg>AI Tools</a></li>
+      <li><a href="maps.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><polygon points="8 12 16 12 12 21"/><circle cx="12" cy="9" r="1.8" fill="currentColor" stroke="none"/></svg>Maps</a></li>
+      <li><a href="resources.html" class="d-mute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Resources</a></li>
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="../threat-modeling.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg>Threat Modeling</a></li>
+      <li><a href="../setups/index.html" class="d-mute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 3 2 8 12 13 22 8"/><polyline points="2 13 12 18 22 13"/><polyline points="2 17.5 12 22.5 22 17.5"/></svg>Full Setups</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">encryption</span></p>
+
+    <h1>Encryption</h1>
+    <p class="updated">last updated <b>2026-08-02</b> · 3 recommendations · <a href="../changelog.html">what changed</a></p>
+
+    <p class="intro">
+      Full-disk and container encryption means a lost or stolen device is a
+      <strong>hardware loss, not a data breach</strong>. This page covers encrypting
+      drives and files at rest, not cloud-sync encryption, which lives on the
+      <a href="cloud-storage.html">Cloud Storage</a> page.
+    </p>
+
+    <div class="headsup">
+      <span class="k">before you pick</span>
+      Encryption is only as strong as the passphrase protecting it, and it only
+      protects data <em>at rest</em>: a powered-on, unlocked machine is readable by
+      anyone with access to it. <em>Pick a tool you'll actually keep enabled</em>; an
+      encrypted drive you disable after one annoying prompt protects nothing.
+    </div>
+
+    <p class="section-label">what actually matters</p>
+    <div class="criteria three">
+      <div class="crit">
+        <h4>open source / auditability</h4>
+        <p>Encryption you can't inspect is encryption you're trusting blind. Open code and independent audits are how "secure" gets verified instead of asserted.</p>
+      </div>
+      <div class="crit">
+        <h4>cross-platform support</h4>
+        <p>Drives and containers get plugged into other machines. A format locked to one OS is a format you'll fight with eventually.</p>
+      </div>
+      <div class="crit">
+        <h4>plausible deniability / hidden volumes</h4>
+        <p>Not every threat model needs it, but where coercion is plausible, the ability to reveal a decoy volume (not just refuse a password) matters.</p>
+      </div>
+    </div>
+
+    <p class="section-label">recommendations</p>
+
+    <!-- VeraCrypt -->
+    <article class="provider a-green reveal" id="veracrypt">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/veracrypt.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>VeraCrypt</h3>
+        <span class="verdict">the default pick</span>
+      </div>
+      <div class="meta">
+        <span>open source</span><span>audited</span><span>desktop app</span><span>hidden volumes</span><span>free</span>
+      </div>
+      <p>
+        VeraCrypt is the successor to TrueCrypt and the obvious default: open source,
+        independently audited, and available on Windows, macOS, and Linux with the
+        same container and full-disk encryption options on each. It supports
+        <strong>hidden volumes</strong>: a decoy password reveals an innocuous volume
+        while the real data sits in a separate, deniable container. It's mature, well
+        documented, and actively maintained since it picked up where TrueCrypt's
+        abrupt 2014 shutdown left off.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Open source with a completed independent security audit</li>
+            <li>Full-disk, partition, and container encryption on every major OS</li>
+            <li>Hidden volumes for genuine plausible deniability</li>
+            <li>No subscription, no account, no telemetry</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Interface is dated and unforgiving of mistakes: read before you click</li>
+            <li>No mobile apps; reading a VeraCrypt volume on a phone is awkward at best</li>
+            <li>Boot-time full-disk encryption setup is unforgiving if interrupted</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b>, open source</span>
+        <span><a href="https://veracrypt.fr" rel="noopener">veracrypt.fr →</a></span>
+      </div>
+    </article>
+
+    <!-- LUKS -->
+    <article class="provider a-aqua reveal" id="luks">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/luks.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>LUKS</h3>
+        <span class="verdict">the linux-native pick</span>
+      </div>
+      <div class="meta">
+        <span>linux only</span><span>open source</span><span>free</span>
+      </div>
+      <p>
+        LUKS is Linux's native disk-encryption standard, built into the kernel's
+        <code>dm-crypt</code> subsystem and offered as a checkbox by nearly every
+        distro installer. There's no separate app to install or trust:
+        <strong>it's the encryption you already get</strong> by ticking "encrypt my
+        drive" when you install Ubuntu, Fedora, or most anything else. It's open
+        source, widely deployed, and battle-tested across the entire Linux ecosystem.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Built into the kernel: no third-party trust required</li>
+            <li>One checkbox at install time on most distros</li>
+            <li>Open source and extremely widely deployed</li>
+            <li>Supports multiple key slots: several passphrases for one volume</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Linux-only: no native Windows or macOS support</li>
+            <li>No plausible-deniability story; a LUKS header is identifiable as such</li>
+            <li>TPM-bound auto-unlock (e.g. Clevis) can be defeated via physical TPM-bus sniffing on some hardware; a plain passphrase unlock isn't affected</li>
+            <li>Recovery requires care: losing the header or all key slots means the data is gone</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b>, built in</span>
+        <span><a href="https://gitlab.com/cryptsetup/cryptsetup" rel="noopener">cryptsetup →</a></span>
+      </div>
+    </article>
+
+    <!-- BitLocker -->
+    <article class="provider a-yellow reveal" id="bitlocker">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/bitlocker.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>BitLocker</h3>
+        <span class="verdict">the windows pick, with caveats</span>
+      </div>
+      <div class="meta">
+        <span>windows only</span><span>closed source</span><span>paid</span>
+      </div>
+      <p>
+        BitLocker is Windows' built-in encryption option, and it's a real step up
+        from an unencrypted drive, but it comes with a few caveats worth knowing.
+        <strong>It's closed source</strong>, so unlike VeraCrypt, you can't
+        independently verify what it's actually doing under the hood, and Microsoft
+        controls the whole thing end to end. The bigger catch: on <strong>Home
+        edition</strong>, you typically get "device encryption," which by default
+        <strong>uploads your recovery key to your Microsoft account</strong>, meaning
+        Microsoft (and anyone who compels or breaches Microsoft) holds a copy of the
+        key. If you want full BitLocker with local-only key control, you'll need Pro
+        or Enterprise.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Already on the machine: zero install, zero cost on Pro/Enterprise</li>
+            <li>Tight OS integration; TPM-backed unlock with no daily friction</li>
+            <li>Manageable at scale via Active Directory/Intune for organizations</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Closed source: no independent way to verify the implementation</li>
+            <li>Home edition's device encryption escrows your key to a Microsoft account by default</li>
+            <li>Full control over key storage requires Pro/Enterprise, not Home</li>
+            <li>No plausible deniability and no cross-platform volumes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b> with Windows Pro/Enterprise</span>
+        <span><a href="https://support.microsoft.com/windows/turn-on-device-encryption" rel="noopener">microsoft support →</a></span>
+      </div>
+    </article>
+
+    <p class="section-label">at a glance</p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>tool</th><th>platform</th><th>open source</th><th>audited</th><th>ease of setup</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">VeraCrypt</td><td>Windows / macOS / Linux</td><td class="yes">yes</td><td class="yes">yes</td><td>medium</td>
+          </tr>
+          <tr>
+            <td class="name">LUKS</td><td>Linux</td><td class="yes">yes</td><td class="part">widely reviewed</td><td>low (installer checkbox)</td>
+          </tr>
+          <tr>
+            <td class="name">BitLocker</td><td>Windows</td><td class="no">no</td><td class="no">no independent audit</td><td>low (built in)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-note">"ease of setup" assumes a typical desktop install, not enterprise key management.</p>
+
+    <p class="section-label">worth knowing</p>
+    <div class="notes">
+      <p>
+        <strong>This page is about local, at-rest encryption.</strong> Encrypting a
+        drive or container that lives on your own hardware. For encrypting files you
+        keep in a third-party cloud (Dropbox, Google Drive, and similar) see
+        <a href="cloud-storage.html">Cloud Storage &amp; Sync</a>, where a
+        client-side encryption layer like Cryptomator belongs and is covered in full.
+      </p>
+      <p>
+        <strong>Encryption only protects a powered-off or locked device.</strong> Once
+        a drive is unlocked and the machine is running, the data is as exposed as it
+        would be unencrypted. Pair full-disk encryption with a screen lock and a short
+        auto-lock timeout.
+      </p>
+      <p>
+        <strong>Write down your recovery key somewhere durable.</strong> A forgotten
+        passphrase with no recovery key is functionally the same as a drive failure:
+        the data is gone. Store it offline, away from the device it unlocks.
+      </p>
+      <p>
+        <strong>Hidden volumes only work if you never mount the hidden one carelessly.</strong>
+        Filesystem timestamps and OS-level traces can undermine deniability if the
+        hidden volume is opened on a system that logs activity. If this matters to
+        your threat model, it matters enough to read VeraCrypt's documentation on it
+        in full.
+      </p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="../about.html#source">source</a> &middot; <a href="../about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  function toggleCats(btn) {
+    const open = btn.parentElement.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="../site-search/site-index.js"></script>
+<script src="../site-search/site-search.js"></script>
+
+</body>
+</html>

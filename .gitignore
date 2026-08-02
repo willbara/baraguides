@@ -1,0 +1,5 @@
+agent-style-standard.md
+dictionary.md
+.*
+!.gitignore
+!.github/

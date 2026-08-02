@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hardened Setup · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="../index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../threat-modeling.html">threat modeling</a></li>
+      <li><a href="../setups/index.html" class="active">setups</a></li>
+      <li><a href="../tools/index.html">tools</a></li>
+      <li><a href="../changelog.html">changelog</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap content">
+
+  <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">setups</a><span class="sep">/</span><span class="here">hardened</span></p>
+
+  <h1>Hardened Setup</h1>
+  <p class="updated">last updated <b>2026-08-02</b> · weeks, then a practice · ~€15/mo + hardware · <a href="../changelog.html">what changed</a></p>
+
+  <p class="intro">
+    Maximum practical security for people with real threats.
+    <strong>Who this is for:</strong> journalists protecting sources, activists,
+    abuse survivors with a determined ex, researchers in hostile jurisdictions,
+    anyone for whom a <em>specific someone</em> is part of the model. The friction
+    here is real and daily. If you're here out of curiosity, read on; if you're here
+    out of need, also seek advice specific to your situation: this page is a strong
+    baseline, not a complete answer.
+  </p>
+
+  <div class="headsup">
+    <span class="k">read this first</span>
+    At this tier, <em>habits beat tools.</em> A perfect setup operated carelessly
+    loses to a decent setup operated with discipline. The most common failure isn't
+    cryptographic: it's reusing an identity across compartments, once.
+    Prerequisites: <a href="setup-beginner.html">beginner</a> and
+    <a href="setup-standard.html">standard</a>, fully internalized.
+  </div>
+
+  <p class="section-label">the setup</p>
+
+  <article class="provider a-red reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/grapheneos.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>GrapheneOS on a Pixel</h3>
+      <span class="verdict">phone</span>
+    </div>
+    <div class="meta">
+      <span>~€350+ hardware</span><span>~3 h</span><span><a href="../tools/mobile-os.html">category page</a></span>
+    </div>
+    <p>
+      GrapheneOS is the most hardened consumer OS you can put on a phone, with
+      Google optional and every app sandboxed from the rest. <strong>Why it's
+      here:</strong> the phone is the sensor package in your pocket, and at this
+      tier it has to be trustworthy, not just tidy.
+    </p>
+    <ol class="steps">
+      <li>Buy a supported Pixel: in cash, in person, if purchase records are in your
+      model.</li>
+      <li>Install via the official web installer (grapheneos.org) from a computer you
+      trust; verify the fingerprints it shows.</li>
+      <li>Skip sandboxed Play if you can live on F-Droid + Aurora Store; install it in
+      a separate profile if you can't.</li>
+      <li>Set a strong unlock passphrase (not just biometrics), enable the duress PIN,
+      and set auto-reboot (Settings → Security) so a seized phone returns to
+      before-first-unlock encryption.</li>
+      <li>Per-app: deny network to anything that doesn't need it; use storage scopes
+      instead of full storage access.</li>
+      <li>Install Orbot for anything where the destination itself needs to stay
+      hidden, not just the traffic on the way there; route individual apps through it
+      rather than the whole phone, so the ones that need speed still get it.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-purple reveal">
+    <div class="p-head">
+      <h3>Compartmentalized identities</h3>
+      <span class="verdict">method, not software</span>
+    </div>
+    <div class="meta">
+      <span>free</span><span>ongoing discipline</span><span>the actual hard part</span>
+    </div>
+    <p>
+      Compartmentalization means keeping separate identities for separate contexts
+      (activism, work, personal), with <strong>no shared emails, phone numbers,
+      payment methods, usernames, or writing quirks</strong> across them. Why it's
+      here: most deanonymization isn't broken crypto, it's one careless link between
+      two lives.
+    </p>
+    <ol class="steps">
+      <li>Write down your compartments and what belongs in each. On paper. Two is
+      manageable; four is a part-time job, be honest.</li>
+      <li>Each compartment gets its own email (separate provider accounts, not
+      aliases of one), its own passwords, its own browser profile or device.</li>
+      <li>Sensitive compartments get their own payment rail: cash, Monero, or
+      prepaid cards bought with cash.</li>
+      <li>Never cross the streams: no logging into compartment A from compartment B's
+      browser, no shared profile photos, no same turns of phrase. One crossover can
+      retroactively link years of history.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-blue reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/qubes.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Qubes OS (or hardened Fedora)</h3>
+      <span class="verdict">desktop</span>
+    </div>
+    <div class="meta">
+      <span>free · capable hardware</span><span>a weekend</span><span><a href="../tools/desktop-os.html">category page</a></span>
+    </div>
+    <p>
+      Qubes runs every task in its own disposable VM: compartmentalization enforced
+      by architecture instead of willpower. <strong>Why it's here:</strong> it makes
+      the identity separation above mechanical. If your hardware or patience won't
+      carry Qubes, hardened Fedora is the honest fallback.
+    </p>
+    <ol class="steps">
+      <li>Check the Qubes hardware compatibility list first: 16GB+ RAM, and it's
+      picky. Install with full-disk encryption (default).</li>
+      <li>Create one qube per compartment, color-coded; route the sensitive ones
+      through the built-in Whonix/Tor qubes.</li>
+      <li>Open every attachment and unknown link in a <strong>disposable VM</strong>:
+      this habit alone retires the most common attack on people like you.</li>
+      <li>Fedora fallback: FDE at install, automatic updates, Firefox or
+      <a href="../tools/browsers.html">LibreWolf</a>, separate user accounts per
+      compartment, USBGuard for unknown devices.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-yellow reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/tails.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Tails on a USB stick</h3>
+      <span class="verdict">the sessions that can't exist</span>
+    </div>
+    <div class="meta">
+      <span>free + ~€10 stick</span><span>~1 h</span><span><a href="../tools/desktop-os.html">category page</a></span>
+    </div>
+    <p>
+      Tails boots on nearly any computer, routes everything through Tor, and forgets
+      everything at shutdown. <strong>Why it's here:</strong> for research, contact,
+      or whistleblowing where the work must leave no trace on the machine, including
+      a machine that isn't yours.
+    </p>
+    <ol class="steps">
+      <li>Flash Tails to a quality USB stick following tails.net's verified
+      instructions.</li>
+      <li>Boot it once at home to learn the ropes <em>before</em> you need it under
+      pressure.</li>
+      <li>Add encrypted persistent storage only if you must keep state; amnesia is
+      the feature.</li>
+      <li>If sources contact you, learn SecureDrop/OnionShare on top, and test the
+      workflow end-to-end with a friend first.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-aqua reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/tor-network.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Anonymous-grade communications</h3>
+      <span class="verdict">messaging + network</span>
+    </div>
+    <div class="meta">
+      <span>free</span><span>~1 h</span><span><a href="../tools/messaging.html">category page</a></span>
+    </div>
+    <p>
+      Signal carries hardened settings for daily life; SimpleX drops phone numbers
+      and usernames entirely; Briar keeps working when servers, or the internet
+      itself, can't be trusted; and Tor is the network underneath all of it, for
+      when the destination needs to stay hidden, not just the message. <strong>Why
+      it's here:</strong> at this tier, metadata (who, when, how often, from where)
+      is as sensitive as content, and it leaks at the network layer just as easily
+      as the app layer.
+    </p>
+    <ol class="steps">
+      <li>Signal: username sharing only, disappearing messages default (1 day),
+      registration lock PIN on, "sealed sender from anyone" enabled, relay calls
+      through Signal's servers.</li>
+      <li>Verify safety numbers, in person or over a channel you already trust, with
+      anyone whose thread actually matters. An unverified "secure" chat is just a
+      normal chat with extra steps.</li>
+      <li>If the phone number itself is a risk, register Signal on a number that
+      isn't yours (a burner or VoIP number set up inside the right compartment),
+      or move that compartment to <a href="../tools/messaging.html">SimpleX</a>,
+      which has no user identifiers at all.</li>
+      <li>Install <a href="../tools/messaging.html">Briar</a> as the fallback channel
+      with your closest contacts, agreed on <em>before</em> the day the internet
+      gets weird.</li>
+      <li>Route anything that needs the destination itself hidden through Tor
+      Browser. If your network blocks Tor outright, <strong>Snowflake</strong> turns
+      volunteers' ordinary browsers into disposable bridges, so you can still reach
+      the Tor network from somewhere that's actively trying to stop you.</li>
+      <li>Email for anything sensitive: don't. If unavoidable, PGP between consenting
+      adults who both know what they're doing, and still assume the metadata leaks.</li>
+    </ol>
+  </article>
+
+  <article class="provider a-green reveal">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/mullvad.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Money &amp; footprint hygiene</h3>
+      <span class="verdict">the unglamorous layer</span>
+    </div>
+    <div class="meta">
+      <span>varies</span><span>ongoing</span><span>boring, decisive</span>
+    </div>
+    <p>
+      Payments and public records betray more than packets do.
+      <strong>Why it's here:</strong> the adversaries this tier worries about
+      subpoena databases and search people-finder sites; they rarely break TLS.
+    </p>
+    <ol class="steps">
+      <li>Mullvad paid with cash by post (or Monero) inside the sensitive compartment;
+      always-on, kill switch locked.</li>
+      <li>Scrub people-search/data-broker sites, manually or via a removal service,
+      and re-check quarterly; they regrow like weeds.</li>
+      <li>Mail forwarding or a PO box so your street address stops appearing on
+      shipping labels and registrations.</li>
+      <li>Lock your credit file (or your country's equivalent): it's free and closes
+      the identity-theft branch of the tree.</li>
+      <li>Physical safety where your model calls for it: hardware keys on your person,
+      devices never left unattended at borders, and a rehearsed answer for "unlock
+      this, please."</li>
+      <li>Traveling: bring a stripped-down travel device instead of your daily one,
+      use a local prepaid SIM or travel eSIM bought with cash where that's legal, and
+      treat every border crossing as a compartment boundary of its own.</li>
+    </ol>
+  </article>
+
+  <p class="section-label">after setup</p>
+  <div class="notes">
+    <p>
+      <strong>Drill the failure modes.</strong> What happens if the phone is seized
+      today? If the laptop is stolen? If a key is lost? Walk each scenario while
+      calm, and the answers should be "annoying," never "catastrophic." Where one is
+      catastrophic, that's the next thing to fix.
+    </p>
+    <p>
+      <strong>Schedule maintenance like it's rent.</strong> Monthly: updates everywhere,
+      broker-site re-check, backup verification (restore one file: a backup you've
+      never restored is a hope, not a backup). Quarterly: compartment audit (what
+      leaked across? What got lazy?)
+    </p>
+    <p>
+      <strong>Common pitfall: the convenience relapse.</strong> Hardened setups erode
+      one "just this once" at a time. When friction genuinely exceeds the threat,
+      don't cheat silently: <em>re-model and downgrade deliberately.</em> An honest
+      Standard beats a leaky Hardened.
+    </p>
+    <p>
+      <strong>You don't have to do this alone.</strong> Access Now's Digital Security
+      Helpline, the EFF's Surveillance Self-Defense guides, and Freedom of the Press
+      Foundation's training materials are free, current, and written by people who do
+      this professionally. For intimate-partner threats, the Coalition Against
+      Stalkerware lists vetted local resources.
+    </p>
+  </div>
+
+  <p class="section-label">checklist</p>
+  <ul class="checklist">
+    <li><strong>Beginner + Standard</strong> done and habitual</li>
+    <li><strong>GrapheneOS</strong> flashed and verified; duress PIN + auto-reboot configured; Orbot installed for the apps that need it</li>
+    <li><strong>Compartments</strong> defined on paper; separate email/payment/browser per compartment</li>
+    <li><strong>Qubes</strong> (or hardened Fedora) with FDE; attachments open in disposables only</li>
+    <li><strong>Tails stick</strong> made, tested, and stored where you can reach it</li>
+    <li><strong>Signal hardened</strong> (registration lock, disappearing default), safety numbers verified; <strong>Briar</strong> agreed with key contacts</li>
+    <li><strong>Tor Browser</strong> ready for anything that needs the destination hidden; <strong>Snowflake</strong> bridges in reserve if Tor itself gets blocked</li>
+    <li>VPN paid <strong>anonymously</strong>, always-on in sensitive compartments</li>
+    <li>Broker sites scrubbed; credit frozen; mail forwarding in place; travel device and SIM sorted</li>
+    <li>Failure-mode drill done: every answer is "annoying," none is "catastrophic"</li>
+    <li>Maintenance recurring on a calendar you actually check</li>
+  </ul>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="../about.html#source">source</a> &middot; <a href="../about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="../site-search/site-index.js"></script>
+<script src="../site-search/site-search.js"></script>
+
+</body>
+</html>

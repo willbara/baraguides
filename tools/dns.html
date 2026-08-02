@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DNS &amp; Network · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="../index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../threat-modeling.html">threat modeling</a></li>
+      <li><a href="../setups/index.html">setups</a></li>
+      <li><a href="../tools/index.html" class="active">tools</a></li>
+      <li><a href="../changelog.html">changelog</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap layout">
+
+  <aside class="cats" aria-label="Tool categories">
+    <button class="cats-toggle" aria-expanded="false" onclick="toggleCats(this)">categories</button>
+    <p class="label">communication</p>
+    <ul>
+      <li><a href="messaging.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v11H9l-4 4v-4H3z"/></svg>Messengers</a></li>
+      <li><a href="email-providers.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email Providers</a></li>
+      <li><a href="social-media.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><line x1="8.3" y1="10.8" x2="14.7" y2="7.2"/><line x1="8.3" y1="13.2" x2="14.7" y2="16.8"/></svg>Social Media</a></li>
+      <li><a href="communities.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M13.5 20c.4-2.6 2-4.6 4.3-4.9"/></svg>Communities</a></li>
+      <li><a href="frontends.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12"/><path d="M13 4l3 3-3 3"/><path d="M20 17H8"/><path d="M11 14l-3 3 3 3"/></svg>Frontends</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">credentials &amp; identity</p>
+    <ul>
+      <li><a href="password-managers.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="15" r="3.2"/><line x1="9.3" y1="12.7" x2="19" y2="3"/><line x1="15.5" y1="6.5" x2="17.8" y2="8.8"/><line x1="12.7" y1="9.3" x2="15" y2="11.6"/></svg>Password Managers</a></li>
+      <li><a href="2fa.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12.5l2 2 4-4.5"/></svg>2FA &amp; Hardware Keys</a></li>
+      <li><a href="alias-services.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="11" rx="9" ry="4"/><circle cx="8" cy="11" r="1.3"/><circle cx="16" cy="11" r="1.3"/></svg>Alias Services</a></li>
+      <li><a href="data-removal.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 20 7"/><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><line x1="9" y1="11" x2="9" y2="17"/><line x1="15" y1="11" x2="15" y2="17"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>Personal Data Removers</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">network &amp; browsing</p>
+    <ul>
+      <li><a href="browsers.html" class="d-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>Browsers &amp; Search</a></li>
+      <li><a href="dns.html" class="d-aqua current" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><line x1="7" y1="7" x2="7.01" y2="7"/><line x1="7" y1="17" x2="7.01" y2="17"/></svg>DNS &amp; Network</a></li>
+      <li><a href="vpns.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><circle cx="12" cy="11" r="1.6"/><line x1="12" y1="12.6" x2="12" y2="14.5"/></svg>VPNs</a></li>
+      <li><a href="anonymizing-networks.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><circle cx="5" cy="5.5" r="1.7"/><circle cx="19" cy="5.5" r="1.7"/><circle cx="5" cy="18.5" r="1.7"/><circle cx="19" cy="18.5" r="1.7"/><line x1="6.4" y1="6.9" x2="10.4" y2="10.4"/><line x1="17.6" y1="6.9" x2="13.6" y2="10.4"/><line x1="6.4" y1="17.1" x2="10.4" y2="13.6"/><line x1="17.6" y1="17.1" x2="13.6" y2="13.6"/></svg>Anonymizing Networks</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">data &amp; files</p>
+    <ul>
+      <li><a href="cloud-storage.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="13" r="3.2"/><circle cx="13" cy="10.5" r="4"/><circle cx="17.5" cy="13" r="2.8"/><rect x="5.5" y="13" width="14" height="4.5" rx="2.2"/></svg>Cloud Storage &amp; Sync</a></li>
+      <li><a href="notes.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="13" height="18" rx="1"/><polyline points="14 3 14 8 19 8"/><line x1="9" y1="12" x2="16" y2="12"/><line x1="9" y1="16" x2="16" y2="16"/></svg>Notes</a></li>
+      <li><a href="file-sharing.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8h16v-8"/><polyline points="8 8 12 4 16 8"/><line x1="12" y1="4" x2="12" y2="15"/></svg>File Sharing</a></li>
+      <li><a href="office-suites.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><rect x="9" y="2.5" width="6" height="3" rx="0.5"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="13" y2="18"/></svg>Office Suites</a></li>
+      <li><a href="encryption.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.3"/></svg>Encryption</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">platforms</p>
+    <ul>
+      <li><a href="mobile-os.html" class="d-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18.5" x2="12.01" y2="18.5"/></svg>Mobile OS</a></li>
+      <li><a href="desktop-os.html" class="d-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Desktop OS</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">money &amp; connectivity</p>
+    <ul>
+      <li><a href="financial-services.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>Financial Services</a></li>
+      <li><a href="cellular.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="3" height="6"/><rect x="9" y="10" width="3" height="10"/><rect x="15" y="6" width="3" height="14"/><rect x="21" y="2" width="2" height="18"/></svg>Cellular Services</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">other</p>
+    <ul>
+      <li><a href="ai-tools.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 14.5 9 22 9 16 13.5 18 21 12 16.5 6 21 8 13.5 2 9 9.5 9"/></svg>AI Tools</a></li>
+      <li><a href="maps.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><polygon points="8 12 16 12 12 21"/><circle cx="12" cy="9" r="1.8" fill="currentColor" stroke="none"/></svg>Maps</a></li>
+      <li><a href="resources.html" class="d-mute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Resources</a></li>
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="../threat-modeling.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg>Threat Modeling</a></li>
+      <li><a href="../setups/index.html" class="d-mute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 3 2 8 12 13 22 8"/><polyline points="2 13 12 18 22 13"/><polyline points="2 17.5 12 22.5 22 17.5"/></svg>Full Setups</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">dns</span></p>
+
+    <h1>DNS &amp; Network</h1>
+    <p class="updated">last updated <b>2026-08-02</b> · 8 recommendations · <a href="../changelog.html">what changed</a></p>
+
+    <p class="intro">
+      Every site you visit starts with a DNS lookup, and by default those lookups go to
+      your ISP in plaintext. Switching to an encrypted, filtering resolver is a
+      <strong>ten-minute change that upgrades every device on your network</strong>,
+      blocking ads and malware before a connection is ever made.
+    </p>
+
+    <div class="headsup">
+      <span class="k">before you pick</span>
+      DNS filtering blocks requests at the name level: strong against trackers and
+      malware domains, weaker against ads served first-party (YouTube's, for instance).
+      <em>It complements blocking in the <a href="browsers.html">browser</a>;
+      it doesn't replace it.</em> And any third-party resolver requires trusting that
+      party with your query log; self-hosting is the only way out of that trade.
+    </div>
+
+    <p class="section-label">what actually matters</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>encrypted transport</h4>
+        <p>DoH or DoT keeps lookups unreadable on the wire. Every pick here supports both; your OS or router does too.</p>
+      </div>
+      <div class="crit">
+        <h4>logging policy</h4>
+        <p>The resolver sees every domain you visit. What it keeps, for how long, and under whose laws is the core question.</p>
+      </div>
+      <div class="crit">
+        <h4>filtering control</h4>
+        <p>From fixed lists (zero effort) to fully custom rules per device. More control means more maintenance: pick your tier.</p>
+      </div>
+      <div class="crit">
+        <h4>consistency with your tunnel</h4>
+        <p>If you run a <a href="vpns.html">VPN</a>, your DNS should match its infrastructure: a mismatched resolver fragments your fingerprint and leaks intent.</p>
+      </div>
+    </div>
+
+    <p class="section-label">recommendations</p>
+
+    <!-- AdGuard DNS -->
+    <article class="provider a-green reveal" id="adguard-dns">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/adguard.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>AdGuard DNS</h3>
+        <span class="verdict">the default pick</span>
+      </div>
+      <div class="meta">
+        <span>🇨🇾 cyprus</span><span>encrypted dns</span><span>ad blocking</span><span>free tier</span>
+      </div>
+      <p>
+        AdGuard DNS is a practical, reliable encrypted resolver with strong
+        blocklists and the broadest device support in the category: the public
+        resolver (<code>94.140.14.14</code>) blocks ads and trackers with
+        <strong>zero setup and no account</strong>. The server side isn't fully open
+        source, but the company has a long, consistent track record in security, and
+        its home-server sibling (AdGuard Home) is fully FOSS. It covers most
+        everyday use cleanly; the paid tier adds dashboards and custom rules.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Ad and tracker blocking with no account needed</li>
+            <li>Supports DoH, DoT, and newer DNS-over-QUIC</li>
+            <li>Long-running company with an open-source culture</li>
+            <li>Paid tier adds per-device profiles and custom rules</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Public tier keeps anonymized 24h logs for operations</li>
+            <li>Server side isn't fully open source</li>
+            <li>Cyprus jurisdiction is less battle-tested than Switzerland</li>
+            <li>Founded in Moscow in 2009 before later relocating its HQ to Cyprus</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price">public <b>free</b> · private from <b>~$3/mo</b></span>
+        <span><a href="https://adguard-dns.io" rel="noopener">adguard-dns.io →</a></span>
+      </div>
+    </article>
+
+    <!-- Mullvad DNS -->
+    <article class="provider a-yellow reveal" id="mullvad-dns">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/mullvad.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Mullvad DNS</h3>
+        <span class="verdict">the contextual pick</span>
+      </div>
+      <div class="meta">
+        <span>🇸🇪 sweden</span><span>encrypted dns</span><span>no logs</span><span>no account</span><span>free</span>
+      </div>
+      <p>
+        Mullvad DNS is Mullvad's public resolver, free for everyone (not just VPN
+        customers), with the same no-logs stance as the VPN and optional ad and
+        tracker filtering endpoints. The headline use is <strong>consistency</strong>:
+        when you're on Mullvad's VPN (or Tor), keeping DNS inside the same
+        infrastructure preserves a uniform fingerprint instead of announcing a third
+        party. It's been growing into a solid standalone recommendation too.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Clean no-logs policy from a raid-tested operator</li>
+            <li>Filtering variants (ads, trackers, malware) selectable by hostname</li>
+            <li>The right answer whenever Mullvad VPN is already in your stack</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Encrypted transport only: no plain port-53 fallback for dumb devices</li>
+            <li>No dashboards, analytics, or per-device control at all</li>
+            <li>Fixed lists; can't allowlist a single false positive</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b></span>
+        <span><a href="https://mullvad.net/en/help/dns-over-https-and-dns-over-tls" rel="noopener">mullvad.net →</a></span>
+      </div>
+    </article>
+
+    <!-- Quad9 -->
+    <article class="provider a-blue reveal" id="quad9">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/quad9.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Quad9</h3>
+        <span class="verdict">the neutral pick</span>
+      </div>
+      <div class="meta">
+        <span>🇨🇭 switzerland</span><span>encrypted dns</span><span>no logs</span><span>nonprofit</span><span>free</span>
+      </div>
+      <p>
+        Set <code>9.9.9.9</code> and you're done: Quad9 is a Swiss nonprofit resolver
+        that blocks malware domains, keeps no per-user logs, and asks nothing of you.
+        It doesn't filter ads; it's a <strong>security resolver, not an ad
+        blocker</strong>, and that's exactly why it's worth knowing: a clean,
+        trustworthy, threat-focused option for when you want neutrality instead of
+        curation.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Nonprofit under Swiss privacy law: no commercial incentive to log</li>
+            <li>Malware/phishing blocklist on by default</li>
+            <li>Anycast network; fast nearly everywhere</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>No ad/tracker filtering: pair with browser-level blocking</li>
+            <li>No customization or per-device control at all</li>
+            <li>Occasional false positives are hard to appeal quickly</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b>, nonprofit</span>
+        <span><a href="https://quad9.net" rel="noopener">quad9.net →</a></span>
+      </div>
+    </article>
+
+    <!-- NextDNS -->
+    <article class="provider a-aqua reveal" id="nextdns">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/nextdns.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>NextDNS</h3>
+        <span class="verdict">the power-user pick</span>
+      </div>
+      <div class="meta">
+        <span>🇺🇸 usa</span><span>encrypted dns</span><span>customizable</span><span>free tier</span>
+      </div>
+      <p>
+        NextDNS is a Pi-hole in the cloud: pick your blocklists, see analytics per
+        device, set parental controls, and carry the config everywhere your devices
+        roam. It's <strong>the most filtering power you can get without hosting
+        anything</strong>, and the logging options match: you decide the retention,
+        down to zero. It's more tool than appliance; budget the occasional evening
+        of allowlisting.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Granular blocklists, allowlists, and per-profile settings</li>
+            <li>Works on the go: profiles follow your phone off the home network</li>
+            <li>Configurable log retention and storage region, including none</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>US company; logging is opt-out by configuration, not impossible by design</li>
+            <li>Past the free quota (300k queries/mo) it stops filtering until you pay</li>
+            <li>Easy to over-block and spend evenings whitelisting</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price">free tier · <b>~$2/mo</b> unlimited</span>
+        <span><a href="https://nextdns.io" rel="noopener">nextdns.io →</a></span>
+      </div>
+    </article>
+
+    <!-- Self-hosting -->
+    <article class="provider a-red reveal" id="self-host">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/pi-hole.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Self-host</h3>
+        <span class="verdict">the self-host pick</span>
+      </div>
+      <div class="meta">
+        <span>self-hostable</span><span>open source</span><span>customizable</span><span>ad blocking</span><span>free</span>
+      </div>
+      <p>
+        Run your own filtering resolver on a Raspberry Pi or any always-on box, and
+        <strong>no third party sees your lookups at all</strong>, which is the only
+        complete answer to the trust question every entry above carries. AdGuard Home
+        is the slicker, FOSS, encrypted-out-of-the-box option; Pi-hole is the
+        decade-old community classic. Pair either with Unbound and you're not even
+        trusting an upstream resolver.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Your hardware, your rules, your logs (or none)</li>
+            <li>Covers smart TVs and IoT junk that can't run blockers</li>
+            <li>With Unbound upstream, fully independent recursive resolution</li>
+            <li>AdGuard Home speaks DoH/DoT natively, both directions</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>You're now a sysadmin: updates, uptime, and "the internet is broken" complaints are yours</li>
+            <li>Only protects you at home unless you route back via WireGuard</li>
+            <li>Needs an always-on device (~€40 Pi or an existing server)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b> software · ~€40 one-off hardware</span>
+        <span><a href="https://github.com/AdguardTeam/AdGuardHome" rel="noopener">adguard home →</a> · <a href="https://pi-hole.net" rel="noopener">pi-hole →</a></span>
+      </div>
+    </article>
+
+    <!-- ControlD -->
+    <article class="provider a-purple reveal" id="controld">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/control-d.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>ControlD</h3>
+        <span class="verdict">the customization pick</span>
+      </div>
+      <div class="meta">
+        <span>🇨🇦 canada</span><span>encrypted dns</span><span>customizable</span><span>free tier</span>
+      </div>
+      <p>
+        ControlD is the dial-in-everything option: per-device profiles, toggleable
+        block-list categories (ads, malware, social, gambling, and dozens more),
+        custom rules per domain, and analytics, all from one dashboard. It's
+        <strong>more granular than NextDNS in the controls it exposes</strong>, at
+        the cost of a steeper setup curve. Pick it if you want to tune exactly
+        what's blocked on exactly which device, not if you want to set it once and
+        forget it.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Very granular per-device and per-profile block-list control</li>
+            <li>Supports DoH, DoT, and DNS-over-QUIC</li>
+            <li>Free tier is genuinely usable, not just a trial</li>
+            <li>Custom routing rules (split DNS, redirects) beyond simple blocking</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>The dashboard's depth is a learning curve, not a five-minute setup</li>
+            <li>Canada is a Five Eyes jurisdiction, if that's in your model</li>
+            <li>Easy to over-configure and spend an evening tuning rules</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price">free tier · paid tiers from <b>~$2/mo</b></span>
+        <span><a href="https://controld.com" rel="noopener">controld.com →</a></span>
+      </div>
+    </article>
+
+    <!-- ReThinkDNS -->
+    <article class="provider a-green reveal" id="rethinkdns">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/rethinkdns.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>ReThinkDNS</h3>
+        <span class="verdict">the all-in-one pick</span>
+      </div>
+      <div class="meta">
+        <span>🇮🇳 india</span><span>encrypted dns</span><span>partially open source</span><span>no account</span><span>free tier</span>
+      </div>
+      <p>
+        ReThinkDNS is a free encrypted resolver (DoH and DoT) with over 190
+        selectable blocklists, run by Celzero out of India. Its Android app pairs
+        the resolver with a <strong>local firewall that tracks and blocks
+        connections per app</strong>, and neither needs a signup. A WireGuard VPN
+        add-on (RPN, from $1.75/month) rounds out a bundle nothing else in this
+        category offers in one free app. The open app and resolver code are the
+        main reassurance on offer; no independent audit exists, and Indian
+        jurisdiction brings data-retention rules worth weighing.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Free core with no signup: encrypted DNS plus a per-app firewall and connection tracker</li>
+            <li>DNS, firewall, and WireGuard VPN in one Android app is a rare bundle</li>
+            <li>App and resolver code are both open source</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>No independent audit; the no-logging policy is the company's word alone</li>
+            <li>India's CERT-In rules require five-year identity retention from VPN-classified providers; the company hasn't publicly addressed this</li>
+            <li>The app (firewall included) is Android-only; other platforms only get the resolver endpoints</li>
+            <li>RPN is a paid add-on, separate from the free core</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price">free core · RPN from <b>$1.75/mo</b></span>
+        <span><a href="https://rethinkdns.com" rel="noopener">rethinkdns.com →</a></span>
+      </div>
+    </article>
+
+    <!-- Cloudflare DNS -->
+    <article class="provider a-orange reveal" id="cloudflare-dns">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/cloudflare.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Cloudflare DNS</h3>
+        <span class="verdict">the audited pick</span>
+      </div>
+      <div class="meta">
+        <span>🇺🇸 usa</span><span>encrypted dns</span><span>audited</span><span>partially open source</span><span>free</span>
+      </div>
+      <p>
+        Cloudflare DNS (<code>1.1.1.1</code>) is the big mainstream free resolver,
+        and what sets it apart here is verification: <strong>KPMG has
+        independently audited Cloudflare's data-handling claims</strong>, most
+        recently in April 2026, so the 25-hour retention figure is a checked fact
+        instead of a promise. Few free resolvers can show anything close. Just
+        know what you're getting: it's a plain, fast resolver that filters
+        nothing, run by a giant US company, and the trust rests on that audit,
+        not on open code.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>KPMG-verified logging claims: 25-hour retention, full IPs never written to disk</li>
+            <li>Free with no tiers; DoH, DoT, DNS-over-Tor, and Oblivious DoH all supported</li>
+            <li>Never blocked or filtered content despite legal requests, per its transparency reports</li>
+            <li>Only one third party (APNIC) receives query data, anonymized and IP-free</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>The base resolver doesn't filter ads or trackers at all</li>
+            <li>The resolver's backend is closed source, and the KPMG report is request-only</li>
+            <li>US jurisdiction, if that's in your threat model</li>
+            <li>A 62-minute global outage in July 2025, disclosed in a detailed public post-mortem</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b></span>
+        <span><a href="https://one.one.one.one" rel="noopener">one.one.one.one →</a></span>
+      </div>
+    </article>
+
+    <p class="section-label">at a glance</p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>resolver</th><th>blocks ads</th><th>blocks malware</th><th>custom rules</th><th>logging</th><th>effort</th><th>cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">AdGuard DNS</td><td class="yes">yes</td><td class="yes">yes</td><td class="part">paid tier</td><td class="part">24h ops logs</td><td>none</td><td>free</td>
+          </tr>
+          <tr>
+            <td class="name">Mullvad DNS</td><td class="yes">optional</td><td class="yes">optional</td><td class="no">no</td><td class="yes">none kept</td><td>none</td><td>free</td>
+          </tr>
+          <tr>
+            <td class="name">Quad9</td><td class="no">no</td><td class="yes">yes</td><td class="no">no</td><td class="yes">none kept</td><td>none</td><td>free</td>
+          </tr>
+          <tr>
+            <td class="name">NextDNS</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">full</td><td class="part">you configure</td><td>low</td><td>free / ~$2/mo</td>
+          </tr>
+          <tr>
+            <td class="name">Self-host</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">full</td><td class="yes">yours alone</td><td>high</td><td>hardware</td>
+          </tr>
+          <tr>
+            <td class="name">ControlD</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">full, per-device</td><td class="part">you configure</td><td>medium</td><td>free / ~$2/mo</td>
+          </tr>
+          <tr>
+            <td class="name">ReThinkDNS</td><td class="yes">yes</td><td class="yes">yes</td><td class="part">blocklist choice</td><td class="part">stated no-logs, unaudited</td><td>low</td><td>free</td>
+          </tr>
+          <tr>
+            <td class="name">Cloudflare DNS</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="yes">25h, audited</td><td>none</td><td>free</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-note">all support encrypted transport (self-hosted via upstream configuration; mullvad is encrypted-only).</p>
+
+    <p class="section-label">worth knowing</p>
+    <div class="notes">
+      <p>
+        <strong>Set it at the router if you can.</strong> One change covers every device,
+        including the ones you can't configure. Phones and laptops that leave the house
+        should also get the resolver set per-device (iOS/Android both support DoT/DoH
+        profiles natively).
+      </p>
+      <p>
+        <strong>Match DNS to your VPN.</strong> A <a href="vpns.html">VPN</a> tunnel
+        carries its own DNS. On Mullvad, use Mullvad DNS; on Proton, NetShield.
+        Keeping resolution consistent with the tunnel's infrastructure preserves a
+        uniform fingerprint; fighting your VPN to use a third party does the opposite.
+      </p>
+      <p>
+        <strong>Expect some breakage, know the fix.</strong> A login page that won't load
+        or an email link that dies is usually one allowlist entry away. Filtering DNS
+        without knowing how to whitelist is how people end up back on the ISP default.
+      </p>
+      <p>
+        <strong>Your resolver sees a lot: choose like it matters.</strong> Domain
+        history is a complete map of your interests. "Free" resolvers from ad companies
+        are free for a reason; everything recommended here has a published, plausible
+        reason to exist, and self-hosting removes the question entirely.
+      </p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="../about.html#source">source</a> &middot; <a href="../about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  function toggleCats(btn) {
+    const open = btn.parentElement.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="../site-search/site-index.js"></script>
+<script src="../site-search/site-search.js"></script>
+
+</body>
+</html>

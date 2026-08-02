@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maps · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="../index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../threat-modeling.html">threat modeling</a></li>
+      <li><a href="../setups/index.html">setups</a></li>
+      <li><a href="../tools/index.html" class="active">tools</a></li>
+      <li><a href="../changelog.html">changelog</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap layout">
+
+  <aside class="cats" aria-label="Tool categories">
+    <button class="cats-toggle" aria-expanded="false" onclick="toggleCats(this)">categories</button>
+    <p class="label">communication</p>
+    <ul>
+      <li><a href="messaging.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v11H9l-4 4v-4H3z"/></svg>Messengers</a></li>
+      <li><a href="email-providers.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email Providers</a></li>
+      <li><a href="social-media.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><line x1="8.3" y1="10.8" x2="14.7" y2="7.2"/><line x1="8.3" y1="13.2" x2="14.7" y2="16.8"/></svg>Social Media</a></li>
+      <li><a href="communities.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M13.5 20c.4-2.6 2-4.6 4.3-4.9"/></svg>Communities</a></li>
+      <li><a href="frontends.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12"/><path d="M13 4l3 3-3 3"/><path d="M20 17H8"/><path d="M11 14l-3 3 3 3"/></svg>Frontends</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">credentials &amp; identity</p>
+    <ul>
+      <li><a href="password-managers.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="15" r="3.2"/><line x1="9.3" y1="12.7" x2="19" y2="3"/><line x1="15.5" y1="6.5" x2="17.8" y2="8.8"/><line x1="12.7" y1="9.3" x2="15" y2="11.6"/></svg>Password Managers</a></li>
+      <li><a href="2fa.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12.5l2 2 4-4.5"/></svg>2FA &amp; Hardware Keys</a></li>
+      <li><a href="alias-services.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="11" rx="9" ry="4"/><circle cx="8" cy="11" r="1.3"/><circle cx="16" cy="11" r="1.3"/></svg>Alias Services</a></li>
+      <li><a href="data-removal.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 20 7"/><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><line x1="9" y1="11" x2="9" y2="17"/><line x1="15" y1="11" x2="15" y2="17"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>Personal Data Removers</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">network &amp; browsing</p>
+    <ul>
+      <li><a href="browsers.html" class="d-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>Browsers &amp; Search</a></li>
+      <li><a href="dns.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><line x1="7" y1="7" x2="7.01" y2="7"/><line x1="7" y1="17" x2="7.01" y2="17"/></svg>DNS &amp; Network</a></li>
+      <li><a href="vpns.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><circle cx="12" cy="11" r="1.6"/><line x1="12" y1="12.6" x2="12" y2="14.5"/></svg>VPNs</a></li>
+      <li><a href="anonymizing-networks.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><circle cx="5" cy="5.5" r="1.7"/><circle cx="19" cy="5.5" r="1.7"/><circle cx="5" cy="18.5" r="1.7"/><circle cx="19" cy="18.5" r="1.7"/><line x1="6.4" y1="6.9" x2="10.4" y2="10.4"/><line x1="17.6" y1="6.9" x2="13.6" y2="10.4"/><line x1="6.4" y1="17.1" x2="10.4" y2="13.6"/><line x1="17.6" y1="17.1" x2="13.6" y2="13.6"/></svg>Anonymizing Networks</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">data &amp; files</p>
+    <ul>
+      <li><a href="cloud-storage.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="13" r="3.2"/><circle cx="13" cy="10.5" r="4"/><circle cx="17.5" cy="13" r="2.8"/><rect x="5.5" y="13" width="14" height="4.5" rx="2.2"/></svg>Cloud Storage &amp; Sync</a></li>
+      <li><a href="notes.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="13" height="18" rx="1"/><polyline points="14 3 14 8 19 8"/><line x1="9" y1="12" x2="16" y2="12"/><line x1="9" y1="16" x2="16" y2="16"/></svg>Notes</a></li>
+      <li><a href="file-sharing.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8h16v-8"/><polyline points="8 8 12 4 16 8"/><line x1="12" y1="4" x2="12" y2="15"/></svg>File Sharing</a></li>
+      <li><a href="office-suites.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><rect x="9" y="2.5" width="6" height="3" rx="0.5"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="13" y2="18"/></svg>Office Suites</a></li>
+      <li><a href="encryption.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.3"/></svg>Encryption</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">platforms</p>
+    <ul>
+      <li><a href="mobile-os.html" class="d-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18.5" x2="12.01" y2="18.5"/></svg>Mobile OS</a></li>
+      <li><a href="desktop-os.html" class="d-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Desktop OS</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">money &amp; connectivity</p>
+    <ul>
+      <li><a href="financial-services.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>Financial Services</a></li>
+      <li><a href="cellular.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="3" height="6"/><rect x="9" y="10" width="3" height="10"/><rect x="15" y="6" width="3" height="14"/><rect x="21" y="2" width="2" height="18"/></svg>Cellular Services</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">other</p>
+    <ul>
+      <li><a href="ai-tools.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 14.5 9 22 9 16 13.5 18 21 12 16.5 6 21 8 13.5 2 9 9.5 9"/></svg>AI Tools</a></li>
+      <li><a href="maps.html" class="d-aqua current" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><polygon points="8 12 16 12 12 21"/><circle cx="12" cy="9" r="1.8" fill="currentColor" stroke="none"/></svg>Maps</a></li>
+      <li><a href="resources.html" class="d-mute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Resources</a></li>
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="../threat-modeling.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg>Threat Modeling</a></li>
+      <li><a href="../setups/index.html" class="d-mute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 3 2 8 12 13 22 8"/><polyline points="2 13 12 18 22 13"/><polyline points="2 17.5 12 22.5 22 17.5"/></svg>Full Setups</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">maps</span></p>
+
+    <h1>Maps</h1>
+    <p class="updated">last updated <b>2026-08-02</b> · 5 recommendations · <a href="../changelog.html">what changed</a></p>
+
+    <p class="intro">
+      Google Maps logs everywhere you go by default: Timeline and Location
+      History exist specifically to remember your movements. <strong>These
+      alternatives range from "good enough privacy with full features" to
+      "fully offline, no account, ever."</strong>
+    </p>
+
+    <p class="section-label">what actually matters</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>account requirement</h4>
+        <p>Does navigation actually require signing in, or is an account only needed for extras like saved places sync?</p>
+      </div>
+      <div class="crit">
+        <h4>offline availability</h4>
+        <p>Downloaded maps that work with no signal at all, useful for privacy and for the dead zones a phone-only map can't fix.</p>
+      </div>
+      <div class="crit">
+        <h4>open vs proprietary data</h4>
+        <p>OpenStreetMap-based tools run on community-maintained, auditable map data; proprietary maps are a black box you can't inspect.</p>
+      </div>
+    </div>
+
+    <p class="section-label">recommendations</p>
+
+    <!-- Apple Maps -->
+    <article class="provider a-blue reveal" id="apple-maps">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/applemaps.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Apple Maps</h3>
+        <span class="verdict">the ecosystem pick</span>
+      </div>
+      <div class="meta">
+        <span>🍎 apple only</span><span>closed source</span><span>free</span>
+      </div>
+      <p>
+        Apple Maps is a solid default for iPhone users, and Apple's privacy
+        stance here is <strong>genuinely stronger than Google's</strong>:
+        route and traffic processing happens on-device where possible, and it
+        uses randomized identifiers instead of a persistent account-linked
+        history. It's still Apple-only, though, and the map data itself is
+        closed.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>On-device processing for much of routing and traffic data</li>
+            <li>Randomized identifiers instead of persistent account tracking for traffic reporting</li>
+            <li>No separate app needed for iPhone users; already the default</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>iOS/macOS only; no meaningful option for other platforms</li>
+            <li>Closed, proprietary map data: nothing to audit independently</li>
+            <li>Signed-in Apple ID users still get some personalization tied to their account</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b></span>
+        <span><a href="https://maps.apple.com" rel="noopener">maps.apple.com →</a></span>
+      </div>
+    </article>
+
+    <!-- CoMaps -->
+    <article class="provider a-green reveal" id="comaps">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/comaps.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>CoMaps</h3>
+        <span class="verdict">the open-source pick</span>
+      </div>
+      <div class="meta">
+        <span>open source</span><span>openstreetmap</span><span>no account</span><span>works offline</span><span>free</span>
+      </div>
+      <p>
+        CoMaps is built on OpenStreetMap data, with <strong>no account and no
+        tracking</strong> by design. It's part of the community-maintained
+        lineage descending from Maps.me and Organic Maps: open development,
+        transparent data sourcing, and offline maps as a first-class feature
+        instead of an add-on. CoMaps itself forked from Organic Maps in May 2025
+        over governance concerns about Organic Maps' for-profit Estonian parent
+        company.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>No account required for any feature</li>
+            <li>Fully open source, auditable codebase and map data</li>
+            <li>Strong offline map support out of the box</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>OpenStreetMap data can lag commercial maps on business listings</li>
+            <li>No real-time traffic data the way Google or Apple provide</li>
+            <li>Smaller community-maintained project than the big commercial maps</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b></span>
+        <span><a href="https://comaps.app" rel="noopener">comaps.app →</a></span>
+      </div>
+    </article>
+
+    <!-- OsmAnd -->
+    <article class="provider a-aqua reveal" id="osmand">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/osmand.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>OsmAnd</h3>
+        <span class="verdict">the configurable pick</span>
+      </div>
+      <div class="meta">
+        <span>open source</span><span>openstreetmap</span><span>works offline</span><span>no account</span><span>free tier</span>
+      </div>
+      <p>
+        OsmAnd is also OpenStreetMap-based, with <strong>robust offline maps
+        and navigation</strong> and a deep settings menu that lets you
+        configure almost everything about how the map looks and behaves.
+        There's no account required. The trade-off for all that
+        configurability is a steeper learning curve than a polished commercial
+        app.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Highly configurable: map layers, routing profiles, units, all adjustable</li>
+            <li>Strong offline navigation, not just offline viewing</li>
+            <li>No account required</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Interface is denser and less polished than mainstream map apps</li>
+            <li>Same OpenStreetMap data trade-offs as CoMaps on listings/traffic</li>
+            <li>Some advanced features sit behind a one-time paid unlock on certain platforms</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b> · some platforms have a paid unlock for extras</span>
+        <span><a href="https://osmand.net" rel="noopener">osmand.net →</a></span>
+      </div>
+    </article>
+
+    <!-- Magic Earth -->
+    <article class="provider a-orange reveal" id="magic-earth">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/magicearth.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Magic Earth</h3>
+        <span class="verdict">the offline-navigation pick</span>
+      </div>
+      <div class="meta">
+        <span>closed source</span><span>no account</span><span>free tier</span>
+      </div>
+      <p>
+        Magic Earth is proprietary but privacy-positioned: core map browsing,
+        search, and turn-by-turn navigation are <strong>free with no account
+        required</strong>. Offline maps, traffic-aware navigation, and activity
+        recording now sit behind a paid Premium subscription. It's a reasonable
+        middle ground if you want navigation from a privacy-conscious vendor
+        but aren't committed to the OpenStreetMap-only ecosystem.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Core navigation works free and without an account</li>
+            <li>Privacy-conscious positioning from the vendor</li>
+            <li>Turn-by-turn navigation quality closer to commercial apps</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Offline maps, live traffic, and trip recording now need paid Premium</li>
+            <li>Closed-source: map data and app internals aren't independently auditable</li>
+            <li>Smaller company and community than the open-source options</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price">free core · premium for offline/traffic/recording</span>
+        <span><a href="https://magicearth.com" rel="noopener">magicearth.com →</a></span>
+      </div>
+    </article>
+
+    <!-- Kagi Maps -->
+    <article class="provider a-purple reveal" id="kagi-maps">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/kagi.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Kagi Maps</h3>
+        <span class="verdict">the early-stage pick</span>
+      </div>
+      <div class="meta">
+        <span>free</span>
+      </div>
+      <p>
+        Kagi Maps comes from the team behind the Kagi search engine and brings
+        the same privacy-focused approach to mapping. <strong>Worth being
+        honest about where it stands</strong>: it's a newer, smaller product
+        than everything else on this page, with less track record and a
+        narrower feature set so far.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Privacy-focused approach consistent with Kagi's broader product line</li>
+            <li>Backed by a company with an existing track record on privacy in search</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Earlier-stage product than the rest of this list: fewer features, less maturity</li>
+            <li>Smaller user base means less real-world battle-testing so far</li>
+            <li>Best evaluated directly before relying on it as a primary navigation tool</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b> · check current terms</span>
+        <span><a href="https://kagi.com/maps" rel="noopener">kagi.com/maps →</a></span>
+      </div>
+    </article>
+
+    <p class="section-label">at a glance</p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>tool</th><th>data source</th><th>offline support</th><th>account required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">Apple Maps</td><td>proprietary</td><td class="part">partial</td><td class="no">apple id for extras</td>
+          </tr>
+          <tr>
+            <td class="name">CoMaps</td><td>OpenStreetMap</td><td class="yes">full</td><td class="yes">no</td>
+          </tr>
+          <tr>
+            <td class="name">OsmAnd</td><td>OpenStreetMap</td><td class="yes">full</td><td class="yes">no</td>
+          </tr>
+          <tr>
+            <td class="name">Magic Earth</td><td>proprietary</td><td class="yes">full</td><td class="yes">no</td>
+          </tr>
+          <tr>
+            <td class="name">Kagi Maps</td><td>mixed / check current</td><td class="part">check current</td><td class="part">check current</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-note">Kagi Maps is newer and changing quickly; verify current offline and account details before relying on it.</p>
+
+    <p class="section-label">worth knowing</p>
+    <div class="notes">
+      <p>
+        <strong>OpenStreetMap-based options sometimes lag commercial maps on
+        business listings and real-time traffic.</strong> A restaurant that
+        closed last month might still show up; rush-hour rerouting won't be
+        as sharp as Google's. That's the trade-off for a map with no
+        tracking and no central company deciding what you see: for most
+        navigation needs it's a fair trade, but know it going in.
+      </p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="../about.html#source">source</a> &middot; <a href="../about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  function toggleCats(btn) {
+    const open = btn.parentElement.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="../site-search/site-index.js"></script>
+<script src="../site-search/site-search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>~/privacy · a reference, not an organization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="landing">
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="threat-modeling.html">threat modeling</a></li>
+      <li><a href="setups/index.html">setups</a></li>
+      <li><a href="tools/index.html">tools</a></li>
+      <li><a href="changelog.html">changelog</a></li>
+      <li><a href="about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="prompt"><span class="user">guest</span>@<span class="path">~/privacy</span>$ <span class="cmd">cat welcome.txt</span></p>
+    <h1>Privacy isn't hard.<span class="cursor" aria-hidden="true"></span></h1>
+    <p class="hero-sub">
+      This is a <strong>repository of information</strong>, not an organization.
+      Tools, threat models, and full setups, researched, explained in plain
+      language, and kept up to date. Opinionated where it helps, honest everywhere else.
+      <strong>You read. You decide.</strong>
+    </p>
+    <div class="hero-tags" aria-label="Site principles">
+      <span>no affiliate links</span>
+      <span>no sponsors</span>
+      <span>no tracking</span>
+      <span>constantly growing</span>
+    </div>
+  </div>
+</header>
+
+<section class="quick" id="quick-access">
+  <div class="wrap">
+    <p class="section-label">quick access</p>
+    <div class="grid">
+      <a class="card c-yellow reveal" href="threat-modeling.html">
+        <span class="tag">start here</span>
+        <h3>Threat Modeling</h3>
+        <p>What are you protecting, and from whom? The one page worth reading before any of the others.</p>
+      </a>
+      <a class="card c-orange reveal" href="setups/index.html">
+        <span class="tag">guides</span>
+        <h3>Recommended Setups</h3>
+        <p>Complete configurations from sane defaults to fully hardened: pick the level that matches your threat model.</p>
+      </a>
+      <a class="card c-blue reveal" href="tools/browsers.html">
+        <span class="tag">tools</span>
+        <h3>Browsers &amp; Search</h3>
+        <p>Browser picks, hardening that's actually worth doing, and search engines that don't profile you.</p>
+      </a>
+      <a class="card c-aqua reveal" href="tools/dns.html">
+        <span class="tag">tools</span>
+        <h3>DNS &amp; Network</h3>
+        <p>Encrypted DNS, VPNs without the marketing nonsense, and what self-hosting your own resolver gets you.</p>
+      </a>
+      <a class="card c-green reveal" href="tools/password-managers.html">
+        <span class="tag">tools</span>
+        <h3>Passwords &amp; 2FA</h3>
+        <p>Password managers, hardware keys, and passkeys: the highest-impact change most people can make today.</p>
+      </a>
+      <a class="card c-purple reveal" href="tools/messaging.html">
+        <span class="tag">tools</span>
+        <h3>Messaging &amp; Email</h3>
+        <p>Private messengers, encrypted email providers, and aliasing: what end-to-end actually covers, and what it doesn't.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="note" id="about-note">
+  <div class="wrap">
+    <div class="note-inner reveal">
+      <p class="section-label" style="margin-bottom:22px;">a short note</p>
+      <p>
+        This site is run by one person. No committee, no sponsors, and nothing
+        here was paid for. When a recommendation changes, it's because the facts
+        changed, and the <a href="changelog.html">changelog</a> will tell you why.
+      </p>
+      <p>
+        It's written for everyone, whether you're picking your first password
+        manager or running your own DNS at home. <em>The point isn't to tell you
+        what to use. It's to give you enough to decide for yourself.</em>
+      </p>
+      <p class="sig">Last updated 2026-08-02 · <a href="changelog.html">see what changed</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="about.html#source">source</a> &middot; <a href="about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="site-search/site-index.js"></script>
+<script src="site-search/site-search.js"></script>
+
+</body>
+</html>

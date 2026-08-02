@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messengers · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="../index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../threat-modeling.html">threat modeling</a></li>
+      <li><a href="../setups/index.html">setups</a></li>
+      <li><a href="../tools/index.html" class="active">tools</a></li>
+      <li><a href="../changelog.html">changelog</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap layout">
+
+  <aside class="cats" aria-label="Tool categories">
+    <button class="cats-toggle" aria-expanded="false" onclick="toggleCats(this)">categories</button>
+    <p class="label">communication</p>
+    <ul>
+      <li><a href="messaging.html" class="d-purple current" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v11H9l-4 4v-4H3z"/></svg>Messengers</a></li>
+      <li><a href="email-providers.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email Providers</a></li>
+      <li><a href="social-media.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><line x1="8.3" y1="10.8" x2="14.7" y2="7.2"/><line x1="8.3" y1="13.2" x2="14.7" y2="16.8"/></svg>Social Media</a></li>
+      <li><a href="communities.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M13.5 20c.4-2.6 2-4.6 4.3-4.9"/></svg>Communities</a></li>
+      <li><a href="frontends.html" class="d-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h12"/><path d="M13 4l3 3-3 3"/><path d="M20 17H8"/><path d="M11 14l-3 3 3 3"/></svg>Frontends</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">credentials &amp; identity</p>
+    <ul>
+      <li><a href="password-managers.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="15" r="3.2"/><line x1="9.3" y1="12.7" x2="19" y2="3"/><line x1="15.5" y1="6.5" x2="17.8" y2="8.8"/><line x1="12.7" y1="9.3" x2="15" y2="11.6"/></svg>Password Managers</a></li>
+      <li><a href="2fa.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12.5l2 2 4-4.5"/></svg>2FA &amp; Hardware Keys</a></li>
+      <li><a href="alias-services.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="11" rx="9" ry="4"/><circle cx="8" cy="11" r="1.3"/><circle cx="16" cy="11" r="1.3"/></svg>Alias Services</a></li>
+      <li><a href="data-removal.html" class="d-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 20 7"/><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><line x1="9" y1="11" x2="9" y2="17"/><line x1="15" y1="11" x2="15" y2="17"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>Personal Data Removers</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">network &amp; browsing</p>
+    <ul>
+      <li><a href="browsers.html" class="d-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>Browsers &amp; Search</a></li>
+      <li><a href="dns.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><line x1="7" y1="7" x2="7.01" y2="7"/><line x1="7" y1="17" x2="7.01" y2="17"/></svg>DNS &amp; Network</a></li>
+      <li><a href="vpns.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><circle cx="12" cy="11" r="1.6"/><line x1="12" y1="12.6" x2="12" y2="14.5"/></svg>VPNs</a></li>
+      <li><a href="anonymizing-networks.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><circle cx="5" cy="5.5" r="1.7"/><circle cx="19" cy="5.5" r="1.7"/><circle cx="5" cy="18.5" r="1.7"/><circle cx="19" cy="18.5" r="1.7"/><line x1="6.4" y1="6.9" x2="10.4" y2="10.4"/><line x1="17.6" y1="6.9" x2="13.6" y2="10.4"/><line x1="6.4" y1="17.1" x2="10.4" y2="13.6"/><line x1="17.6" y1="17.1" x2="13.6" y2="13.6"/></svg>Anonymizing Networks</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">data &amp; files</p>
+    <ul>
+      <li><a href="cloud-storage.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="13" r="3.2"/><circle cx="13" cy="10.5" r="4"/><circle cx="17.5" cy="13" r="2.8"/><rect x="5.5" y="13" width="14" height="4.5" rx="2.2"/></svg>Cloud Storage &amp; Sync</a></li>
+      <li><a href="notes.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="13" height="18" rx="1"/><polyline points="14 3 14 8 19 8"/><line x1="9" y1="12" x2="16" y2="12"/><line x1="9" y1="16" x2="16" y2="16"/></svg>Notes</a></li>
+      <li><a href="file-sharing.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8h16v-8"/><polyline points="8 8 12 4 16 8"/><line x1="12" y1="4" x2="12" y2="15"/></svg>File Sharing</a></li>
+      <li><a href="office-suites.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><rect x="9" y="2.5" width="6" height="3" rx="0.5"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="13" y2="18"/></svg>Office Suites</a></li>
+      <li><a href="encryption.html" class="d-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.3"/></svg>Encryption</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">platforms</p>
+    <ul>
+      <li><a href="mobile-os.html" class="d-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18.5" x2="12.01" y2="18.5"/></svg>Mobile OS</a></li>
+      <li><a href="desktop-os.html" class="d-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Desktop OS</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">money &amp; connectivity</p>
+    <ul>
+      <li><a href="financial-services.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>Financial Services</a></li>
+      <li><a href="cellular.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="3" height="6"/><rect x="9" y="10" width="3" height="10"/><rect x="15" y="6" width="3" height="14"/><rect x="21" y="2" width="2" height="18"/></svg>Cellular Services</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">other</p>
+    <ul>
+      <li><a href="ai-tools.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 14.5 9 22 9 16 13.5 18 21 12 16.5 6 21 8 13.5 2 9 9.5 9"/></svg>AI Tools</a></li>
+      <li><a href="maps.html" class="d-aqua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><polygon points="8 12 16 12 12 21"/><circle cx="12" cy="9" r="1.8" fill="currentColor" stroke="none"/></svg>Maps</a></li>
+      <li><a href="resources.html" class="d-mute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Resources</a></li>
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="../threat-modeling.html" class="d-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg>Threat Modeling</a></li>
+      <li><a href="../setups/index.html" class="d-mute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 3 2 8 12 13 22 8"/><polyline points="2 13 12 18 22 13"/><polyline points="2 17.5 12 22.5 22 17.5"/></svg>Full Setups</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">messaging</span></p>
+
+    <h1>Messengers</h1>
+    <p class="updated">last updated <b>2026-08-02</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
+
+    <p class="intro">
+      Before picking a messenger, frame it as <strong>platform replacement</strong>:
+      what you're leaving matters as much as what you're joining. SMS to iMessage is a
+      meaningful gain. WhatsApp to Signal is a significant one. WhatsApp to Telegram
+      is <strong>not an upgrade at all</strong>, it's a lateral move into something
+      arguably worse, wearing a privacy costume.
+    </p>
+
+    <div class="headsup">
+      <span class="k">before you pick</span>
+      End-to-end encryption protects message <em>content</em>, not the fact that you
+      messaged someone, when, or how often. That's metadata, and it's where messengers
+      really differ. <em>Who can see your social graph matters as much as who can read
+      your texts.</em>
+    </div>
+
+    <p class="section-label">what actually matters</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>e2ee by default</h4>
+        <p>Encryption you have to remember to turn on is encryption that's usually off. This single criterion disqualifies more apps than any other.</p>
+      </div>
+      <div class="crit">
+        <h4>metadata exposure</h4>
+        <p>What the server learns: your contacts, group memberships, timing patterns. The best designs can't even see who's talking to whom.</p>
+      </div>
+      <div class="crit">
+        <h4>identifier required</h4>
+        <p>Needing a phone number ties chats to a real-world identity. Usernames are better; no identifier at all is the frontier.</p>
+      </div>
+      <div class="crit">
+        <h4>protocol scrutiny</h4>
+        <p>Open, peer-reviewed protocols (Signal's, MLS) have survived years of cryptographic attention. Custom in-house designs haven't earned that trust.</p>
+      </div>
+    </div>
+
+    <p class="section-label">recommendations</p>
+
+    <!-- Signal -->
+    <article class="provider a-blue reveal" id="signal">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/signal.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Signal</h3>
+        <span class="verdict">the default pick</span>
+      </div>
+      <div class="meta">
+        <span>🇺🇸 usa</span><span>e2ee always</span><span>metadata-resistant</span><span>open source</span><span>free</span>
+      </div>
+      <p>
+        Signal is the current gold standard, and not just by reputation: the Signal
+        Protocol has been <strong>cryptographically scrutinized more than any other
+        consumer messenger</strong> and holds up. It's what everyone else borrows. It
+        keeps almost no metadata (subpoena responses have famously contained two
+        timestamps), it has sealed sender and disappearing messages, and it looks like
+        a normal app, which is why you can actually get your group chats to move here.
+        Use it for anything sensitive; it's reliable cross-platform for everything else.
+      </p>
+      <p>
+        If you're on Android and want more, <strong>Molly</strong> is a hardened Signal
+        fork with an encrypted local database (locked behind a passphrase at rest)
+        and built-in Tor/Orbot support. Same network, same contacts, sturdier client.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>E2EE on absolutely everything: messages, calls, groups, attachments</li>
+            <li>Sealed sender and private contact discovery minimize metadata</li>
+            <li>Usernames mean you can chat without sharing your number</li>
+            <li>Nonprofit, open source, relentlessly audited</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Phone number still required to register</li>
+            <li>Centralized: one service, one US-based operator</li>
+            <li>Desktop app must be linked to a phone first</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b>, donation-funded</span>
+        <span><a href="https://signal.org" rel="noopener">signal.org →</a></span>
+      </div>
+    </article>
+
+    <!-- iMessage -->
+    <article class="provider a-purple reveal" id="imessage">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/imessage.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>iMessage</h3>
+        <span class="verdict">the apple-baseline pick</span>
+      </div>
+      <div class="meta">
+        <span>🍎 apple only</span><span>e2ee optional</span><span>closed source</span><span>free</span>
+      </div>
+      <p>
+        iMessage is a reasonable secondary for everyday conversation between Apple
+        devices: it's E2EE device-to-device, there's zero setup, and it's a real step
+        up from SMS or unencrypted RCS. The trust model is simple: <strong>you're
+        trusting Apple entirely</strong>. Since iOS 26.5, green-bubble chats with
+        Android can be end-to-end encrypted over RCS too, but it's beta and both
+        carriers have to support it, so you'll still fall back to plain SMS when it
+        isn't available. iCloud backups are a separate trap: <strong>they're not E2EE
+        until you turn on Advanced Data Protection</strong>. A useful way to think
+        about it: Signal for anything sensitive, iMessage as the baseline for people
+        who won't install Signal.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>E2EE by default between Apple devices, no setup at all</li>
+            <li>Meaningful upgrade over SMS/RCS for ordinary conversation</li>
+            <li>Already installed on the phones your family actually uses</li>
+            <li>Beta E2EE RCS now reaches some Android contacts too</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Without Advanced Data Protection, iCloud backups expose message history, enable it</li>
+            <li>E2EE RCS with Android is beta and partial: needs carrier support, and some users report delivery hiccups</li>
+            <li>Closed source; trust is entirely in Apple; Apple-only by design</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b> with apple hardware</span>
+        <span><a href="https://support.apple.com/en-us/108756" rel="noopener">apple ADP guide →</a></span>
+      </div>
+    </article>
+
+    <!-- SimpleX -->
+    <article class="provider a-red reveal" id="simplex">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/simplex.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>SimpleX</h3>
+        <span class="verdict">the no-identifier pick</span>
+      </div>
+      <div class="meta">
+        <span>no identifier required</span><span>e2ee always</span><span>open source</span><span>metadata-resistant</span><span>free</span>
+      </div>
+      <p>
+        SimpleX is genuinely interesting if your threat model is high: there are
+        <strong>no user IDs whatsoever</strong>, not even phone numbers or usernames.
+        Conversations run over one-way relay queues that nobody can piece together
+        into a social graph, so the metadata resistance comes from the architecture,
+        not a policy promise. It's newer and less battle-tested than Signal, but it's
+        the most privacy-forward design you can get in a consumer messenger right now.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>No identifier means nothing to subpoena, leak, or correlate</li>
+            <li>Metadata resistance by design, not by promise</li>
+            <li>Open source, double-ratchet encryption, self-hostable relays</li>
+            <li>Independently audited twice (Trail of Bits); post-quantum-resistant key exchange built in</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Younger protocol with a shorter audit history than Signal's</li>
+            <li>Multi-device and delivery UX still have rough edges</li>
+            <li>Small network: you'll be onboarding your contacts yourself</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b>, open source</span>
+        <span><a href="https://simplex.chat" rel="noopener">simplex.chat →</a></span>
+      </div>
+    </article>
+
+    <!-- Matrix / Element -->
+    <article class="provider a-green reveal" id="matrix-element">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/element.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Matrix / Element</h3>
+        <span class="verdict">the federation pick</span>
+      </div>
+      <div class="meta">
+        <span>federated</span><span>e2ee optional</span><span>self-hostable</span><span>open source</span><span>free</span>
+      </div>
+      <p>
+        Matrix is a protocol, not a company: like email, anyone can run a server and
+        talk to every other server. That makes it <strong>messaging nobody can switch
+        off</strong>, and the right answer for communities, team chat, and people who
+        want to own their infrastructure. Know the fine print, though: E2EE is
+        available but not always on by default (it depends on how the server and
+        client are set up), and every server in a room can see that room's metadata.
+        Expect more friction than Signal; it's a different use case, not a replacement.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>No central operator: self-host or pick any homeserver</li>
+            <li>E2EE in DMs and private rooms (verify your client's defaults)</li>
+            <li>Element now requires verified devices for E2EE messages by default</li>
+            <li>Rich rooms, threads, and bridges to other networks</li>
+            <li>No phone number needed</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>E2EE coverage depends on configuration: not a flat guarantee</li>
+            <li>Room metadata (members, timing) spreads across participating servers</li>
+            <li>Key verification and device management confuse newcomers</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b> · self-hosting from ~€5/mo</span>
+        <span><a href="https://element.io" rel="noopener">element.io →</a></span>
+      </div>
+    </article>
+
+    <!-- Briar -->
+    <article class="provider a-aqua reveal" id="briar">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/briar.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Briar</h3>
+        <span class="verdict">the off-grid pick</span>
+      </div>
+      <div class="meta">
+        <span>peer-to-peer</span><span>onion-routed</span><span>works offline</span><span>open source</span><span>free</span>
+      </div>
+      <p>
+        Briar has no server to subpoena because there is no server: messages travel
+        peer-to-peer over Tor, or over <strong>Bluetooth and local Wi-Fi when the
+        internet is down or blocked</strong>. It's built for activists and journalists
+        under real pressure. As a daily messenger it's spartan; as infrastructure of
+        last resort it's one of a kind.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>No central anything: nothing to block, seize, or log</li>
+            <li>Works without internet via Bluetooth/Wi-Fi mesh</li>
+            <li>All traffic over Tor by default; no phone number or email</li>
+            <li>Desktop client (Windows/macOS/Linux) now in beta alongside Android</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Android and a beta desktop client only; iOS still unsupported (platform reasons)</li>
+            <li>Both parties must be online to deliver: no server-side queueing</li>
+            <li>No voice/video; battery cost from constant Tor connection</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b></span>
+        <span><a href="https://briarproject.org" rel="noopener">briarproject.org →</a></span>
+      </div>
+    </article>
+
+    <!-- Threema -->
+    <article class="provider a-orange reveal" id="threema">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/threema.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Threema</h3>
+        <span class="verdict">the pay-once pick</span>
+      </div>
+      <div class="meta">
+        <span>🇨🇭 switzerland</span><span>no phone number</span><span>one-time purchase</span><span>partially open source</span>
+      </div>
+      <p>
+        Threema skips subscriptions entirely: you pay once, get a randomly generated
+        Threema ID, and you're done. <strong>No phone number, no email
+        required.</strong> It's under Swiss jurisdiction and has focused on keeping
+        metadata minimal for years, so the server learns very little about who's
+        talking to whom. Most of the client code is open source and independently
+        audited, though parts of the backend stay closed. Ownership changed in Jan
+        2026 to Comitis Capital, a German private-equity firm: its second PE owner
+        since 2020.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>No phone number or email needed: random ID is the only identifier</li>
+            <li>One-time purchase, not a recurring subscription</li>
+            <li>Swiss jurisdiction, strong metadata minimization by design</li>
+            <li>Independently audited; most code is open source</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Small network compared to Signal: onboarding contacts takes effort</li>
+            <li>Some backend components aren't open source</li>
+            <li>Now owned by German private equity (Comitis Capital), second PE owner since 2020</li>
+            <li>One-time cost rose to €6, still real friction next to free competitors</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>€6</b> one-time, comitis capital (de)</span>
+        <span><a href="https://threema.ch" rel="noopener">threema.ch →</a></span>
+      </div>
+    </article>
+
+    <!-- Session -->
+    <article class="provider a-yellow reveal" id="session">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/session.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Session</h3>
+        <span class="verdict">the onion-routed pick</span>
+      </div>
+      <div class="meta">
+        <span>onion-routed</span><span>no phone number</span><span>decentralized</span><span>open source</span><span>free</span>
+      </div>
+      <p>
+        Session routes every message through its own onion-style network of
+        decentralized <strong>service nodes</strong> instead of a company-run server,
+        so there's no central operator to subpoena for your metadata. It's built by
+        the Session Technology Foundation (formerly the team behind Oxen), and you
+        don't need a phone number or email: an account is just a generated ID. You'll
+        occasionally notice the latency the onion routing adds. A 2026 funding crisis
+        nearly shut the project down entirely; it's still running, but on a much
+        smaller team.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>No phone number, email, or other identifier required</li>
+            <li>Onion routing over decentralized service nodes: no central server to compel</li>
+            <li>Open source clients and protocol</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Independent 2026 research found multiple protocol vulnerabilities, including a flaw that could in principle allow network takeover</li>
+            <li>Survived a 2026 funding crisis that nearly shut it down; runs on a much smaller team now, plus volunteers</li>
+            <li>Onion routing trades some speed for the metadata resistance</li>
+            <li>Smaller user base: expect to onboard contacts yourself</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b>, open source</span>
+        <span><a href="https://getsession.org" rel="noopener">getsession.org →</a></span>
+      </div>
+    </article>
+
+    <!-- Telegram -->
+    <article class="provider a-red reveal" id="telegram">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/telegram.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Telegram</h3>
+        <span class="verdict">the one to avoid</span>
+      </div>
+      <div class="meta">
+        <span>e2ee not default</span><span>secret chats only</span><span>custom mtproto</span><span>cloud-stored history</span><span>free</span>
+      </div>
+      <p>
+        Telegram is not a private messenger, and that needs saying clearly because
+        it's so often and so dangerously mislabeled. Regular chats and <em>all</em>
+        group chats are server-side encrypted: <strong>Telegram holds the keys and can
+        read them</strong>. Only "Secret Chats" are E2EE, they're not the default for
+        anything, and you effectively can't use them on desktop. The custom MTProto
+        protocol has had far less audit scrutiny than Signal's. Your messages sit in
+        Telegram's cloud indefinitely unless you delete them, and the company has
+        handed user data (IPs and phone numbers) to law enforcement when compelled; the
+        CEO's 2024 arrest in France produced real policy shifts, not principled
+        resistance. <em>It's a cloud messenger with a privacy reputation it hasn't
+        earned. Treat it as social media, never as a Signal replacement.</em>
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Huge global user base, channels, and bot ecosystem</li>
+            <li>Large file-sharing limits and cross-platform sync</li>
+            <li>Familiar, polished UX</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Regular and group chats are server-side encrypted, not E2EE: Telegram can read them</li>
+            <li>Secret Chats are E2EE but not default and unavailable on desktop</li>
+            <li>Custom MTProto protocol, far less audited than Signal's</li>
+            <li>Cloud history stored indefinitely; user data handed to law enforcement when compelled</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b></span>
+        <span><a href="https://telegram.org" rel="noopener">telegram.org →</a></span>
+      </div>
+    </article>
+
+    <p class="section-label">at a glance</p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>messenger</th><th>e2ee default</th><th>identifier</th><th>architecture</th><th>metadata exposure</th><th>platforms</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">Signal</td><td class="yes">yes</td><td class="part">phone # (register only)</td><td>centralized</td><td class="yes">near zero</td><td>all</td>
+          </tr>
+          <tr>
+            <td class="name">iMessage</td><td class="part">apple-to-apple</td><td class="part">apple id</td><td>centralized</td><td class="no">apple sees plenty</td><td>apple only</td>
+          </tr>
+          <tr>
+            <td class="name">SimpleX</td><td class="yes">yes</td><td class="yes">none at all</td><td>relay queues</td><td class="yes">near zero</td><td>all</td>
+          </tr>
+          <tr>
+            <td class="name">Matrix / Element</td><td class="part">dms &amp; private rooms</td><td class="yes">username</td><td>federated</td><td class="part">per-server</td><td>all</td>
+          </tr>
+          <tr>
+            <td class="name">Briar</td><td class="yes">yes</td><td class="yes">none</td><td>peer-to-peer</td><td class="yes">near zero</td><td>android</td>
+          </tr>
+          <tr>
+            <td class="name">Threema</td><td class="yes">yes</td><td class="yes">random id</td><td>centralized</td><td class="yes">minimal</td><td>all</td>
+          </tr>
+          <tr>
+            <td class="name">Session</td><td class="yes">yes</td><td class="yes">generated id</td><td>onion-routed / decentralized</td><td class="yes">near zero</td><td>all</td>
+          </tr>
+          <tr>
+            <td class="name">Telegram</td><td class="no">secret chats only</td><td class="part">phone #</td><td>centralized</td><td class="no">telegram sees plenty</td><td>all</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-note">"metadata exposure" is what the operator could learn, not what they promise to log.</p>
+
+    <p class="section-label">worth knowing</p>
+    <div class="notes">
+      <p>
+        <strong>The best messenger is the one your people will use.</strong> Signal on
+        everyone's phone beats a perfect tool nobody installed. Move one group chat at a
+        time; the family one is usually easiest.
+      </p>
+      <p>
+        <strong>Turn on disappearing messages.</strong> Encryption protects messages in
+        transit; it does nothing about the archive sitting on a stolen or seized phone.
+        A default timer (a week, say) is cheap insurance.
+      </p>
+      <p>
+        <strong>WhatsApp is better than its owner suggests, and worse than it looks.</strong>
+        It runs the Signal protocol underneath, so content encryption is solid. But
+        it's Meta-owned, metadata is the product, and the privacy policy reflects that.
+      </p>
+      <p>
+        <strong>Back up your keys.</strong> On Matrix especially: lose your key backup
+        passphrase and your encrypted history is gone for good. Store it in your
+        <a href="password-managers.html">password manager</a>.
+      </p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="../about.html#source">source</a> &middot; <a href="../about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  function toggleCats(btn) {
+    const open = btn.parentElement.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="../site-search/site-index.js"></script>
+<script src="../site-search/site-search.js"></script>
+
+</body>
+</html>

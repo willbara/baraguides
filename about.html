@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="threat-modeling.html">threat modeling</a></li>
+      <li><a href="setups/index.html">setups</a></li>
+      <li><a href="tools/index.html">tools</a></li>
+      <li><a href="changelog.html">changelog</a></li>
+      <li><a href="about.html" class="active">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap content">
+
+  <p class="crumb"><a href="index.html">~</a><span class="sep">/</span><span class="here">about</span></p>
+
+  <h1>About</h1>
+  <p class="updated">the rules this site runs by</p>
+
+  <p class="section-label">who runs this</p>
+  <div class="notes">
+    <p>
+      One person. I read privacy policies, audit reports, and transparency reports
+      so you can read one page instead. This started as a document I kept re-sending
+      to friends who asked "okay but what should I actually use?"; at some point a
+      website was less work.
+    </p>
+    <p>
+      There's no team, no company, and no plan for either. When I write "I", it's
+      because there's an I.
+    </p>
+  </div>
+
+  <p class="section-label">how recommendations are chosen</p>
+  <div class="notes">
+    <p>
+      <strong>Primary sources first.</strong> Audit reports, court documents, transparency
+      reports, source code, and pricing pages, not other people's listicles. If a
+      claim on this site can't be traced to something verifiable, it gets hedged or
+      cut.
+    </p>
+    <p>
+      <strong>Track record over feature lists.</strong> A provider that handled a
+      subpoena well, disclosed a breach honestly, or survived an audit with grace
+      tells you more than any comparison matrix.
+    </p>
+    <p>
+      <strong>Nothing here is paid for.</strong> No sponsorships, no affiliate links, no
+      review units, no "partnerships". If I recommend something paid, I pay for it
+      like you would. That's also why there are no coupon codes: there's nobody to
+      give me one.
+    </p>
+  </div>
+
+  <p class="section-label">"opinionated but objective"</p>
+  <div class="notes">
+    <p>
+      Objective means the facts are checked, the trade-offs are stated, and the
+      comparison tables don't tilt. Opinionated means I'll still tell you where I'd
+      start, because a wall of neutral options is its own kind of useless.
+    </p>
+    <p>
+      The mechanism that keeps those honest is the <a href="changelog.html">changelog</a>:
+      every recommendation change is dated and explained. When the facts change, the
+      page changes, and you can watch it happen. <strong>No ranked lists, ever</strong>:
+      verdict tags say who a tool is for, and a tool further down a page is not worse,
+      it's for someone else.
+    </p>
+  </div>
+
+  <p class="section-label" id="contact">contact &amp; corrections</p>
+  <div class="notes">
+    <p>
+      Found an error, a stale price, or a dead link? Please tell me. I'm very keen
+      on any and all criticism based on fact.
+    </p>
+    <p>
+      <code>willcaffeinate@pm.me</code> - PGP key available on request. I'll
+      credit corrections in the changelog unless you'd prefer I don't.
+    </p>
+  </div>
+
+  <p class="section-label" id="source">source &amp; license</p>
+  <div class="notes">
+    <p>
+      The site is static HTML: no analytics, no cookies, no third-party
+      requests except fonts. Content is licensed
+      <strong>CC BY-SA 4.0</strong>: share it, translate it, fork it, just keep
+      attribution and the same license. Source is on
+      <a href="https://github.com/willbara/baraguides" rel="noopener">GitHub</a>.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="about.html#source">source</a> &middot; <a href="about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="site-search/site-index.js"></script>
+<script src="site-search/site-search.js"></script>
+
+</body>
+</html>
