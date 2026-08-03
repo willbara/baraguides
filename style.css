@@ -49,7 +49,7 @@ a:focus-visible, button:focus-visible {
 }
 code { overflow-wrap: anywhere; }
 
-.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
 /* ---------- nav ---------- */
 nav.top {
