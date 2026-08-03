@@ -100,7 +100,7 @@ free · [mozilla.org →](https://www.mozilla.org/firefox/)
 
 `chromium` · `open source` · `ad blocking` · `no account` · `free`
 
-A lean open-source Chromium browser built on ungoogled-chromium by a small team (imput). Strong privacy defaults: Google services removed, trackers and third-party cookies blocked out of the box, and the attack surface kept small by deliberately omitting sync, a built-in password manager, and DRM. Still in beta with limited auto-update on some platforms, not a daily-driver replacement yet, but genuinely interesting for purists who want even less than Brave Origin.
+A lean open-source Chromium browser built on ungoogled-chromium by a small team (imput). Strong privacy defaults: Google services removed, trackers and third-party cookies blocked out of the box, and the attack surface kept small by deliberately omitting sync, a built-in password manager, and DRM. Still in beta, not a daily-driver replacement yet, but genuinely interesting for purists who want even less than Brave Origin.
 
 **Good:**
 - Privacy-by-omission: less shipped means less to audit and less to leak
@@ -109,7 +109,7 @@ A lean open-source Chromium browser built on ungoogled-chromium by a small team 
 
 **Mind the:**
 - Beta software from a small team, treat it accordingly
-- Limited auto-update on some platforms is a real security cost
+- Patches can lag behind upstream Chromium for a bit, expected for a smaller team
 - No DRM means no Netflix and friends; no sync means you're the sync
 
 free · [helium.computer →](https://helium.computer)
