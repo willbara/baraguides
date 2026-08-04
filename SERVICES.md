@@ -1195,9 +1195,9 @@ free · [telegram.org →](https://telegram.org)
 
 `🇨🇭 switzerland` · `zero-knowledge` · `partially open source` · `audited` · `free tier`
 
-The most technically robust encrypted provider available. Mail between Proton users is end-to-end encrypted automatically, everything at rest is zero-access, and the apps are polished enough that nobody in your family will complain. The wider ecosystem (Calendar, Drive, VPN, Pass, SimpleLogin aliases) makes it a clean one-stop Google exit, and the VPN bundle discount is genuinely good value.
+Proton Mail is the most technically robust encrypted provider you can get. Mail between Proton users is end-to-end encrypted automatically, everything at rest is zero-access, and the apps are polished enough that nobody in your family will complain. The wider ecosystem (Calendar, Drive, VPN, Pass, SimpleLogin aliases) makes it a clean **one-stop Google exit**, and the VPN bundle discount is genuinely good value.
 
-Be clear-eyed about one thing: Proton has cooperated with Swiss court orders on the narrow data it does hold (IP logs, metadata) while consistently honoring its stated data-minimization policy. The cases that drew criticism involved user assumptions about data that was never claimed to be protected. Not a scandal; a threat-model calibration issue.
+Be clear-eyed about one thing: Proton sticks to its stated data-minimization policy, but it has cooperated with Swiss court orders on the narrow data it **does** hold, and that meant billing details and account metadata, not message content or IP logs. The cases that drew criticism came down to users assuming protections Proton never claimed to offer. **Not a scandal; a threat-model calibration issue.**
 
 **Good:**
 - Zero-access storage; E2EE between Proton users and via PGP
@@ -1255,16 +1255,17 @@ free tier · paid from ~€3/mo · [tuta.com →](https://tuta.com)
 
 `🇩🇪 germany` · `anonymous signup` · `cash accepted` · `imap/smtp` · `paid`
 
-No name, no phone number, and you can literally mail them cash. Posteo strips identifying data on purpose and keeps the price at a euro a month. The catch is philosophical consistency: no custom domains, because your address would link back to you.
+Posteo asks for no name, no phone number, and you can literally **mail them cash**. It strips identifying data on purpose and keeps the price at a euro a month. The catch comes from that same philosophy: no custom domains, because your address would link back to you.
 
 **Good:**
 - Truly anonymous signup and payment options
 - IMAP/SMTP supported; optional full-storage encryption
+- App passwords (up to 5) make 2FA work properly with third-party clients
 - €1/mo, no tiers, no upsells
 
 **Mind the:**
 - No custom domains: by design, but a real lock-in trade-off
-- 2GB base storage is small (expandable cheaply)
+- 4GB base storage is on the small side, though expanding it is cheap
 - Spartan web interface
 
 €1/mo flat · [posteo.de →](https://posteo.de/en)
@@ -1273,7 +1274,7 @@ No name, no phone number, and you can literally mail them cash. Posteo strips id
 
 `🇳🇱 netherlands` · `aliasing` · `imap/smtp` · `pgp` · `paid`
 
-From the Startpage family, with aliasing as the headline feature: unlimited burner and custom aliases built straight into the inbox, no separate service to wire up. Standard IMAP/SMTP means any client works, and PGP is handled in the web interface for the rare correspondent who has it. The pragmatic pick if alias-per-signup is the habit you're building your email life around.
+StartMail comes from the Startpage family, and aliasing is its headline feature: **unlimited burner and custom aliases built straight into the inbox**, no separate service to wire up. Standard IMAP/SMTP means any client works, and the web interface handles PGP for the rare correspondent who has it. It's the pragmatic pick if alias-per-signup is the habit you're building your email life around.
 
 **Good:**
 - Aliases are first-class: create and burn them inline as you sign up
@@ -1281,7 +1282,7 @@ From the Startpage family, with aliasing as the headline feature: unlimited burn
 - Simple one-tier pricing, EU jurisdiction
 
 **Mind the:**
-- Same System1 (ad-tech) ownership caveat as Startpage
+- Ownership is disputed: corporate databases tie it to System1 (ad-tech) like Startpage, and StartMail denies the link
 - Encryption at rest is vault-based, not zero-access like Proton/Tuta
 - No free tier; smaller ecosystem (no calendar/drive suite)
 
@@ -1291,12 +1292,13 @@ From the Startpage family, with aliasing as the headline feature: unlimited burn
 
 `🇳🇱 netherlands` · `nonprofit` · `imap/smtp` · `free`
 
-Disroot isn't a company selling you a product: it's a nonprofit, ethically-run collective offering email alongside a wider suite of federated and open-source services (cloud storage, chat, calendars, and more), funded by donations rather than subscriptions. Standard IMAP/SMTP means any client works, and there's no upsell funnel because there's nothing being sold. The trade is the one you'd expect from volunteer-run infrastructure: no SLA, no support line, and storage limits are modest.
+Disroot isn't a company selling you a product: it's a **nonprofit, ethically-run collective** offering email alongside a wider suite of federated and open-source services (cloud storage, chat, calendars, and more), funded by donations instead of subscriptions. Standard IMAP/SMTP means any client works, and there's no upsell funnel because nothing's being sold. The trade-off is the one you'd expect from volunteer-run infrastructure: no SLA, no support line, and modest storage.
 
 **Good:**
 - Nonprofit, donation-funded: no ads, no data monetization incentive
 - Free, with standard IMAP/SMTP access
 - Part of a wider ethical-services suite beyond just email
+- Custom domains: bring your own, and unlock it with a donation instead of a subscription (about 12 coffees, one-time or yearly)
 - EU jurisdiction (Netherlands)
 
 **Mind the:**
