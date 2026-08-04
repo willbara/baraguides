@@ -166,6 +166,7 @@
             <li>E2EE on absolutely everything: messages, calls, groups, attachments</li>
             <li>Sealed sender and private contact discovery minimize metadata</li>
             <li>Usernames mean you can chat without sharing your number</li>
+            <li>Secure Backups move your history to a new phone, and Signal never sees the recovery key</li>
             <li>Nonprofit, open source, relentlessly audited</li>
           </ul>
         </div>
@@ -218,7 +219,7 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Without Advanced Data Protection, iCloud backups expose message history, enable it</li>
+            <li>iCloud backups expose message history until you turn on Advanced Data Protection; Apple withdrew ADP for UK users in February 2025, so they can't</li>
             <li>E2EE RCS with Android is beta and partial: needs carrier support, and some users report delivery hiccups</li>
             <li>Closed source; trust is entirely in Apple; Apple-only by design</li>
           </ul>
@@ -457,16 +458,15 @@
       </div>
       <p>
         Telegram is not a private messenger, and that needs saying clearly because
-        it's so often and so dangerously mislabeled. Regular chats and <em>all</em>
-        group chats are server-side encrypted: <strong>Telegram holds the keys and can
-        read them</strong>. Only "Secret Chats" are E2EE, they're not the default for
-        anything, and you effectively can't use them on desktop. The custom MTProto
-        protocol has had far less audit scrutiny than Signal's. Your messages sit in
-        Telegram's cloud indefinitely unless you delete them, and the company has
-        handed user data (IPs and phone numbers) to law enforcement when compelled; the
-        CEO's 2024 arrest in France produced real policy shifts, not principled
-        resistance. <em>It's a cloud messenger with a privacy reputation it hasn't
-        earned. Treat it as social media, never as a Signal replacement.</em>
+        it gets mislabeled as one constantly. Regular chats and all group
+        chats are server-side encrypted, so <strong>Telegram holds the keys and can
+        read them</strong>. Secret Chats are the one exception, and they're nobody's
+        default. The company doesn't hold the line under pressure either: France
+        arrested the CEO in 2024 and got policy shifts, not principled resistance, and
+        Russia charged him with facilitating terrorism in July 2026. Apple briefly
+        pulled the app worldwide in August 2026 after scanning it and finding illegal
+        content. It's a cloud messenger with a privacy reputation it hasn't
+        earned. Treat it as social media, never as a Signal replacement.
       </p>
       <div class="pros-cons">
         <div class="pros">

@@ -1015,14 +1015,15 @@ from ~$10/mo · [joindeleteme.com →](https://joindeleteme.com)
 
 `🇺🇸 usa` · `e2ee always` · `metadata-resistant` · `open source` · `free`
 
-The current gold standard, and not just by reputation: the Signal Protocol has been cryptographically scrutinized more than any other consumer messenger and holds up: it's what everyone else borrows. Minimal metadata retention (subpoena responses have famously contained two timestamps), sealed sender, disappearing messages, and it looks like a normal app, which is why you can actually move your group chats here. Essential for anything sensitive; reliable cross-platform for everything else.
+Signal is the current gold standard, and not just by reputation: the Signal Protocol has been **cryptographically scrutinized more than any other consumer messenger** and holds up. It's what everyone else borrows. It keeps almost no metadata (subpoena responses have famously contained two timestamps), it has sealed sender and disappearing messages, and it looks like a normal app, which is why you can actually get your group chats to move here. Use it for anything sensitive; it's reliable cross-platform for everything else.
 
-For Android users who want more: Molly is a hardened Signal fork with an encrypted local database (locked at rest behind a passphrase) and built-in Tor/Orbot support. Same network, same contacts, sturdier client.
+If you're on Android and want more, **Molly** is a hardened Signal fork with an encrypted local database (locked behind a passphrase at rest) and built-in Tor/Orbot support. Same network, same contacts, sturdier client.
 
 **Good:**
 - E2EE on absolutely everything: messages, calls, groups, attachments
 - Sealed sender and private contact discovery minimize metadata
 - Usernames mean you can chat without sharing your number
+- Secure Backups move your history to a new phone, and Signal never sees the recovery key
 - Nonprofit, open source, relentlessly audited
 
 **Mind the:**
@@ -1036,7 +1037,7 @@ free, donation-funded · [signal.org →](https://signal.org)
 
 `🍎 apple only` · `e2ee optional` · `closed source` · `free`
 
-A reasonable secondary for everyday domestic conversation between Apple devices: E2EE device-to-device, zero setup, and substantially better than SMS or unencrypted RCS. The trust model is simple: you're trusting Apple entirely. Since iOS 26.5, green-bubble chats with Android can also be end-to-end encrypted over RCS, but it's beta and depends on both carriers supporting it, so plain SMS fallback still happens when it isn't available. iCloud backups are a separate trap: not E2EE until you enable Advanced Data Protection. A useful mental model: Signal for anything sensitive, iMessage as the baseline for people who won't install Signal.
+iMessage is a reasonable secondary for everyday conversation between Apple devices: it's E2EE device-to-device, there's zero setup, and it's a real step up from SMS or unencrypted RCS. The trust model is simple: **you're trusting Apple entirely**. Since iOS 26.5, green-bubble chats with Android can be end-to-end encrypted over RCS too, but it's beta and both carriers have to support it, so you'll still fall back to plain SMS when it isn't available. iCloud backups are a separate trap: **they're not E2EE until you turn on Advanced Data Protection**. A useful way to think about it: Signal for anything sensitive, iMessage as the baseline for people who won't install Signal.
 
 **Good:**
 - E2EE by default between Apple devices, no setup at all
@@ -1045,7 +1046,7 @@ A reasonable secondary for everyday domestic conversation between Apple devices:
 - Beta E2EE RCS now reaches some Android contacts too
 
 **Mind the:**
-- Without Advanced Data Protection, iCloud backups expose message history, enable it
+- iCloud backups expose message history until you turn on Advanced Data Protection; Apple withdrew ADP for UK users in February 2025, so they can't
 - E2EE RCS with Android is beta and partial: needs carrier support, and some users report delivery hiccups
 - Closed source; trust is entirely in Apple; Apple-only by design
 
@@ -1152,7 +1153,7 @@ free, open source · [getsession.org →](https://getsession.org)
 
 `e2ee not default` · `secret chats only` · `custom mtproto` · `cloud-stored history` · `free`
 
-Telegram is not a private messenger, and that needs saying clearly because it's so often and so dangerously mislabeled. Regular chats and *all* group chats are server-side encrypted: **Telegram holds the keys and can read them**. Only "Secret Chats" are E2EE, they're not the default for anything, and you effectively can't use them on desktop. The custom MTProto protocol has had far less audit scrutiny than Signal's. Your messages sit in Telegram's cloud indefinitely unless you delete them, and the company has handed user data (IPs and phone numbers) to law enforcement when compelled; the CEO's 2024 arrest in France produced real policy shifts, not principled resistance. *It's a cloud messenger with a privacy reputation it hasn't earned. Treat it as social media, never as a Signal replacement.*
+Telegram is not a private messenger, and that needs saying clearly because it gets mislabeled as one constantly. Regular chats and all group chats are server-side encrypted, so **Telegram holds the keys and can read them**. Secret Chats are the one exception, and they're nobody's default. The company doesn't hold the line under pressure either: France arrested the CEO in 2024 and got policy shifts, not principled resistance, and Russia charged him with facilitating terrorism in July 2026. Apple briefly pulled the app worldwide in August 2026 after scanning it and finding illegal content. It's a cloud messenger with a privacy reputation it hasn't earned. Treat it as social media, never as a Signal replacement.
 
 **Good:**
 - Huge global user base, channels, and bot ecosystem
