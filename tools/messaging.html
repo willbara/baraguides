@@ -105,7 +105,7 @@
       Before picking a messenger, frame it as <strong>platform replacement</strong>:
       what you're leaving matters as much as what you're joining. SMS to iMessage is a
       meaningful gain. WhatsApp to Signal is a significant one. WhatsApp to Telegram
-      is <strong>not an upgrade at all</strong>, it's a lateral move into something
+      <strong>isn't an upgrade at all</strong>. It's a lateral move into something
       arguably worse, wearing a privacy costume.
     </p>
 
@@ -151,16 +151,17 @@
       <p>
         Signal is the current gold standard, and not just by reputation: the Signal
         Protocol has been <strong>cryptographically scrutinized more than any other
-        consumer messenger</strong> and holds up. It's what everyone else borrows. It
-        keeps almost no metadata (subpoena responses have famously contained two
-        timestamps), it has sealed sender and disappearing messages, and it looks like
-        a normal app, which is why you can actually get your group chats to move here.
-        Use it for anything sensitive; it's reliable cross-platform for everything else.
+        consumer messenger</strong> and holds up. It's what everyone else borrows. It keeps almost no metadata (subpoena
+        responses have famously contained just two timestamps). It also has sealed
+        sender and disappearing messages built in. And it looks like a normal app,
+        which is why you can actually get your group chats to move here. Use it for
+        anything sensitive; it's reliable cross-platform for everything else.
       </p>
       <p>
         If you're on Android and want more, <strong>Molly</strong> is a hardened Signal
         fork with an encrypted local database (locked behind a passphrase at rest)
-        and built-in Tor/Orbot support. Same network, same contacts, sturdier client.
+        and built-in Tor/Orbot support. It's the same network and contacts, just a
+        sturdier client.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -201,10 +202,9 @@
         iMessage is a reasonable secondary for everyday conversation between Apple
         devices: it's E2EE device-to-device, there's zero setup, and it's a real step
         up from SMS or unencrypted RCS. The trust model is simple: <strong>you're
-        trusting Apple entirely</strong>. Since iOS 26.5, green-bubble chats with
-        Android can be end-to-end encrypted over RCS too, but it's beta and both
-        carriers have to support it, so you'll still fall back to plain SMS when it
-        isn't available. iCloud backups are a separate trap: <strong>they're not E2EE
+        trusting Apple entirely</strong>. Since iOS 26.5, green-bubble chats with Android can be end-to-end encrypted
+        over RCS too. It's still beta, though, and both carriers have to support it,
+        so you'll fall back to plain SMS when it isn't available. iCloud backups are a separate trap: <strong>they're not E2EE
         until you turn on Advanced Data Protection</strong>. A useful way to think
         about it: Signal for anything sensitive, iMessage as the baseline for people
         who won't install Signal.
@@ -372,8 +372,7 @@
       </div>
       <p>
         Threema skips subscriptions entirely: you pay once, get a randomly generated
-        Threema ID, and you're done. <strong>No phone number, no email
-        required.</strong> It's under Swiss jurisdiction and has focused on keeping
+        Threema ID, and you're done. <strong>It doesn't require a phone number or email.</strong> It's under Swiss jurisdiction and has focused on keeping
         metadata minimal for years, so the server learns very little about who's
         talking to whom. Most of the client code is open source and independently
         audited, though parts of the backend stay closed. Ownership changed in Jan
@@ -464,9 +463,9 @@
         it gets mislabeled as one constantly. Regular chats and all group
         chats are server-side encrypted, so <strong>Telegram holds the keys and can
         read them</strong>. Secret Chats are the one exception, and they're nobody's
-        default. The company doesn't hold the line under pressure either: France
-        arrested the CEO in 2024 and got policy shifts, not principled resistance, and
-        Russia charged him with facilitating terrorism in July 2026. Apple briefly
+        default. The company doesn't hold the line under pressure either. France arrested the
+        CEO in 2024 and got policy shifts, not principled resistance. Russia charged
+        him with facilitating terrorism in July 2026. Apple briefly
         pulled the app worldwide in August 2026 after scanning it and finding illegal
         content. It's a cloud messenger with a privacy reputation it hasn't
         earned. Treat it as social media, never as a Signal replacement.

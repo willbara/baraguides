@@ -129,7 +129,7 @@
       </div>
       <div class="crit">
         <h4>filtering control</h4>
-        <p>From fixed lists (zero effort) to fully custom rules per device. More control means more maintenance: pick your tier.</p>
+        <p>Controls range from fixed lists, which take zero effort, to fully custom rules per device. More control means more maintenance: pick your tier.</p>
       </div>
       <div class="crit">
         <h4>consistency with your tunnel</h4>
@@ -316,12 +316,12 @@
         <span>self-hostable</span><span>open source</span><span>customizable</span><span>ad blocking</span><span>free</span>
       </div>
       <p>
-        Run your own filtering resolver on a Raspberry Pi or any always-on box, and
-        <strong>no third party sees your lookups at all</strong>, which is the only
-        complete answer to the trust question every entry above carries. AdGuard Home
-        is the slicker, FOSS, encrypted-out-of-the-box option; Pi-hole is the
-        decade-old community classic. Pair either with Unbound and you're not even
-        trusting an upstream resolver.
+        Run AdGuard Home or Pi-hole yourself on a Raspberry Pi or any always-on box, and
+        <strong>no third party sees your lookups at all</strong> — the only complete
+        answer to the trust question every entry above carries. AdGuard Home is the
+        slicker, FOSS, encrypted-out-of-the-box option; Pi-hole is the decade-old
+        community classic. Pair either with Unbound and you're not even trusting an
+        upstream resolver.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -523,8 +523,8 @@
       <p>
         <strong>Set it at the router if you can.</strong> One change covers every device,
         including the ones you can't configure. Phones and laptops that leave the house
-        should also get the resolver set per-device (iOS/Android both support DoT/DoH
-        profiles natively).
+        should also get the resolver set per-device (iOS and Android both support
+        DoT or DoH profiles natively).
       </p>
       <p>
         <strong>Match DNS to your VPN.</strong> A <a href="vpns.html">VPN</a> tunnel
@@ -533,7 +533,7 @@
         uniform fingerprint; fighting your VPN to use a third party does the opposite.
       </p>
       <p>
-        <strong>Expect some breakage, know the fix.</strong> A login page that won't load
+        <strong>Expect some breakage. Know the fix.</strong> A login page that won't load
         or an email link that dies is usually one allowlist entry away. Filtering DNS
         without knowing how to whitelist is how people end up back on the ISP default.
       </p>

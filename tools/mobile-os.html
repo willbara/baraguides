@@ -129,11 +129,11 @@
       </div>
       <div class="crit">
         <h4>ecosystem exposure</h4>
-        <p>Who the OS reports to by default, and whether you can turn it off. None at all, sandboxed and optional, or "trust Apple entirely" are all different answers.</p>
+        <p>It's about who the OS reports to by default, and whether you can turn it off. None at all, sandboxed and optional, or "trust Apple entirely" are all different answers.</p>
       </div>
       <div class="crit">
         <h4>app compatibility</h4>
-        <p>The friction people underestimate until they live with it daily. Banking apps, tap-to-pay, and that one work app decide more setups than security specs do.</p>
+        <p>It's the friction people underestimate until they live with it daily. Banking apps, tap-to-pay, and that one work app decide more setups than security specs do.</p>
       </div>
     </div>
 
@@ -151,10 +151,10 @@
       <p>
         iOS is one of the strongest out-of-the-box privacy and security options
         available <strong>without meaningful setup overhead</strong>. The Secure
-        Enclave isolates cryptographic material at the hardware level, the app
-        sandbox and permission model are among the most strictly enforced in consumer
-        mobile, and Apple Pay tokenizes payments, which beats handing out card
-        numbers. It's appropriate for the vast majority of people, including those
+        Enclave isolates cryptographic material at the hardware level. Apple enforces
+        the app sandbox and permission model more strictly than almost anyone else in
+        consumer mobile. And Apple Pay tokenizes payments, which beats handing out
+        card numbers. It's appropriate for the vast majority of people, including those
         with real operational-security needs where app compatibility and reliability
         matter.
       </p>
@@ -238,11 +238,12 @@
       </div>
       <p>
         CalyxOS is de-Googled Android with a gentler philosophy: privacy-respecting
-        defaults that work out of the box, when a current build is available. It was
-        officially listed "Unsupported" from August 2025, after Google cut back
-        Pixel-specific AOSP source and CalyxOS had to rebuild its release-signing
-        infrastructure; it's been gradually resuming through 2026, but as of writing
-        it isn't back to a stable, fully supported release. microG, an open
+        defaults that work out of the box, when a current build is available. The
+        CalyxOS project listed the build "Unsupported" from August 2025, after Google
+        cut back Pixel-specific AOSP source and CalyxOS had to rebuild its
+        release-signing infrastructure. Support has been gradually resuming through
+        2026, but as of writing it isn't back to a stable, fully supported release.
+        microG, an open
         reimplementation of Google's service APIs, comes preinstalled but optional,
         so push notifications and location work the way most apps expect without
         talking to Google directly. It's less hardened than GrapheneOS and
@@ -344,7 +345,7 @@
     <p class="section-label">worth knowing</p>
     <div class="notes">
       <p>
-        <strong>On iOS, the checklist is short but real.</strong> Enable Advanced Data
+        <strong>On iOS, the checklist is short but real.</strong> Turn on Advanced Data
         Protection (Settings → iCloud → Advanced Data Protection) so backups are
         actually E2EE, audit app permissions quarterly, and turn off the advertising
         identifier (Settings → Privacy → Apple Advertising). That's most of the gap
@@ -352,9 +353,9 @@
       </p>
       <p>
         <strong>On de-Googled Android, get apps from open stores first.</strong>
-        F-Droid (or the nicer Droid-ify client) for open-source apps, Aurora Store for
-        anonymous Play access. On GrapheneOS, sandboxed Play is the cleanest route for
-        the stubborn few.
+        Use F-Droid (or the nicer Droid-ify client) for open-source apps, and Aurora
+        Store for anonymous Play access. On GrapheneOS, sandboxed Play is the cleanest
+        route for the stubborn few.
       </p>
       <p>
         <strong>The OS doesn't fix the apps.</strong> Instagram on GrapheneOS still
