@@ -1435,15 +1435,16 @@ Instance choice matters more here than with any centralized platform: it determi
 
 **Good:**
 - Federated: no single company can shut down the whole network
-- Founder stepped down as CEO in a planned move to nonprofit governance, reinforcing that no single company owns it
+- Founder stepped down as CEO in a planned move to nonprofit governance
 - Chronological timeline, no engagement-optimized algorithm
 - Account migration tools let you move instances without losing followers
 - Open source, large and active developer community
+- Mastodon added quote posts in version 4.5 (November 2025), with consent controls that let you decide who can quote your posts
 
 **Mind the:**
 - Moderation quality and culture vary a lot between instances
 - Discovery is weaker than algorithm-driven platforms; growth takes more effort
-- Active users have fallen to under 1M, well behind Bluesky's 40M+ registered users
+- Active users have fallen to under 1M
 - Picking an instance is an extra decision newcomers don't expect
 
 free, instance-dependent · [joinmastodon.org →](https://joinmastodon.org)
@@ -1458,6 +1459,7 @@ Lemmy plays the role Reddit plays (link aggregation and threaded discussion orga
 - Federated communities: no single company controls the forums
 - No algorithmic feed; sorting is transparent (hot/new/top)
 - Open source and self-hostable
+- Lemmy's developers have found and patched several 2026 vulnerabilities, including user-enumeration and metadata-leak bugs, through public GitHub security advisories
 
 **Mind the:**
 - Much smaller user base than Reddit; fewer communities have critical mass
@@ -1476,11 +1478,13 @@ Federated video hosting: any instance can host and publish videos, and instances
 - Federated hosting: no single company decides what gets demonetized or removed network-wide
 - No engagement-optimized recommendation algorithm
 - Open source, self-hostable, peer-assisted streaming reduces single points of cost
+- The mobile app supports background playback, casting to Chromecast and AirPlay, and uploading video directly from your phone
 
 **Mind the:**
 - Catalog and creator base are tiny next to YouTube
 - Video quality/availability depends on the hosting instance's resources
 - Discovery across instances is clunkier than a unified platform
+- Live streaming needs a separate, Android-only companion app; it's not built into the main app
 
 free, instance-dependent · [joinpeertube.org →](https://joinpeertube.org)
 
@@ -1494,12 +1498,14 @@ Photo-first sharing built on the same federated model as Mastodon: ActivityPub m
 - Federated, interoperates with the wider Fediverse via ActivityPub
 - Chronological timeline, no engagement-ranking algorithm
 - No ad-driven business model shaping the feed
+- Founder Daniel Supernault turned down five VC funding offers in January 2025 to keep Pixelfed independent
 
 **Mind the:**
-- Effectively a single-founder project (Daniel Supernault); a real bus-factor risk
+- Daniel Supernault still runs the project largely alone, though a 2025 Kickstarter raised money to build out a team and register a nonprofit
 - Smaller network: fewer accounts to follow than Instagram
-- Mobile app polish lags behind the platform it replaces
+- Pixelfed's iOS and Android apps only shipped in January 2025, so they're newer than the rest of the platform
 - Instance choice affects storage limits and moderation, same as Mastodon
+- A 2025 privacy bug let anyone view private accounts across the fediverse, forcing instances like Hachyderm to defederate until they patched it
 
 free, instance-dependent · [pixelfed.org →](https://pixelfed.org)
 
