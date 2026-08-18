@@ -1532,19 +1532,19 @@ free, instance-dependent · [pixelfed.org →](https://pixelfed.org)
 
 ##### Stoat · *the discord-alternative pick*
 
-`self-hostable` · `open source` · `free`
+`🇬🇧 uk` · `self-hostable` · `open source` · `free`
 
-Stoat (formerly Revolt) aims at the same shape of problem Discord solves: persistent community servers with channels, roles, and voice, without requiring everyone's conversations to live in one company's infrastructure forever. Built in Europe under EU data protection law, with a public codebase and a privacy policy short enough to actually read. Communities can run their own instance, which means moderation policy and data retention are decided by the people actually running the server, not by a platform-wide policy team.
+Stoat (formerly Revolt) goes after the same problem Discord solves: persistent community servers with channels, roles, and voice, without everyone's conversations having to live in one company's infrastructure forever. The company behind it, Revolt Platforms Ltd, is based in the UK, and hosts most of its data on servers in the EU. The codebase is public, and the privacy policy is short enough to actually read. Your community can run its own instance. That means the people actually running the server decide moderation policy and data retention, not a platform-wide policy team.
 
 **Good:**
 - Self-hostable: communities can own their own infrastructure
-- Familiar server/channel/voice structure for groups migrating off Discord
 - Open source codebase
 
 **Mind the:**
-- Smaller ecosystem and community than Discord, fewer bots/integrations
 - Self-hosting shifts moderation and uptime responsibility onto whoever runs the server
 - Less independently audited than longer-established messengers
+- No end-to-end encryption: messages are readable on the server
+- UK jurisdiction, not EU: Revolt Platforms Ltd answers to UK GDPR and the ICO, and the UK is a Five Eyes member
 
 free, self-hosting optional · [stoat.chat →](https://stoat.chat)
 
@@ -1552,17 +1552,18 @@ free, self-hosting optional · [stoat.chat →](https://stoat.chat)
 
 `🇸🇪 sweden` · `open source` · `free tier`
 
-Fluxer is another community-chat platform built explicitly as a Discord alternative: made in Sweden, fully open source under AGPLv3, with the usual server/channel/voice/video/screen-share layout but a privacy-respecting design ethos: less telemetry, no selling user data, and an explicit promise not to feed conversations into generative-AI training. Still in public beta, but a good fit for a group that wants the Discord experience without the data-collection baggage.
+Fluxer is another community-chat platform built explicitly as a Discord alternative. It's made in Sweden and fully open source under AGPLv3. It has the usual layout of servers, channels, voice, video, and screen share. But it's built with privacy in mind, promising not to sell your data or feed your conversations into generative-AI training. The company is Swedish, but most of its stored data lives in New Jersey. It's still in public beta, but it's a good fit for a group that wants the Discord experience without the data-collection baggage.
 
 **Good:**
 - Privacy-respecting defaults: minimal telemetry and data retention
-- Familiar community/voice structure for easy migration
 - Open source
+- Slightly more mature interface, with a similar look and feel
 
 **Mind the:**
-- Much smaller user base and integration ecosystem than Discord
-- Younger project, less battle-tested at scale
+- Younger project, less battle-tested at scale; no independent security audit published yet
 - Feature parity with Discord (bots, integrations) still catching up
+- Most stored data lives in New Jersey (Vultr), not Sweden: the CLOUD Act applies regardless of the Swedish incorporation
+- No E2EE for text chat, by design. Voice and video E2EE is in progress but not fully live yet
 
 free, freemium tiers in beta · [fluxer.app →](https://fluxer.app)
 
