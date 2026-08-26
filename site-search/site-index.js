@@ -878,17 +878,6 @@ window.SITE_INDEX = [
     ]
   },
   {
-    "name": "Nitter",
-    "category": "frontends",
-    "page": "tools/frontends.html",
-    "anchor": "nitter",
-    "pills": [
-      "web-based",
-      "open source",
-      "free"
-    ]
-  },
-  {
     "name": "Filen",
     "category": "cloud",
     "page": "tools/cloud-storage.html",

@@ -1577,7 +1577,7 @@ free, freemium tiers in beta · [fluxer.app →](https://fluxer.app)
 
 > You don't need an account, an app, or an ad profile to watch a YouTube video or read a Reddit thread. Frontends are alternative interfaces to the big platforms: same content, different window, none of the tracking scripts.
 
-**before you pick:** Frontends live in a cat-and-mouse game with the platforms they read from. Google has been blocking Invidious instances at the IP level since 2024, Reddit spent mid-2026 closing its anonymous access paths, and X killed Nitter's original approach outright in 2024 (it took a year to come back). Treat any single public instance as disposable and keep fallbacks.
+**before you pick:** Frontends live in a cat-and-mouse game with the platforms they read from. Google has been blocking Invidious instances at the IP level since 2024, Reddit spent mid-2026 closing its anonymous access paths, and X shut Nitter down for good with a cease-and-desist in August 2026 after a brief 2025 comeback. Treat any single public instance as disposable and keep fallbacks.
 
 **What matters here:**
 - **where it runs**: A public web instance sees your traffic; a local app like FreeTube or NewPipe keeps everything on your device. When you have the choice, local wins.
@@ -1715,24 +1715,6 @@ LibreTube is a newer Android client for YouTube with a more modern Material desi
 - Same extractor arms race as NewPipe: the two share the library
 
 free · open source · [libretube.dev →](https://libretube.dev)
-
-##### Nitter · *the comeback*
-
-`web-based` · `open source` · `free`
-
-Nitter is the X/Twitter frontend, and it has had the roughest ride on this page. X shut off its guest-account trick on January 28, 2024 and the project was declared dead; then the original maintainer **resumed development in February 2025**, and public instances work again for browsing X accounts without logging in.
-
-**Good:**
-- Development resumed under the original maintainer: merged fixes and an updated Docker image, not a token revival
-- Public instances verifiably work again; you browse without an account
-- The account-token burden sits with the instance operator, not with you
-
-**Mind the:**
-- Running an instance now requires a real X account for its session tokens
-- Far fewer public instances than before the 2024 shutdown
-- **The platform controls the tap**, and it has already turned it off once
-
-free · open source · [github.com/zedeus/nitter →](https://github.com/zedeus/nitter)
 
 #### Worth knowing
 
