@@ -35,11 +35,6 @@ Live at [guides.willbara.dev](https://guides.willbara.dev).
 - **Dates everywhere.** The changelog is the credibility mechanism: when the
   facts change, the page changes, and you can watch it happen.
 
-## License
-
-- **Content** (`.html`, `.md`, all card and prose text) is [CC BY-SA 4.0](LICENSE): share it, translate it, fork it, just keep attribution and the same license.
-- **Code** (`site-search/*.js`, `site-search/build_index.py`, and any other tooling) is [MIT](LICENSE-CODE): use it however you like.
-
 ## Tech
 
 Pure static HTML and CSS, no build step, no backend. All shared styling
