@@ -43,8 +43,6 @@ Bitter / IBM Plex Sans / IBM Plex Mono via Google Fonts. Site-wide search
 lives in `site-search/`, matching against service names, categories, and
 pills, with results dropping down from the header on every page.
 
-Hosted on Cloudflare Pages from this GitHub repo.
-
 Open `index.html` in a browser, or run:
 
 ```sh
