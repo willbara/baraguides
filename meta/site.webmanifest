@@ -2,8 +2,8 @@
   "name": "~/privacy",
   "short_name": "~/privacy",
   "icons": [
-    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+    { "src": "/meta/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/meta/icon-512.png", "type": "image/png", "sizes": "512x512" }
   ],
   "theme_color": "#1d2021",
   "background_color": "#1d2021",

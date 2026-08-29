@@ -19,6 +19,8 @@ Live at [guides.willbara.dev](https://guides.willbara.dev).
   each mapped to a threat model with step-by-step instructions and a
   checklist
 - **`icons/`** — service icon assets, referenced as `[service-name].svg`
+- **`meta/`** — favicons and web manifest (`favicon.ico`, `favicon.svg`,
+  `icon-192.png`, `icon-512.png`, `site.webmanifest`)
 - **`changelog.html`** — every recommendation change, dated and explained
 - **`about.html`** — who runs this and the rules it runs by
 

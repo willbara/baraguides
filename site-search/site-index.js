@@ -778,6 +778,7 @@ window.SITE_INDEX = [
     "page": "tools/communities.html",
     "anchor": "stoat",
     "pills": [
+      "🇬🇧 uk",
       "self-hostable",
       "open source",
       "free"

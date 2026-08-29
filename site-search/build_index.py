@@ -16,7 +16,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-SERVICES = ROOT / "SERVICES.md"
+SERVICES = HERE / "SERVICES.md"
 OUT = HERE / "site-index.js"
 
 # SERVICES.md "### Category" -> category page. Resources has no service cards.
