@@ -652,6 +652,7 @@ Best-in-class UX (polished, intentional, smoother than anything else in the cate
 
 **Mind the:**
 - Closed source: trust is reputational + architectural, not fully auditable
+- A 2025 clickjacking flaw affecting most browser-extension password managers remains only partly fixed here: 1Password added an opt-in confirmation dialog instead of closing the hole, and independent tracking still showed it exploitable as of January 2026
 - Prices rose in March 2026: about +33% Individual, +20% Families
 - No free tier, subscription only
 - No self-hosting option
@@ -662,7 +663,7 @@ from ~$48/yr billed annually · families ~$72/yr billed annually · [1password.c
 
 `🇺🇸 usa` · `open source` · `audited` · `self-hostable` · `free tier`
 
-Still technically excellent: open source, audited yearly, a genuinely usable free tier, and self-hostable via Vaultwarden. The hesitation is company-level, not technical. The longtime CEO quietly moved to an advisory role with no announcement, replaced by an executive whose background centers on M&A at private-equity firms; the CFO changed just as quietly; "Inclusion" and "Transparency" disappeared from the company's stated values in favor of "Innovation" and "Trust", with old blog posts edited retroactively; and the "always free" language vanished, then reappeared after pushback. That pattern reads like pre-acquisition groundwork: the same trajectory that once drove people away from LastPass. Founder Kyle Spearrin has pushed back publicly, calling the leadership changes unrelated to each other and the free-tier wording change a marketing mix-up.
+Still technically excellent: open source, audited yearly, a genuinely usable free tier, and self-hostable via Vaultwarden. One addendum worth knowing: in 2026 the company went through a wave of leadership changes, including a new CEO with a private-equity background, that drew real scrutiny over a possible sale. No acquisition has followed and Bitwarden says it isn't seeking one.
 
 **Good:**
 - Fully open source with annual third-party audits
@@ -672,9 +673,9 @@ Still technically excellent: open source, audited yearly, a genuinely usable fre
 
 **Mind the:**
 - Unannounced leadership changes and quietly edited public commitments
-- New executive profile suggests an exit is being prepared
-- Premium price roughly doubled (to ~$19.80/yr), its first price change in about a decade
-- If an acquisition lands, re-evaluate immediately: export early, not late
+- Premium price roughly doubled (to ~$19.80/yr) in January 2026, its first change in about a decade
+- A 2023 audit found and fixed a critical remote-code-execution flaw in the desktop Electron app
+- An April 2026 npm supply-chain attack briefly compromised the CLI's distribution channel; contained within about 90 minutes, no vault data affected
 
 free · premium ~$19.80/yr · [bitwarden.com →](https://bitwarden.com)
 
@@ -688,6 +689,7 @@ No cloud, no account, no company: your vault is a single encrypted file on your 
 - Zero trust in any third party: the file never leaves you
 - Open standard (KDBX) readable by many apps, including KeePassDX on Android
 - Built-in TOTP, passkey support, browser integration
+- First-level security certification (ANSSI CSPN) from France's national cybersecurity agency, awarded November 2025
 - No business model to rot, no boardroom to watch
 
 **Mind the:**
@@ -699,12 +701,13 @@ free, donation-funded · [keepassxc.org →](https://keepassxc.org)
 
 ##### Proton Pass · *the ecosystem pick*
 
-`🇨🇭 switzerland` · `partially open source` · `e2ee` · `aliasing` · `free tier`
+`🇨🇭 switzerland` · `partially open source` · `audited` · `aliasing` · `free tier`
 
 Part of the Proton suite, with open-source clients and end-to-end encryption across the board. The standout feature is built-in hidden-by-alias email aliasing: every login can get a unique forwarding address generated right next to its password, no separate alias service required. If you're already on Proton Mail, Drive, or VPN, Pass slots into the same account and billing with zero extra setup.
 
 **Good:**
 - Open-source apps across every platform
+- Two independent security audits: Cure53 (2023) and Recurity Labs (2026), the latter rating the security posture "well above par"
 - Built-in email aliasing (hidden-by-alias) on top of password storage
 - Integrates cleanly with the rest of the Proton ecosystem
 - Usable free tier; cheap as an add-on to an existing Proton plan
@@ -714,7 +717,7 @@ Part of the Proton suite, with open-source clients and end-to-end encryption acr
 - Most natural fit if you're already in the Proton ecosystem; less of a draw standalone
 - No self-hosting option
 
-free tier · paid from ~€2/mo · [proton.me/pass →](https://proton.me/pass)
+free tier · paid from ~$1.99–2.99/mo billed annually · [proton.me/pass →](https://proton.me/pass)
 
 ##### Dashlane · *the mainstream one, not a pick*
 
@@ -736,13 +739,31 @@ Dashlane is a subscription password manager and digital wallet: autofill, dark w
 
 premium ~$4.99/mo billed annually · friends & family ~$7.49/mo billed annually · [dashlane.com →](https://www.dashlane.com)
 
+##### NordPass · *the mainstream Nord-family pick*
+
+`closed source` · `zero-knowledge` · `free tier`
+
+NordPass is Nord Security's password manager, the same company behind NordVPN, built on modern cryptography: XChaCha20 encryption with Argon2id key stretching, inside a zero-knowledge architecture. It's closed source, so unlike Bitwarden or Proton Pass, you're trusting the company's audits and its word rather than reading the implementation yourself. NordPass itself has no publicly known breach; the 2018 breach that hit NordVPN was a different product on separate infrastructure.
+
+**Good:**
+- Modern encryption choices: XChaCha20 with Argon2id, zero-knowledge by design
+- No publicly known breach of NordPass itself
+- Patched 2025's clickjacking vulnerability class promptly, in the same wave as Proton Pass and Dashlane
+- Inexpensive, with a genuine free tier
+
+**Mind the:**
+- Closed source: you're trusting the audits and the company's word, not the code
+- Pricing is heavily promotional with no published renewal rate; expect it to jump after the intro term
+- Jurisdiction is layered: Lithuanian entity, Panama-associated brand, offshore ownership beyond that
+
+heavily promotional, renewal rate unpublished · check nordpass.com for the current rate · [nordpass.com →](https://nordpass.com)
+
 #### Worth knowing
 
 - **The master passphrase is the whole game.** Make it long and memorable: four or five random words beats P@ssw0rd2026! by miles. Write it down and store the paper somewhere physically safe until it sticks.
 - **Protect the vault with 2FA.** A hardware key or TOTP app on the manager itself means a phished master password still isn't enough. See 2FA & Hardware Keys.
 - **Keep a vendor-proof backup.** Export your vault to an encrypted KeePassXC database every few months and store it locally. Companies get acquired, policies change, accounts get locked; a local copy turns all of those from emergencies into inconveniences.
 - **Save the recovery kit.** Most managers generate recovery codes or an emergency sheet at signup. Print it. The most common way people lose a vault isn't hackers, it's locking themselves out.
-- **NordPass is worth knowing, not what this page steers you toward.** It's a mainstream, polished, commercial password manager, a fine reference point if you're comparing options, and not a bad place to land if you're already invested in the NordVPN ecosystem. But it's closed source and leans more on marketing than the picks above, so it doesn't make this page's recommendations.
 
 ---
 
