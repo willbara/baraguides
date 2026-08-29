@@ -654,8 +654,6 @@ Best-in-class UX (polished, intentional, smoother than anything else in the cate
 - Closed source: trust is reputational + architectural, not fully auditable
 - A 2025 clickjacking flaw affecting most browser-extension password managers remains only partly fixed here: 1Password added an opt-in confirmation dialog instead of closing the hole, and independent tracking still showed it exploitable as of January 2026
 - Prices rose in March 2026: about +33% Individual, +20% Families
-- No free tier, subscription only
-- No self-hosting option
 
 from ~$48/yr billed annually · families ~$72/yr billed annually · [1password.com →](https://1password.com)
 
@@ -715,7 +713,6 @@ Part of the Proton suite, with open-source clients and end-to-end encryption acr
 **Mind the:**
 - Younger product than 1Password or Bitwarden, smaller third-party audit history so far
 - Most natural fit if you're already in the Proton ecosystem; less of a draw standalone
-- No self-hosting option
 
 free tier · paid from ~$1.99–2.99/mo billed annually · [proton.me/pass →](https://proton.me/pass)
 
