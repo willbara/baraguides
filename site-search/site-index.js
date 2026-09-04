@@ -87,19 +87,6 @@ window.SITE_INDEX = [
     ]
   },
   {
-    "name": "Mullvad DNS",
-    "category": "dns",
-    "page": "tools/dns.html",
-    "anchor": "mullvad-dns",
-    "pills": [
-      "🇸🇪 sweden",
-      "encrypted dns",
-      "no logs",
-      "no account",
-      "free"
-    ]
-  },
-  {
     "name": "Quad9",
     "category": "dns",
     "page": "tools/dns.html",

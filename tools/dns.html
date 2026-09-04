@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">dns</span></p>
 
     <h1>DNS &amp; Network</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 8 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-09-04</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Every site you visit starts with a DNS lookup, and by default those lookups go to
@@ -180,47 +180,6 @@
       <div class="p-foot">
         <span class="price">public <b>free</b> · private from <b>~$3/mo</b></span>
         <span><a href="https://adguard-dns.io" rel="noopener">adguard-dns.io →</a></span>
-      </div>
-    </article>
-
-    <!-- Mullvad DNS -->
-    <article class="provider a-yellow reveal" id="mullvad-dns">
-      <div class="p-head">
-        <span class="p-icon"><img src="../icons/mullvad.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Mullvad DNS</h3>
-        <span class="verdict">the contextual pick</span>
-      </div>
-      <div class="meta">
-        <span>🇸🇪 sweden</span><span>encrypted dns</span><span>no logs</span><span>no account</span><span>free</span>
-      </div>
-      <p>
-        Mullvad DNS is Mullvad's public resolver, free for everyone (not just VPN
-        customers), with the same no-logs stance as the VPN and optional ad and
-        tracker filtering endpoints. The headline use is <strong>consistency</strong>:
-        when you're on Mullvad's VPN (or Tor), keeping DNS inside the same
-        infrastructure preserves a uniform fingerprint instead of announcing a third
-        party. It's been growing into a solid standalone recommendation too.
-      </p>
-      <div class="pros-cons">
-        <div class="pros">
-          <h5>good</h5>
-          <ul>
-            <li>Clean no-logs policy from a raid-tested operator</li>
-            <li>Filtering variants (ads, trackers, malware) selectable by hostname</li>
-            <li>The right answer whenever Mullvad VPN is already in your stack</li>
-          </ul>
-        </div>
-        <div class="cons">
-          <h5>mind the</h5>
-          <ul>
-            <li>Encrypted transport only: no plain port-53 fallback for dumb devices</li>
-            <li>No dashboards, analytics, or per-device control at all</li>
-            <li>Fixed lists; can't allowlist a single false positive</li>
-          </ul>
-        </div>
-      </div>
-      <div class="p-foot">
-        <span class="price"><b>free</b></span>
-        <span><a href="https://mullvad.net/en/help/dns-over-https-and-dns-over-tls" rel="noopener">mullvad.net →</a></span>
       </div>
     </article>
 
@@ -493,9 +452,6 @@
             <td class="name">AdGuard DNS</td><td class="yes">yes</td><td class="yes">yes</td><td class="part">paid tier</td><td class="part">24h ops logs</td><td>none</td><td>free</td>
           </tr>
           <tr>
-            <td class="name">Mullvad DNS</td><td class="yes">optional</td><td class="yes">optional</td><td class="no">no</td><td class="yes">none kept</td><td>none</td><td>free</td>
-          </tr>
-          <tr>
             <td class="name">Quad9</td><td class="no">no</td><td class="yes">yes</td><td class="no">no</td><td class="yes">none kept</td><td>none</td><td>free</td>
           </tr>
           <tr>
@@ -516,7 +472,7 @@
         </tbody>
       </table>
     </div>
-    <p class="t-note">all support encrypted transport (self-hosted via upstream configuration; mullvad is encrypted-only).</p>
+    <p class="t-note">all support encrypted transport (self-hosted via upstream configuration).</p>
 
     <p class="section-label">worth knowing</p>
     <div class="notes">
@@ -528,9 +484,12 @@
       </p>
       <p>
         <strong>Match DNS to your VPN.</strong> A <a href="vpns.html">VPN</a> tunnel
-        carries its own DNS. On Mullvad, use Mullvad DNS; on Proton, NetShield.
-        Keeping resolution consistent with the tunnel's infrastructure preserves a
-        uniform fingerprint; fighting your VPN to use a third party does the opposite.
+        carries its own DNS. Mullvad's app routes queries through its own internal
+        resolver automatically while connected, separate from the public
+        <code>dns.mullvad.net</code> service being discontinued; on Proton, that's
+        NetShield. Keeping resolution consistent with the tunnel's infrastructure
+        preserves a uniform fingerprint; fighting your VPN to use a third party does
+        the opposite.
       </p>
       <p>
         <strong>Expect some breakage. Know the fix.</strong> A login page that won't load

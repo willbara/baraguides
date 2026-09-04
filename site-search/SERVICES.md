@@ -227,24 +227,6 @@ A practical, reliable encrypted resolver with strong blocking lists and the broa
 
 public free · private from ~$3/mo · [adguard-dns.io →](https://adguard-dns.io)
 
-##### Mullvad DNS · *the contextual pick*
-
-`🇸🇪 sweden` · `encrypted dns` · `no logs` · `no account` · `free`
-
-Mullvad's public resolver, free for everyone (not just VPN customers), with the same no-logs posture as the VPN and optional ad/tracker filtering endpoints. The headline use is consistency: when you're on Mullvad's VPN (or Tor), keeping DNS inside the same infrastructure preserves a uniform fingerprint instead of announcing a third party. It's been growing into a solid standalone recommendation as well.
-
-**Good:**
-- Clean no-logs policy from a raid-tested operator
-- Filtering variants (ads, trackers, malware) selectable by hostname
-- The right answer whenever Mullvad VPN is already in your stack
-
-**Mind the:**
-- Encrypted transport only: no plain port-53 fallback for dumb devices
-- No dashboards, analytics, or per-device control at all
-- Fixed lists; can't allowlist a single false positive
-
-free · [mullvad.net →](https://mullvad.net/en/help/dns-over-https-and-dns-over-tls)
-
 ##### Quad9 · *the neutral pick*
 
 `🇨🇭 switzerland` · `encrypted dns` · `no logs` · `nonprofit` · `free`
@@ -361,7 +343,7 @@ free · [one.one.one.one →](https://one.one.one.one)
 #### Worth knowing
 
 - **Set it at the router if you can.** One change covers every device, including the ones you can't configure. Phones and laptops that leave the house should also get the resolver set per-device (iOS/Android both support DoT/DoH profiles natively).
-- **Match DNS to your VPN.** A VPN tunnel carries its own DNS. On Mullvad, use Mullvad DNS; on Proton, NetShield. Keeping resolution consistent with the tunnel's infrastructure preserves a uniform fingerprint; fighting your VPN to use a third party does the opposite.
+- **Match DNS to your VPN.** A VPN tunnel carries its own DNS. Mullvad's app routes queries through its own internal resolver automatically while connected, separate from the public `dns.mullvad.net` service being discontinued; on Proton, that's NetShield. Keeping resolution consistent with the tunnel's infrastructure preserves a uniform fingerprint; fighting your VPN to use a third party does the opposite.
 - **Expect some breakage, know the fix.** A login page that won't load or an email link that dies is usually one allowlist entry away. Filtering DNS without knowing how to whitelist is how people end up back on the ISP default.
 - **Your resolver sees a lot: choose like it matters.** Domain history is a complete map of your interests. "Free" resolvers from ad companies are free for a reason; everything recommended here has a published, plausible reason to exist, and self-hosting removes the question entirely.
 
