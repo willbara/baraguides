@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">dns</span></p>
 
     <h1>DNS &amp; Network</h1>
-    <p class="updated">last updated <b>2026-09-04</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-09-05</b> · 8 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Every site you visit starts with a DNS lookup, and by default those lookups go to
@@ -307,6 +307,49 @@
       </div>
     </article>
 
+    <!-- Technitium -->
+    <article class="provider a-yellow reveal" id="technitium-dns-server">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/technitium.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Technitium</h3>
+        <span class="verdict">the full-stack self-host pick</span>
+      </div>
+      <div class="meta">
+        <span>self-hostable</span><span>open source</span><span>encrypted dns</span><span>customizable</span><span>free</span>
+      </div>
+      <p>
+        Technitium does the whole DNS job in one application: it blocks ads and
+        trackers, but also resolves and hosts zones itself instead of just forwarding
+        queries upstream like Pi-hole and AdGuard Home. That's enough to replace a
+        whole Pi-hole-plus-Unbound stack with one program. Shreyas Zare has maintained
+        it under the GPL since 2017.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Full recursion to the root servers, so there's no upstream resolver to trust</li>
+            <li>Hosts authoritative zones with DNSSEC signing, plus split-horizon and conditional forwarding</li>
+            <li>Runs DoH, DoT, and DNS-over-QUIC as servers, not just as upstream clients</li>
+            <li>Windows, Linux, macOS, Docker, and ARM boards including the Raspberry Pi</li>
+            <li>Open source end to end: server, web console, API, and apps</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>One developer maintains it, and no third party has ever audited it</li>
+            <li>Only the newest version gets security fixes, so updating isn't optional</li>
+            <li>Users have reported memory climbing into the gigabytes under heavy query or API load</li>
+            <li>The default login is admin/admin, and the setup curve is steeper than Pi-hole's</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b> · open source</span>
+        <span><a href="https://technitium.com/dns/" rel="noopener">technitium.com →</a></span>
+      </div>
+    </article>
+
     <!-- ControlD -->
     <article class="provider a-purple reveal" id="controld">
       <div class="p-head">
@@ -459,6 +502,9 @@
           </tr>
           <tr>
             <td class="name">Self-host</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">full</td><td class="yes">yours alone</td><td>high</td><td>hardware</td>
+          </tr>
+          <tr>
+            <td class="name">Technitium</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">full + zones</td><td class="yes">yours alone</td><td>high</td><td>hardware</td>
           </tr>
           <tr>
             <td class="name">ControlD</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">full, per-device</td><td class="part">you configure</td><td>medium</td><td>free / ~$2/mo</td>

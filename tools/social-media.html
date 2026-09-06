@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">social-media</span></p>
 
     <h1>Social Media</h1>
-    <p class="updated">last updated <b>2026-08-11</b> · 4 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-09-05</b> · 5 recommendations + nostr clients · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Mainstream social media (Twitter/X, Instagram, YouTube, TikTok) runs on the
@@ -321,6 +321,134 @@
       </div>
     </article>
 
+    <!-- Nostr -->
+    <article class="provider a-blue reveal" id="nostr">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/nostr.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Nostr</h3>
+        <span class="verdict">the key-based pick</span>
+      </div>
+      <div class="meta">
+        <span>decentralized</span><span>no algorithmic feed</span><span>open source</span><span>free</span>
+      </div>
+      <p>
+        Nostr is a social protocol where your identity is a cryptographic key you
+        generate yourself, not an account a server hands you. You publish signed posts to
+        relays, plain servers that store and forward events without talking to each
+        other, so there are no instances and nothing to migrate between. That's a
+        stronger kind of portability than the Fediverse offers, since your identity and
+        followers live in the key instead of on a server, and it comes with a matching
+        risk if that key is ever lost or leaked.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Your identity is a keypair you hold, so no server can suspend it or hold it hostage</li>
+            <li>Any client works with any relay, and switching either costs you nothing</li>
+            <li>No ads and no ranking algorithm at the protocol level</li>
+            <li>Relays are cheap and interchangeable, so silencing the network means silencing all of them</li>
+            <li>NIP-44, the current encryption standard, was audited by Cure53 in 2023</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Lose your private key and it's unrecoverable; there's no reset and no rotation standard</li>
+            <li>Relays see your IP address unless you're behind Tor or a VPN</li>
+            <li>Deleting a post is a request relays may ignore, and copies survive elsewhere</li>
+            <li>Anyone can create unlimited identities for free, so spam and impersonation get handled client-side</li>
+            <li>Daily active users are in the low tens of thousands, and the culture leans heavily Bitcoin</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b> · open protocol</span>
+        <span><a href="https://nostr.com" rel="noopener">nostr.com →</a></span>
+      </div>
+    </article>
+
+    <p class="section-label" id="nostr-clients">nostr clients</p>
+
+    <!-- Primal -->
+    <article class="provider a-purple reveal" id="primal">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/primal.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Primal</h3>
+        <span class="verdict">the cross-platform client</span>
+      </div>
+      <div class="meta">
+        <span>decentralized</span><span>all platforms</span><span>open source</span><span>free tier</span>
+      </div>
+      <p>
+        Primal is a Nostr client built by Miljan Braticevic's venture-backed company,
+        which launched it with a $1M seed round in 2023. A built-in Bitcoin Lightning
+        wallet moved from custodial to non-custodial in March 2026.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>The best search and discovery on Nostr, because of its own indexing server</li>
+            <li>Web, iOS, and Android from a single account</li>
+            <li>The whole stack is open source, caching server included</li>
+            <li>Much gentler onboarding than the rest of the ecosystem</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>That indexing server is a soft point of centralization in a decentralized network</li>
+            <li>Fewer relay controls than clients built for power users</li>
+            <li>The built-in Lightning wallet is hard to ignore even if you never fund it</li>
+            <li>Venture-backed, so how it eventually makes money is still an open question</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price">free · premium tier available</span>
+        <span><a href="https://primal.net" rel="noopener">primal.net →</a></span>
+      </div>
+    </article>
+
+    <!-- Damus -->
+    <article class="provider a-orange reveal" id="damus">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/damus.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Damus</h3>
+        <span class="verdict">the relay-transparent client</span>
+      </div>
+      <div class="meta">
+        <span>decentralized</span><span>all platforms</span><span>open source</span><span>free tier</span>
+      </div>
+      <p>
+        Damus is a Nostr client maintained by Will Casarin, who is also one of
+        Nostr's core protocol developers. OpenSats grants have funded it since 2023.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Maintained by a core protocol developer and funded by grants, not investors</li>
+            <li>Runs on iOS, Android, and desktop, so you're not locked into one ecosystem</li>
+            <li>Only connects to relays you choose, and shows which ones carried a post</li>
+            <li>Web-of-trust filtering makes spam manageable without central moderation</li>
+            <li>Apple pulled it from the Chinese App Store in 2023, which tells you what it does</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>The Android and desktop apps are newer than the original iOS app, and less polished by most accounts</li>
+            <li>Older versions were among the clients affected by a 2025 academic security review</li>
+            <li>Some features sit behind the optional Purple subscription</li>
+            <li>Spam filtering depends on your follow graph, so a new account sees more of it</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price">free · optional subscription</span>
+        <span><a href="https://damus.io" rel="noopener">damus.io →</a></span>
+      </div>
+    </article>
+
     <p class="section-label">at a glance</p>
     <div class="table-scroll">
       <table>
@@ -341,6 +469,9 @@
           </tr>
           <tr>
             <td class="name">Pixelfed</td><td>Instagram</td><td class="yes">yes (ActivityPub)</td><td class="no">no</td>
+          </tr>
+          <tr>
+            <td class="name">Nostr</td><td>n/a</td><td class="no">no (relays)</td><td class="no">no</td>
           </tr>
         </tbody>
       </table>

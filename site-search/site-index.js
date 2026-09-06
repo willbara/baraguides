@@ -125,6 +125,19 @@ window.SITE_INDEX = [
     ]
   },
   {
+    "name": "Technitium",
+    "category": "dns",
+    "page": "tools/dns.html",
+    "anchor": "technitium",
+    "pills": [
+      "self-hostable",
+      "open source",
+      "encrypted dns",
+      "customizable",
+      "free"
+    ]
+  },
+  {
     "name": "ControlD",
     "category": "dns",
     "page": "tools/dns.html",
@@ -337,7 +350,7 @@ window.SITE_INDEX = [
     "pills": [
       "🇨🇭 switzerland",
       "partially open source",
-      "e2ee",
+      "audited",
       "aliasing",
       "free tier"
     ]
@@ -352,6 +365,17 @@ window.SITE_INDEX = [
       "zero-knowledge",
       "closed source",
       "paid"
+    ]
+  },
+  {
+    "name": "NordPass",
+    "category": "passwords",
+    "page": "tools/password-managers.html",
+    "anchor": "nordpass",
+    "pills": [
+      "closed source",
+      "zero-knowledge",
+      "free tier"
     ]
   },
   {
@@ -757,6 +781,42 @@ window.SITE_INDEX = [
       "no algorithmic feed",
       "open source",
       "free"
+    ]
+  },
+  {
+    "name": "Nostr",
+    "category": "social",
+    "page": "tools/social-media.html",
+    "anchor": "nostr",
+    "pills": [
+      "decentralized",
+      "no algorithmic feed",
+      "open source",
+      "free"
+    ]
+  },
+  {
+    "name": "Primal",
+    "category": "social",
+    "page": "tools/social-media.html",
+    "anchor": "primal",
+    "pills": [
+      "decentralized",
+      "all platforms",
+      "open source",
+      "free tier"
+    ]
+  },
+  {
+    "name": "Damus",
+    "category": "social",
+    "page": "tools/social-media.html",
+    "anchor": "damus",
+    "pills": [
+      "decentralized",
+      "all platforms",
+      "open source",
+      "free tier"
     ]
   },
   {
@@ -1293,6 +1353,18 @@ window.SITE_INDEX = [
     "anchor": "qubes-os",
     "pills": [
       "compartmentalized",
+      "open source",
+      "free"
+    ]
+  },
+  {
+    "name": "Whonix on Qubes",
+    "category": "desktop os",
+    "page": "tools/desktop-os.html",
+    "anchor": "whonix-on-qubes",
+    "pills": [
+      "compartmentalized",
+      "onion-routed",
       "open source",
       "free"
     ]

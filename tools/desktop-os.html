@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">desktop-os</span></p>
 
     <h1>Desktop OS</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 6 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-09-05</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Windows 11 ships with telemetry, an advertising ID, and a cloud account it really,
@@ -304,6 +304,54 @@
       </div>
     </article>
 
+    <!-- Whonix on Qubes -->
+    <article class="provider a-yellow reveal" id="whonix-on-qubes">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/whonix.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Whonix on Qubes</h3>
+        <span class="verdict">the hardened-anonymity pick</span>
+      </div>
+      <div class="meta">
+        <span>compartmentalized</span><span>onion-routed</span><span>open source</span><span>free</span>
+      </div>
+      <p>
+        Whonix runs Tor in one virtual machine and your applications in another, so the
+        machine you actually work on never learns your real IP address. A leaky browser
+        or a DNS misconfiguration can't expose it, because it was never there to expose;
+        a leak needs both machines compromised at once. That's why both projects call
+        running the split on Qubes the right way to do it, instead of standalone.
+      </p>
+      <p>
+        Think of it as the third option next to the two above it. Tails gives you a
+        session that never existed. Qubes on its own gives you compartments without
+        anonymity routing. This one lets you keep the same identity across sessions
+        instead of starting over each time.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>The workstation can't leak an IP it never had</li>
+            <li>Xen isolation, disposable workstations, and a separate network VM come from Qubes underneath</li>
+            <li>You keep persistent identities across sessions, which Tails deliberately doesn't</li>
+            <li>A checkbox during the Qubes install sets the whole thing up</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>Neither Whonix nor Qubes has had a formal third-party audit</li>
+            <li>Whonix is run by one lead developer under a US company, not a nonprofit</li>
+            <li>Qubes' hardware bar is high: virtualization and IOMMU support, and 16GB of RAM in practice</li>
+            <li>Whonix 18 needs Qubes R4.3, and R4.2 reached end of life in June 2026</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b></span>
+        <span><a href="https://www.whonix.org/wiki/Qubes" rel="noopener">whonix.org →</a></span>
+      </div>
+    </article>
+
     <!-- Arch -->
     <article class="provider a-aqua reveal" id="arch-linux">
       <div class="p-head">
@@ -407,6 +455,9 @@
           </tr>
           <tr>
             <td class="name">Qubes OS</td><td>xen vms</td><td class="no">hard</td><td class="yes">extreme</td><td class="part">per-qube</td><td>compartmentalization</td>
+          </tr>
+          <tr>
+            <td class="name">Whonix on Qubes</td><td>xen vms, tor</td><td class="no">hard</td><td class="yes">extreme</td><td class="part">per-qube</td><td>persistent anonymity</td>
           </tr>
           <tr>
             <td class="name">Arch</td><td>rolling</td><td class="no">hard</td><td class="no">diy</td><td class="no">manual</td><td>learning &amp; control</td>

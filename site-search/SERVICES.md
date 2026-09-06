@@ -282,6 +282,27 @@ Run your own filtering resolver on a Raspberry Pi or any always-on box, and no t
 
 free software · ~€40 one-off hardware · [adguard home →](https://github.com/AdguardTeam/AdGuardHome)
 
+##### Technitium · *the full-stack self-host pick*
+
+`self-hostable` · `open source` · `encrypted dns` · `customizable` · `free`
+
+Technitium does the whole DNS job in one application: it blocks ads and trackers, but also resolves and hosts zones itself instead of just forwarding queries upstream like Pi-hole and AdGuard Home. That's enough to replace a whole Pi-hole-plus-Unbound stack with one program. Shreyas Zare has maintained it under the GPL since 2017.
+
+**Good:**
+- Full recursion to the root servers, so there's no upstream resolver to trust
+- Hosts authoritative zones with DNSSEC signing, plus split-horizon and conditional forwarding
+- Runs DoH, DoT, and DNS-over-QUIC as servers, not just as upstream clients
+- Windows, Linux, macOS, Docker, and ARM boards including the Raspberry Pi
+- Open source end to end: server, web console, API, and apps
+
+**Mind the:**
+- One developer maintains it, and no third party has ever audited it
+- Only the newest version gets security fixes, so updating isn't optional
+- Users have reported memory climbing into the gigabytes under heavy query or API load
+- The default login is admin/admin, and the setup curve is steeper than Pi-hole's
+
+free · open source · [technitium.com →](https://technitium.com/dns/)
+
 ##### ControlD · *the customization pick*
 
 `🇨🇦 canada` · `encrypted dns` · `customizable` · `free tier`
@@ -1509,6 +1530,71 @@ Photo-first sharing built on the same federated model as Mastodon: ActivityPub m
 
 free, instance-dependent · [pixelfed.org →](https://pixelfed.org)
 
+##### Nostr · *the key-based pick*
+
+`decentralized` · `no algorithmic feed` · `open source` · `free`
+
+Nostr is a social protocol where your identity is a cryptographic key you generate yourself, not an account a server hands you. You publish signed posts to relays, plain servers that store and forward events without talking to each other, so there are no instances and nothing to migrate between. That's a stronger kind of portability than the Fediverse offers, since your identity and followers live in the key instead of on a server, and it comes with a matching risk if that key is ever lost or leaked.
+
+**Good:**
+- Your identity is a keypair you hold, so no server can suspend it or hold it hostage
+- Any client works with any relay, and switching either costs you nothing
+- No ads and no ranking algorithm at the protocol level
+- Relays are cheap and interchangeable, so silencing the network means silencing all of them
+- NIP-44, the current encryption standard, was audited by Cure53 in 2023
+
+**Mind the:**
+- Lose your private key and it's unrecoverable; there's no reset and no rotation standard
+- Relays see your IP address unless you're behind Tor or a VPN
+- Deleting a post is a request relays may ignore, and copies survive elsewhere
+- Anyone can create unlimited identities for free, so spam and impersonation get handled client-side
+- Daily active users are in the low tens of thousands, and the culture leans heavily Bitcoin
+
+free · open protocol · [nostr.com →](https://nostr.com)
+
+#### Nostr clients
+
+##### Primal · *the cross-platform client*
+
+`decentralized` · `all platforms` · `open source` · `free tier`
+
+Primal is a Nostr client built by Miljan Braticevic's venture-backed company, which launched it with a $1M seed round in 2023. A built-in Bitcoin Lightning wallet moved from custodial to non-custodial in March 2026.
+
+**Good:**
+- The best search and discovery on Nostr, because of its own indexing server
+- Web, iOS, and Android from a single account
+- The whole stack is open source, caching server included
+- Much gentler onboarding than the rest of the ecosystem
+
+**Mind the:**
+- That indexing server is a soft point of centralization in a decentralized network
+- Fewer relay controls than clients built for power users
+- The built-in Lightning wallet is hard to ignore even if you never fund it
+- Venture-backed, so how it eventually makes money is still an open question
+
+free · premium tier available · [primal.net →](https://primal.net)
+
+##### Damus · *the relay-transparent client*
+
+`decentralized` · `all platforms` · `open source` · `free tier`
+
+Damus is a Nostr client maintained by Will Casarin, who is also one of Nostr's core protocol developers. OpenSats grants have funded it since 2023.
+
+**Good:**
+- Maintained by a core protocol developer and funded by grants, not investors
+- Runs on iOS, Android, and desktop, so you're not locked into one ecosystem
+- Only connects to relays you choose, and shows which ones carried a post
+- Web-of-trust filtering makes spam manageable without central moderation
+- Apple pulled it from the Chinese App Store in 2023, which tells you what it does
+
+**Mind the:**
+- The Android and desktop apps are newer than the original iOS app, and less polished by most accounts
+- Older versions were among the clients affected by a 2025 academic security review
+- Some features sit behind the optional Purple subscription
+- Spam filtering depends on your follow graph, so a new account sees more of it
+
+free · optional subscription · [damus.io →](https://damus.io)
+
 #### Worth knowing
 
 - **These are all part of the Fediverse.** Mastodon, Lemmy, PeerTube, and Pixelfed all speak ActivityPub to varying degrees, which means they interoperate: you can often follow a PeerTube channel or a Pixelfed account from a Mastodon account, for instance. It's a network of networks, not one app.
@@ -2550,6 +2636,28 @@ Every task runs in its own disposable virtual machine: browsing, email, work doc
 - Overkill for most threat models: this is the deep end, not the default
 
 free · [qubes-os.org →](https://qubes-os.org)
+
+##### Whonix on Qubes · *the hardened-anonymity pick*
+
+`compartmentalized` · `onion-routed` · `open source` · `free`
+
+Whonix runs Tor in one virtual machine and your applications in another, so the machine you actually work on never learns your real IP address. A leaky browser or a DNS misconfiguration can't expose it, because it was never there to expose; a leak needs both machines compromised at once. That's why both projects call running the split on Qubes the right way to do it, instead of standalone.
+
+Think of it as the third option next to the two above it. Tails gives you a session that never existed. Qubes on its own gives you compartments without anonymity routing. This one lets you keep the same identity across sessions instead of starting over each time.
+
+**Good:**
+- The workstation can't leak an IP it never had
+- Xen isolation, disposable workstations, and a separate network VM come from Qubes underneath
+- You keep persistent identities across sessions, which Tails deliberately doesn't
+- A checkbox during the Qubes install sets the whole thing up
+
+**Mind the:**
+- Neither Whonix nor Qubes has had a formal third-party audit
+- Whonix is run by one lead developer under a US company, not a nonprofit
+- Qubes' hardware bar is high: virtualization and IOMMU support, and 16GB of RAM in practice
+- Whonix 18 needs Qubes R4.3, and R4.2 reached end of life in June 2026
+
+free · [whonix.org →](https://www.whonix.org/wiki/Qubes)
 
 ##### Arch Linux · *the diy pick*
 
