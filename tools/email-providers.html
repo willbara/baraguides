@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">email</span></p>
 
     <h1>Email Providers</h1>
-    <p class="updated">last updated <b>2026-08-04</b> · 6 recommendations + pgp tools · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-04</b> · 6 recommendations + pgp tools · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Email is where everything else lives: password resets, receipts, your real name.
@@ -135,6 +135,34 @@
       </div>
     </div>
 
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>end-to-end encryption (e2ee)</h4>
+        <p>Only the sender and the recipient can read a message. Not the provider, and not a hacker who breaks into its servers. With email, this only works between users of the same system, or when both sides use PGP.</p>
+      </div>
+      <div class="crit">
+        <h4>zero-access</h4>
+        <p>The provider stores your mail locked with a key only you hold, so it can't read your inbox. It protects stored mail, not the details of who wrote to whom.</p>
+      </div>
+      <div class="crit">
+        <h4>pgp (openpgp)</h4>
+        <p>A standard way to encrypt email yourself, using two keys: a public one you share and a private one you keep. It works with any provider, but subject lines and addresses stay readable.</p>
+      </div>
+      <div class="crit">
+        <h4>imap / smtp</h4>
+        <p>The standard ways mail apps receive (IMAP) and send (SMTP) email. If a provider supports them, you can use Thunderbird or any other app, and leaving is easy. Proton doesn't, so it sells a paid add-on called Bridge to fill the gap.</p>
+      </div>
+      <div class="crit">
+        <h4>alias</h4>
+        <p>An extra address that forwards to your real inbox. Give each website its own, and if one starts getting spam or leaks, you turn it off.</p>
+      </div>
+      <div class="crit">
+        <h4>post-quantum</h4>
+        <p>Encryption built to survive future quantum computers, which could break today's. Attackers can store scrambled mail now and try to crack it later.</p>
+      </div>
+    </div>
+
     <p class="section-label">recommendations</p>
 
     <!-- Proton Mail -->
@@ -155,12 +183,13 @@
         and the <a href="vpns.html">VPN bundle</a> discount is genuinely good value.
       </p>
       <p>
-        Be clear-eyed about one thing: Proton sticks to its stated data-minimization
-        policy, but it has cooperated with Swiss court orders on the narrow data it
-        <strong>does</strong> hold. That meant billing details and account
-        metadata, not message content or IP logs. The cases that drew criticism
-        came down to users assuming protections Proton never claimed to offer.
-        <strong>It's not a scandal — it's a threat-model calibration issue.</strong>
+        Proton keeps little data, but Swiss courts can order it to hand over what it
+        <strong>does</strong> hold. That has meant billing records, and Swiss law
+        can force it to log the IP address of a single account too. Proton has also
+        faced fresh criticism. In October 2026, 404 Media reported that CEO Andy Yen
+        called a request to security-test new code "loser thinking" and pushed staff
+        to use more AI. Proton cancelled planned staff re-interviews about AI use and
+        admitted it had been too blunt, but some users say they are leaving.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -170,14 +199,14 @@
             <li>Polished apps on every platform</li>
             <li>Custom domains, catch-all, and built-in aliasing on paid plans</li>
             <li>Long track record and regular independent audits</li>
+            <li>Optional quantum-resistant encryption on all plans, new emails only</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
             <li>No direct IMAP: desktop clients need Proton Bridge (paid plans)</li>
-            <li>Will comply with Swiss courts for the metadata it does hold: calibrate accordingly</li>
-            <li>VC-backed and increasingly commercial: worth monitoring, not currently a red flag</li>
+            <li>Must obey Swiss court orders for the limited data it holds</li>
             <li>Subject lines aren't encrypted (PGP limitation)</li>
           </ul>
         </div>
@@ -204,7 +233,13 @@
         branding; it's the same German company (Heinlein Group) and the same data
         centers. Full IMAP/SMTP means Thunderbird, FairEmail, or anything else just
         works: no bridge, no lock-in. The optional PGP "Guard" encrypts your mail at
-        rest, and you get a full calendar, contacts, and office suite for pocket change.
+        rest. The Standard plan adds an office suite and file storage for about €3 a
+        month billed yearly.
+      </p>
+      <p>
+        mailbox raised Standard and Premium prices in 2026 while doubling their
+        storage. The €1 Light plan did not change, but it has no file storage and
+        only 2GB of mail.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -212,7 +247,7 @@
           <ul>
             <li>Real IMAP/SMTP: use any client, migrate out anytime</li>
             <li>Cheap, transparent pricing; no free-tier upsell games</li>
-            <li>Custom domains on every plan</li>
+            <li>Custom domains on Standard and Premium plans</li>
             <li>Boring in the best way: stable German company since the 90s</li>
           </ul>
         </div>
@@ -242,8 +277,8 @@
       </div>
       <p>
         Tuta goes further than anyone on encryption: its own protocol covers subject
-        lines, calendars, and contacts, and it's already rolling out post-quantum
-        algorithms. The trade-off is that <strong>you live inside Tuta's apps</strong>.
+        lines, calendars, and contacts, and it already uses post-quantum
+        algorithms (built to withstand future quantum computers). The trade-off is that <strong>you live inside Tuta's apps</strong>.
         If maximum encryption matters more to you than client choice, this is the one.
       </p>
       <div class="pros-cons">
@@ -333,8 +368,9 @@
           <h5>good</h5>
           <ul>
             <li>Aliases are first-class: create and burn them inline as you sign up</li>
-            <li>IMAP/SMTP support; custom domains available</li>
+            <li>IMAP/SMTP support; one custom domain included</li>
             <li>Simple one-tier pricing, EU jurisdiction</li>
+            <li>iOS and Android apps, launched October 2026</li>
           </ul>
         </div>
         <div class="cons">
@@ -368,7 +404,7 @@
         more). It's funded by donations instead of subscriptions. Standard IMAP/SMTP
         means any client works, and there's no upsell funnel because nothing's
         being sold. The trade-off is the one you'd expect from volunteer-run
-        infrastructure: no SLA, no support line, and modest storage.
+        infrastructure: no uptime guarantee, no support line, and modest storage.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -385,7 +421,7 @@
           <h5>mind the</h5>
           <ul>
             <li>No zero-access encryption at rest: trust is in the collective's ethics, not cryptography</li>
-            <li>Volunteer-run: no formal SLA or paid support</li>
+            <li>Volunteer-run: no uptime guarantee or paid support</li>
             <li>Modest default storage; donations keep the lights on, so consider chipping in</li>
           </ul>
         </div>
@@ -409,7 +445,7 @@
             <td class="name">Proton Mail</td><td>🇨🇭 CH</td><td class="yes">yes</td><td class="part">via bridge</td><td class="yes">paid</td><td class="yes">yes</td><td>~€4/mo</td>
           </tr>
           <tr>
-            <td class="name">Mailbox.org</td><td>🇩🇪 DE</td><td class="part">opt-in</td><td class="yes">yes</td><td class="yes">yes</td><td class="no">trial</td><td>~€1/mo</td>
+            <td class="name">Mailbox.org</td><td>🇩🇪 DE</td><td class="part">opt-in</td><td class="yes">yes</td><td class="part">not on Light</td><td class="no">trial</td><td>~€1/mo</td>
           </tr>
           <tr>
             <td class="name">Tuta</td><td>🇩🇪 DE</td><td class="yes">yes</td><td class="no">no</td><td class="yes">paid</td><td class="yes">yes</td><td>~€3/mo</td>
@@ -471,14 +507,14 @@
           <ul>
             <li>Preinstalled or one package away on practically every Linux distribution</li>
             <li>The code Gpg4win and GPG Suite build on directly</li>
-            <li>Experimental post-quantum support already landing in the 2.5 branch</li>
+            <li>Stable 2.5 branch includes post-quantum (quantum-resistant) encryption</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
             <li>Follows LibrePGP, not the IETF's RFC 9580: the standards split above starts here</li>
-            <li>The 2.4 branch reaches end of life in mid-2026 per GnuPG's own release notes; check gnupg.org before installing</li>
+            <li>The older 2.4 branch reached end of life on June 30, 2026; use 2.5</li>
           </ul>
         </div>
       </div>
@@ -553,8 +589,8 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>macOS Tahoe currently crashes Apple Mail around certain GPG Mail banners; GPGTools recommends avoiding Tahoe if you rely on it daily</li>
-            <li>GPG Mail is paid, and version 8 is a paid upgrade even for existing support-plan holders</li>
+            <li>macOS Tahoe crashes Apple Mail on certain GPG Mail banners; GPGTools says macOS 27 fixes it</li>
+            <li>GPG Mail is paid; version 8 becomes a yearly subscription, with credit for old plans</li>
             <li>Users have publicly asked whether the project is still maintained; a maintainer responds, but the communication gap is real</li>
           </ul>
         </div>

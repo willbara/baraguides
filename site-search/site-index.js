@@ -75,6 +75,19 @@ window.SITE_INDEX = [
     ]
   },
   {
+    "name": "Orion",
+    "category": "browsers",
+    "page": "tools/browsers.html",
+    "anchor": "orion",
+    "pills": [
+      "🇺🇸 usa",
+      "🍎 apple only",
+      "webkit",
+      "closed source",
+      "free"
+    ]
+  },
+  {
     "name": "AdGuard DNS",
     "category": "dns",
     "page": "tools/dns.html",
@@ -125,10 +138,10 @@ window.SITE_INDEX = [
     ]
   },
   {
-    "name": "Technitium",
+    "name": "Technitium DNS Server",
     "category": "dns",
     "page": "tools/dns.html",
-    "anchor": "technitium",
+    "anchor": "technitium-dns-server",
     "pills": [
       "self-hostable",
       "open source",
@@ -251,6 +264,19 @@ window.SITE_INDEX = [
     ]
   },
   {
+    "name": "NymVPN",
+    "category": "vpns",
+    "page": "tools/vpns.html",
+    "anchor": "nymvpn",
+    "pills": [
+      "🇨🇭 switzerland",
+      "decentralized",
+      "open source",
+      "audited",
+      "paid"
+    ]
+  },
+  {
     "name": "Tor",
     "category": "anonymity",
     "page": "tools/anonymizing-networks.html",
@@ -305,18 +331,6 @@ window.SITE_INDEX = [
     ]
   },
   {
-    "name": "1Password",
-    "category": "passwords",
-    "page": "tools/password-managers.html",
-    "anchor": "1password",
-    "pills": [
-      "🇨🇦 canada",
-      "closed source",
-      "audited",
-      "paid"
-    ]
-  },
-  {
     "name": "Bitwarden",
     "category": "passwords",
     "page": "tools/password-managers.html",
@@ -327,6 +341,18 @@ window.SITE_INDEX = [
       "audited",
       "self-hostable",
       "free tier"
+    ]
+  },
+  {
+    "name": "1Password",
+    "category": "passwords",
+    "page": "tools/password-managers.html",
+    "anchor": "1password",
+    "pills": [
+      "🇨🇦 canada",
+      "closed source",
+      "audited",
+      "paid"
     ]
   },
   {
@@ -450,9 +476,9 @@ window.SITE_INDEX = [
     "anchor": "simplelogin",
     "pills": [
       "open source",
+      "audited",
       "self-hostable",
       "reply-from-alias",
-      "browser extension",
       "free tier"
     ]
   },
@@ -463,9 +489,9 @@ window.SITE_INDEX = [
     "anchor": "addy-io",
     "pills": [
       "open source",
+      "audited",
       "self-hostable",
       "reply-from-alias",
-      "browser extension",
       "free tier"
     ]
   },
@@ -516,7 +542,7 @@ window.SITE_INDEX = [
     "anchor": "imessage",
     "pills": [
       "🍎 apple only",
-      "e2ee optional",
+      "e2ee",
       "closed source",
       "free"
     ]
@@ -820,6 +846,18 @@ window.SITE_INDEX = [
     ]
   },
   {
+    "name": "Fluxer",
+    "category": "community",
+    "page": "tools/communities.html",
+    "anchor": "fluxer",
+    "pills": [
+      "🇸🇪 sweden",
+      "self-hostable",
+      "open source",
+      "free tier"
+    ]
+  },
+  {
     "name": "Stoat",
     "category": "community",
     "page": "tools/communities.html",
@@ -829,17 +867,6 @@ window.SITE_INDEX = [
       "self-hostable",
       "open source",
       "free"
-    ]
-  },
-  {
-    "name": "Fluxer",
-    "category": "community",
-    "page": "tools/communities.html",
-    "anchor": "fluxer",
-    "pills": [
-      "🇸🇪 sweden",
-      "open source",
-      "free tier"
     ]
   },
   {

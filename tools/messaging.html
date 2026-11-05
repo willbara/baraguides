@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">messaging</span></p>
 
     <h1>Messengers</h1>
-    <p class="updated">last updated <b>2026-08-04</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-04</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Before picking a messenger, frame it as <strong>platform replacement</strong>:
@@ -133,7 +133,43 @@
       </div>
       <div class="crit">
         <h4>protocol scrutiny</h4>
-        <p>Open, peer-reviewed protocols (Signal's, MLS) have survived years of cryptographic attention. Custom in-house designs haven't earned that trust.</p>
+        <p>Open, publicly reviewed encryption designs (Signal's, and a newer standard called MLS) have survived years of expert attention. Custom in-house designs haven't earned that trust.</p>
+      </div>
+    </div>
+
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>end-to-end encryption (e2ee)</h4>
+        <p>Only you and the person you're messaging can read a message. Not the app's company, and not a hacker who breaks into its servers.</p>
+      </div>
+      <div class="crit">
+        <h4>metadata</h4>
+        <p>Everything about a message except its content: who you talk to, when, how often, and from where.</p>
+      </div>
+      <div class="crit">
+        <h4>forward secrecy</h4>
+        <p>Encryption keys that change constantly, so someone who steals one today can't unlock your old messages.</p>
+      </div>
+      <div class="crit">
+        <h4>post-quantum</h4>
+        <p>Encryption built to survive future quantum computers, which could break today's. Attackers can record scrambled messages now and try to crack them later.</p>
+      </div>
+      <div class="crit">
+        <h4>federated</h4>
+        <p>Run by many independent servers that talk to each other, like email, instead of one company's.</p>
+      </div>
+      <div class="crit">
+        <h4>onion routing</h4>
+        <p>Messages hop through several relays, each knowing only the next hop, so none sees both sender and recipient. Tor is the best-known example.</p>
+      </div>
+      <div class="crit">
+        <h4>server-side encryption</h4>
+        <p>The company encrypts your chats but holds the keys, so it can still read them. That's not the same as end-to-end.</p>
+      </div>
+      <div class="crit">
+        <h4>audit</h4>
+        <p>An independent security firm combs through an app's code and design, then publishes what it found.</p>
       </div>
     </div>
 
@@ -149,29 +185,33 @@
         <span>🇺🇸 usa</span><span>e2ee always</span><span>metadata-resistant</span><span>open source</span><span>free</span>
       </div>
       <p>
-        Signal is the current gold standard, and not just by reputation: the Signal
-        Protocol has been <strong>cryptographically scrutinized more than any other
-        consumer messenger</strong> and holds up. It's what everyone else borrows. It keeps almost no metadata (subpoena
-        responses have famously contained just two timestamps). It also has sealed
-        sender and disappearing messages built in. And it looks like a normal app,
-        which is why you can actually get your group chats to move here. Use it for
-        anything sensitive; it's reliable cross-platform for everything else.
+        Signal is the current gold standard, and not just by reputation. Its encryption
+        design, the Signal Protocol, has been <strong>studied by cryptographers more than
+        any other consumer messenger's</strong> and holds up. Everyone else borrows it.
+        It's also already built to withstand future quantum computers when a chat starts,
+        with the same protection rolling out to ongoing messages. It keeps almost no
+        metadata (subpoena responses have famously contained just two timestamps), hides
+        the sender from Signal's own servers (called sealed sender), and has disappearing
+        messages built in. It also looks like a normal app, which is why you can actually
+        get your group chats to move here. Use it for anything sensitive, and it's reliable
+        on every platform for everything else.
       </p>
       <p>
-        If you're on Android and want more, <strong>Molly</strong> is a hardened Signal
-        fork with an encrypted local database (locked behind a passphrase at rest)
-        and built-in Tor/Orbot support. It's the same network and contacts, just a
-        sturdier client.
+        On Android, <strong>Molly</strong> is a hardened copy of Signal that encrypts the
+        messages stored on your phone and works with Tor through the Orbot app. It uses
+        the same network and contacts, but its last release was 31 July 2026 and it now
+        trails Signal's own updates, so check that it's current before relying on it.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>E2EE on absolutely everything: messages, calls, groups, attachments</li>
-            <li>Sealed sender and private contact discovery minimize metadata</li>
-            <li>Usernames mean you can chat without sharing your number</li>
-            <li>Secure Backups move your history to a new phone, and Signal never sees the recovery key</li>
-            <li>Nonprofit, open source, relentlessly audited</li>
+            <li>End-to-end encrypts everything: messages, calls, groups, attachments</li>
+            <li>Servers learn very little about who you talk to</li>
+            <li>Usernames let you chat without sharing your number</li>
+            <li>Encrypted backups move your history to a new phone</li>
+            <li>Automatic key verification catches swapped contact keys</li>
+            <li>Nonprofit, open source, and heavily audited</li>
           </ul>
         </div>
         <div class="cons">
@@ -180,6 +220,8 @@
             <li>Phone number still required to register</li>
             <li>Centralized: one service, one US-based operator</li>
             <li>Desktop app must be linked to a phone first</li>
+            <li>Free backups cover 45 days of media; up to 100 GB is paid</li>
+            <li>Two 2026 research attacks needed a compromised Signal server; both are patched</li>
           </ul>
         </div>
       </div>
@@ -196,35 +238,40 @@
         <span class="verdict">the apple-baseline pick</span>
       </div>
       <div class="meta">
-        <span>🍎 apple only</span><span>e2ee optional</span><span>closed source</span><span>free</span>
+        <span>🍎 apple only</span><span>e2ee</span><span>closed source</span><span>free</span>
       </div>
       <p>
         iMessage is a reasonable secondary for everyday conversation between Apple
-        devices: it's E2EE device-to-device, there's zero setup, and it's a real step
-        up from SMS or unencrypted RCS. The trust model is simple: <strong>you're
-        trusting Apple entirely</strong>. Since iOS 26.5, green-bubble chats with Android can be end-to-end encrypted
-        over RCS too. It's still beta, though, and both carriers have to support it,
-        so you'll fall back to plain SMS when it isn't available. iCloud backups are a separate trap: <strong>they're not E2EE
-        until you turn on Advanced Data Protection</strong>. A useful way to think
-        about it: Signal for anything sensitive, iMessage as the baseline for people
-        who won't install Signal.
+        devices: messages are end-to-end encrypted (E2EE, so only you and the recipient
+        can read them), there's zero setup, and it's a real step up from SMS or
+        unencrypted RCS. The trust model is simple: <strong>you're trusting Apple
+        entirely</strong>. Since iOS 26.5, green-bubble chats with Android can be E2EE
+        over RCS (the modern replacement for SMS) too. It's still beta, though, the
+        Android side has to use Google Messages, and both carriers have to support it
+        (AT&amp;T, T-Mobile, and Verizon are all on Apple's list), so you'll fall back to
+        unencrypted RCS or SMS when it isn't available. iCloud backups are a separate
+        trap: <strong>they're not E2EE until you turn on Advanced Data Protection</strong>,
+        an iCloud setting that encrypts your backups so Apple can't read them. A useful
+        way to think about it: Signal for anything sensitive, iMessage as the baseline for
+        people who won't install Signal.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>E2EE by default between Apple devices, no setup at all</li>
-            <li>Meaningful upgrade over SMS/RCS for ordinary conversation</li>
-            <li>Already installed on the phones your family actually uses</li>
-            <li>Beta E2EE RCS now reaches some Android contacts too</li>
+            <li>End-to-end encrypted by default between Apple devices, no setup</li>
+            <li>Big upgrade over SMS and RCS</li>
+            <li>Built to withstand future quantum computers since iOS 17.4</li>
+            <li>Already on the phones your family uses</li>
+            <li>Encrypted RCS now reaches some Android contacts</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>iCloud backups expose message history until you turn on Advanced Data Protection; Apple withdrew ADP for UK users in February 2025, so they can't</li>
-            <li>E2EE RCS with Android is beta and partial: needs carrier support, and some users report delivery hiccups</li>
-            <li>Closed source; trust is entirely in Apple; Apple-only by design</li>
+            <li>iCloud backups aren't end-to-end encrypted unless you opt in, and UK users can't</li>
+            <li>Encrypted RCS with Android is still beta and partial</li>
+            <li>Closed source and Apple-only</li>
           </ul>
         </div>
       </div>
@@ -244,29 +291,39 @@
         <span>no identifier required</span><span>e2ee always</span><span>open source</span><span>metadata-resistant</span><span>free</span>
       </div>
       <p>
-        SimpleX is genuinely interesting if your threat model is high: there are
+        SimpleX is genuinely interesting if you face serious surveillance: there are
         <strong>no user IDs whatsoever</strong>, not even phone numbers or usernames.
-        Conversations run over one-way relay queues that nobody can piece together
-        into a social graph, so the metadata resistance comes from the architecture,
-        not a policy promise. It's newer and less battle-tested than Signal, but it's
-        the most privacy-forward design you can get in a consumer messenger right now.
+        Messages pass through one-way relay queues (temporary mailboxes on servers) that
+        nobody can piece together into a map of who talks to whom, so the privacy comes
+        from the design instead of a promise. It's newer and less battle-tested than
+        Signal, but it's the most privacy-forward design you can get in a consumer
+        messenger right now.
+      </p>
+      <p>
+        Since April 2026 it also has public channels (launched in beta) for broadcasting
+to an audience. The company behind it is for-profit, opened a crowdfunding round
+in August 2026, and is rolling out two optional paid extras: supporter badges
+(larger files, longer storage) and public names, whose sale starts December 12.
+SimpleX says neither adds a user identifier.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>No identifier means nothing to subpoena, leak, or correlate</li>
-            <li>Metadata resistance by design, not by promise</li>
-            <li>Open source, double-ratchet encryption, self-hostable relays</li>
-            <li>Independently audited twice (Trail of Bits); post-quantum-resistant key exchange built in</li>
+            <li>No identifier means nothing to subpoena, leak, or piece together</li>
+            <li>Privacy comes from the design, not a promise</li>
+            <li>Open source, with relays you can host yourself</li>
+            <li>Independently audited twice (Trail of Bits)</li>
+            <li>Built to withstand future quantum computers</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Younger protocol with a shorter audit history than Signal's</li>
-            <li>Multi-device and delivery UX still have rough edges</li>
-            <li>Small network: you'll be onboarding your contacts yourself</li>
+            <li>Shorter audit history than Signal's; a third audit is still unpublished</li>
+            <li>Multi-device use and delivery still have rough edges</li>
+            <li>Small network: you'll be onboarding contacts yourself</li>
+            <li>For-profit company that is now crowdfunding</li>
           </ul>
         </div>
       </div>
@@ -286,36 +343,41 @@
         <span>federated</span><span>e2ee optional</span><span>self-hostable</span><span>open source</span><span>free</span>
       </div>
       <p>
-        Matrix is a protocol, not a company: like email, anyone can run a server and
-        talk to every other server. That makes it <strong>messaging nobody can switch
+        Matrix is a protocol (a shared set of rules) instead of a company: like email,
+        anyone can run a server and talk to every other server, and Element is the most
+        popular app for using it. That makes it <strong>messaging nobody can switch
         off</strong>, and the right answer for communities, team chat, and people who
-        want to own their infrastructure. Know the fine print, though: E2EE is
-        available but not always on by default (it depends on how the server and
-        client are set up), and every server in a room can see that room's metadata.
-        Expect more friction than Signal; it's a different use case, not a replacement.
+        want to own their infrastructure. Know the fine print, though. End-to-end
+        encryption is available but isn't always on by default (it depends on how the
+        server and app are set up), and every server in a room can see that room's
+        metadata. Expect more friction than Signal, since this is a different use case,
+        not a replacement. Element X is the app to start with, because Element plans to
+retire the older Element Classic. Element also plans to block unverified devices
+from encrypted chats, but it postponed that in September 2026. If you'd rather host
+your own server, Element's free Server Suite Community edition is built for small,
+non-professional setups.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>No central operator: self-host or pick any homeserver</li>
-            <li>E2EE in DMs and private rooms (verify your client's defaults)</li>
-            <li>Element now requires verified devices for E2EE messages by default</li>
-            <li>Rich rooms, threads, and bridges to other networks</li>
+            <li>No central operator: run your own server or pick any</li>
+            <li>Encrypted DMs and private rooms (check your app's defaults)</li>
+            <li>Rich rooms, threads, and bridges to other messengers</li>
             <li>No phone number needed</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>E2EE coverage depends on configuration: not a flat guarantee</li>
-            <li>Room metadata (members, timing) spreads across participating servers</li>
-            <li>Key verification and device management confuse newcomers</li>
+            <li>Encryption isn't guaranteed; it depends on setup</li>
+            <li>Every server in a room sees its metadata</li>
+            <li>Device verification and key management confuse newcomers</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price"><b>free</b> · self-hosting from ~€5/mo</span>
+        <span class="price"><b>free</b> · self-hosting only costs you a server</span>
         <span><a href="https://element.io" rel="noopener">element.io →</a></span>
       </div>
     </article>
@@ -330,28 +392,35 @@
         <span>peer-to-peer</span><span>onion-routed</span><span>works offline</span><span>open source</span><span>free</span>
       </div>
       <p>
-        Briar has no server to subpoena because there is no server: messages travel
-        peer-to-peer over Tor, or over <strong>Bluetooth and local Wi-Fi when the
-        internet is down or blocked</strong>. It's built for activists and journalists
-        under real pressure. As a daily messenger it's spartan; as infrastructure of
-        last resort it's one of a kind.
+        Briar has no server to subpoena because there is no server: messages go straight
+        between phones, either over Tor (a network that hides where your traffic comes
+        from) or over <strong>Bluetooth and local Wi-Fi when the internet is down or
+        blocked</strong>. It's built for activists and journalists under real pressure.
+        As a daily messenger it's spartan; as a tool of last resort it's one of a kind.
+        The catch is that Briar went into <strong>maintenance mode in July 2026</strong>.
+        The team decided to shut it down in 2025 because it had no funding and only
+        spare-time developers, then reversed course. Now it gets security fixes and bug
+        fixes but no new features, so treat it as a finished tool instead of one that's
+        improving.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>No central anything: nothing to block, seize, or log</li>
-            <li>Works without internet via Bluetooth/Wi-Fi mesh</li>
-            <li>All traffic over Tor by default; no phone number or email</li>
-            <li>Desktop client (Windows/macOS/Linux) now in beta alongside Android</li>
+            <li>Works without internet over Bluetooth or Wi-Fi</li>
+            <li>Traffic goes over Tor, with no phone number or email</li>
+            <li>Desktop beta for Windows, macOS, and Linux</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Android and a beta desktop client only; iOS still unsupported (platform reasons)</li>
-            <li>Both parties must be online to deliver: no server-side queueing</li>
-            <li>No voice/video; battery cost from constant Tor connection</li>
+            <li>No iPhone version, and the desktop beta lacks offline features</li>
+            <li>Both people must be online to exchange messages</li>
+            <li>No calls, account backup, or file attachments</li>
+            <li>Drains battery and runs unreliably in the background on Android</li>
+            <li>Maintenance mode: bug and security fixes only</li>
           </ul>
         </div>
       </div>
@@ -372,30 +441,34 @@
       </div>
       <p>
         Threema skips subscriptions entirely: you pay once, get a randomly generated
-        Threema ID, and you're done. <strong>It doesn't require a phone number or email.</strong> It's under Swiss jurisdiction and has focused on keeping
-        metadata minimal for years, so the server learns very little about who's
-        talking to whom. Most of the client code is open source and independently
-        audited, though parts of the backend stay closed. Ownership changed in Jan
-        2026 to Comitis Capital, a German private-equity firm: its second PE owner
-        since 2020.
+        Threema ID, and you're done. <strong>It doesn't require a phone number or
+        email.</strong> It's under Swiss jurisdiction and has focused on keeping metadata
+        minimal for years, so the server learns very little about who's talking to whom.
+        Most of the app code is open source and independently audited, though parts of
+        the backend stay closed. Ownership changed in January 2026 to Comitis Capital, a
+        German private-equity firm (an investment company that buys businesses). That's
+        Threema's second private-equity owner since 2020. Threema also announced a
+        partnership with IBM Research in early 2026 to make its encryption withstand
+        future quantum computers, though it hasn't set a release date.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>No phone number or email needed: random ID is the only identifier</li>
-            <li>One-time purchase, not a recurring subscription</li>
-            <li>Swiss jurisdiction, strong metadata minimization by design</li>
+            <li>No phone number or email, just a random ID</li>
+            <li>One-time purchase, not a subscription</li>
+            <li>Swiss jurisdiction and minimal metadata by design</li>
             <li>Independently audited; most code is open source</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Small network compared to Signal: onboarding contacts takes effort</li>
-            <li>Some backend components aren't open source</li>
-            <li>Now owned by German private equity (Comitis Capital), second PE owner since 2020</li>
-            <li>One-time cost rose to €6, still real friction next to free competitors</li>
+            <li>Smaller network than Signal's</li>
+            <li>Some server-side code isn't open source</li>
+            <li>Owned by a German private-equity firm since January 2026</li>
+            <li>One-time cost rose to €6</li>
+            <li>Disrupted by DDoS (traffic-flood) attacks in August 2026; no data compromised</li>
           </ul>
         </div>
       </div>
@@ -415,31 +488,40 @@
         <span>onion-routed</span><span>no phone number</span><span>decentralized</span><span>open source</span><span>free</span>
       </div>
       <p>
-        Session routes every message through its own onion-style network of
-        decentralized <strong>service nodes</strong> instead of a company-run server,
-        so there's no central operator to subpoena for your metadata. It's built by
-        the Session Technology Foundation (formerly the team behind Oxen), and you
-        don't need a phone number or email: an account is just a generated ID. You'll
-        occasionally notice the latency the onion routing adds. A 2026 funding crisis
-        nearly shut the project down entirely; it's still running, but on a much
-        smaller team.
+        Session sends every message through a network of community-run <strong>service
+        nodes</strong> instead of a company-run server. Each node passes the message along
+        so that none sees both sender and recipient, which means there's no central
+        operator to subpoena for your metadata. The Session Technology Foundation
+        (formerly the team behind Oxen) builds it, and you don't need a phone number or
+        email, since an account is just a generated ID.
+      </p>
+      <p>
+        The bigger gap is that Session <strong>doesn't have forward secrecy yet</strong>,
+        so a stolen account key could expose past messages. A v2 protocol that adds it,
+        along with protection against future quantum computers, is designed but hasn't
+        shipped. Two independent research papers in 2026 also found flaws in its design, including
+weak checks that each person is who they claim to be, and Session hasn't publicly
+confirmed fixes. A 2026 funding crisis nearly shut the project down too. It now
+runs on donations with two or three developers plus volunteers, down from about
+twelve full-time.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>No phone number, email, or other identifier required</li>
-            <li>Onion routing over decentralized service nodes: no central server to compel</li>
-            <li>Open source clients and protocol</li>
+            <li>No central server to compel; community-run nodes relay messages</li>
+            <li>Open source apps and protocol</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Independent 2026 research found multiple protocol vulnerabilities, including a flaw that could in principle allow network takeover</li>
-            <li>Survived a 2026 funding crisis that nearly shut it down; runs on a much smaller team now, plus volunteers</li>
-            <li>Onion routing trades some speed for the metadata resistance</li>
-            <li>Smaller user base: expect to onboard contacts yourself</li>
+            <li>2026 research found design flaws, including a possible network takeover</li>
+            <li>No forward secrecy or quantum-resistant encryption yet</li>
+            <li>Small team after the 2026 funding crisis</li>
+            <li>Onion routing trades some speed for privacy</li>
+            <li>Small user base: you'll be onboarding contacts yourself</li>
           </ul>
         </div>
       </div>
@@ -459,33 +541,34 @@
         <span>e2ee not default</span><span>secret chats only</span><span>custom mtproto</span><span>cloud-stored history</span><span>free</span>
       </div>
       <p>
-        Telegram is not a private messenger, and that needs saying clearly because
-        it gets mislabeled as one constantly. Regular chats and all group
-        chats are server-side encrypted, so <strong>Telegram holds the keys and can
-        read them</strong>. Secret Chats are the one exception, and they're nobody's
-        default. The company doesn't hold the line under pressure either. France arrested the
-        CEO in 2024 and got policy shifts, not principled resistance. Russia charged
-        him with facilitating terrorism in July 2026. Apple briefly
-        pulled the app worldwide in August 2026 after scanning it and finding illegal
-        content. It's a cloud messenger with a privacy reputation it hasn't
-        earned. Treat it as social media, never as a Signal replacement.
+        Telegram is not a private messenger, and that needs saying clearly because it gets
+        mislabeled as one constantly. Regular chats and all group chats are encrypted only
+        between you and Telegram's servers (server-side encryption), so <strong>Telegram
+        holds the keys and can read them</strong>. Secret Chats are the one exception, and
+        they're nobody's default. The company doesn't hold the line under pressure either.
+        France arrested the CEO in 2024 and got policy shifts, not principled resistance.
+        Russia charged him with facilitating terrorism in July 2026. Apple briefly pulled
+        the app worldwide in August 2026 after scanning it and finding illegal content.
+        It's a cloud messenger with a privacy reputation it hasn't earned. Treat it as
+        social media, never as a Signal replacement.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Huge global user base, channels, and bot ecosystem</li>
-            <li>Large file-sharing limits and cross-platform sync</li>
+            <li>Huge user base worldwide, plus channels and bots</li>
+            <li>Big file limits and chats that sync across devices</li>
             <li>Familiar, polished UX</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Regular and group chats are server-side encrypted, not E2EE: Telegram can read them</li>
-            <li>Secret Chats are E2EE but not default and unavailable on desktop</li>
-            <li>Custom MTProto protocol, far less audited than Signal's</li>
-            <li>Cloud history stored indefinitely; user data handed to law enforcement when compelled</li>
+            <li>Telegram holds the decryption keys for regular and group chats, so they aren't true end-to-end encryption</li>
+            <li>Secret Chats are end-to-end encrypted but off by default, and missing on Windows and Linux desktop</li>
+            <li>Custom MTProto encryption, far less examined than Signal's</li>
+            <li>Cloud history is stored indefinitely</li>
+            <li>Your IP address and phone number can go to authorities on a court order</li>
           </ul>
         </div>
       </div>
@@ -517,7 +600,7 @@
             <td class="name">Matrix / Element</td><td class="part">dms &amp; private rooms</td><td class="yes">username</td><td>federated</td><td class="part">per-server</td><td>all</td>
           </tr>
           <tr>
-            <td class="name">Briar</td><td class="yes">yes</td><td class="yes">none</td><td>peer-to-peer</td><td class="yes">near zero</td><td>android</td>
+            <td class="name">Briar</td><td class="yes">yes</td><td class="yes">none</td><td>peer-to-peer</td><td class="yes">near zero</td><td>android, desktop beta</td>
           </tr>
           <tr>
             <td class="name">Threema</td><td class="yes">yes</td><td class="yes">random id</td><td>centralized</td><td class="yes">minimal</td><td>all</td>

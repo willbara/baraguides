@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">2fa</span></p>
 
     <h1>2FA &amp; Hardware Keys</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 5 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-04</b> · 5 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       A second factor means a stolen password isn't enough. The jump from
@@ -138,6 +138,34 @@
       </div>
     </div>
 
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>phishing</h4>
+        <p>A fake login page that tricks you into typing your password and code. A phishing-proof factor refuses to work on the wrong site.</p>
+      </div>
+      <div class="crit">
+        <h4>TOTP (app codes)</h4>
+        <p>The six-digit codes an authenticator app makes every 30 seconds. Short for time-based one-time password.</p>
+      </div>
+      <div class="crit">
+        <h4>FIDO2</h4>
+        <p>The open standard behind hardware keys and passkeys. The key proves to the site that it is you, and proves to you that it is the real site.</p>
+      </div>
+      <div class="crit">
+        <h4>firmware</h4>
+        <p>The software built into a key. "Updatable" means the maker can fix flaws on keys you already own.</p>
+      </div>
+      <div class="crit">
+        <h4>end-to-end encryption (E2EE)</h4>
+        <p>Your codes are locked on your device before they sync. The company storing them can't read them.</p>
+      </div>
+      <div class="crit">
+        <h4>NFC</h4>
+        <p>Tap the key on the back of your phone to log in. No cable needed.</p>
+      </div>
+    </div>
+
     <p class="section-label">recommendations</p>
 
     <!-- YubiKey -->
@@ -150,34 +178,42 @@
         <span>🇸🇪 sweden</span><span>fido2</span><span>totp</span><span>closed source</span><span>paid</span>
       </div>
       <p>
-        The YubiKey is the reference hardware key: tap to log in, immune to phishing,
-        and supported by practically every service that supports anything. One key
-        (USB-A or USB-C, with NFC) does FIDO2/passkeys, TOTP storage, PGP, and
-        smartcard duty. <strong>Buy
-        two</strong>: one on your keychain, one in a drawer, and register both
-        everywhere, every time.
+        The YubiKey 5 Series is the reference hardware key: tap to log in, immune to
+        phishing, and supported by practically every service that supports anything.
+        One key (USB-A or USB-C, with NFC) handles FIDO2 passkeys, app-style codes,
+        PGP (email and file encryption), and smartcard logins.
+        <strong>Buy two</strong>: one on your keychain, one in a drawer, and register
+        both everywhere, every time.
+      </p>
+      <p>
+        A YubiKey's firmware can never be updated. In 2024, researchers showed that
+        someone holding a key made before May 2024 (firmware older than 5.7) could
+        clone it with lab equipment. Yubico rated this "EUCLEAK" flaw moderate, and
+        old keys can't be patched. Keys from Yubico's store now ship with firmware 5.8
+        (July 2026), so avoid old stock from resellers.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Widest service compatibility of any key, by far</li>
-            <li>Phishing-proof FIDO2/WebAuthn plus TOTP/PGP/PIV in one device</li>
-            <li>Indestructible in practice: survives keychains, washing machines, years</li>
-            <li>NFC works with phones; no battery, nothing to charge</li>
+            <li>Phishing-proof logins plus codes, PGP, and smartcard in one key</li>
+            <li>Very durable: survives keychains, washing machines, years</li>
+            <li>NFC works with phones, and it needs no battery</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
             <li>Closed-source firmware: you're trusting Yubico</li>
-            <li>~€55 each, and you really do need two</li>
-            <li>Firmware isn't updatable: a flaw means new hardware</li>
+            <li>Around €69 each, and you need two</li>
+            <li>Firmware can't be updated: a flaw means a new key</li>
+            <li>Keys made before May 2024 have an unfixable cloning flaw</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">from <b>~€55</b> per key</span>
+        <span class="price">from <b>~€69</b> per key, VAT included</span>
         <span><a href="https://www.yubico.com" rel="noopener">yubico.com →</a></span>
       </div>
     </article>
@@ -193,17 +229,27 @@
       </div>
       <p>
         The Nitrokey 3 does the same job as the YubiKey (USB-A or USB-C, with NFC)
-        with <strong>fully open-source, updatable firmware</strong>: you can audit what runs on the key,
-        and flaws get patched instead of forcing you to buy a new key. It's made in
-        Germany with a transparent supply chain. The ecosystem is a little younger,
+        with <strong>open-source, updatable firmware</strong>. You can audit what
+        runs on the key, and flaws get patched instead of forcing you to buy a new
+        key. It's made in Germany with a transparent supply chain. The ecosystem is a little younger,
         so check your critical services against Nitrokey's compatibility notes
         before going all-in.
+      </p>
+      <p>
+        The key also holds a separate security chip made by NXP. Nitrokey says its
+        inner workings can't be reviewed. It guards OpenPGP and smartcard keys, but
+        passkeys rely on the main chip's protections instead.
+      </p>
+      <p>
+        Only the Nitrokey 3A Mini has official FIDO certification (Level 1, since
+        August 2024), so check the model if a service demands a certified key.
+        Nitrokey raised its prices by 10% in May 2026.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Open firmware on open hardware: verifiable end to end</li>
+            <li>Open-source firmware that anyone can audit</li>
             <li>Updatable: security fixes don't require new hardware</li>
             <li>EU-based company, privacy-first by charter</li>
           </ul>
@@ -213,7 +259,8 @@
           <ul>
             <li>Some advanced features landed later than Yubico's equivalents</li>
             <li>Less tested against obscure enterprise systems</li>
-            <li>Slightly pricier per key</li>
+            <li>Only the 3A Mini model is FIDO-certified</li>
+            <li>Closed security chip, and passkeys don't rely on it</li>
           </ul>
         </div>
       </div>
@@ -233,11 +280,11 @@
         <span>android only</span><span>totp</span><span>open source</span><span>local-first</span><span>free</span>
       </div>
       <p>
-        Aegis is the best TOTP app on Android: it's open source, the vault is
-        encrypted and locks behind biometrics, and, the part that matters, it does
-        <strong>proper encrypted exports</strong>, so a lost phone isn't a lost
-        identity. Set the vault to auto-back up to a synced folder and recovery
-        becomes a non-event.
+        Aegis is the best TOTP app on Android. It's open source, and its vault is
+        encrypted and locks behind your fingerprint or face. The part that matters is
+        that it does <strong>proper encrypted exports</strong>, so a lost phone isn't
+        a lost identity. Set the vault to back up automatically to a synced folder and
+        recovery becomes a non-event.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -251,9 +298,9 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Android only: iPhone users want Tofu or Ente Auth instead</li>
-            <li>Backups are your responsibility, automate them once, properly</li>
-            <li>TOTP is still phishable; upgrade critical accounts to a key</li>
+            <li>Android only: iPhone users want Ente Auth or Proton Auth</li>
+            <li>You set up your own backups</li>
+            <li>Codes can still be phished</li>
           </ul>
         </div>
       </div>
@@ -274,32 +321,38 @@
       </div>
       <p>
         Ente Auth gives you TOTP codes that follow you across Android, iOS, and
-        desktop with <strong>end-to-end encrypted sync</strong>: the convenience of
-        Authy without the closed source or the phone-number account. It's from the
-        team behind Ente Photos; the app is free and the sync is optional if you'd
-        rather stay offline.
+        desktop with <strong>end-to-end encrypted sync</strong>. It has the convenience
+        of Authy without the closed source or the phone-number account. It's from the
+        team behind Ente Photos. The app is free, and the sync is optional if you'd
+        rather stay offline. Export your codes regularly in case the service ever
+        goes away.
+      </p>
+      <p>
+        Cure53, a security firm, audited Ente's encryption design in 2023 and its
+        servers in 2025. Ente Auth uses the same encryption, but the reports don't
+        name the Auth app itself.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>E2EE multi-device sync: lost phone, zero drama</li>
-            <li>Open source with published audits</li>
+            <li>Open source, with Cure53 audits of its encryption and servers</li>
             <li>Works offline; sync account is optional</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Sync means trusting their infrastructure exists tomorrow (export regularly)</li>
+            <li>Sync depends on Ente's servers staying up</li>
             <li>Younger project than Aegis</li>
-            <li>Same TOTP phishing ceiling as every code app</li>
+            <li>Codes can still be phished</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
         <span class="price"><b>free</b></span>
-        <span><a href="https://ente.io/auth" rel="noopener">ente.io/auth →</a></span>
+        <span><a href="https://ente.com/auth" rel="noopener">ente.com/auth →</a></span>
       </div>
     </article>
 
@@ -313,27 +366,37 @@
         <span>all platforms</span><span>totp</span><span>open source</span><span>e2ee</span><span>free</span>
       </div>
       <p>
-        Proton Auth is Proton's own TOTP authenticator, and it does the same job
-        as Ente Auth: <strong>open source with end-to-end encrypted sync</strong>
-        across devices, but it lives inside the Proton account you may already
-        have for Mail, Pass, or VPN. It's the natural default if you're already
-        on Proton and would rather not add another vendor for one more app.
+        Proton Authenticator (shown here as Proton Auth) is Proton's own TOTP app,
+        launched in July 2025. It does the same job as Ente Auth:
+        <strong>open source with end-to-end encrypted sync</strong> across devices.
+        Sync runs through the Proton account you may already have for Mail, Pass, or
+        VPN, but you can use the app without any account. It's the natural default
+        if you're already on Proton and would rather not add another vendor.
+      </p>
+      <p>
+        Proton says it will publish regular independent audits, but we found none yet.
+        Proton has also faced fresh criticism. In October 2026, 404 Media reported
+        that CEO Andy Yen called a request to security-test new code "loser
+        thinking". Proton later admitted it had been too blunt. The
+        <a href="email-providers.html#proton-mail">Proton Mail</a> card has more.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>E2EE sync across devices, same model as Ente Auth</li>
+            <li>E2EE sync across devices, like Ente Auth</li>
             <li>Open source</li>
-            <li>Shares login and billing with the rest of the Proton suite</li>
+            <li>Works without an account; sync is optional</li>
+            <li>Signs in with your existing Proton account</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Younger than Aegis or Ente Auth: smaller track record so far</li>
-            <li>Biggest advantage is ecosystem convenience, not a feature edge over Ente Auth</li>
-            <li>Same TOTP phishing ceiling as every code app</li>
+            <li>Newer than Aegis or Ente Auth, so a short track record</li>
+            <li>No independent audit published yet</li>
+            <li>No feature edge over Ente Auth</li>
+            <li>Codes can still be phished</li>
           </ul>
         </div>
       </div>
@@ -353,10 +416,10 @@
         </thead>
         <tbody>
           <tr>
-            <td class="name">YubiKey 5</td><td>hardware</td><td class="yes">yes</td><td class="no">firmware closed</td><td class="part">buy a spare</td><td>~€55/key</td>
+            <td class="name">YubiKey 5</td><td>hardware</td><td class="yes">yes</td><td class="no">firmware closed</td><td class="part">buy a spare</td><td>~€69/key</td>
           </tr>
           <tr>
-            <td class="name">Nitrokey 3</td><td>hardware</td><td class="yes">yes</td><td class="yes">fully</td><td class="part">buy a spare</td><td>~€65/key</td>
+            <td class="name">Nitrokey 3</td><td>hardware</td><td class="yes">yes</td><td class="part">firmware open</td><td class="part">buy a spare</td><td>~€65/key</td>
           </tr>
           <tr>
             <td class="name">Aegis</td><td>totp app</td><td class="no">no</td><td class="yes">yes</td><td class="yes">encrypted export</td><td>free</td>
@@ -375,10 +438,10 @@
     <p class="section-label">worth knowing</p>
     <div class="notes">
       <p>
-        <strong>A single key isn't enough — register two, or you risk a lockout.</strong>
+        <strong>Register two keys, or you risk a lockout.</strong>
         A single hardware key is a single point of lockout. Register the backup key at
-        the same time as the primary, every account, no exceptions; retrofitting later
-        never happens.
+        the same time as the primary, on every account, with no exceptions. Going back
+        to add it later rarely happens.
       </p>
       <p>
         <strong>Store recovery codes like they're passwords</strong>, because they are.

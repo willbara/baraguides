@@ -43,7 +43,7 @@
 ├── 404.html
 ├── style.css               all shared styling, loaded by every page
 ├── site-search/            header search: index generator, index, and script
-│   └── SERVICES.md         source-of-truth mirror of every service entry
+│   └── SERVICES.md         plain list of every service (name, verdict, pills)
 ├── icons/                  service icons, referenced as [service-name].svg
 ├── meta/                   favicons, web manifest, README banner
 ├── dictionary.md           canonical attribute-pill vocabulary
@@ -58,8 +58,9 @@ Pure static HTML and CSS, no backend. All shared styling lives in one
 
 Site-wide search lives in `site-search/`, matching against service names,
 categories, and pills, with results dropping down from the header on every
-page. The index (`site-index.js`) is generated from `SERVICES.md`; after
-changing a service entry, regenerate it:
+page. The index (`site-index.js`) is generated from `SERVICES.md`, a plain
+list of services with their verdicts and pills. After adding, renaming, or
+re-pilling a service, update that list to match the page and regenerate:
 
 ```sh
 python3 site-search/build_index.py

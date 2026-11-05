@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">frontends</span></p>
 
     <h1>Privacy Frontends</h1>
-    <p class="updated">last updated <b>2026-08-25</b> · 7 tools · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-04</b> · 7 tools · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       You don't need an account, an app, or an ad profile to watch a YouTube video
@@ -110,9 +110,12 @@
     <div class="headsup">
       <span class="k">before you pick</span>
       Frontends live in a cat-and-mouse game with the platforms they read from.
-      Google has been blocking Invidious instances at the IP level since 2024, Reddit
-      spent mid-2026 closing its anonymous access paths, and X shut Nitter down for
-      good with a cease-and-desist in August 2026 after a brief 2025 comeback.
+      Google has been blocking Invidious instances at the IP level since 2024. In
+      October 2026, Redlib users began reporting blocked comment pages, and on 29
+      October Reddit said it is moving to a logged-in-only experience, with tests
+      outside the US first. X sent Nitter cease-and-desist letters in August and
+      September 2026. Its main instances went offline, and the maintainer is seeking
+      legal help.
       <em>Treat any single public instance as disposable and keep fallbacks.</em>
     </div>
 
@@ -136,6 +139,30 @@
       </div>
     </div>
 
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>instance</h4>
+        <p>One public copy of a frontend, run by a volunteer on their own server. Whoever runs it can see the requests that pass through it.</p>
+      </div>
+      <div class="crit">
+        <h4>self-hosting</h4>
+        <p>Running the frontend yourself, on a home computer or a rented server, so the only person who sees your traffic is you.</p>
+      </div>
+      <div class="crit">
+        <h4>extractor</h4>
+        <p>The code that pulls video details and streams out of YouTube. Every YouTube frontend here has one, and it breaks when YouTube changes something.</p>
+      </div>
+      <div class="crit">
+        <h4>SABR</h4>
+        <p>YouTube's newer way of sending video. Tools built for the older way stopped working until their makers added support for it in 2026.</p>
+      </div>
+      <div class="crit">
+        <h4>Manifest V2 and V3</h4>
+        <p>Two versions of the rulebook for browser extensions. Chrome and most browsers built on it are removing the older V2, which is why older extensions stop working there.</p>
+      </div>
+    </div>
+
     <p class="section-label">the tools</p>
 
     <!-- LibRedirect -->
@@ -153,6 +180,14 @@
         link and land on Invidious; you click a Reddit thread and land on Redlib. It's
         <strong>the glue that makes the rest of this page usable day to day</strong>.
       </p>
+      <p>
+        The maintainers list Firefox, Brave, and Helium (another Chromium-based
+        browser) as supported. Chrome and most other Chromium browsers can't run it,
+        because it still uses Manifest V2, the older extension format. The two
+        maintainers say a move to V3 is planned, but they lack the time right now, so
+        the project is in maintenance mode. Brave changed how it treats older
+        extensions in 2026, so check that it still runs there.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -165,15 +200,15 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Broken on Chrome: Manifest V3 disabled it, and the maintainers recommend Firefox or Brave instead</li>
-            <li>Two-person team in maintenance mode; no timeline for a Chrome-compatible rewrite</li>
+            <li>Doesn't work on Chrome or most Chromium browsers</li>
+            <li>Two-person maintenance-mode team, with no date for a Chrome rewrite</li>
             <li>Only as good as the instances it points at: keep two or three per service</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
         <span class="price"><b>free</b> · open source</span>
-        <span><a href="https://libredirect.github.io" rel="noopener">libredirect.github.io →</a></span>
+        <span><a href="https://libredirect.manerakai.com" rel="noopener">libredirect.manerakai.com →</a></span>
       </div>
     </article>
 
@@ -192,13 +227,21 @@
         ads, and no infinite-scroll tricks</strong>. You can't post or vote through
         it; it's for reading.
       </p>
+      <p>
+        Redlib has run into trouble. Since 20 October 2026, users have reported Reddit
+        rejecting its requests for comment pages. Reports since then are mixed: some
+        instances and forks work, and others don't. On 29 October, Reddit's
+        shareholder letter said it is shifting to a logged-in-only experience, with
+        tests outside the US first. Whether the two are linked is unconfirmed.
+        Redlib's latest release came on 22 October, its first since March 2025.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Server-rendered pages with zero client-side JavaScript</li>
-            <li>Spoofs OAuth tokens from Reddit's official Android app, refreshed every 24 hours like the real thing</li>
-            <li>Survived Reddit's mid-2026 crackdown, plausibly because it never relied on the killed .json endpoints</li>
+            <li>Poses as Reddit's official Android app, refreshing its access token daily</li>
+            <li>Latest release adds anti-blocking tweaks and proxy support</li>
             <li>Community instance list updates automatically</li>
           </ul>
         </div>
@@ -206,8 +249,9 @@
           <h5>mind the</h5>
           <ul>
             <li>Read-only by design: no posting, voting, or commenting</li>
-            <li>Reddit keeps gating more communities behind login, and no frontend can reach past a server-side gate</li>
-            <li>The instance inherits Reddit's rate limits on its own IP, so heavy shared use is visible to Reddit</li>
+            <li>Reports of blocked comment pages since 20 October 2026</li>
+            <li>Login-gated communities can't be reached by any frontend</li>
+            <li>Busy public instances get rate-limited by Reddit</li>
           </ul>
         </div>
       </div>
@@ -231,6 +275,12 @@
         or tracking scripts</strong>. Pick it when you want the whole experience in a
         browser; pick Piped when you just want playback that degrades gracefully.
       </p>
+      <p>
+        YouTube's blocking has thinned the public list. The official site lists only
+        four regular web instances in November 2026. Playback also relies on
+        invidious-companion, a separate helper program that fetches the video
+        streams, so running your own means running two pieces.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -238,7 +288,7 @@
             <li>The fullest interface here: comments, channel pages, playlists</li>
             <li>Local accounts keep subscriptions without touching Google</li>
             <li>RSS feeds per channel</li>
-            <li>Still actively developed, with recent stable releases</li>
+            <li>Actively developed: new releases in October and November 2026</li>
           </ul>
         </div>
         <div class="cons">
@@ -247,6 +297,7 @@
             <li>Google has blocked it at the IP level since 2024: captchas, throttling, blacklists</li>
             <li>Most public instances lock registration just to control the load</li>
             <li>A self-hosted personal instance works better than any public one</li>
+            <li>Playback needs the separate invidious-companion helper</li>
           </ul>
         </div>
       </div>
@@ -268,8 +319,10 @@
       <p>
         Piped is a YouTube frontend split into a frontend, a backend, and a proxy
         layer, so the video stream reaches you through the instance instead of
-        straight from Google's servers. Treat it as something you self-host, not
-        something you find a public instance for.
+        straight from Google's servers. Plan to self-host it, because public
+        instances are unreliable. On 4 November 2026, seven of the 15 instances on
+        Piped's official list no longer existed at their listed addresses, and only
+        two returned video data in a test.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -283,7 +336,8 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Public instances have decayed to the point that LibreTube dropped support for them entirely in 2026</li>
+            <li>Seven of 15 listed public instances no longer exist</li>
+            <li>LibreTube dropped public Piped instances in April 2026</li>
             <li>Self-hosting is effectively the only reliable way to run it</li>
           </ul>
         </div>
@@ -309,6 +363,12 @@
         machine</strong> instead of on anyone's server. If you watch YouTube at a
         desk, this is the comfortable option.
       </p>
+      <p>
+        Since July 2026 the team has shipped several fixes to keep playback working
+        after YouTube moved to SABR, its newer way of sending video. YouTube's bot
+        checks can also show a CAPTCHA (a "prove you're human" puzzle) instead of the
+        video.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -322,9 +382,10 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Still labeled Beta by the project itself: honest, not alarming, but set expectations</li>
+            <li>Labeled Beta by the project itself</li>
             <li>Desktop only; pair it with NewPipe or LibreTube on the phone</li>
-            <li>Same extractor arms race as every YouTube frontend</li>
+            <li>Live streams play again since November 2026, but you can't seek</li>
+            <li>Version 0.26 dropped macOS 12 support</li>
           </ul>
         </div>
       </div>
@@ -348,6 +409,16 @@
         ads and keeps subscriptions on the device, with no Google account involved.
         You install it from F-Droid or its own repository, not the Play Store.
       </p>
+      <p>
+        Three 2026 changes matter. YouTube's move to SABR (its newer way of sending
+        video) cut available resolutions, and the June fix works for everything except
+        videos made for kids. Version 0.29 in July dropped Android 5, so you now need
+        Android 6 or newer. And Google's developer verification, which makes app
+        developers register with Google, began on 30 September 2026. Its first phase
+        covers installs from Google Play and a few phone-maker stores in four
+        countries. Other sources follow in 2027. NewPipe's team opposes the program
+        and says it won't enroll.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -360,9 +431,10 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>YouTube gets most of the maintenance attention; the project is openly seeking co-maintainers for SoundCloud and PeerTube</li>
-            <li>Not on the Play Store (it breaks YouTube's ToS), so updates come from F-Droid or its own repo</li>
+            <li>Seeking maintainers for its SoundCloud and PeerTube support</li>
+            <li>Not on the Play Store; updates come from F-Droid or its own repo</li>
             <li>Breaks when YouTube changes things, until a fix ships</li>
+            <li>Team won't join Google's developer verification</li>
           </ul>
         </div>
       </div>
@@ -383,26 +455,32 @@
       </div>
       <p>
         LibreTube is a newer Android client for YouTube with a more modern Material
-        design than NewPipe. It started life on the Piped backend, but its
-        <strong>Full Local Mode</strong> now talks to YouTube directly through the
-        NewPipe Extractor library, so it no longer depends on public instances.
+        design than NewPipe. It started life on the Piped backend. Since version 31 in
+        April 2026, it talks to YouTube directly through the NewPipe Extractor library
+        (code that pulls video data out of YouTube). That means it no longer depends
+        on public instances.
+      </p>
+      <p>
+        Version 32 in August 2026 added support for SABR, YouTube's newer way of
+        sending video, to fix playback failures. It installs from F-Droid,
+        IzzyOnDroid, or GitHub.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Full Local Mode makes it fully independent of the public Piped network</li>
+            <li>Talks to YouTube directly, with no Piped instance needed</li>
             <li>Same no-account subscription model, wrapped in a current Material design</li>
-            <li>Development is healthy, and F-Droid is the recommended install path</li>
+            <li>Active: stable releases in April, May, and August 2026</li>
             <li>Can still point at a self-hosted Piped instance if you run one</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Dropped public Piped instance support because none were reliably working</li>
+            <li>Dropped public Piped instance support in April 2026</li>
             <li>Shorter track record than NewPipe</li>
-            <li>Same extractor arms race as NewPipe: the two share the library</li>
+            <li>Shares NewPipe's extractor library, and its breakages</li>
           </ul>
         </div>
       </div>
@@ -425,7 +503,7 @@
             <td class="name">LibRedirect</td><td>(routes to the rest)</td><td>extension</td><td>your browser</td><td class="part">active · no chrome</td>
           </tr>
           <tr>
-            <td class="name">Redlib</td><td>Reddit</td><td>web instance</td><td>instance server</td><td class="yes">active</td>
+            <td class="name">Redlib</td><td>Reddit</td><td>web instance</td><td>instance server</td><td class="part">active, degraded</td>
           </tr>
           <tr>
             <td class="name">Invidious</td><td>YouTube</td><td>web instance</td><td>instance server</td><td class="part">active, degraded</td>
@@ -445,7 +523,7 @@
         </tbody>
       </table>
     </div>
-    <p class="t-note">statuses checked 2026-08-25; this category moves fast, so expect drift.</p>
+    <p class="t-note">statuses checked 2026-11-04; this category moves fast, so expect drift.</p>
 
     <p class="section-label">worth knowing</p>
     <div class="notes">
@@ -467,12 +545,24 @@
         a dead end.
       </p>
       <p>
-        <strong>This shifts trust; it doesn't erase it.</strong> A public instance
+        <strong>You still have to trust someone.</strong> A public instance
         host sees your IP and your requests even when your browser runs no tracking
         scripts, and the platform can see the instance in turn: a Redlib instance
         inherits Reddit's rate limits on its own IP, so heavy shared use is visible to
         Reddit. Pair instances with a <a href="vpns.html">VPN</a> if that bothers you,
         or stick to the local apps.
+      </p>
+      <p>
+        <strong>Android installs may change in 2027.</strong> NewPipe and LibreTube
+        both come from outside the Play Store. Google's developer verification asks
+        app developers to register. Since 30 September 2026 it applies to installs
+        from Google Play and six phone-maker stores in Brazil, Indonesia, Singapore,
+        and Thailand. Google says direct downloads and other stores are covered when
+        it goes global in 2027. Apps from unregistered developers will then need a
+        one-time "advanced flow" to install: developer mode, a one-day wait, and a
+        warning screen. Google says installing from a computer with ADB (Android's
+        developer tool) is unchanged. F-Droid and NewPipe have both publicly opposed
+        the program.
       </p>
     </div>
 

@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">browsers</span></p>
 
     <h1>Browsers &amp; Search</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 6 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-04</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Your browser sees everything you do online, which makes it the single biggest
@@ -404,6 +404,57 @@
       </div>
     </article>
 
+    <!-- Orion -->
+    <article class="provider a-aqua reveal" id="orion">
+      <div class="p-head">
+        <span class="p-icon"><img src="../icons/orion.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Orion</h3>
+        <span class="verdict">the webkit pick</span>
+      </div>
+      <div class="meta">
+        <span>🇺🇸 usa</span><span>🍎 apple only</span><span>webkit</span><span>closed source</span><span>free</span>
+      </div>
+      <p>
+        Orion is a WebKit browser from Kagi, the paid search engine, built by a small
+        team and funded by its users instead of ads. Its content blocker is the main
+        draw on both macOS and iOS: EasyList, EasyPrivacy, and AdGuard's base list run
+        by default, and you can add any Adblock Plus-style filter list or type in
+        custom rules of your own. It's highly customizable too, with vertical and
+        compact tabs, profiles, and programmable buttons, and it runs Chrome and
+        Firefox extensions on Safari's engine, so it's <strong>the pick if you want
+        WebKit with real control over blocking</strong>. Kagi says it collects no
+        usage telemetry. The platform story matters just as much, though. Kagi ended
+        development of the Linux and Windows versions on 2 October 2026, so Orion is
+        now a macOS and iOS browser, and the Linux beta has stopped receiving updates.
+        Kagi has promised to release the Linux and Windows code, but no release had
+        been confirmed as of November 2026.
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h5>good</h5>
+          <ul>
+            <li>Blocking compiles to native WebKit content-blocking rules, which Kagi says has minimal performance impact</li>
+            <li>Orion 1.1 (June 2026) added containers and built-in translation</li>
+            <li>Crash reports are opt-in, and update checks send only the browser version without logging your IP, according to its privacy policy</li>
+            <li>Kagi invites you to test the no-telemetry claim yourself with a traffic proxy such as mitmproxy</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h5>mind the</h5>
+          <ul>
+            <li>The blocker can't filter URL parameters (even with uBlock Origin) or run snippet filters, so it covers less than uBlock Origin on Firefox</li>
+            <li>Only some components are public, so you can't read the browser's code</li>
+            <li>No third-party audit has confirmed the telemetry claim, and nobody has published fingerprinting-resistance tests</li>
+            <li>It inherits WebKit's vulnerabilities, and nobody has measured how fast Orion ships patches next to Safari</li>
+            <li>Sync works only between Apple devices</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-foot">
+        <span class="price"><b>free</b> · optional Orion+ <b>$5/mo</b>, $50/yr, or $150 lifetime</span>
+        <span><a href="https://orionbrowser.com" rel="noopener">orionbrowser.com →</a></span>
+      </div>
+    </article>
+
     <p class="section-label">at a glance</p>
     <div class="table-scroll">
       <table>
@@ -430,6 +481,9 @@
           </tr>
           <tr>
             <td class="name">LibreWolf</td><td>Gecko</td><td class="yes">built-in</td><td class="yes">arkenfox-style</td><td class="no">manual</td><td>high</td>
+          </tr>
+          <tr>
+            <td class="name">Orion</td><td>WebKit</td><td class="yes">built-in + custom rules</td><td class="part">untested</td><td class="part">in-app checks</td><td>low</td>
           </tr>
         </tbody>
       </table>

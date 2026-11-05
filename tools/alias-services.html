@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">aliases</span></p>
 
     <h1>Alias Services</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 2 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-04</b> · 2 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Email aliasing lets you give every signup a unique, disposable forwarding
@@ -110,9 +110,9 @@
 
     <div class="headsup">
       <span class="k">before you pick</span>
-      Several email providers already prepackage this feature: Proton Mail's paid
-      plans and StartMail's unlimited built-in aliases both ship aliasing for free
-      inside the inbox (see <a href="../tools/email-providers.html">Email Providers</a>).
+      Some email providers already include this feature: Proton's Pass Plus and
+      Unlimited plans and StartMail's built-in aliases both give you unlimited
+      aliases at no extra cost (see <a href="../tools/email-providers.html">Email Providers</a>).
       <em>A standalone alias service earns its keep when your primary email provider
       doesn't already include one</em>, or when you want aliasing kept independent
       from whichever inbox you're using this year.
@@ -147,39 +147,47 @@
         <span class="verdict">the default pick</span>
       </div>
       <div class="meta">
-        <span>open source</span><span>self-hostable</span><span>reply-from-alias</span><span>browser extension</span><span>free tier</span>
+        <span>open source</span><span>audited</span><span>self-hostable</span><span>reply-from-alias</span><span>free tier</span>
       </div>
       <p>
-        SimpleLogin is now owned by Proton but still <strong>operating
-        semi-independently:</strong> separate apps, separate branding, its own free
-        tier. The browser extension creates an alias in one click at the exact
-        moment a site asks for an email, and replies go out through the alias
-        automatically. The whole thing is also open source and self-hostable if
-        you'd rather run it yourself. It gets a passing mention on the
-        <a href="email-providers.html">Email Providers</a> page as part of the
-        Proton bundle; this is its full write-up.
+        SimpleLogin is an email alias service: it gives you a throwaway forwarding
+        address for each site. Its browser extension creates one in a click when a
+        site asks for your email, and replies go out through the alias
+        automatically. The code is open source, so you can run it yourself. It gets
+        a short mention on the <a href="email-providers.html">Email Providers</a>
+        page as part of the Proton bundle; this is its full write-up.
+      </p>
+      <p>
+        Proton bought SimpleLogin in April 2022 and has held it through Proton AG
+        in Switzerland since January 2024. It <strong>still runs as its own
+        product</strong>, with separate apps, separate branding, and its own free
+        tier. Since November 2024, Proton Pass Plus and SimpleLogin Premium have
+        been one subscription. A 2022 audit by Securitum, a security firm, found no
+        critical problems in the web and Android apps. It did not cover the browser
+        extensions or the iPhone app. Updates still ship often.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Open source clients and server; self-hostable</li>
-            <li>Reply-from-alias keeps your real address out of the conversation entirely</li>
-            <li>Browser extension makes alias creation a one-click habit</li>
-            <li>Usable free tier; subscription is now unified with Proton Pass Plus, each includes the other's features</li>
+            <li>Open source and self-hostable</li>
+            <li>Replies go out through the alias, even on the free plan</li>
+            <li>One-click alias creation from the browser extension</li>
+            <li>Premium is bundled with Proton Pass Plus</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Now Proton-owned: independent today, worth watching long-term</li>
-            <li>Custom domains require a paid plan</li>
-            <li>Free tier caps active aliases</li>
+            <li>Owned by Proton since April 2022</li>
+            <li>Free plan caps you at 10 aliases</li>
+            <li>Custom domains need a paid plan</li>
+            <li>Last public audit was in 2022</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">free · premium from <b>~€2.5/mo</b></span>
+        <span class="price">free · premium <b>$36/yr</b> ($4 monthly)</span>
         <span><a href="https://simplelogin.io" rel="noopener">simplelogin.io →</a></span>
       </div>
     </article>
@@ -191,37 +199,55 @@
         <span class="verdict">the independent pick</span>
       </div>
       <div class="meta">
-        <span>open source</span><span>self-hostable</span><span>reply-from-alias</span><span>browser extension</span><span>free tier</span>
+        <span>open source</span><span>audited</span><span>self-hostable</span><span>reply-from-alias</span><span>free tier</span>
       </div>
       <p>
-        Addy.io (formerly AnonAddy) has the same core feature set as SimpleLogin
-        (reply-from-alias, custom domains, browser extension), but with
-        <strong>no Proton ownership in the picture</strong>. Reach for it if
-        you'd rather keep your alias provider and your email provider completely
-        unrelated, or if you're already deep in the Proton ecosystem and want a
-        second, unconnected vendor for this specific job.
+        Addy.io (formerly AnonAddy) does the same core job as SimpleLogin, with
+        <strong>no Proton ownership involved</strong>. A UK-based web developer
+        created it, and subscriptions pay for it. Its main servers are in the
+        Netherlands, with a backup in Poland. The code is open source and
+        self-hostable. Reach for it if you want your alias provider and your email
+        provider to be unrelated, or if you want a second vendor next to Proton.
+      </p>
+      <p>
+        The free plan is limited. It gives you unlimited standard aliases and 10 on
+        shared domains (domains the service owns and many people use), but no
+        replies from aliases and no custom domains. Paid plans from Lite add both,
+        plus blocking of tracking pixels (hidden images that report when you open an
+        email). Duo and Family plans, added in August 2026, cover two or five
+        people. A 2023 audit by Securitum, a security firm, found no significant
+        problems in the web app.
+      </p>
+      <p>
+        On 21 October 2026, addy.io took its website and web app offline for about
+        three hours. PHP, the language they run on, had two critical flaws that let
+        attackers run code on a server without logging in. The post calls the
+        shutdown a precaution and reports no attack. Email forwarding kept running.
+        Self-hosters had to update PHP too.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Fully open source and self-hostable</li>
+            <li>Open source and self-hostable</li>
             <li>Independent of Proton or any larger suite</li>
-            <li>Reply-from-alias and custom domains, including on the free tier's limits</li>
-            <li>Competitive pricing on paid tiers</li>
+            <li>Unlimited standard aliases on the free plan</li>
+            <li>Blocks tracking pixels on paid plans</li>
+            <li>Paid plans start at $1/mo</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Smaller team than SimpleLogin/Proton: fewer hands on support</li>
+            <li>Much smaller team than SimpleLogin or Proton</li>
             <li>Browser extension and mobile apps are less polished</li>
-            <li>Free tier alias cap is fairly low</li>
+            <li>Free plan can't reply from aliases or use custom domains</li>
+            <li>Free plan caps shared-domain aliases at 10</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">free · premium from <b>~€1/mo</b></span>
+        <span class="price">free · paid from <b>$1/mo</b>, billed yearly</span>
         <span><a href="https://addy.io" rel="noopener">addy.io →</a></span>
       </div>
     </article>
@@ -236,15 +262,15 @@
         </thead>
         <tbody>
           <tr>
-            <td class="name">SimpleLogin</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="part">paid</td><td>free–€2.5/mo</td>
+            <td class="name">SimpleLogin</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="part">paid</td><td>free–$36/yr</td>
           </tr>
           <tr>
-            <td class="name">Addy.io</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="part">paid</td><td>free–€1/mo</td>
+            <td class="name">Addy.io</td><td class="yes">yes</td><td class="yes">yes</td><td class="part">paid</td><td class="part">paid</td><td>free–$1/mo</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="t-note">prices are ballpark rates, check the provider before you commit.</p>
+    <p class="t-note">prices are in US dollars, taken from each provider's own pricing page on 2026-11-04. Check the provider before you commit.</p>
 
     <p class="section-label">worth knowing</p>
     <div class="notes">
@@ -262,10 +288,9 @@
         tied to it. Keep at least one stable, non-aliased recovery address on file.
       </p>
       <p>
-        <strong>Aliasing isn't anonymity.</strong> The alias hides your address from
-        the site you signed up with; it doesn't hide your IP, your payment details,
-        or your identity from the alias provider itself. Pick the threat model
-        accordingly.
+        <strong>An alias hides your address from the site you signed up with.</strong>
+        It does not hide your IP address, your payment details, or your identity
+        from the alias provider itself, so match the tool to the risk you face.
       </p>
     </div>
 

@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">social-media</span></p>
 
     <h1>Social Media</h1>
-    <p class="updated">last updated <b>2026-09-05</b> · 5 recommendations + nostr clients · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-04</b> · 5 recommendations + nostr clients · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Mainstream social media (Twitter/X, Instagram, YouTube, TikTok) runs on the
@@ -138,6 +138,34 @@
       </div>
     </div>
 
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>ActivityPub</h4>
+        <p>The shared language that lets different servers and apps talk to each other. It is why a Mastodon account can follow a PeerTube channel.</p>
+      </div>
+      <div class="crit">
+        <h4>Fediverse</h4>
+        <p>The whole network of servers and apps that speak ActivityPub. Mastodon, Lemmy, PeerTube, and Pixelfed are all part of it.</p>
+      </div>
+      <div class="crit">
+        <h4>instance</h4>
+        <p>One server running the software, run by a person or group with its own rules. Your account lives on an instance.</p>
+      </div>
+      <div class="crit">
+        <h4>relay and client (Nostr)</h4>
+        <p>A relay is a simple server that stores posts and passes them along. A client is the app you read and post with. You can mix any client with any relay.</p>
+      </div>
+      <div class="crit">
+        <h4>keypair (Nostr)</h4>
+        <p>Your private key proves you are you, and your public key is the name others see. Whoever holds the private key controls the account, so losing it means losing the account.</p>
+      </div>
+      <div class="crit">
+        <h4>Lightning and zaps</h4>
+        <p>Lightning is a faster way to send small Bitcoin payments. A zap is a small tip sent that way. In a custodial wallet a company holds the money for you. In a non-custodial wallet you hold it.</p>
+      </div>
+    </div>
+
     <p class="section-label">recommendations</p>
 
     <!-- Mastodon -->
@@ -150,36 +178,38 @@
         <span>federated</span><span>no algorithmic feed</span><span>open source</span><span>free</span>
       </div>
       <p>
-        Mastodon is the closest thing to a Twitter/X replacement that isn't owned by
-        anyone in particular. It's software anyone can run, and the servers
-        (<strong>instances</strong>) that run it talk to each other over ActivityPub,
-        so following someone on a different server works the same as following
+        Mastodon is the closest thing to a Twitter/X replacement that no single
+        company owns. Anyone can run the software. The servers
+        (<strong>instances</strong>) that run it talk to each other over ActivityPub.
+        Following someone on a different server works the same as following
         someone on your own. Timelines are chronological, not ranked by an
-        algorithm, and you can move your account (followers included) to another
+        algorithm. You can also move your account, followers included, to another
         instance if yours goes downhill.
       </p>
       <p>
-        Which instance you pick matters more here than on any centralized platform:
-        it decides your moderation experience, your default visibility, and who
-        technically has admin access to your account.
+        Which instance you pick matters more here than on any centralized platform.
+        It sets your moderation experience, your default visibility, and who has
+        admin access to your account. Founder Eugen Rochko stepped down as CEO
+        in November 2025 and now advises, and Felix Hlatky is the executive director.
+        Mastodon said then that a US nonprofit holds the trademark for now, with a
+        Belgian nonprofit planned to take it over.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Federated: no single company can shut down the whole network</li>
-            <li>Founder stepped down as CEO in a planned move to nonprofit governance</li>
             <li>Chronological timeline, no engagement-optimized algorithm</li>
             <li>Account migration tools let you move instances without losing followers</li>
-            <li>Open source, large and active developer community</li>
-            <li>Mastodon added quote posts in version 4.5 (November 2025), with consent controls that let you decide who can quote your posts</li>
+            <li>Funded by donations, with no ads</li>
+            <li>Quote posts since November 2025, and authors control who can quote them</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
             <li>Moderation quality and culture vary a lot between instances</li>
-            <li>Discovery is weaker than algorithm-driven platforms; growth takes more effort</li>
+            <li>Weaker discovery than algorithm-driven platforms</li>
             <li>Active users have fallen to under 1M</li>
             <li>Picking an instance is an extra decision newcomers don't expect</li>
           </ul>
@@ -201,29 +231,37 @@
         <span>federated</span><span>no algorithmic feed</span><span>open source</span><span>self-hostable</span><span>free</span>
       </div>
       <p>
-        Lemmy plays the role Reddit plays (link aggregation and threaded discussion
-        organized into communities), but it's federated across independently run
-        instances instead of owned by one company. Communities ("magazines"-style
-        subforums) federate across servers, so subscribing to a community on someone
-        else's instance works the same as a local one. There's no ad-driven feed
-        ranking; you sort by votes, new, or active, same as the platform it replaces.
+        Lemmy plays the role Reddit plays, with link sharing and threaded discussion
+        organized into communities. It runs across independently run instances
+        instead of belonging to one company. Communities (Lemmy's subforums) work
+        across servers, so joining one on someone else's instance works the same as
+        joining a local one. There's no ad-driven feed ranking. You sort by votes,
+        new, or active, same as on the platform it replaces.
+      </p>
+      <p>
+        The stable release is still the 0.19 line (0.19.21, October 2026), and a
+        major 1.0 version has been in beta since May 2026. Lemmy had many security
+        advisories in 2026, and two were rated high. One of them, fixed in 0.19.21, let
+        a remote server delete any account on an instance. Check that your instance
+        keeps up with updates.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Federated communities: no single company controls the forums</li>
-            <li>No algorithmic feed; sorting is transparent (hot/new/top)</li>
+            <li>Sorted by votes or time, not an algorithm</li>
             <li>Open source and self-hostable</li>
-            <li>Lemmy's developers have found and patched several 2026 vulnerabilities, including user-enumeration and metadata-leak bugs, through public GitHub security advisories</li>
+            <li>Security flaws get public advisories and fixes on GitHub</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Much smaller user base than Reddit; fewer communities have critical mass</li>
-            <li>Instance moderation and defederation decisions vary widely</li>
+            <li>Far smaller than Reddit, with many thin communities</li>
+            <li>Moderation and server-blocking decisions vary widely by instance</li>
             <li>Some niche communities simply don't exist yet</li>
+            <li>Many security fixes in 2026, including two rated high</li>
           </ul>
         </div>
       </div>
@@ -243,31 +281,41 @@
         <span>federated</span><span>no algorithmic feed</span><span>open source</span><span>self-hostable</span><span>free</span>
       </div>
       <p>
-        PeerTube is federated video hosting: any instance can host and publish
-        videos, and instances federate, so you can browse and subscribe to channels
-        across servers from one account. There's no recommendation algorithm chasing
-        watch time: what you see is what the creators you subscribe to (and your
-        instance) actually posted. Some instances use peer-assisted (WebTorrent-based)
-        delivery to spread the bandwidth cost across viewers instead of one company's
-        CDN bill.
+        PeerTube is federated video hosting. Any instance can host and publish
+        videos. Instances connect to each other, so you can browse and subscribe
+        to channels across servers from one account. No recommendation algorithm
+        chases watch time, so you see what the creators you subscribe to, and your
+        instance, actually posted. Some instances also let viewers' browsers share
+        video pieces with each other (peer-to-peer). That spreads the bandwidth
+        cost instead of leaving it all on one server.
+      </p>
+      <p>
+        PeerTube shipped several critical security fixes in 2026, the latest in
+        version 8.3.2 on October 26. That release closed a flaw in an image library
+        that a crafted file could use to run code on the server. The PeerTube team
+        says security releases are coming faster partly because of AI-assisted
+        vulnerability scans. If you use an instance, check that its admin keeps it
+        updated.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Federated hosting: no single company decides what gets demonetized or removed network-wide</li>
+            <li>Federated: no single company removes or demonetizes videos network-wide</li>
             <li>No engagement-optimized recommendation algorithm</li>
-            <li>Open source, self-hostable, peer-assisted streaming reduces single points of cost</li>
-            <li>The mobile app supports background playback, casting to Chromecast and AirPlay, and uploading video directly from your phone</li>
+            <li>Open source and self-hostable</li>
+            <li>Optional peer-to-peer streaming spreads bandwidth costs</li>
+            <li>Mobile app: background playback, casting, and phone uploads</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
             <li>Catalog and creator base are tiny next to YouTube</li>
-            <li>Video quality/availability depends on the hosting instance's resources</li>
+            <li>Video quality and availability depend on the instance's resources</li>
             <li>Discovery across instances is clunkier than a unified platform</li>
-            <li>Live streaming needs a separate, Android-only companion app; it's not built into the main app</li>
+            <li>Phone live streaming needs a separate Android-only app</li>
+            <li>Several critical security fixes in 2026</li>
           </ul>
         </div>
       </div>
@@ -288,30 +336,38 @@
       </div>
       <p>
         Pixelfed is photo-first sharing built on the same federated model as
-        Mastodon: thanks to ActivityPub, you can follow a Pixelfed account from
-        Mastodon and vice versa for basic interactions. The feed is chronological by
-        default, not an algorithm deciding which posts you're "likely to engage
-        with," and there's no ad business model pushing the design toward maximizing
-        your scroll time.
+        Mastodon. Thanks to ActivityPub, you can follow a Pixelfed account from
+        Mastodon, and the other way around, for basic interactions. The feed is
+        chronological by default instead of an algorithm deciding which posts
+        you're "likely to engage with." No ad business model pushes the design
+        toward maximizing your scroll time.
+      </p>
+      <p>
+        Daniel Supernault created Pixelfed and still leads it. A 2025 Kickstarter
+        raised CA$138,742, nearly three times its goal, to build a team and register
+        a nonprofit. Version 0.12.5 (March 2025) fixed a flaw in locked accounts. Any
+        Pixelfed user could follow one without approval and see its followers-only
+        posts. Hachyderm, a large Mastodon server, cut ties with 63 Pixelfed servers
+        that had not yet updated.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Federated, interoperates with the wider Fediverse via ActivityPub</li>
+            <li>Federated: works with Mastodon and the wider Fediverse</li>
             <li>Chronological timeline, no engagement-ranking algorithm</li>
             <li>No ad-driven business model shaping the feed</li>
-            <li>Founder Daniel Supernault turned down five VC funding offers in January 2025 to keep Pixelfed independent</li>
+            <li>Founder turned down venture capital offers in January 2025 to stay independent</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Daniel Supernault still runs the project largely alone, though a 2025 Kickstarter raised money to build out a team and register a nonprofit</li>
+            <li>Small team: one founder leads development</li>
             <li>Smaller network: fewer accounts to follow than Instagram</li>
-            <li>Pixelfed's iOS and Android apps only shipped in January 2025, so they're newer than the rest of the platform</li>
+            <li>Official apps only launched in January 2025</li>
             <li>Instance choice affects storage limits and moderation, same as Mastodon</li>
-            <li>A 2025 privacy bug let anyone view private accounts across the fediverse, forcing instances like Hachyderm to defederate until they patched it</li>
+            <li>Followers-only posts were exposed by a flaw fixed in March 2025</li>
           </ul>
         </div>
       </div>
@@ -332,32 +388,34 @@
       </div>
       <p>
         Nostr is a social protocol where your identity is a cryptographic key you
-        generate yourself, not an account a server hands you. You publish signed posts to
-        relays, plain servers that store and forward events without talking to each
-        other, so there are no instances and nothing to migrate between. That's a
-        stronger kind of portability than the Fediverse offers, since your identity and
-        followers live in the key instead of on a server, and it comes with a matching
-        risk if that key is ever lost or leaked.
+        generate yourself. You publish signed posts to relays, plain servers that
+        store and pass along posts without talking to each other. That means there
+        are no instances and nothing to migrate between. It's a stronger kind of
+        portability than the Fediverse offers, since your identity and followers
+        live in the key instead of on a server. The risk grows to match, because a
+        lost or leaked key can't be fixed. Anyone can build an app for the
+        protocol, so your experience depends on the client you pick, such as the
+        two covered below.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Your identity is a keypair you hold, so no server can suspend it or hold it hostage</li>
+            <li>You hold your own keypair: no server can suspend you</li>
             <li>Any client works with any relay, and switching either costs you nothing</li>
             <li>No ads and no ranking algorithm at the protocol level</li>
-            <li>Relays are cheap and interchangeable, so silencing the network means silencing all of them</li>
-            <li>NIP-44, the current encryption standard, was audited by Cure53 in 2023</li>
+            <li>Cheap, interchangeable relays are hard to silence</li>
+            <li>Cure53 audited NIP-44, the current message-encryption standard, in 2023</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Lose your private key and it's unrecoverable; there's no reset and no rotation standard</li>
-            <li>Relays see your IP address unless you're behind Tor or a VPN</li>
-            <li>Deleting a post is a request relays may ignore, and copies survive elsewhere</li>
-            <li>Anyone can create unlimited identities for free, so spam and impersonation get handled client-side</li>
-            <li>Daily active users are in the low tens of thousands, and the culture leans heavily Bitcoin</li>
+            <li>Lose your private key and it's gone: no reset, no key-rotation standard</li>
+            <li>Relays see your IP address unless you use Tor or a VPN</li>
+            <li>Deleted posts may survive on relays that ignore the request</li>
+            <li>Free, unlimited identities make spam and impersonation hard to stop</li>
+            <li>Low tens of thousands of daily users, with a heavy Bitcoin culture</li>
           </ul>
         </div>
       </div>
@@ -380,14 +438,18 @@
       </div>
       <p>
         Primal is a Nostr client built by Miljan Braticevic's venture-backed company,
-        which launched it with a $1M seed round in 2023. A built-in Bitcoin Lightning
-        wallet moved from custodial to non-custodial in March 2026.
+        which launched it with a $1M seed round in 2023. It runs on the web, iPhone,
+        and Android from a single account. Primal runs its own indexing server (a
+        server that catalogs posts), which powers its search and also makes it a
+        soft point of centralization. It has a built-in Bitcoin Lightning wallet.
+        In March 2026 Primal replaced the old wallet, where Primal
+        held your money, with one it calls non-custodial, where you hold it.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>The best search and discovery on Nostr, because of its own indexing server</li>
+            <li>Best search and discovery on Nostr</li>
             <li>Web, iOS, and Android from a single account</li>
             <li>The whole stack is open source, caching server included</li>
             <li>Much gentler onboarding than the rest of the ecosystem</li>
@@ -396,10 +458,10 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>That indexing server is a soft point of centralization in a decentralized network</li>
+            <li>Its indexing server is a soft point of centralization</li>
             <li>Fewer relay controls than clients built for power users</li>
-            <li>The built-in Lightning wallet is hard to ignore even if you never fund it</li>
-            <li>Venture-backed, so how it eventually makes money is still an open question</li>
+            <li>Built-in Lightning wallet is hard to ignore</li>
+            <li>Venture-backed: how it will make money is still open</li>
           </ul>
         </div>
       </div>
@@ -421,25 +483,31 @@
       <p>
         Damus is a Nostr client maintained by Will Casarin, who is also one of
         Nostr's core protocol developers. OpenSats grants have funded it since 2023.
+        Damus began on iPhone and was the first Nostr app in Apple's App Store, in
+        February 2023. A Chinese regulator had it removed from China's App Store
+        days later. Its desktop app, Notedeck, is still a beta, and its latest
+        release is from April 2026. Its spam filtering relies on the accounts you
+        follow, so a new account sees more spam.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Maintained by a core protocol developer and funded by grants, not investors</li>
-            <li>Runs on iOS, Android, and desktop, so you're not locked into one ecosystem</li>
-            <li>Only connects to relays you choose, and shows which ones carried a post</li>
+            <li>Runs on iOS, Android, and desktop</li>
+            <li>Connects only to relays you choose</li>
+            <li>Shows which relays carried a post</li>
             <li>Web-of-trust filtering makes spam manageable without central moderation</li>
-            <li>Apple pulled it from the Chinese App Store in 2023, which tells you what it does</li>
+            <li>Banned from China's App Store in 2023</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>The Android and desktop apps are newer than the original iOS app, and less polished by most accounts</li>
-            <li>Older versions were among the clients affected by a 2025 academic security review</li>
+            <li>Android and desktop apps are newer and less polished</li>
+            <li>Older versions had flaws reported in a 2025 academic paper</li>
             <li>Some features sit behind the optional Purple subscription</li>
-            <li>Spam filtering depends on your follow graph, so a new account sees more of it</li>
+            <li>New accounts see more spam</li>
           </ul>
         </div>
       </div>
