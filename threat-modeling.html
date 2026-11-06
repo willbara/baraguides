@@ -39,151 +39,284 @@
     <p class="hero-sub">
       Before you install anything, answer one question:
       <strong>what are you actually protecting, and from whom?</strong>
-      Ten minutes of thinking here saves months of cargo-culting tools
+      Ten minutes of thinking here saves months of setting up tools
       that solve someone else's problem.
     </p>
   </div>
 </header>
 
-<main class="wrap content">
+<div class="wrap layout">
+
+  <aside class="cats guide" aria-label="Guides">
+    <button class="cats-toggle" aria-expanded="false" onclick="toggleCats(this)">on this page</button>
+    <p class="label">guides</p>
+    <ul>
+      <li><a href="threat-modeling.html" class="sl d-yellow current" aria-current="page">Threat modeling</a></li>
+      <li><a href="setups/index.html" class="sl d-mute">Setups overview</a></li>
+      <li><a href="setups/setup-essentials.html" class="sl d-green">Essentials</a></li>
+      <li><a href="setups/setup-standard.html" class="sl d-yellow">Standard</a></li>
+      <li><a href="setups/setup-hardened.html" class="sl d-red">Hardened</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">on this page</p>
+    <ul>
+      <li><a href="#what" class="sl d-yellow">What it is</a></li>
+      <li><a href="#questions" class="sl d-yellow">The three questions</a></li>
+      <li><a href="#beliefs" class="sl d-yellow">What this site believes</a></li>
+      <li><a href="#guide" class="sl d-yellow">Build your model</a></li>
+      <li><a href="#grid" class="sl d-yellow">How likely, how serious</a></li>
+      <li><a href="#examples" class="sl d-yellow">Real-world examples</a></li>
+      <li><a href="#bigger" class="sl d-yellow">When it's bigger</a></li>
+      <li><a href="#begin" class="sl d-yellow">Where to begin</a></li>
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="tools/index.html" class="sl d-mute">All tools</a></li>
+    </ul>
+  </aside>
+
+<main>
 
   <p class="crumb"><a href="index.html">~</a><span class="sep">/</span><span class="here">threat-modeling</span></p>
+  <p class="updated">last updated <b>2026-11-05</b> · <a href="changelog.html">what changed</a></p>
 
-  <p class="section-label">what is threat modeling?</p>
+  <p class="section-label" id="what">what it is</p>
   <div class="notes">
     <p>
-      Threat modeling is a fancy name for something you already do. You lock your bike
-      differently in a small town than outside a train station. You don't tell a
-      stranger what you told your doctor. <strong>You already adjust your defenses to
-      the threat</strong>; this page just applies that instinct to your digital life.
+      Threat modeling means deciding what you're protecting, who you're protecting it
+      from, and how much effort it's worth. <strong>You already do it.</strong> You lock
+      your bike differently in a small town than outside a train station, and you don't
+      tell a stranger what you told your doctor.
     </p>
     <p>
-      Without a threat model, privacy advice is noise. "Use Tor!" "Self-host
-      everything!" "Get off Google!": each one is useful for some people, pointless
-      overhead for others, and <strong>occasionally actively harmful</strong> (an
-      exotic setup can make you more conspicuous, not less). With a threat model, you
-      can read any recommendation (here or anywhere) and know whether it's
-      <em>for you</em>.
+      Most privacy and security advice skips this step. It tells everyone to use Tor,
+      self-host everything, or get off Google, as if the whole internet shared one
+      enemy. Each tip helps some people and wastes other people's time. Some backfire,
+      because an exotic setup can make you easier to notice. A threat model lets you
+      read any advice, here or anywhere else, and tell whether it's <em>for you</em>.
     </p>
     <p>
-      The goal isn't maximum security. Maximum security is a phone in a lake.
-      The goal is <strong>the right security for your actual situation</strong>,
-      at a cost you'll sustain past the first week.
+      Maximum security is a phone in a lake, and nobody can live like that. Aim for the
+      right security for your situation, at a cost you will still pay in six months.
     </p>
   </div>
 
-  <p class="section-label">the three questions</p>
+  <p class="section-label" id="questions">the three questions</p>
   <div class="criteria three">
     <div class="crit">
       <h4>1 · what are you protecting?</h4>
-      <p>Those are your assets. They include browsing history, location, messages,
-      photos, finances, identity, a source's name, who you associate with. Be specific:
-      "my privacy" isn't an asset; "my home address staying off people-search sites" is.</p>
+      <p>Think of your email, photos, money, location, messages, and who you talk to.
+      Security people call these your assets. Be specific. "My privacy" is too vague to defend. "My home
+      address staying off people-search sites" is something you can act on.</p>
     </div>
     <div class="crit">
-      <h4>2 · from whom?</h4>
-      <p>Those are your adversaries. Advertisers and data brokers? A thief with your phone? An
-      abusive ex? Your employer? Scammers? A government? Each one has different
-      capabilities, and most people's real list is shorter than they fear.</p>
+      <h4>2 · who are you protecting it from?</h4>
+      <p>It might be advertisers and data brokers (companies that collect and resell
+      personal data), scammers, a thief with your phone, or someone you know. Security
+      people call them adversaries. Each can do different things, and most people's real
+      list is shorter than they fear.</p>
     </div>
     <div class="crit">
-      <h4>3 · at what cost?</h4>
-      <p>Your budget matters too: money, time, and daily friction. A defense you abandon
-      protects nothing. The honest version of this question: what inconvenience will
-      you still be tolerating in six months?</p>
+      <h4>3 · what will you put up with?</h4>
+      <p>Every defense costs money, time, or daily hassle. One you quit protects nothing.
+      Ask what inconvenience you will still tolerate in six months, and build around
+      that.</p>
     </div>
   </div>
 
-  <p class="section-label">building your model</p>
+  <p class="section-label" id="beliefs">what this site believes</p>
+  <div class="notes">
+    <p>
+      <strong>The boring threats are the probable ones.</strong> Reused passwords,
+      phishing messages (fake emails and texts that trick you into handing over a login),
+      and out-of-date phones cause far more harm than spies do. Fix those before
+      anything exotic.
+    </p>
+    <p>
+      <strong>A defense you abandon protects nothing.</strong> A modest setup you keep
+      beats a perfect one you drop in week two.
+    </p>
+    <p>
+      <strong>Privacy is a spectrum, and nobody has to pass a purity test.</strong> You
+      can use a big company's service and still protect yourself well. Every step you
+      take counts.
+    </p>
+    <p>
+      <strong>Name the problem before you buy the fix.</strong> Much of the noise in this
+      field sells fear or products. If advice can't say who it's for, skip it, and that
+      includes the advice on this site.
+    </p>
+    <p>
+      <strong>A few people face real, targeted threats.</strong> If that's you, the answer
+      is specialist help, and it starts on the <a href="setups/setup-hardened.html">Hardened
+      page</a>.
+    </p>
+  </div>
+
+  <p class="section-label" id="guide">build your model</p>
   <ol class="steps">
     <li>
-      <strong>List what you'd hate to lose or leak.</strong> Write it down, actually.
-      Most lists converge on email account, photos, finances, private conversations,
-      location patterns, and one or two things specific to you. Health records,
-      immigration status, a business idea, who you date.
+      <strong>List what you'd hate to lose or leak.</strong> Write it in a note.
+      Most lists include an email account, photos, money, private conversations, and
+      where you are. Add one or two things specific to you, such as health records or a
+      business idea.
     </li>
     <li>
-      <strong>Name who'd want each item, realistically.</strong> For most people the
-      honest list is data brokers and ad networks (want everything, passively),
-      opportunistic criminals (want money, not you specifically), and maybe one
-      personal adversary: a hostile ex, a stalker, a bad landlord. Targeted
-      state surveillance is real but rare; designing for it first is how people burn
-      out and quit.
+      <strong>Think about who would really want each item.</strong> For most people the
+      honest list is data brokers and ad networks (they want everything, passively),
+      criminals (they want money from anyone), and sometimes one person they know.
+      Surveillance by a government is real but rare. Designing for it first is how
+      people burn out and quit.
     </li>
     <li>
-      <strong>Rate likelihood × damage, roughly.</strong> Phone theft is likely but
-      recoverable if you're prepared. A password-reuse breach is very likely and
-      expensive. Targeted hacking is unlikely for most people but catastrophic for
-      a few. The point isn't precision: it's
-      noticing that the boring threats are the probable ones.
+      <strong>Guess how likely each one is, and how bad it would be.</strong> A rough
+      guess is enough. The grid below shows where common threats land.
     </li>
     <li>
-      <strong>Defend the top of the list first.</strong> For nearly everyone that means:
-      a <a href="tools/password-managers.html">password manager</a>,
-      <a href="tools/2fa.html">2FA</a> on email and finance, automatic updates, and a
-      pause before granting any app its permissions. That set neutralizes the likely
-      threats before you spend a minute on the exotic ones.
+      <strong>Fix the biggest risks first, with the cheapest fix that works.</strong> Pick one
+      defense for each. Then use it for a month before you add more.
     </li>
     <li>
-      <strong>Revisit when life changes.</strong> New job, new country, new
-      relationship, kids, activism, divorce: threat models have a shelf life.
-      A yearly skim of yours costs ten minutes.
+      <strong>Revisit when life changes.</strong> A new job, country, relationship, or
+      child changes your model, and so does a public role. Skim yours once a year. It
+      takes ten minutes.
     </li>
   </ol>
 
-  <div class="headsup">
-    <span class="k">worked example</span>
-    A nurse with a vindictive ex isn't worried about the NSA. Her model weighs
-    location data and her new address as the assets against one specific person with
-    normal-person skills as the adversary. That means: removing herself from
-    people-search sites, locking down social media, a new email he never had, and
-    checking the phone for shared accounts and stalkerware; <em>and Tor solves none
-    of it.</em> It's the same tools site, just in a completely different page order.
-    That's a threat model doing its job.
-  </div>
-
-  <p class="section-label">your model in practice</p>
+  <p class="section-label" id="grid">how likely, how serious</p>
   <div class="notes">
     <p>
-      <strong>"Data brokers profile me" →</strong> a tracker-blocking
-      <a href="tools/browsers.html">browser</a>, filtered
-      <a href="tools/dns.html">DNS</a>, email aliases, and saying no to loyalty
-      programs. It's cheap, low-friction, and covers the adversary that targets
-      literally everyone.
-    </p>
-    <p>
-      <strong>"A stolen password ends me" →</strong> a
-      <a href="tools/password-managers.html">password manager</a> and
-      <a href="tools/2fa.html">hardware-key 2FA</a> on the accounts that matter.
-      This is the highest return-on-effort pairing on the entire site.
-    </p>
-    <p>
-      <strong>"My conversations are sensitive" →</strong>
-      <a href="tools/messaging.html">Signal</a> with disappearing messages, and a
-      provider that can't read your <a href="tools/email-providers.html">mail</a>.
-    </p>
-    <p>
-      <strong>"A person, not a corporation, is after me" →</strong> device access,
-      shared accounts, and location sharing first: the intimate-threat playbook is
-      different and mostly isn't about encryption. The
-      <a href="setups/setup-hardened.html">hardened setup</a> covers some of it;
-      specialist resources (like the Coalition Against Stalkerware) cover the rest.
-    </p>
-    <p>
-      <strong>"My government is in my model" →</strong> Tor,
-      <a href="tools/desktop-os.html">Tails</a>, compartmentalized identities, and
-      advice beyond this site's scope. Start with the
-      <a href="setups/setup-hardened.html">hardened setup</a>, then go deeper with
-      sources written for your specific situation.
+      Sort each threat into one of these four boxes. Start with the top-right one. It
+      holds the boring, common threats that do the most damage.
     </p>
   </div>
+  <div class="tmx" role="group" aria-label="Threats sorted by how likely and how serious">
+    <div class="ax"></div>
+    <div class="ax"><span>minor if it happens</span></div>
+    <div class="ax"><span>serious if it happens</span></div>
 
-  <p class="section-label">where to go next</p>
+    <div class="ax"><span>likely</span></div>
+    <div class="cell" style="--accent: var(--yellow)">
+      <span class="t">likely + minor</span>
+      <h4>Constant and annoying</h4>
+      <p>Ad tracking, spam, and your name on data-broker sites. Cheap fixes work here,
+      like a tracker-blocking browser and email aliases.</p>
+    </div>
+    <div class="cell" style="--accent: var(--green)">
+      <span class="badge">start here</span>
+      <span class="t">likely + serious</span>
+      <h4>Do this first</h4>
+      <p>A password reused after a breach, a phishing message, a phone that never
+      updates. The fixes are a password manager, a second login step, and automatic
+      updates.</p>
+    </div>
+
+    <div class="ax"><span>unlikely</span></div>
+    <div class="cell" style="--accent: var(--bg2)">
+      <span class="t">unlikely + minor</span>
+      <h4>Skip it for now</h4>
+      <p>Someone reading your weather searches. Spend nothing here.</p>
+    </div>
+    <div class="cell" style="--accent: var(--blue)">
+      <span class="t">unlikely + serious</span>
+      <h4>Know where to get help</h4>
+      <p>Targeted hacking, stalking, or surveillance by a powerful group. Start with the
+      Hardened page and specialist help.</p>
+    </div>
+  </div>
+
+  <p class="section-label" id="examples">real-world examples</p>
+  <div class="criteria">
+    <div class="crit">
+      <h4>The everyday account holder</h4>
+      <p><strong>Protecting:</strong> email, banking, and shopping accounts.</p>
+      <p><strong>From:</strong> bots and scammers who try passwords leaked in other
+      breaches, plus phishing messages.</p>
+      <p><strong>First moves:</strong> a different generated password for every account,
+      two-factor login (2FA, a second step such as an app code) on email and banking, and
+      automatic updates. The <a href="setups/setup-essentials.html">Essentials setup</a>
+      is this list.</p>
+    </div>
+    <div class="crit">
+      <h4>The person who shares a lot online</h4>
+      <p><strong>Protecting:</strong> your home address, daily routine, family photos,
+      and employer.</p>
+      <p><strong>From:</strong> strangers, scammers who use real details to sound
+      believable, and anyone who reads old posts later, such as an employer or landlord.</p>
+      <p><strong>First moves:</strong> check who can see each account, trim old posts,
+      and keep your address off public listings. Keep public and private life on
+      separate accounts. See <a href="tools/social-media.html">Social Media</a> and
+      <a href="tools/data-removal.html">Personal Data Removers</a>.</p>
+    </div>
+    <div class="crit">
+      <h4>The browser, shopper, and streamer</h4>
+      <p><strong>Protecting:</strong> what you search, buy, and watch.</p>
+      <p><strong>From:</strong> ad networks and data brokers. The harm from each event is
+      small, but it never stops, and the profile gets sold on.</p>
+      <p><strong>First moves:</strong> a tracker-blocking
+      <a href="tools/browsers.html">browser</a>, filtered
+      <a href="tools/dns.html">DNS</a>, and a separate email alias for each signup.</p>
+    </div>
+    <div class="crit">
+      <h4>The shared household</h4>
+      <p><strong>Protecting:</strong> your messages, search history, and accounts on
+      shared devices.</p>
+      <p><strong>From:</strong> a partner, roommate, or relative with casual access, such
+      as a shared tablet or a passcode they know.</p>
+      <p><strong>First moves:</strong> a screen lock only you know, a separate profile on
+      each shared device, and your own accounts for private things. If someone uses that
+      access to watch or control you, go to the next section.</p>
+    </div>
+  </div>
+
+  <p class="section-label" id="bigger">when it's bigger than this</p>
+  <div class="notes">
+    <p>
+      The basics cover the everyday threats. If any of these sound like you, your situation is bigger:
+    </p>
+    <ul>
+      <li>Someone knows things about you they shouldn't, like where you've been or what
+      you wrote.</li>
+      <li>You see logins, forwarded emails, or devices you don't recognize.</li>
+      <li>A partner, ex, or relative monitors or controls your phone or accounts.</li>
+      <li>Your work makes you a target for a powerful group: journalism, activism,
+      research, or law.</li>
+      <li>You have been threatened, followed, or harassed online.</li>
+    </ul>
+    <p>
+      Start with the <a href="setups/setup-hardened.html">Hardened setup</a>, which opens
+      with a short triage: a person watching you, or an organization or state. Then get
+      specialist help. Access Now's Digital Security Helpline, the EFF's Surveillance
+      Self-Defense guides, and Freedom of the Press Foundation's training are free and
+      current. For threats from someone you know, the Coalition Against Stalkerware lists
+      vetted local resources.
+    </p>
+  </div>
+  <div class="headsup">
+    <span class="k">if you are in danger now</span>
+    Contact one of those groups before you change your devices or accounts. <em>Sudden
+    changes can alert the person watching you.</em> If your safety is at risk right now,
+    call your local emergency number.
+  </div>
+
+  <p class="section-label" id="begin">where to begin</p>
+  <div class="notes">
+    <p>
+      <strong>Push comes to shove, the best single thing you can do is practice good
+      password manager hygiene.</strong> That means a unique, generated password for every
+      account, and 2FA on your email. This stops the most common real-world attacks, and
+      it takes an afternoon. <a href="tools/password-managers.html">Bitwarden</a> is a
+      reasonable place to begin.
+    </p>
+    <p>
+      From there, the setups put your model into practice, one level at a time.
+    </p>
+  </div>
   <div class="grid">
     <a class="card c-orange reveal" href="setups/index.html">
       <span class="tag">guides</span>
       <h3>Pick a setup</h3>
-      <p>Three complete configurations mapped to threat models: essentials, standard, and hardened. Each names the job, the pick, and why.</p>
+      <p>Three complete setups, from quick wins to hardened. Each names the job, the pick, and why.</p>
     </a>
     <a class="card c-green reveal" href="tools/password-managers.html">
       <span class="tag">highest impact</span>
@@ -193,11 +326,13 @@
     <a class="card c-blue reveal" href="tools/index.html">
       <span class="tag">browse</span>
       <h3>All tool categories</h3>
-      <p>Ten categories of researched picks, each explaining what matters and who each tool is for.</p>
+      <p>Researched picks for every category, each explaining what matters and who each tool is for.</p>
     </a>
   </div>
 
 </main>
+
+</div>
 
 <footer>
   <div class="wrap foot">
@@ -211,6 +346,11 @@
   function toggleNav(btn) {
     const links = document.getElementById('navlinks');
     const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  function toggleCats(btn) {
+    const open = btn.parentElement.classList.toggle('open');
     btn.setAttribute('aria-expanded', open);
   }
 

@@ -51,15 +51,20 @@
     <div class="log-entry reveal">
       <div class="log-date">2026-11-05</div>
       <div class="log-body">
+        <h3>Threat Modeling<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Reworked the page to teach threat modeling and nothing else. It now has the three questions, what this site believes, a five-step guide, a four-box grid of how likely and how serious threats are, and four real-world examples. A new "when it's bigger than this" section sends readers to the Hardened setup and specialist help, with a warning not to change devices or accounts suddenly if someone is watching them. Removed the tool lists, the nurse example, and the outdated "Ten categories" count. Added the sidebar, and replaced "cargo-culting" in the header line.
+        </p>
+        <p class="log-links"><a href="threat-modeling.html">threat modeling →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
         <h3>Setups<span class="log-tag lt-update">update</span></h3>
         <p>
-          Restructured the three setups. Every card now names the job the pick does and what it replaces, gives one reason for the pick, lists what to look for if you choose something else, and names a backup where one makes sense. Prices, menu paths, and router addresses came out of the cards, and each card links to its category page for current details. The hub gained a table showing each job across the three levels, with "builds on" and "replaces" markers. The old claim that the levels simply stack is gone: Mullvad replaces Proton VPN, for example.
-        </p>
-        <p>
-          Beginner is now Essentials (the old address redirects). Its steps are reordered by impact, with automatic updates first and Proton Mail last. Hardened opens with a three-way triage (a person is watching you, an organization or state, or just curious), puts the help resources at the top, and tags each card for the track it applies to. Its crowded communications and money cards were split into messaging, Tor, payments and records, and physical safety and travel, and Mullvad gets its own card. Standard splits SimpleLogin aliases and an offline backup out of the cards that held them. The end-of-page checklists were removed because they repeated the cards.
-        </p>
-        <p>
-          Follow-up changes the same day. Essentials now opens with four habits behind the setup: be mindful of apps and settings, know how a free service pays, share the minimum, and slow down on urgent messages. Standard's VPN backup is now Windscribe, which the VPNs page calls the closest runner-up to Proton on everyday ease of use, and Standard's storage backup is now Tresorit. Hardened's "what this replaces" box moved under "get help first". The setup pages now use the same layout as the category pages, with a sidebar that lists the three setups and jumps to each card on the page. The cards keep the site's standard block style, and the hub's level cards show who each level is for, the effort, and the daily friction as a row of facts. The hub's job-by-level table was redesigned: rows are grouped under four headings, each level has a colored header, picks are bold with extras underneath, and "builds on" and "replaces" are now small badges. Hardened gained a PGP card for the organization track (Thunderbird, with GnuPG as the backup), taken from the messaging card's one-line email step. It states what PGP leaves readable, and the hub's Hardened email cell mentions it. Hardened's messaging card now picks Session for sensitive chats, with SimpleX and Signal as alternatives and Briar as the server-free fallback, and carries a "catch" line from the Messengers page: no forward secrecy yet, design flaws found by 2026 research, and a smaller team after a funding crisis.
+          Restructured all three setups. Every card now names the job the pick does, gives one reason for it, lists what to look for in a replacement, and links to its category page for prices and details, so those live in one place. Beginner became Essentials (the old address redirects). Hardened opens with a triage and help resources and gained Mullvad, Session, PGP, Tor, and travel cards. Standard gained alias and backup cards, with Windscribe and Tresorit as backups. The "they stack" claim is gone, because Hardened replaces some Standard picks. The hub has a job-by-level table, and the pages use the category sidebar layout.
         </p>
         <p class="log-links"><a href="setups/index.html">setups →</a></p>
       </div>
@@ -70,7 +75,7 @@
       <div class="log-body">
         <h3>Setups<span class="log-tag lt-fix">correction</span></h3>
         <p>
-          Removed the Bitwarden "Settings → Emergency access" recovery-code step, since that menu is the trusted-contact feature and not where the two-step recovery code lives. Recovery codes for the password manager's own 2FA now go on paper instead of inside the vault they protect. Removed the "open source" wording from the Bitwarden card while that question is open on the Password Managers page. Fixed the "6 steps" count (there were seven), the stale two-YubiKey price, and the Beginner note that referred to a "step two" that was not recovery codes. The router DNS step now says most routers send lookups unencrypted. Added that EasyOptOuts serves US residents only. Replaced about a dozen "not X, it's Y" lines and one em dash.
+          Removed the Bitwarden "Emergency access" recovery-code step, since that menu is the trusted-contact feature. Recovery codes for the password manager's own 2FA now go on paper, not in the vault they protect. Dropped "open source" from the Bitwarden card while that question is open. Fixed the step count, the stale YubiKey price, and the router DNS step (most routers send lookups unencrypted). Added that EasyOptOuts serves US residents only.
         </p>
         <p class="log-links"><a href="setups/index.html">setups →</a></p>
       </div>

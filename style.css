@@ -442,22 +442,55 @@ td.name { font-weight: 500; color: var(--fg); }
   font-family: var(--mono); font-size: 11.5px; color: var(--dot);
   width: 20px; flex-shrink: 0;
 }
-aside[aria-label="Setups"] li a.d-green  { --dot: var(--green); }
-aside[aria-label="Setups"] li a.d-yellow { --dot: var(--yellow); }
-aside[aria-label="Setups"] li a.d-red    { --dot: var(--red); }
+aside.guide li a.d-green  { --dot: var(--green); }
+aside.guide li a.d-yellow { --dot: var(--yellow); }
+aside.guide li a.d-red    { --dot: var(--red); }
 .provider[id] { scroll-margin-top: 92px; }
-.facts {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;
-  margin: 12px 0 16px; padding: 12px 0;
-  border-top: 1px solid var(--bg1); border-bottom: 1px solid var(--bg1);
+.section-label[id] { scroll-margin-top: 92px; }
+.crit p + p { margin-top: 8px; }
+.crit p strong { color: var(--fg); font-weight: 600; }
+
+/* ---------- threat model grid (likelihood by severity) ---------- */
+.tmx {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px; max-width: 800px;
 }
-.facts .l {
-  display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em;
-  text-transform: uppercase; color: var(--fg-mute); margin-bottom: 3px;
+.tmx .ax { display: flex; align-items: center; justify-content: center; }
+.tmx .ax span {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--fg-dim); white-space: nowrap;
+  border: 1px solid var(--bg2); border-radius: 999px; padding: 3px 12px;
 }
-.facts .v { display: block; font-size: 14.5px; color: var(--fg); }
+.tmx .cell {
+  position: relative;
+  background: color-mix(in srgb, var(--accent, var(--bg2)) 9%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--accent, var(--bg2)) 40%, var(--bg1));
+  border-radius: var(--radius); padding: 16px 18px 18px;
+}
+.tmx .cell h4 {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--display); font-size: 18px; font-weight: 600; margin-bottom: 6px;
+}
+.tmx .cell h4::before {
+  content: ""; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent, var(--bg2)); flex-shrink: 0;
+}
+.tmx .cell p { font-size: 14.5px; color: var(--fg-dim); }
+.tmx .cell .t {
+  display: none; font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--fg-mute); margin-bottom: 6px;
+}
+.tmx .cell .badge {
+  position: absolute; top: 14px; right: 14px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--bg-hard); background: var(--accent); border-radius: 3px;
+  padding: 0 7px; line-height: 1.7;
+}
 @media (max-width: 640px) {
-  .facts { grid-template-columns: 1fr; gap: 10px; }
+  .tmx { grid-template-columns: 1fr; }
+  .tmx .ax { display: none; }
+  .tmx .cell .t { display: block; }
+  .tmx .cell .badge { position: static; display: inline-block; margin-bottom: 6px; }
 }
 
 /* ---------- setups ladder table (job by level) ---------- */
