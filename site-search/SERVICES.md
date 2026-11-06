@@ -84,7 +84,7 @@ Plain list of every service on the site, by category. Everything else (reviews, 
 
 ##### Windscribe · *the everyday alternative*
 
-`🇨🇦 canada` · `audited no-logs` · `ad blocking` · `free tier`
+`🇨🇦 canada` · `audited` · `ad blocking` · `free tier`
 
 ##### IVPN · *the no-account pick*
 
@@ -96,7 +96,7 @@ Plain list of every service on the site, by category. Everything else (reviews, 
 
 ##### AzireVPN · *the blind-operator pick*
 
-`🇸🇪 sweden` · `audited no-logs` · `ram-only` · `wireguard` · `paid`
+`🇸🇪 sweden` · `audited` · `ram-only` · `wireguard` · `paid`
 
 ##### NymVPN · *the mixnet pick*
 

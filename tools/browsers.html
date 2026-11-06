@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">browsers</span></p>
 
     <h1>Browsers &amp; Search</h1>
-    <p class="updated">last updated <b>2026-11-04</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-05</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Your browser sees everything you do online, which makes it the single biggest
@@ -136,6 +136,30 @@
       </div>
     </div>
 
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>browser engine</h4>
+        <p>The part of a browser that loads and draws web pages. Chromium powers Chrome, Brave, Vivaldi, and Helium. Gecko powers Firefox, LibreWolf, and Mullvad Browser. WebKit powers Safari and Orion.</p>
+      </div>
+      <div class="crit">
+        <h4>fingerprinting</h4>
+        <p>Sites can recognize you from your browser's setup, such as screen size, fonts, and graphics card, without any cookie. Defenses either randomize those details or make every user look the same.</p>
+      </div>
+      <div class="crit">
+        <h4>Manifest V2 and V3</h4>
+        <p>The rules for how browser extensions work. Google's newer rules (V3) limit what ad blockers can do, and Chrome has dropped the older ones (V2). A few Chromium browsers still keep V2 extensions alive.</p>
+      </div>
+      <div class="crit">
+        <h4>uBlock Origin</h4>
+        <p>A free, open-source extension that blocks ads and trackers. Its full version needs the older V2 rules.</p>
+      </div>
+      <div class="crit">
+        <h4>search index</h4>
+        <p>A search engine's own copy of the web, built by crawling sites itself. Many "private" engines borrow results from Google or Bing instead of keeping one.</p>
+      </div>
+    </div>
+
     <p class="section-label">recommendations</p>
 
     <!-- Brave -->
@@ -157,10 +181,13 @@
         under a minute.
       </p>
       <p>
-        <strong>Brave Origin</strong> is a variant that strips out everything not
-        essential to privacy or security and hard-disables it instead of hiding it
-        behind toggles. It's a one-time ~$59.99 on Windows and macOS and
-        <strong>free on Linux</strong>.
+        <strong>Brave Origin</strong> is a paid variant that removes features not
+        essential to privacy or security, including the Leo AI assistant, Rewards,
+        Wallet, VPN, and Tor, plus usage pings and crash logs. The standalone desktop
+        build leaves them out entirely. On Android, iOS, or the regular desktop app,
+        Origin is an upgrade that turns them off. It's a one-time ~$59.99 and
+        <strong>free on Linux</strong>. Origin checks your purchase with blind tokens
+        (Privacy Pass), which Brave says never link your device to your account.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -168,16 +195,17 @@
           <ul>
             <li>Strong blocking and fingerprint randomization with zero setup</li>
             <li>Chromium's security posture and site compatibility</li>
-            <li>Origin variant: minimalist build, features hardware-disabled, free on Linux</li>
-            <li>Brave Search integration: an independent index by default</li>
+            <li>Hosts uBlock Origin and three other Manifest V2 extensions</li>
+            <li>Origin variant: minimalist build, free on Linux</li>
+            <li>Brave Search built in, on an independent index</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Chromium monoculture is a legitimate systemic concern, ideologically</li>
-            <li>Rewards/wallet clutter in the standard build, switch it off first thing</li>
-            <li>Origin's licence check uses a blind-token protocol (Privacy Pass): architecturally sound, but it is one more trust layer worth knowing about</li>
+            <li>Chromium monoculture is a systemic concern</li>
+            <li>Rewards and wallet clutter in the standard build</li>
+            <li>Origin's licence check adds one more trust layer</li>
           </ul>
         </div>
       </div>
@@ -205,13 +233,21 @@
         or a pre-hardened build like LibreWolf) and switch off telemetry and
         sponsored content.
       </p>
+      <p>
+        Mozilla is also adding AI features. Since Firefox 148 (February 2026), a
+        "Block AI enhancements" switch in Settings turns off all current and future
+        generative AI features at once. Smart Window, an AI browsing mode, reached
+        the US, Canada, and France in Firefox 155 (September 2026). It is opt-in and
+        needs a Mozilla account.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>The last serious non-Chromium engine: a vote against the monoculture</li>
+            <li>Gecko is the main non-Chromium engine on Windows and Linux</li>
             <li>Unrestricted extensions, including full uBlock Origin</li>
             <li>Deeply configurable for those willing to do the work</li>
+            <li>One switch turns off every AI feature</li>
           </ul>
         </div>
         <div class="cons">
@@ -219,8 +255,8 @@
           <ul>
             <li>Requires hardening to match what Brave does by default</li>
             <li>Telemetry and sponsored tiles ship enabled</li>
-            <li>Gecko sees less security scrutiny than Chromium, the uncomfortable flip side of engine diversity</li>
-            <li>Mozilla's funding still mostly comes from Google's search deal</li>
+            <li>Gecko gets less security scrutiny than Chromium</li>
+            <li>Funding still mostly comes from Google's search deal</li>
           </ul>
         </div>
       </div>
@@ -240,29 +276,34 @@
         <span>chromium</span><span>open source</span><span>ad blocking</span><span>no account</span><span>free</span>
       </div>
       <p>
-        Helium is a lean open-source Chromium browser built on ungoogled-chromium by
-        a small team (imput). The privacy defaults are strong: Google services
-        removed, trackers and third-party cookies blocked out of the box, and the
-        attack surface kept small by <strong>deliberately omitting</strong> sync, a
-        built-in password manager, and DRM. It's still in beta, so it's not a
-        daily-driver replacement yet, but it's genuinely interesting for purists
-        who want even less than Brave Origin.
+        Helium is a lean open-source Chromium browser built on ungoogled-chromium
+        (Chromium with Google's services removed) by a small team called imput, which
+        funds it through user sponsorships. The privacy defaults are strong: trackers
+        and third-party cookies are blocked out of the box by its own build of
+        uBlock Origin, and the attack surface is kept small by
+        <strong>deliberately omitting</strong> sync, a built-in password manager, and
+        DRM (the copy protection streaming sites use). It runs on macOS, Windows, and
+        Linux only. It's still in beta, so it's not a daily-driver replacement yet,
+        but it's genuinely interesting for purists who want even less than Brave
+        Origin.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Privacy-by-omission: less shipped means less to audit and less to leak</li>
+            <li>Privacy by omission: less shipped means less to audit and leak</li>
             <li>Google services removed at the ungoogled-chromium level</li>
-            <li>Blocking on by default, no account, no monetization angle</li>
+            <li>Bundles its own uBlock Origin build, no account needed</li>
+            <li>Funded by sponsors, with no monetization angle</li>
+            <li>Follows Chromium releases within about two days</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Beta software from a small team, treat it accordingly</li>
-            <li>Patches can lag behind upstream Chromium for a bit, expected for a smaller team</li>
-            <li>No DRM means no Netflix and friends; no sync means you're the sync</li>
+            <li>Beta software from a small team</li>
+            <li>Desktop only: no Android or iOS version</li>
+            <li>No DRM means no Netflix, and no sync means you're the sync</li>
           </ul>
         </div>
       </div>
@@ -282,14 +323,22 @@
         <span>gecko</span><span>anti-fingerprinting</span><span>open source</span><span>free</span>
       </div>
       <p>
-        Mullvad built this browser in partnership with the Tor Project, using the
-        same hardened Firefox base as Tor Browser but without the Tor network
-        attached. The strategy is different from most "private browser" pitches:
-        <strong>it doesn't try to make you unique; it tries to make you identical to
-        every other Mullvad Browser user</strong>, because a shared, locked-down
-        fingerprint fights tracking far better than per-user randomization. It pairs
-        naturally with Mullvad VPN, but it works perfectly well with no VPN at all;
-        treat it as a secondary for sensitive browsing instead of a daily driver.
+        Mullvad and the Tor Project (the group behind Tor Browser) develop this
+        browser together, using the same hardened Firefox base as Tor Browser but
+        without the Tor network attached. The strategy is different from most
+        "private browser" pitches:
+        <strong>it aims to make you look identical to every other Mullvad Browser
+        user</strong>, because a shared, locked-down fingerprint fights tracking far
+        better than per-user randomization. It pairs naturally with Mullvad VPN, but
+        it works perfectly well with no VPN at all. Treat it as a secondary for
+        sensitive browsing instead of a daily driver.
+      </p>
+      <p>
+        In October 2026, the Tor Project said it is keeping its technical work with
+        Mullvad but pausing joint promotion. This followed criticism of a personal
+        donation by a Mullvad co-owner to a Swedish political party. Tor also
+        reworded how it describes the browser on its own channels. The browser is
+        still updated, and version 16.0 came out on 29 October 2026.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -304,8 +353,9 @@
           <h5>mind the</h5>
           <ul>
             <li>Aggressive hardening breaks some sites, expect occasional friction</li>
-            <li>No extensions ecosystem to speak of; that's deliberate, not a bug</li>
-            <li>Best as a secondary browser for sensitive browsing, not everyday use</li>
+            <li>Almost no extensions, by design</li>
+            <li>Best as a secondary browser for sensitive browsing</li>
+            <li>Tor paused joint promotion with Mullvad in October 2026</li>
           </ul>
         </div>
       </div>
@@ -331,16 +381,22 @@
         tracker and ad blocking</strong>, which puts it ahead of stock Chromium and
         the many forks that ship nothing, but it's more feature-dense and mainstream
         than privacy-first. It's a reasonable pick if you want Chromium's
-        compatibility and a genuinely useful blocker, and heavy customization is the
-        main draw, not a minimal footprint.
+        compatibility, a genuinely useful blocker, and lots of customization.
+      </p>
+      <p>
+        Vivaldi 8.3 (5 November 2026) rebuilt that blocker. It now has four levels,
+        from off to aggressive. You can set a level for all sites or one site at a
+        time, and you can add your own filter lists. Vivaldi has also said it won't
+        add an AI chatbot or page summaries to the browser (August 2025).
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Tracker and ad blocking on by default, no extension required</li>
+            <li>Built-in tracker and ad blocking, with per-site levels</li>
             <li>Extremely configurable UI: tab stacking, panels, custom shortcuts</li>
             <li>Chromium compatibility and update cadence</li>
+            <li>No built-in AI chatbot or page summaries</li>
             <li>No Google account ties; independent Norwegian company</li>
           </ul>
         </div>
@@ -350,6 +406,7 @@
             <li>Feature-dense by design: more surface area than a minimalist browser</li>
             <li>Fingerprinting resistance is weaker than Brave or Mullvad Browser</li>
             <li>Still Chromium under the hood, with the same monoculture trade-off</li>
+            <li>Sends a daily usage ping with a unique install ID</li>
           </ul>
         </div>
       </div>
@@ -369,15 +426,20 @@
         <span>gecko</span><span>open source</span><span>free</span>
       </div>
       <p>
-        LibreWolf is Firefox with arkenfox-style hardening baked in before you ever
-        open it: aggressive fingerprinting resistance, telemetry stripped, trackers
-        blocked by default. The honest take: <strong>this is not recommended as a
-        daily driver</strong>. The hardening that makes it strong also breaks sites
-        more often than most people will put up with day to day. Updates have closed
-        the gap with Firefox proper (patches now typically land within days of
-        upstream), though the structural risk remains: a smaller team with no
-        centralized telemetry feedback loop. It's better used as a secondary,
-        research-grade browser than an everyday one.
+        LibreWolf is Firefox with arkenfox-style hardening (a well-known set of
+        privacy settings) baked in before you ever open it: aggressive fingerprinting
+        resistance, telemetry stripped, trackers blocked by default. The honest take:
+        <strong>this is not recommended as a daily driver</strong>. The hardening
+        that makes it strong also breaks sites more often than most people will put
+        up with day to day. Updates have closed the gap with Firefox proper (patches
+        usually land within three days of upstream), though the structural risk
+        remains: a smaller team with no centralized telemetry feedback loop. It's
+        better used as a secondary, research-grade browser than an everyday one.
+      </p>
+      <p>
+        Updating depends on your system. LibreWolf updates itself on macOS. On
+        Windows, the installer offers an optional scheduled updater (added in April
+        2026). On Linux, you update through your package manager.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -385,14 +447,14 @@
           <ul>
             <li>Aggressive fingerprinting resistance and tracker blocking out of the box</li>
             <li>Telemetry and sponsored content stripped before first launch</li>
-            <li>Patch cadence now typically within days of upstream Firefox</li>
+            <li>Patches usually arrive within three days of Firefox</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>No automatic updates: applying patches needs manual action or a package manager</li>
-            <li>Disables Safe Browsing by default, removing Firefox's malware/phishing blocklist (re-enable manually)</li>
+            <li>Updates are optional on Windows and manual on Linux</li>
+            <li>Safe Browsing (the malware and phishing blocklist) is off by default</li>
             <li>Inherits Gecko's weaker sandboxing and site isolation versus Chromium</li>
             <li>Small volunteer team, no staffed security org or telemetry feedback loop</li>
           </ul>
@@ -474,13 +536,13 @@
             <td class="name">Helium</td><td>Chromium</td><td class="yes">built-in</td><td class="part">lean profile</td><td class="part">platform-dependent</td><td>medium-high</td>
           </tr>
           <tr>
-            <td class="name">Mullvad Browser</td><td>Gecko</td><td class="yes">built-in</td><td class="yes">uniformity by design</td><td class="part">manual-ish</td><td>medium-high</td>
+            <td class="name">Mullvad Browser</td><td>Gecko</td><td class="yes">built-in</td><td class="yes">uniformity by design</td><td class="part">in-app checks</td><td>medium-high</td>
           </tr>
           <tr>
             <td class="name">Vivaldi</td><td>Chromium</td><td class="yes">built-in</td><td class="part">standard chromium</td><td class="yes">yes</td><td>low</td>
           </tr>
           <tr>
-            <td class="name">LibreWolf</td><td>Gecko</td><td class="yes">built-in</td><td class="yes">arkenfox-style</td><td class="no">manual</td><td>high</td>
+            <td class="name">LibreWolf</td><td>Gecko</td><td class="yes">built-in</td><td class="yes">arkenfox-style</td><td class="part">varies by system</td><td>high</td>
           </tr>
           <tr>
             <td class="name">Orion</td><td>WebKit</td><td class="yes">built-in + custom rules</td><td class="part">untested</td><td class="part">in-app checks</td><td>low</td>
@@ -497,7 +559,10 @@
         reskinned Bing or Google feed), which puts it in a different category from most
         "private" search engines. Result quality is competitive and well past the
         rising-star phase. It's the default in Brave already; in other browsers it's
-        two clicks to set.
+        two clicks to set. Free results include privacy-respecting paid ads, and a
+        Premium plan removes them. Publishers are also suing Brave over its search
+        index and AI answers: News Corp in July 2026, and the New York Times and
+        three other newspapers on 2 November 2026. Neither case is decided.
       </p>
       <p>
         <strong>Startpage as secondary.</strong> You get proxied Google results plus
@@ -508,9 +573,14 @@
       </p>
       <p>
         <strong>Qwant if you want a second independent index.</strong> It's French,
-        runs a partial index of its own, sits under GDPR, and has a credible privacy
-        stance. It's not as thorough as Brave Search, but it's a reasonable
-        European-backed option to rotate in.
+        sits under GDPR, and has a credible privacy stance. It builds a partial
+        index of its own with Ecosia, in a joint venture called EUSP that has served
+        results since August 2025, and it still draws some results from other
+        providers. France's data regulator (CNIL) ruled in February 2025 that data
+        Qwant once sent to Microsoft for ads was pseudonymous, not anonymous as
+        Qwant had said. It issued a reminder with no fine, and Qwant had already
+        corrected its policy in 2020. Qwant isn't as thorough as Brave Search, but
+        it's a reasonable European-backed option to rotate in.
       </p>
       <p>
         <strong>DuckDuckGo, with eyes open.</strong> It's usable and easy, but it's
@@ -525,16 +595,19 @@
         <strong>Kagi if you'll pay to opt out of the ad economy entirely.</strong>
         It's a paid, no-ads, no-tracking search engine with independent ranking
         signals: your subscription funds the business directly instead of your data
-        or attention doing it indirectly. It's worth it if search quality is
-        something you'll budget for like any other tool, instead of something that
-        has to be free.
+        or attention doing it indirectly. It pulls results from other search engines
+        and its own small index, then ranks them itself. Plans start at $5 a month
+        for 300 searches, and $10 gets unlimited searches. You can try 50 searches
+        without an account. It's worth it if search quality is something you'll
+        budget for like any other tool, instead of something that has to be free.
       </p>
       <p>
         <strong>SearXNG for a self-hostable, no-account option.</strong> It's an
         open-source metasearch engine that pulls results from other engines (Google,
         Bing, Brave Search, and more) without forwarding your identity to any of
         them. Run your own instance for full control, or use one of the many public
-        instances if you trust the operator. There's no tracking either way.
+        instances if you trust the operator. SearXNG's own docs say you can't tell
+        whether a public instance logs your searches.
       </p>
     </div>
 
@@ -553,7 +626,9 @@
         not less: each one adds another fingerprintable signature to your browser's
         configuration. On Brave, Shields already cover what most of those extensions
         claim to do, so skip the pile entirely. On Firefox, Gecko still runs uBlock
-        Origin unrestricted, unlike Chromium's Manifest V3 limits.
+        Origin unrestricted, unlike Chromium's Manifest V3 limits. Brave still
+        hosts its own copy of the full version, and Helium bundles its own build.
+        Brave calls its support best-effort.
       </p>
       <p>
         <strong>Tor Browser is what gives you actual anonymity, not these.</strong>

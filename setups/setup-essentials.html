@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essentials Setup · ~/privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="/meta/favicon.ico" sizes="32x32">
+<link rel="icon" href="/meta/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/meta/site.webmanifest">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="../index.html"><span class="tilde">~</span>/privacy</a>
+    <div class="site-search">
+      <input type="search" id="site-search-input" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+      <ul id="site-search-results" hidden></ul>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav(this)">menu</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../threat-modeling.html">threat modeling</a></li>
+      <li><a href="../setups/index.html" class="active">setups</a></li>
+      <li><a href="../tools/index.html">tools</a></li>
+      <li><a href="../changelog.html">changelog</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap layout">
+
+  <aside class="cats" aria-label="Setups">
+    <button class="cats-toggle" aria-expanded="false" onclick="toggleCats(this)">this setup</button>
+    <p class="label">setups</p>
+    <ul>
+      <li><a href="index.html" class="sl d-mute">Overview</a></li>
+      <li><a href="setup-essentials.html" class="sl d-green current" aria-current="page">Essentials</a></li>
+      <li><a href="setup-standard.html" class="sl d-yellow">Standard</a></li>
+      <li><a href="setup-hardened.html" class="sl d-red">Hardened</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">on this page</p>
+    <ul>
+      <li><a href="#updates" class="d-green"><span class="n">01</span>Automatic updates</a></li>
+      <li><a href="#passwords" class="d-green"><span class="n">02</span>Bitwarden</a></li>
+      <li><a href="#login-codes" class="d-green"><span class="n">03</span>Ente Auth</a></li>
+      <li><a href="#browser" class="d-green"><span class="n">04</span>Brave</a></li>
+      <li><a href="#messaging" class="d-green"><span class="n">05</span>Signal</a></li>
+      <li><a href="#dns" class="d-green"><span class="n">06</span>AdGuard DNS</a></li>
+      <li><a href="#email" class="d-green"><span class="n">07</span>Proton Mail</a></li>
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="../threat-modeling.html" class="sl d-yellow">Threat modeling</a></li>
+      <li><a href="../tools/index.html" class="sl d-mute">All tools</a></li>
+    </ul>
+  </aside>
+
+<main>
+
+  <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">setups</a><span class="sep">/</span><span class="here">essentials</span></p>
+
+  <h1>Essentials Setup</h1>
+  <p class="updated">last updated <b>2026-11-05</b> · 7 changes · one afternoon · <a href="../changelog.html">what changed</a></p>
+
+  <p class="intro">
+    Essentials is sane defaults and quick, big wins: a browser that blocks trackers,
+    login codes that stop a stolen password from being enough, a password manager,
+    and automatic updates. <strong>Who this is for:</strong> anyone starting from zero.
+    The risks here are data brokers, ad networks, and everyday criminals, who target
+    everybody. Nothing on this page asks you to leave a platform or explain yourself
+    to family.
+  </p>
+
+  <p class="section-label">four habits behind the setup</p>
+  <div class="criteria">
+    <div class="crit">
+      <h4>Be mindful of apps and settings</h4>
+      <p>Every app you install asks for access to something, and its defaults favor the
+      company. Install fewer apps, look at the permissions and privacy settings when you
+      install, and check them again now and then, because apps add features and change
+      defaults.</p>
+    </div>
+    <div class="crit">
+      <h4>Know how a free service pays</h4>
+      <p>If you can't see how a free service makes money, your data is probably how.
+      Before you sign up, ask what the company gets from you.</p>
+    </div>
+    <div class="crit">
+      <h4>Share the minimum</h4>
+      <p>Give each service only what it needs. A real birthday, phone number, or address is
+      rarely required. Assume anything you post or type into a form can be copied and kept.</p>
+    </div>
+    <div class="crit">
+      <h4>Slow down on urgent messages</h4>
+      <p>Most scams run on urgency. Go to the site yourself instead of clicking a link, and
+      never hand over a login code or password because someone asked.</p>
+    </div>
+  </div>
+
+  <div class="headsup">
+    <span class="k">the plan</span>
+    Seven changes, ordered by how much protection each one gives for the effort.
+    Start at the top. <em>If the afternoon runs out, stop after any step and you are
+    still better off than this morning.</em>
+  </div>
+
+  <p class="section-label">the setup</p>
+
+  <article class="provider a-yellow reveal" id="updates">
+    <div class="p-head">
+      <h3>Automatic updates</h3>
+      <span class="verdict">updates</span>
+    </div>
+    <div class="meta">
+      <span>~15 min</span><span>every device</span>
+    </div>
+    <p>
+      <strong>The job:</strong> Updates close security holes that attackers already know
+      about. Most break-ins use a fix that has existed for months.
+    </p>
+    <p>
+      <strong>Why this one:</strong> Turning on automatic updates protects you more than
+      any app on this site, and it costs nothing.
+    </p>
+    <ol class="steps">
+      <li>Turn on automatic updates for your phone, your computer, your app stores, and
+      your browser.</li>
+      <li>Delete apps you no longer use. Every app is another way in, and most phones
+      carry twenty forgotten ones.</li>
+      <li>Check which apps can see your location, microphone, and contacts. Revoke what
+      they don't need. An app asks again if it truly does.</li>
+    </ol>
+    <div class="p-foot">
+      <span>no product to pick</span>
+      <span>just a setting</span>
+    </div>
+  </article>
+
+  <article class="provider a-green reveal" id="passwords">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/bitwarden.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Bitwarden</h3>
+      <span class="verdict">password manager</span>
+    </div>
+    <div class="meta">
+      <span>~45 min</span><span>start with three passwords</span>
+    </div>
+    <p>
+      <strong>The job:</strong> A password manager creates and remembers a different
+      password for every account. It replaces reusing one password everywhere, which is
+      how a single leak turns into ten break-ins.
+    </p>
+    <p>
+      <strong>Why Bitwarden:</strong> Its free plan syncs across all your devices, and it
+      has had independent security audits.
+    </p>
+    <p>
+      <strong>Look for:</strong> A plan you can afford that syncs across your devices,
+      independent audits, and an export so you can leave.
+      <strong>Backup:</strong> KeePassXC if you want your vault stored only on your own
+      devices.
+    </p>
+    <ol class="steps">
+      <li>Create the account with a <strong>long passphrase</strong>: four random words
+      you can remember. Write it on paper for now.</li>
+      <li>Install the browser extension and the phone app, and sign in to both.</li>
+      <li>Change your email, banking, and most-used social account to generated
+      passwords. Move the rest as you log in over the next month.</li>
+    </ol>
+    <div class="p-foot">
+      <span>prices, audits, and alternatives</span>
+      <span><a href="../tools/password-managers.html">Password Managers page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-aqua reveal" id="login-codes">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/ente.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Ente Auth</h3>
+      <span class="verdict">login codes</span>
+    </div>
+    <div class="meta">
+      <span>~30 min</span><span>email first</span>
+    </div>
+    <p>
+      <strong>The job:</strong> A two-factor (2FA) app gives you a short-lived code to type
+      after your password. It replaces text-message codes, which can be intercepted, and
+      a stolen password stops being enough to take your account.
+    </p>
+    <p>
+      <strong>Why Ente Auth:</strong> It backs up your codes with encryption, so a lost
+      phone does not lock you out, and it runs on phones and computers.
+    </p>
+    <p>
+      <strong>Look for:</strong> An encrypted backup or export of your codes, and an app
+      for every device you use.
+      <strong>Backup:</strong> Aegis if you only use Android.
+    </p>
+    <ol class="steps">
+      <li>Install it. Turn on 2FA for your <strong>email first</strong>, then banking,
+      then your password manager.</li>
+      <li>Each site gives you recovery codes. Keep them in your password manager. The
+      password manager's own codes go on paper.</li>
+      <li>Once the app works, remove text-message codes where the site lets you.</li>
+    </ol>
+    <div class="p-foot">
+      <span>prices, features, and alternatives</span>
+      <span><a href="../tools/2fa.html">2FA &amp; Hardware Keys page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-orange reveal" id="browser">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/brave.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Brave</h3>
+      <span class="verdict">browser</span>
+    </div>
+    <div class="meta">
+      <span>~20 min</span><span>nothing to add on top</span>
+    </div>
+    <p>
+      <strong>The job:</strong> Your browser is where most everyday tracking happens. A
+      tracker-blocking browser replaces one that lets ad networks follow you from site
+      to site.
+    </p>
+    <p>
+      <strong>Why Brave:</strong> It blocks trackers and ads out of the box, so there is
+      nothing to install on top.
+    </p>
+    <p>
+      <strong>Look for:</strong> Tracker and ad blocking that is on by default, and
+      regular security updates.
+      <strong>Backup:</strong> Firefox if you want a browser that is not built on
+      Chromium (the engine behind Chrome).
+    </p>
+    <ol class="steps">
+      <li>Install it and import your bookmarks and passwords. Then move the passwords
+      into your password manager.</li>
+      <li>In settings, turn off <strong>Rewards, Wallet, and News</strong>. Leave the
+      blocking (called Shields) on its defaults.</li>
+      <li>Keep the default search engine for a week before you judge it.</li>
+    </ol>
+    <div class="p-foot">
+      <span>features, trade-offs, and alternatives</span>
+      <span><a href="../tools/browsers.html">Browsers &amp; Search page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-blue reveal" id="messaging">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/signal.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Signal</h3>
+      <span class="verdict">messenger</span>
+    </div>
+    <div class="meta">
+      <span>~15 min</span><span>plus some persuasion</span>
+    </div>
+    <p>
+      <strong>The job:</strong> A private messenger scrambles your messages so only you and
+      the person you write to can read them (end-to-end encryption). It replaces texting
+      and chat apps where the company can read along.
+    </p>
+    <p>
+      <strong>Why Signal:</strong> It feels like a normal messenger, so it is the private
+      tool you can realistically get other people onto.
+    </p>
+    <p>
+      <strong>Look for:</strong> Encryption that is always on, no ads, and an app that
+      collects little about you.
+      <strong>Backup:</strong> SimpleX if you don't want to give out a phone number.
+    </p>
+    <ol class="steps">
+      <li>Install it, register, and set a PIN you will remember.</li>
+      <li>Set a username and share that instead of your phone number.</li>
+      <li>Turn on a default disappearing-messages timer. Then move one group chat over.
+      The family one is usually easiest.</li>
+    </ol>
+    <div class="p-foot">
+      <span>features, trade-offs, and alternatives</span>
+      <span><a href="../tools/messaging.html">Messengers page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-purple reveal" id="dns">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/adguard.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>AdGuard DNS</h3>
+      <span class="verdict">encrypted DNS</span>
+    </div>
+    <div class="meta">
+      <span>~15 min</span><span>no account</span>
+    </div>
+    <p>
+      <strong>The job:</strong> DNS is the lookup that turns a website name into an address,
+      and your internet provider normally sees every one. An encrypted DNS service hides
+      those lookups from the network and blocks known ad, tracker, and malware domains.
+    </p>
+    <p>
+      <strong>Why AdGuard DNS:</strong> It needs no account, one setting covers a whole
+      device, and there is nothing to maintain.
+    </p>
+    <p>
+      <strong>Look for:</strong> Support for encrypted lookups, a blocklist, and a clear
+      statement about what it logs.
+      <strong>Backup:</strong> Quad9 if you want malware blocking without ad blocking.
+    </p>
+    <ol class="steps">
+      <li>On your phone, set encrypted DNS to AdGuard's address. adguard-dns.io has the
+      exact steps for Android and iPhone.</li>
+      <li>Do the same on your computer or inside your browser's settings.</li>
+      <li>Optional: set it on your router to cover the TV and everything else. Most
+      routers send lookups unencrypted, so treat this as a bonus.</li>
+    </ol>
+    <div class="p-foot">
+      <span>addresses, prices, and alternatives</span>
+      <span><a href="../tools/dns.html">DNS &amp; Network page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-blue reveal" id="email">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/proton-mail.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Proton Mail</h3>
+      <span class="verdict">email</span>
+    </div>
+    <div class="meta">
+      <span>~20 min</span><span>keep your old email for now</span>
+    </div>
+    <p>
+      <strong>The job:</strong> Your email is the reset address for every other account, so
+      whoever reads it can take over the rest. A provider that cannot read your mail
+      replaces an inbox the provider can.
+    </p>
+    <p>
+      <strong>Why Proton Mail:</strong> Its free plan gives you one encrypted address with
+      no payment card, and the <a href="setup-standard.html">Standard setup</a> builds on
+      the same account.
+    </p>
+    <p>
+      <strong>Look for:</strong> End-to-end encryption, a free or cheap plan, and support
+      for your own domain later.
+      <strong>Backup:</strong> Mailbox.org if you want to use any mail app you like.
+    </p>
+    <ol class="steps">
+      <li>Sign up for the free account and install the phone app.</li>
+      <li>Use the new address for new signups and anything sensitive. Leave your old
+      email running.</li>
+      <li>Add the new address as a second recovery address on your important accounts,
+      next to the old one.</li>
+    </ol>
+    <div class="p-foot">
+      <span>plans, trade-offs, and alternatives</span>
+      <span><a href="../tools/email-providers.html">Email Providers page →</a></span>
+    </div>
+  </article>
+
+  <p class="section-label">after setup</p>
+  <div class="notes">
+    <p>
+      <strong>Let the password move happen on its own.</strong> Each time you log in
+      somewhere over the next month, save it to your password manager and replace the
+      password if you reused it. Forcing it all in one sitting is how people burn out.
+    </p>
+    <p>
+      <strong>Retire the old browser after two weeks.</strong> Keep it as a fallback while
+      the new one proves itself, then uninstall it so you don't drift back.
+    </p>
+    <p>
+      <strong>Watch for this mistake: 2FA without recovery codes.</strong> Lockouts hurt
+      more than hackers at this level. If you skipped the recovery codes in the login
+      codes step, go back and save them.
+    </p>
+    <p>
+      <strong>When you want more,</strong> the <a href="setup-standard.html">Standard
+      setup</a> picks up here and builds on the free Proton account you just made.
+    </p>
+  </div>
+
+</main>
+
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span><span style="color:var(--green)">~</span>/privacy</span>
+    <span class="no">no analytics <b>&middot;</b> no affiliates <b>&middot;</b> no cookies</span>
+    <span><a href="../about.html#source">source</a> &middot; <a href="../about.html#contact">contact</a></span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn) {
+    const links = document.getElementById('navlinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  function toggleCats(btn) {
+    const open = btn.parentElement.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+<script src="../site-search/site-index.js"></script>
+<script src="../site-search/site-search.js"></script>
+
+</body>
+</html>

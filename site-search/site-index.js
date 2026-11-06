@@ -220,7 +220,7 @@ window.SITE_INDEX = [
     "anchor": "windscribe",
     "pills": [
       "🇨🇦 canada",
-      "audited no-logs",
+      "audited",
       "ad blocking",
       "free tier"
     ]
@@ -257,7 +257,7 @@ window.SITE_INDEX = [
     "anchor": "azirevpn",
     "pills": [
       "🇸🇪 sweden",
-      "audited no-logs",
+      "audited",
       "ram-only",
       "wireguard",
       "paid"

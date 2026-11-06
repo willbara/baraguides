@@ -49,6 +49,354 @@
   <div class="log">
 
     <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Setups<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Restructured the three setups. Every card now names the job the pick does and what it replaces, gives one reason for the pick, lists what to look for if you choose something else, and names a backup where one makes sense. Prices, menu paths, and router addresses came out of the cards, and each card links to its category page for current details. The hub gained a table showing each job across the three levels, with "builds on" and "replaces" markers. The old claim that the levels simply stack is gone: Mullvad replaces Proton VPN, for example.
+        </p>
+        <p>
+          Beginner is now Essentials (the old address redirects). Its steps are reordered by impact, with automatic updates first and Proton Mail last. Hardened opens with a three-way triage (a person is watching you, an organization or state, or just curious), puts the help resources at the top, and tags each card for the track it applies to. Its crowded communications and money cards were split into messaging, Tor, payments and records, and physical safety and travel, and Mullvad gets its own card. Standard splits SimpleLogin aliases and an offline backup out of the cards that held them. The end-of-page checklists were removed because they repeated the cards.
+        </p>
+        <p>
+          Follow-up changes the same day. Essentials now opens with four habits behind the setup: be mindful of apps and settings, know how a free service pays, share the minimum, and slow down on urgent messages. Standard's VPN backup is now Windscribe, which the VPNs page calls the closest runner-up to Proton on everyday ease of use, and Standard's storage backup is now Tresorit. Hardened's "what this replaces" box moved under "get help first". The setup pages now use the same layout as the category pages, with a sidebar that lists the three setups and jumps to each card on the page. The cards keep the site's standard block style, and the hub's level cards show who each level is for, the effort, and the daily friction as a row of facts. The hub's job-by-level table was redesigned: rows are grouped under four headings, each level has a colored header, picks are bold with extras underneath, and "builds on" and "replaces" are now small badges. Hardened gained a PGP card for the organization track (Thunderbird, with GnuPG as the backup), taken from the messaging card's one-line email step. It states what PGP leaves readable, and the hub's Hardened email cell mentions it. Hardened's messaging card now picks Session for sensitive chats, with SimpleX and Signal as alternatives and Briar as the server-free fallback, and carries a "catch" line from the Messengers page: no forward secrecy yet, design flaws found by 2026 research, and a smaller team after a funding crisis.
+        </p>
+        <p class="log-links"><a href="setups/index.html">setups →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Setups<span class="log-tag lt-fix">correction</span></h3>
+        <p>
+          Removed the Bitwarden "Settings → Emergency access" recovery-code step, since that menu is the trusted-contact feature and not where the two-step recovery code lives. Recovery codes for the password manager's own 2FA now go on paper instead of inside the vault they protect. Removed the "open source" wording from the Bitwarden card while that question is open on the Password Managers page. Fixed the "6 steps" count (there were seven), the stale two-YubiKey price, and the Beginner note that referred to a "step two" that was not recovery codes. The router DNS step now says most routers send lookups unencrypted. Added that EasyOptOuts serves US residents only. Replaced about a dozen "not X, it's Y" lines and one em dash.
+        </p>
+        <p class="log-links"><a href="setups/index.html">setups →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Anonymizing Networks<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Refreshed the category against current sources. Tor had no factual changes, so only its Arti bullet was updated (congestion control is now always on, as of Arti 2.6.0). Added a plain-english key covering relays, exits, bridges, hidden services, the normal web, post-quantum encryption, and audits. Rewrote the "isn't a separate network; it's" line on Snowflake and the "separate identity, not a cloak" line in the notes as plain statements, split one long semicolon sentence, and shortened three older bullets that ran 15 to 19 words (one each on Tor, Orbot, and Snowflake).
+        </p>
+        <p class="log-links"><a href="tools/anonymizing-networks.html">anonymizing networks →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Orbot<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added that Orbot 17.9.6 (September 2026) fixed problems from a recent independent audit, including one rated high. The Play Store listing and GitHub release notes both say so, but neither names the auditor or links a report, and the card says that. Added the May 2023 Cure53 audit of the Android app, whose report Guardian Project posted publicly on GitHub. Added that bridges came back on iOS in April 2026 after being removed, and that the Tor Project's own Android app, Tor VPN Beta, is still in testing.
+        </p>
+        <p class="log-links"><a href="tools/anonymizing-networks.html#orbot">anonymizing networks →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>I2P<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added the denial-of-service attacks of early 2026 (I2P's "Stormy Weather" post, 4 February), the 2.11.0 release that followed with the first defenses, and that it made post-quantum encryption the default. Added an NDSS 2026 paper in which researchers unmasked their own test hidden services using 15 routers they ran for about eight months. The paper's ethics section says the authors told I2P first and that I2P patched the problem in an earlier release. The post-quantum default is now described as end-to-end encryption, which is what the 2.11.0 release post means by "the ratchet layer". The link now points to i2p.net, where geti2p.net redirects.
+        </p>
+        <p class="log-links"><a href="tools/anonymizing-networks.html#i2p">anonymizing networks →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Snowflake<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added that Russia began blocking Snowflake on 30 March 2026 and that the Tor Project has pushed proxy updates since. Added the Snowflake Volunteer Android app as a second way to run a proxy. The card does not say whether the block still works, because reports differ.
+        </p>
+        <p class="log-links"><a href="tools/anonymizing-networks.html#snowflake">anonymizing networks →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Lokinet<span class="log-tag lt-fix">correction</span></h3>
+        <p>
+          The card called the Session Technology Foundation "an active organization" with "recent releases" and said the standalone client stays live. Lokinet's last release was 0.9.14 in July 2025, the Foundation has been rewriting it as Session Router since October 2025, and the Foundation's June 2026 post says it lost all its paid staff and now runs on donations. Those bullets are gone. Added Session Router 1.1.0 (October 2026) with post-quantum encryption, and that its releases so far are Linux-only. Added that Lokinet's last releases with Windows and macOS installers were 0.9.11 in November 2022 (0.9.13 and 0.9.14 are Linux-only), although lokinet.org still points to Windows and macOS install guides. Dropped the vague "May 2025 reorganization" bullet.
+        </p>
+        <p class="log-links"><a href="tools/anonymizing-networks.html#lokinet">anonymizing networks →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>VPNs<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Refreshed the category against current sources (NymVPN was researched the day before and left alone). Added a plain-english key covering no-logs policies, audits, WireGuard, multihop, RAM-only servers, obfuscation, kill switches, and the Five and 14 Eyes. Fixed the "before you pick" note, which still said "these three" with seven cards on the page. Rewrote two "not X, it's Y" lines (AzireVPN and Obscura) as plain statements, and shortened the longest bullets.
+        </p>
+        <p class="log-links"><a href="tools/vpns.html">vpns →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Proton VPN<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added that Securitum has audited the no-logs policy every year since 2022 (fifth report in 2026), that Proton's ownership page names the Swiss nonprofit Proton Foundation as main shareholder and lists no venture investors (the old "VC-backed" bullet is gone), and the October 2026 404 Media report on CEO Andy Yen. The free tier now says 10 countries and one device. Price now reads $3.49 a month for the first two years, then $83.88 a year, from Proton's pricing page (the $3.49 is a promotional rate).
+        </p>
+        <p class="log-links"><a href="tools/vpns.html#proton-vpn">vpns →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Mullvad<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added the 2026 audits: X41 D-Sec on account and payment systems (January), Assured on the GotaTun WireGuard code (March), and a second Android app assessment (June). Added Mullvad's July 2026 statement on an owner's personal donation to a Swedish political party, which the owner's own blog names as the Örebro Party. Trimmed the bullets.
+        </p>
+        <p class="log-links"><a href="tools/vpns.html#mullvad">vpns →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Windscribe<span class="log-tag lt-fix">correction</span></h3>
+        <p>
+          The card said NCC Group audited Windscribe in 2024. Windscribe's own audit page lists Leviathan Security Group (desktop 2021, mobile 2022) and Packetlabs (new server stack, June 2024), and no NCC Group audit. It also said Windscribe "had nothing to hand over" when Greek prosecutors tried to compel user data. Coverage says Greece charged the founder personally over a user's alleged hacking through a Windscribe server, and an Athens court dismissed the case in April 2025, so the card now says that. Also added that accounts can skip email (Windscribe's help page), that mailed cash is accepted for the $69 one-year plan, the free tier's 10 GB or 2 GB caps, and Pro pricing. The old "no anonymous-signup story" bullet is gone. The "audited no-logs" pill became "audited", because the audit page lists no no-logs audit.
+        </p>
+        <p class="log-links"><a href="tools/vpns.html#windscribe">vpns →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>IVPN<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Standard now includes multihop and 5 devices, and a Plus tier and Pro Suite were added in May 2026, so the price line now shows $60 a year and $6 a month. Added the December 2024 Safing (Portmaster) purchase, IVPN's statement that its only no-logs audit was in 2019, and the August 2026 BTCPay Server attack that took 0.6168 BTC of IVPN's own money (IVPN says no customer data or VPN servers were touched). Replaced "7th consecutive annual Cure53 audit" with the eighth audit being scheduled for July 2026, since the seventh covered the email and DNS add-ons. The "short trial" bullet now names the $2 weekly plan.
+        </p>
+        <p class="log-links"><a href="tools/vpns.html#ivpn">vpns →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Obscura VPN<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Obscura now has apps for Android (May 2026), Windows (August 2026), and Linux (September 2026), with the code under GPLv3 and a 5-device limit. The card now says Mullvad runs the exit hop, which it did not mention before. Cure53's December 2025 audit covered the macOS app and protocol only, so the card says that. The site moved from obscura.net to obscura.com. Payment is card, Bitcoin over Lightning, or Monero, so the table no longer says no crypto.
+        </p>
+        <p class="log-links"><a href="tools/vpns.html#obscura-vpn">vpns →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>AzireVPN<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Rewrote the opening line, which used a "not X, it's Y" construction. Added that Azire shares servers and server software with Malwarebytes Privacy VPN. The old card said the X41 D-Sec audit "confirmed zero logging". The public report is a security test, not a no-logs audit: it counts 14 vulnerabilities (2 critical, 8 medium, 4 low), calls the systems a good security level, says server images discard logs, and says brief physical access could fully take over a server. The card now says that, and the "audited no-logs" pill became "audited". Removed the Q1 2026 "inconsistent kill switch" bullet, since no source for it turned up and Azire documents a built-in kill switch. Added that OpenVPN ended in March 2025 and that cash payments ended.
+        </p>
+        <p class="log-links"><a href="tools/vpns.html#azirevpn">vpns →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>DNS &amp; Network<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Refreshed the category against current sources. Added a plain-english key covering DNS resolvers, encrypted DNS, blocklists, recursive resolvers, DNSSEC, and query logs. Trimmed the longest bullets and rewrote one em dash and one "not X, it's Y" line on the Self-host and Quad9 cards as plain statements.
+        </p>
+        <p class="log-links"><a href="tools/dns.html">dns &amp; network →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Quad9<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added that Quad9 says it will stop serving users in France on 24 November 2026, after a French court ordered it to block sites in a case brought by beIN. An appeal is pending. Added that Mullvad now sponsors Quad9 after retiring its own public encrypted DNS, and that Quad9 turned on DNS-over-QUIC and HTTP/3 in March 2026. The at-a-glance logging cell now says "no IPs kept", which matches Quad9's policy wording.
+        </p>
+        <p class="log-links"><a href="tools/dns.html#quad9">quad9 →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Cloudflare DNS<span class="log-tag lt-fix">correction</span></h3>
+        <p>
+          The card said the KPMG report was request-only. Cloudflare publishes it as a public PDF. KPMG's report is dated March 2026, was published in April 2026, and covers calendar 2024, so the card now says that. Removed "full IPs never written to disk", since Cloudflare's policy keeps a small sample of packets (up to 0.05%) for troubleshooting.
+        </p>
+        <p class="log-links"><a href="tools/dns.html#cloudflare-dns">cloudflare dns →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>ControlD<span class="log-tag lt-fix">correction</span></h3>
+        <p>
+          The card said paid plans start at about $2 a month. ControlD's own pricing guide (July 2026) lists personal plans at $3 a month or $30 a year. Added that its free public resolvers have no dashboard or custom rules, keep no logs, and that paid plans come with a 14-day trial.
+        </p>
+        <p class="log-links"><a href="tools/dns.html#controld">controld →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Technitium<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added version 14 (clustering and two-factor login) and version 15 (single sign-on), plus the large batch of security fixes in version 15.5. Shortened the bullets.
+        </p>
+        <p class="log-links"><a href="tools/dns.html#technitium-dns-server">technitium →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Self-host<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added that Pi-hole shipped a long run of security fixes through 2026, with the latest on 17 October. Replaced an em dash with plain sentences and swapped the acronym FOSS for "open source" on this page.
+        </p>
+        <p class="log-links"><a href="tools/dns.html#self-host">self-host →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>ReThinkDNS<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added that Celzero is a three-person bootstrapped team, per its own FAQ. Added that the resolver runs on Cloudflare's network, and Rethink's FAQ says Cloudflare can see the requests that reach it. Shortened the bullets.
+        </p>
+        <p class="log-links"><a href="tools/dns.html#rethinkdns">rethinkdns →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>AdGuard DNS<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added the paid Personal plan's limits (20 devices, 10 million requests a month) from AdGuard's onboarding page.
+        </p>
+        <p class="log-links"><a href="tools/dns.html#adguard-dns">adguard dns →</a></p>
+      </div>
+    </div>
+
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Browsers &amp; Search<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Refreshed the category against current sources (Orion was skipped, since it was researched the day before). Added a plain-english key covering browser engines, fingerprinting, Manifest V2 and V3, uBlock Origin, and search indexes. Trimmed the longest bullets and rewrote two "not X, it's Y" lines on the Mullvad Browser card as plain statements. Added a note to the uBlock Origin paragraph that Brave and Helium still offer the full version.
+        </p>
+        <p class="log-links"><a href="tools/browsers.html">browsers &amp; search →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Brave<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Origin is now described as it works: a paid variant that removes Leo, Rewards, Wallet, VPN, Tor, and usage pings, compiled out of the standalone desktop build and switched off in the upgrade, which is the only form on Android and iOS. The old bullet said Origin's features were "hardware-disabled", which was wrong. Added that Brave hosts uBlock Origin and three other Manifest V2 extensions after Google removed them, and that Brave calls the support best-effort. In the search notes, added that free Brave Search carries paid ads (Premium removes them) and the publisher lawsuits: News Corp (July 2026) and the New York Times plus three other newspapers (2 November 2026).
+        </p>
+        <p class="log-links"><a href="tools/browsers.html#brave">Brave →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Firefox<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added a second paragraph on Mozilla's AI features: the "Block AI enhancements" switch (Firefox 148, February 2026) and the opt-in Smart Window (Firefox 155, September 2026). Changed "the last serious non-Chromium engine" to "the main non-Chromium engine on Windows and Linux", since the Orion card on the same page uses WebKit.
+        </p>
+        <p class="log-links"><a href="tools/browsers.html#firefox">Firefox →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Helium<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added that Helium bundles its own build of uBlock Origin, runs on macOS, Windows, and Linux only (no mobile), and is funded by user sponsorships. Still in beta. Replaced the "patches can lag" bullet with a measured one: across eight releases (3 October to 5 November), Helium shipped each Chromium stable version one to two days after Google.
+        </p>
+        <p class="log-links"><a href="tools/browsers.html#helium">Helium →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Mullvad Browser<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added that in October 2026 the Tor Project kept its technical work with Mullvad but paused joint promotion and reworded how it describes the browser, after criticism of a Mullvad co-owner's personal donation to a Swedish political party. Noted version 16.0 (29 October 2026). Replaced two "doesn't X; it Y" lines with plain statements. The intro now says Mullvad and the Tor Project develop it together, matching the project's README. The table's update cell now reads "in-app checks", since Mullvad's own documentation lists a built-in browser update request.
+        </p>
+        <p class="log-links"><a href="tools/browsers.html#mullvad-browser">Mullvad Browser →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Vivaldi<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Added Vivaldi 8.3 (5 November 2026), which rebuilt the ad and tracker blocker with four levels, per-site settings, and custom filter lists. Added Vivaldi's August 2025 statement that it will not add an AI chatbot or page summaries, and a bullet that it sends a daily usage ping with a unique install ID (both its privacy page and its "how we count users" page say so).
+        </p>
+        <p class="log-links"><a href="tools/browsers.html#vivaldi">Vivaldi →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>LibreWolf<span class="log-tag lt-fix">correction</span></h3>
+        <p>
+          The card said LibreWolf has no automatic updates. Its FAQ says it updates itself on macOS, and since April 2026 the Windows installer offers an optional scheduled updater. Only Linux relies on the package manager. The patch-speed line now matches the FAQ ("usually within three days"), and the table cell says "varies by system".
+        </p>
+        <p class="log-links"><a href="tools/browsers.html#librewolf">LibreWolf →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>SearXNG<span class="log-tag lt-fix">correction</span></h3>
+        <p>
+          The note said "there's no tracking either way", which overstated it for public instances. SearXNG's own documentation says users of a public instance have to trust its administrator and cannot tell whether requests are logged. The note now says that.
+        </p>
+        <p class="log-links"><a href="tools/browsers.html">search engines →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-date">2026-11-05</div>
+      <div class="log-body">
+        <h3>Qwant and Kagi<span class="log-tag lt-update">update</span></h3>
+        <p>
+          Qwant's note now says its partial index is built with Ecosia in the EUSP joint venture (serving results since August 2025) and that it still draws some results from other providers. It also records the CNIL's February 2025 reminder (no fine) that data Qwant once sent to Microsoft was pseudonymous, not anonymous, which Qwant corrected in its policy in 2020. Kagi's note now gives prices ($5 a month for 300 searches, $10 unlimited), says it pulls from other engines plus its own small index, and mentions the 50 searches you can try without an account.
+        </p>
+        <p class="log-links"><a href="tools/browsers.html">search engines →</a></p>
+      </div>
+    </div>
+
+    <div class="log-entry reveal">
       <div class="log-date">2026-11-04</div>
       <div class="log-body">
         <h3>Personal Data Removers<span class="log-tag lt-update">update</span></h3>

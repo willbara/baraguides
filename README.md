@@ -37,7 +37,7 @@
 ├── index.html              landing page
 ├── threat-modeling.html    start-here guide
 ├── tools/                  one page per tool category (+ index)
-├── setups/                 beginner / standard / hardened setups (+ index)
+├── setups/                 essentials / standard / hardened setups (+ index)
 ├── changelog.html          dated recommendation changes
 ├── about.html              who runs this, and the rules
 ├── 404.html

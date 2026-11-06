@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">dns</span></p>
 
     <h1>DNS &amp; Network</h1>
-    <p class="updated">last updated <b>2026-09-05</b> · 8 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-05</b> · 8 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Every site you visit starts with a DNS lookup, and by default those lookups go to
@@ -137,6 +137,34 @@
       </div>
     </div>
 
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>DNS resolver</h4>
+        <p>The service that turns a site name like example.com into the number a computer connects to. It sees the name of every site you look up.</p>
+      </div>
+      <div class="crit">
+        <h4>encrypted DNS (DoH, DoT, DoQ)</h4>
+        <p>Three ways to lock lookups so your ISP and Wi-Fi owner can't read them. DoH is DNS over HTTPS, DoT is DNS over TLS, and DoQ is DNS over QUIC.</p>
+      </div>
+      <div class="crit">
+        <h4>blocklist and allowlist</h4>
+        <p>A blocklist is a list of ad, tracker, or malware domains the resolver refuses to look up. An allowlist is your list of exceptions.</p>
+      </div>
+      <div class="crit">
+        <h4>recursive resolver and upstream</h4>
+        <p>A recursive resolver finds answers itself by asking the internet's root servers. A forwarder hands your lookups to an upstream resolver, such as Quad9, instead.</p>
+      </div>
+      <div class="crit">
+        <h4>DNSSEC</h4>
+        <p>Digital signatures on DNS answers. A resolver that checks them can spot forged answers, but they do not hide your lookups.</p>
+      </div>
+      <div class="crit">
+        <h4>query log</h4>
+        <p>A record of the sites you looked up. Resolvers differ on what they keep, for how long, and whether it ties back to you.</p>
+      </div>
+    </div>
+
     <p class="section-label">recommendations</p>
 
     <!-- AdGuard DNS -->
@@ -154,8 +182,9 @@
         resolver (<code>94.140.14.14</code>) blocks ads and trackers with
         <strong>zero setup and no account</strong>. The server side isn't fully open
         source, but the company has a long, consistent track record in security, and
-        its home-server sibling (AdGuard Home) is fully FOSS. It covers most
-        everyday use cleanly; the paid tier adds dashboards and custom rules.
+        its home-server sibling (AdGuard Home) is fully open source. It covers most
+        everyday use cleanly. The paid Personal plan adds dashboards and custom
+        rules, and covers up to 20 devices and 10 million requests a month.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -195,25 +224,34 @@
       <p>
         Set <code>9.9.9.9</code> and you're done: Quad9 is a Swiss nonprofit resolver
         that blocks malware domains, keeps no per-user logs, and asks nothing of you.
-        It doesn't filter ads; it's a <strong>security resolver, not an ad
-        blocker</strong>, and that's exactly why it's worth knowing: a clean,
-        trustworthy, threat-focused option for when you want neutrality instead of
-        curation.
+        It blocks only dangerous domains and leaves ads alone, so it's a
+        <strong>security resolver</strong>: a clean, threat-focused option for when
+        you want neutrality instead of curation. Mullvad now sponsors Quad9 and
+        sends its former public DNS users there.
+      </p>
+      <p>
+        Quad9 is leaving France. On 22 October 2026 it said it will stop serving
+        users there on 24 November, after a French court ordered it to block sites
+        in a case brought by the sports broadcaster beIN. Quad9 refuses to alter its
+        answers, an appeal is pending, and it says about 20 other blocking cases are
+        pending in France.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Nonprofit under Swiss privacy law: no commercial incentive to log</li>
-            <li>Malware/phishing blocklist on by default</li>
-            <li>Anycast network; fast nearly everywhere</li>
+            <li>Malware and phishing blocking on by default</li>
+            <li>Fast in most countries</li>
+            <li>Added DNS-over-QUIC and HTTP/3 support in March 2026</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>No ad/tracker filtering: pair with browser-level blocking</li>
-            <li>No customization or per-device control at all</li>
+            <li>Stops serving France on 24 November 2026</li>
+            <li>No ad or tracker filtering</li>
+            <li>No custom rules or per-device settings</li>
             <li>Occasional false positives are hard to appeal quickly</li>
           </ul>
         </div>
@@ -276,11 +314,11 @@
       </div>
       <p>
         Run AdGuard Home or Pi-hole yourself on a Raspberry Pi or any always-on box, and
-        <strong>no third party sees your lookups at all</strong> — the only complete
-        answer to the trust question every entry above carries. AdGuard Home is the
-        slicker, FOSS, encrypted-out-of-the-box option; Pi-hole is the decade-old
-        community classic. Pair either with Unbound and you're not even trusting an
-        upstream resolver.
+        <strong>no third party sees your lookups at all</strong>. That is the only
+        complete answer to the trust question every entry above carries. AdGuard Home
+        is the slicker, open-source, encrypted-out-of-the-box option.
+        Pi-hole is the decade-old community classic. Pair either with Unbound and
+        you're not even trusting an upstream resolver.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -289,13 +327,14 @@
             <li>Your hardware, your rules, your logs (or none)</li>
             <li>Covers smart TVs and IoT junk that can't run blockers</li>
             <li>With Unbound upstream, fully independent recursive resolution</li>
-            <li>AdGuard Home speaks DoH/DoT natively, both directions</li>
+            <li>AdGuard Home supports DoH and DoT natively</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>You're now a sysadmin: updates, uptime, and "the internet is broken" complaints are yours</li>
+            <li>You're now the sysadmin: updates, uptime, and complaints are yours</li>
+            <li>Pi-hole needed many security fixes in 2026</li>
             <li>Only protects you at home unless you route back via WireGuard</li>
             <li>Needs an always-on device (~€40 Pi or an existing server)</li>
           </ul>
@@ -323,24 +362,31 @@
         whole Pi-hole-plus-Unbound stack with one program. Shreyas Zare has maintained
         it under the GPL since 2017.
       </p>
+      <p>
+        Version 14 (November 2025) added clustering and two-factor login, and version
+        15 (April 2026) added single sign-on. Version 15.5 (September 2026) fixed a
+        large batch of security bugs, so update promptly.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Full recursion to the root servers, so there's no upstream resolver to trust</li>
-            <li>Hosts authoritative zones with DNSSEC signing, plus split-horizon and conditional forwarding</li>
-            <li>Runs DoH, DoT, and DNS-over-QUIC as servers, not just as upstream clients</li>
-            <li>Windows, Linux, macOS, Docker, and ARM boards including the Raspberry Pi</li>
+            <li>Full recursion: no upstream resolver to trust</li>
+            <li>Hosts your own DNS zones, with DNSSEC signing</li>
+            <li>Serves DoH, DoT, and DNS-over-QUIC to your devices</li>
+            <li>Runs on Windows, Linux, macOS, Docker, and Raspberry Pi</li>
             <li>Open source end to end: server, web console, API, and apps</li>
+            <li>Built-in clustering, two-factor login, and single sign-on</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>One developer maintains it, and no third party has ever audited it</li>
-            <li>Only the newest version gets security fixes, so updating isn't optional</li>
-            <li>Users have reported memory climbing into the gigabytes under heavy query or API load</li>
-            <li>The default login is admin/admin, and the setup curve is steeper than Pi-hole's</li>
+            <li>One developer, and no third-party audit found</li>
+            <li>Only the newest version gets security fixes</li>
+            <li>Users report memory climbing into gigabytes under heavy load</li>
+            <li>Default login is admin/admin until you change it</li>
+            <li>Steeper setup curve than Pi-hole</li>
           </ul>
         </div>
       </div>
@@ -368,27 +414,33 @@
         what's blocked on exactly which device, not if you want to set it once and
         forget it.
       </p>
+      <p>
+        ControlD's free public resolvers offer preset filters but no dashboard or
+        custom rules. Those need a paid personal plan, which starts at $3 a month
+        ($30 a year) after a 14-day free trial.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Very granular per-device and per-profile block-list control</li>
             <li>Supports DoH, DoT, and DNS-over-QUIC</li>
-            <li>Free tier is genuinely usable, not just a trial</li>
-            <li>Custom routing rules (split DNS, redirects) beyond simple blocking</li>
+            <li>Free public resolvers keep no logs</li>
+            <li>Custom redirect rules beyond simple blocking</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>The dashboard's depth is a learning curve, not a five-minute setup</li>
-            <li>Canada is a Five Eyes jurisdiction, if that's in your model</li>
+            <li>Free resolvers have no dashboard or custom rules</li>
+            <li>Dashboard depth means a steep learning curve</li>
+            <li>Canada is a Five Eyes (surveillance-alliance) country</li>
             <li>Easy to over-configure and spend an evening tuning rules</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">free tier · paid tiers from <b>~$2/mo</b></span>
+        <span class="price">free resolvers · paid from <b>$3/mo</b></span>
         <span><a href="https://controld.com" rel="noopener">controld.com →</a></span>
       </div>
     </article>
@@ -404,7 +456,7 @@
       </div>
       <p>
         ReThinkDNS is a free encrypted resolver (DoH and DoT) with over 190
-        selectable blocklists, run by Celzero out of India. Its Android app pairs
+        selectable blocklists, run by Celzero, a three-person bootstrapped team in India. Its Android app pairs
         the resolver with a <strong>local firewall that tracks and blocks
         connections per app</strong>, and neither needs a signup. A WireGuard VPN
         add-on (RPN, from $1.75/month) rounds out a bundle nothing else in this
@@ -416,17 +468,18 @@
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Free core with no signup: encrypted DNS plus a per-app firewall and connection tracker</li>
-            <li>DNS, firewall, and WireGuard VPN in one Android app is a rare bundle</li>
+            <li>Free core with no signup, including the per-app firewall</li>
+            <li>DNS, firewall, and VPN in one Android app</li>
             <li>App and resolver code are both open source</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>No independent audit; the no-logging policy is the company's word alone</li>
+            <li>No independent audit of its no-logging claim</li>
+            <li>Resolver runs on Cloudflare's network, which can see requests</li>
             <li>India's CERT-In rules require five-year identity retention from VPN-classified providers; the company hasn't publicly addressed this</li>
-            <li>The app (firewall included) is Android-only; other platforms only get the resolver endpoints</li>
+            <li>App and firewall are Android-only</li>
             <li>RPN is a paid add-on, separate from the free core</li>
           </ul>
         </div>
@@ -450,8 +503,9 @@
         Cloudflare DNS (<code>1.1.1.1</code>) is the big mainstream free resolver,
         and what sets it apart here is verification: <strong>KPMG has
         independently audited Cloudflare's data-handling claims</strong>, most
-        recently in April 2026, so the 25-hour retention figure is a checked fact
-        instead of a promise. Few free resolvers can show anything close. Just
+        recently in a public report published in April 2026 (it covers calendar
+        2024), so the 25-hour retention figure is a checked fact instead of a
+        promise. Few free resolvers can show anything close. Just
         know what you're getting: it's a plain, fast resolver that filters
         nothing, run by a giant US company, and the trust rests on that audit,
         not on open code.
@@ -460,7 +514,7 @@
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>KPMG-verified logging claims: 25-hour retention, full IPs never written to disk</li>
+            <li>KPMG-verified logging claims, including 25-hour retention</li>
             <li>Free with no tiers; DoH, DoT, DNS-over-Tor, and Oblivious DoH all supported</li>
             <li>Never blocked or filtered content despite legal requests, per its transparency reports</li>
             <li>Only one third party (APNIC) receives query data, anonymized and IP-free</li>
@@ -470,9 +524,9 @@
           <h5>mind the</h5>
           <ul>
             <li>The base resolver doesn't filter ads or trackers at all</li>
-            <li>The resolver's backend is closed source, and the KPMG report is request-only</li>
+            <li>The resolver's backend is closed source</li>
             <li>US jurisdiction, if that's in your threat model</li>
-            <li>A 62-minute global outage in July 2025, disclosed in a detailed public post-mortem</li>
+            <li>62-minute global outage in July 2025</li>
           </ul>
         </div>
       </div>
@@ -495,7 +549,7 @@
             <td class="name">AdGuard DNS</td><td class="yes">yes</td><td class="yes">yes</td><td class="part">paid tier</td><td class="part">24h ops logs</td><td>none</td><td>free</td>
           </tr>
           <tr>
-            <td class="name">Quad9</td><td class="no">no</td><td class="yes">yes</td><td class="no">no</td><td class="yes">none kept</td><td>none</td><td>free</td>
+            <td class="name">Quad9</td><td class="no">no</td><td class="yes">yes</td><td class="no">no</td><td class="yes">no IPs kept</td><td>none</td><td>free</td>
           </tr>
           <tr>
             <td class="name">NextDNS</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">full</td><td class="part">you configure</td><td>low</td><td>free / ~$2/mo</td>
@@ -507,7 +561,7 @@
             <td class="name">Technitium</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">full + zones</td><td class="yes">yours alone</td><td>high</td><td>hardware</td>
           </tr>
           <tr>
-            <td class="name">ControlD</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">full, per-device</td><td class="part">you configure</td><td>medium</td><td>free / ~$2/mo</td>
+            <td class="name">ControlD</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">full, per-device</td><td class="part">you configure</td><td>medium</td><td>free / $3/mo</td>
           </tr>
           <tr>
             <td class="name">ReThinkDNS</td><td class="yes">yes</td><td class="yes">yes</td><td class="part">blocklist choice</td><td class="part">stated no-logs, unaudited</td><td>low</td><td>free</td>
@@ -532,7 +586,8 @@
         <strong>Match DNS to your VPN.</strong> A <a href="vpns.html">VPN</a> tunnel
         carries its own DNS. Mullvad's app routes queries through its own internal
         resolver automatically while connected, separate from the public
-        <code>dns.mullvad.net</code> service being discontinued; on Proton, that's
+        <code>dns.mullvad.net</code> service, which Mullvad retired in favor of
+        sponsoring Quad9 (users had to switch by 2 November 2026). On Proton, that's
         NetShield. Keeping resolution consistent with the tunnel's infrastructure
         preserves a uniform fingerprint; fighting your VPN to use a third party does
         the opposite.

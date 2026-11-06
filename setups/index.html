@@ -32,47 +32,63 @@
   </div>
 </nav>
 
-<main class="wrap content">
+<div class="wrap layout">
+
+  <aside class="cats" aria-label="Setups">
+    <button class="cats-toggle" aria-expanded="false" onclick="toggleCats(this)">setups</button>
+    <p class="label">setups</p>
+    <ul>
+      <li><a href="index.html" class="sl d-mute current" aria-current="page">Overview</a></li>
+      <li><a href="setup-essentials.html" class="sl d-green">Essentials</a></li>
+      <li><a href="setup-standard.html" class="sl d-yellow">Standard</a></li>
+      <li><a href="setup-hardened.html" class="sl d-red">Hardened</a></li>
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="../threat-modeling.html" class="sl d-yellow">Threat modeling</a></li>
+      <li><a href="../tools/index.html" class="sl d-mute">All tools</a></li>
+    </ul>
+  </aside>
+
+<main>
 
   <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><span class="here">setups</span></p>
 
   <h1>Recommended Setups</h1>
-  <p class="updated">last updated <b>2026-08-02</b> · 3 setups · <a href="../changelog.html">what changed</a></p>
+  <p class="updated">last updated <b>2026-11-05</b> · 3 setups · <a href="../changelog.html">what changed</a></p>
 
   <p class="intro">
-    These are complete configurations, not shopping lists. Each setup names the threat model
-    it's built for, what it costs in time and money, and the order to do things in.
-    <strong>Pick the one that matches your situation</strong>, not the most
-    impressive-sounding one.
+    Each setup is a complete answer. It tells you what to use for each job, and why,
+    so you don't have to compare anything. <strong>Pick the level that matches how much
+    protection you need.</strong> Every pick links to its category page, for the day you
+    want to look at alternatives.
   </p>
 
   <div class="headsup">
     <span class="k">how to choose</span>
     If you haven't read <a href="../threat-modeling.html">threat modeling</a>, that's
-    the real first step. The short version: <em>most people belong on Beginner or
-    Standard.</em> Hardened is for people with a concrete reason to be there: it
-    charges real daily friction for protection most models don't need.
+    the real first step. The short version: <em>most people belong on Essentials or
+    Standard.</em> Hardened is for people with a concrete reason to be there. It charges
+    real daily friction for protection most people don't need.
   </div>
 
-  <p class="section-label">the three tiers</p>
+  <p class="section-label">pick your level</p>
 
   <article class="provider a-green reveal">
     <div class="p-head">
-      <h3>Beginner</h3>
+      <h3>Essentials</h3>
       <span class="verdict">covers most people</span>
     </div>
-    <div class="meta">
-      <span>threat model: data brokers + opportunists</span><span>time: one afternoon</span><span>cost: €0</span><span>friction: none</span>
-    </div>
+    <div class="facts"><div><span class="l">for</span><span class="v">anyone starting out</span></div><div><span class="l">effort</span><span class="v">one afternoon</span></div><div><span class="l">daily friction</span><span class="v">none</span></div></div>
     <p>
-      Sane defaults with nothing exotic: a password manager, app-based 2FA, Brave,
-      Signal, and encrypted DNS. No accounts deleted, no platforms
-      abandoned, nothing your family will notice, except that the obvious attacks
-      stop working. <strong>If you do nothing else, do this one.</strong>
+      Essentials is sane defaults and quick, big wins. You get a tracker-blocking browser,
+      a login-code app, a password manager, and automatic updates. Nothing here asks you to
+      leave a platform or explain yourself to family.
+      <strong>If you do nothing else, do this one.</strong>
     </p>
     <div class="p-foot">
-      <span class="price">6 steps · all free</span>
-      <span><a href="setup-beginner.html">open the beginner setup →</a></span>
+      <span class="price">7 changes</span>
+      <span><a href="setup-essentials.html">open the essentials setup →</a></span>
     </div>
   </article>
 
@@ -81,17 +97,15 @@
       <h3>Standard</h3>
       <span class="verdict">the balanced pick</span>
     </div>
-    <div class="meta">
-      <span>threat model: + surveillance capitalism at large</span><span>time: a weekend + slow migration</span><span>cost: ~€10/mo</span><span>friction: low</span>
-    </div>
+    <div class="facts"><div><span class="l">for</span><span class="v">you want data companies out of your life</span></div><div><span class="l">effort</span><span class="v">a weekend, then slow migration</span></div><div><span class="l">daily friction</span><span class="v">low</span></div></div>
     <p>
-      Everything in Beginner, plus the structural moves: your email leaves Gmail for a
-      provider that can't read it, a domain of your own, aliases for signups, a
-      hardware key on the accounts that matter, an audited VPN, and encrypted storage.
+      Standard takes the same jobs further. Your email moves to a provider that can't read
+      it, on a domain you own, with a separate alias for every signup. You add hardware
+      keys, an audited VPN, encrypted storage, and a backup.
       <strong>This is where "they have my whole life" stops being true.</strong>
     </p>
     <div class="p-foot">
-      <span class="price">paid steps · more intentional usecases</span>
+      <span class="price">9 changes</span>
       <span><a href="setup-standard.html">open the standard setup →</a></span>
     </div>
   </article>
@@ -101,41 +115,96 @@
       <h3>Hardened</h3>
       <span class="verdict">for real threats</span>
     </div>
-    <div class="meta">
-      <span>threat model: targeted adversaries</span><span>time: weeks, then a practice</span><span>cost: ~€15/mo + hardware</span><span>friction: real</span>
-    </div>
+    <div class="facts"><div><span class="l">for</span><span class="v">someone is actively targeting you</span></div><div><span class="l">effort</span><span class="v">weeks, then a practice</span></div><div><span class="l">daily friction</span><span class="v">real</span></div></div>
     <p>
-      For journalists, activists, abuse survivors, and anyone a specific someone is
-      actually looking at: GrapheneOS in your pocket, compartmentalized identities,
-      anonymous payment, Tails for the sessions that can't exist, and habits that
-      matter more than any tool. <strong>Built for need, not for sport</strong>,
-      though the curious are welcome to read.
+      Hardened is for journalists, activists, abuse survivors, and anyone a specific person
+      or group is watching. It adds a hardened phone, separate identities, anonymous payment,
+      and habits that matter more than any tool. The page opens with a short triage, so
+      you start on the right track. <strong>If you're only curious, read on, then stop at
+      Standard.</strong>
     </p>
     <div class="p-foot">
-      <span class="price">hardware required · ongoing discipline</span>
+      <span class="price">10 changes</span>
       <span><a href="setup-hardened.html">open the hardened setup →</a></span>
     </div>
   </article>
 
-  <p class="section-label">how the tiers relate</p>
+  <p class="section-label">how each card works</p>
+  <div class="criteria three">
+    <div class="crit">
+      <h4>The job</h4>
+      <p>What the pick does for you and what it replaces. If you'd rather use something
+      else, this tells you what to match.</p>
+    </div>
+    <div class="crit">
+      <h4>Why this one</h4>
+      <p>The single reason we picked it. Prices, versions, and settings live on the
+      category page, so they stay current in one place.</p>
+    </div>
+    <div class="crit">
+      <h4>Look for, backup, and the catch</h4>
+      <p>The qualities any replacement should have. Where a runner-up makes sense, the
+      backup line names it: go with the pick, and use the backup if it gives you trouble.
+      Where the pick has a known weakness, a catch line says so.</p>
+    </div>
+  </div>
+
+  <p class="section-label">what changes at each level</p>
+  <div class="table-scroll">
+    <table class="ladder">
+      <colgroup><col class="c-job"><col><col><col></colgroup>
+      <thead>
+        <tr><th>Job</th><th class="t-ess">Essentials</th><th class="t-std">Standard</th><th class="t-har">Hardened</th></tr>
+      </thead>
+      <tbody>
+        <tr class="group"><td colspan="4">accounts and logins</td></tr>
+        <tr><td class="name">Passwords</td><td><span class="pick">Bitwarden</span></td><td><span class="same">same</span></td><td><span class="same">same</span></td></tr>
+        <tr><td class="name">Login security</td><td><span class="pick">Ente Auth codes</span></td><td><span class="chg build">builds on</span><br><span class="pick">Two YubiKeys</span></td><td><span class="same">same</span></td></tr>
+        <tr><td class="name">Email</td><td><span class="pick">Proton Mail, free</span></td><td><span class="chg build">builds on</span><br><span class="pick">Proton Mail on your own domain</span><span class="more">plus SimpleLogin aliases</span></td><td><span class="chg replace">replaces</span><br><span class="pick">Separate accounts for sensitive work</span><span class="more">plus PGP when email is unavoidable</span></td></tr>
+        <tr><td class="name">Separate identities</td><td><span class="none">none</span></td><td><span class="none">none</span></td><td><span class="pick">Compartments</span></td></tr>
+        <tr class="group"><td colspan="4">everyday use</td></tr>
+        <tr><td class="name">Browsing</td><td><span class="pick">Brave</span></td><td><span class="same">same</span></td><td><span class="chg build">builds on</span><br><span class="pick">Tor for hidden destinations</span></td></tr>
+        <tr><td class="name">Messaging</td><td><span class="pick">Signal</span></td><td><span class="same">same</span></td><td><span class="chg build">builds on</span><br><span class="pick">Session for sensitive chats</span><span class="more">Briar as a fallback</span></td></tr>
+        <tr><td class="name">Notes</td><td><span class="none">none</span></td><td><span class="pick">Notesnook</span></td><td><span class="same">same</span></td></tr>
+        <tr class="group"><td colspan="4">network and data</td></tr>
+        <tr><td class="name">Network</td><td><span class="pick">AdGuard DNS</span></td><td><span class="chg build">builds on</span><br><span class="pick">Proton VPN</span></td><td><span class="chg replace">replaces</span><br><span class="pick">Mullvad</span></td></tr>
+        <tr><td class="name">Files and backups</td><td><span class="none">none</span></td><td><span class="pick">Filen</span><span class="more">plus an offline backup</span></td><td><span class="same">same</span></td></tr>
+        <tr><td class="name">Data brokers</td><td><span class="none">none</span></td><td><span class="pick">EasyOptOuts</span></td><td><span class="chg build">builds on</span><br><span class="pick">Payments and public-records cleanup</span></td></tr>
+        <tr class="group"><td colspan="4">devices</td></tr>
+        <tr><td class="name">Software updates</td><td><span class="pick">Automatic updates</span></td><td><span class="same">same</span></td><td><span class="same">same</span><span class="more">checked monthly</span></td></tr>
+        <tr><td class="name">Phone</td><td><span class="pick">Stock, kept updated</span></td><td><span class="same">same</span></td><td><span class="chg replace">replaces</span><br><span class="pick">GrapheneOS</span></td></tr>
+        <tr><td class="name">Computer</td><td><span class="pick">Stock, kept updated</span></td><td><span class="same">same</span></td><td><span class="chg replace">replaces</span><br><span class="pick">Qubes for sensitive work</span><span class="more">plus Tails for one-off sessions</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="t-note"><span class="chg build">builds on</span> keep the earlier piece and add this &nbsp; <span class="chg replace">replaces</span> swap the earlier piece out &nbsp; <span class="same">same</span> carried over from the level to the left</p>
+
+  <p class="section-label">how the levels relate</p>
   <div class="notes">
     <p>
-      <strong>They stack.</strong> Standard assumes you did Beginner; Hardened assumes
-      both. There's no skipping to the end: the boring foundations are what the
-      advanced layers stand on.
+      <strong>Each level takes the same jobs further.</strong> Blocking, for example, starts
+      with Brave and encrypted DNS, then adds a VPN with its own blocker, then adds Tor.
+      The domain you own in Standard becomes your everyday compartment in Hardened.
     </p>
     <p>
-      <strong>You can live between tiers.</strong> Plenty of people run Standard plus
-      GrapheneOS, or Beginner plus a VPN. The tiers are coherent starting points,
-      not club memberships.
+      <strong>Cards say what they build on or replace.</strong> The foundations stay. When
+      a later level swaps something out, such as Mullvad in place of Proton VPN, the card
+      says so.
     </p>
     <p>
-      <strong>Done beats perfect.</strong> A finished Beginner setup protects you more
+      <strong>You can live between levels.</strong> Plenty of people run Standard plus
+      GrapheneOS, or Essentials plus a VPN. The levels are coherent starting points,
+      and nobody checks your membership.
+    </p>
+    <p>
+      <strong>Done beats perfect.</strong> A finished Essentials setup protects you more
       than a Hardened setup you got 30% through and abandoned in week two.
     </p>
   </div>
 
 </main>
+
+</div>
 
 <footer>
   <div class="wrap foot">
@@ -149,6 +218,11 @@
   function toggleNav(btn) {
     const links = document.getElementById('navlinks');
     const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  function toggleCats(btn) {
+    const open = btn.parentElement.classList.toggle('open');
     btn.setAttribute('aria-expanded', open);
   }
 

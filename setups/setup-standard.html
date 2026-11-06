@@ -32,261 +32,394 @@
   </div>
 </nav>
 
-<main class="wrap content">
+<div class="wrap layout">
+
+  <aside class="cats" aria-label="Setups">
+    <button class="cats-toggle" aria-expanded="false" onclick="toggleCats(this)">this setup</button>
+    <p class="label">setups</p>
+    <ul>
+      <li><a href="index.html" class="sl d-mute">Overview</a></li>
+      <li><a href="setup-essentials.html" class="sl d-green">Essentials</a></li>
+      <li><a href="setup-standard.html" class="sl d-yellow current" aria-current="page">Standard</a></li>
+      <li><a href="setup-hardened.html" class="sl d-red">Hardened</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">on this page</p>
+    <ul>
+      <li><a href="#domain" class="d-yellow"><span class="n">01</span>Your own domain</a></li>
+      <li><a href="#email" class="d-yellow"><span class="n">02</span>Proton Mail on your domain</a></li>
+      <li><a href="#aliases" class="d-yellow"><span class="n">03</span>SimpleLogin</a></li>
+      <li><a href="#hardware-keys" class="d-yellow"><span class="n">04</span>YubiKey ×2</a></li>
+      <li><a href="#vpn" class="d-yellow"><span class="n">05</span>Proton VPN</a></li>
+      <li><a href="#storage" class="d-yellow"><span class="n">06</span>Filen</a></li>
+      <li><a href="#backup" class="d-yellow"><span class="n">07</span>An offline backup</a></li>
+      <li><a href="#notes" class="d-yellow"><span class="n">08</span>Notesnook</a></li>
+      <li><a href="#data-brokers" class="d-yellow"><span class="n">09</span>EasyOptOuts</a></li>
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="../threat-modeling.html" class="sl d-yellow">Threat modeling</a></li>
+      <li><a href="../tools/index.html" class="sl d-mute">All tools</a></li>
+    </ul>
+  </aside>
+
+<main>
 
   <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">setups</a><span class="sep">/</span><span class="here">standard</span></p>
 
   <h1>Standard Setup</h1>
-  <p class="updated">last updated <b>2026-08-02</b> · a weekend + slow migration · ~€10/mo · <a href="../changelog.html">what changed</a></p>
+  <p class="updated">last updated <b>2026-11-05</b> · 9 changes · a weekend, then slow migration · <a href="../changelog.html">what changed</a></p>
 
   <p class="intro">
-    This tier balances security and usability for someone who's done the
-    <a href="setup-beginner.html">basics</a> and wants the structural changes too.
-    <strong>Who this is for:</strong> you've decided that ad-tech holding your whole
-    life is itself the problem, not just thieves and leaks. It costs about two coffees
-    a month and one weekend of focus.
+    Standard takes the same jobs further than <a href="setup-essentials.html">Essentials</a>.
+    Your email, files, and notes move to services that cannot read them, and you own the
+    address everything is tied to. <strong>Who this is for:</strong> you have decided that
+    advertisers and data companies holding your whole life is itself the problem, beyond
+    thieves and leaks. Expect one weekend of focus, then a few months of slow migration.
   </p>
 
   <div class="headsup">
-    <span class="k">prerequisite</span>
-    This tier assumes the <a href="setup-beginner.html">beginner setup</a> is done:
-    password manager in daily use, a free Proton Mail account, 2FA on critical
-    accounts, Brave, Signal, encrypted DNS. <em>If any of those are missing, do them
-    first: they're the foundation this tier builds on.</em>
+    <span class="k">builds on essentials</span>
+    This setup assumes <a href="setup-essentials.html">Essentials</a> is done: a password
+    manager, a login-code app, Brave, Signal, encrypted DNS, and a free Proton Mail
+    account. A card says <em>builds on</em> when it takes one of those further, and
+    <em>new</em> when it adds a job Essentials did not cover.
   </div>
 
   <p class="section-label">the setup</p>
 
-  <article class="provider a-purple reveal">
+  <article class="provider a-purple reveal" id="domain">
     <div class="p-head">
       <h3>Your own domain</h3>
       <span class="verdict">foundation</span>
     </div>
     <div class="meta">
-      <span>~€10/yr</span><span>~30 min</span><span>any reputable registrar</span>
+      <span>~30 min</span><span>new</span>
     </div>
     <p>
-      A domain you own means your email address is portable forever.
-      <strong>Why it's here:</strong> it converts every later choice from a commitment
-      into a preference. Switch providers and nobody ever knows.
+      <strong>The job:</strong> A domain is an internet address you own, like
+      yourname.com. Using it for your email means you can change email provider later
+      and nobody has to learn a new address.
+    </p>
+    <p>
+      <strong>Why this one:</strong> Owning the domain makes every later email choice free
+      to change. Porkbun, Namecheap, and Gandi are common registrars (the companies that
+      sell domains).
+    </p>
+    <p>
+      <strong>Look for:</strong> A reputable registrar that hides your contact details
+      from the public registry (called WHOIS privacy) and lets you transfer out.
     </p>
     <ol class="steps">
-      <li>Buy a boring domain at a reputable registrar (Porkbun, Namecheap, Gandi,
-      ~€10/year). Pick nothing cute; you'll say it out loud at front desks for a decade.</li>
-      <li>Turn on WHOIS privacy (usually free and default now).</li>
-      <li>That's it for today: the next step connects it.</li>
+      <li>Buy a boring, easy-to-spell domain. You will say it out loud for years.</li>
+      <li>Turn on WHOIS privacy. It is usually free and on by default now.</li>
+      <li>Stop there for today. The next card connects it.</li>
     </ol>
+    <div class="p-foot">
+      <span>prices vary by registrar</span>
+      <span>no category page for registrars</span>
+    </div>
   </article>
 
-  <article class="provider a-blue reveal">
+  <article class="provider a-blue reveal" id="email">
     <div class="p-head">
-      <span class="p-icon"><img src="../icons/proton-mail.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Proton Mail</h3>
+      <span class="p-icon"><img src="../icons/proton-mail.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Proton Mail on your domain</h3>
       <span class="verdict">email</span>
     </div>
     <div class="meta">
-      <span>~€4/mo</span><span>~2 h + months of drift</span><span><a href="../tools/email-providers.html">category page</a></span>
+      <span>~2 h, then months of drift</span><span>builds on: your free Proton Mail account</span>
     </div>
     <p>
-      Upgrade the free Proton Mail account from your
-      <a href="setup-beginner.html">beginner setup</a> to Mail Plus and attach the
-      domain you just bought. <strong>Why it's here:</strong> your inbox is the
-      master key to everything else; a custom domain turns switching providers into
-      a preference, not a commitment.
-      (<a href="../tools/email-providers.html">Mailbox.org</a> if you'd rather keep
-      IMAP and any client.) The paid plan also bundles <strong>SimpleLogin</strong>:
-      a unique forwarding address per signup, so a leak becomes traceable instead of
-      just annoying, and killing the alias kills the spam with it.
+      <strong>The job:</strong> Your main inbox moves to a provider that cannot read it, on
+      an address you control. Your email is the key to every other account, so this is the
+      move that matters most at this level.
+    </p>
+    <p>
+      <strong>Why Proton Mail:</strong> Its paid plan lets you attach your own domain and
+      bundles the alias service in the next card, so you stay in one account.
+    </p>
+    <p>
+      <strong>Look for:</strong> End-to-end encryption, support for your own domain, and a
+      way to export your mail.
+      <strong>Backup:</strong> Mailbox.org if you want to use any mail app through IMAP (a
+      standard that lets any app connect).
     </p>
     <ol class="steps">
-      <li>Upgrade your existing free account to Mail Plus, add your domain
-      (Settings → Domains), follow the DNS records it gives you.</li>
-      <li>Create <code>you@yourdomain</code> as the primary address.</li>
-      <li>Set Gmail to <strong>forward everything</strong> to it, don't delete Gmail;
-      let it become an empty hallway.</li>
-      <li>Move the heavy hitters this weekend: banks, government, employer, and every
-      account's <em>recovery address</em>. The long tail migrates itself as forwarded
-      mail reveals it.</li>
-      <li>Turn on SimpleLogin (Settings → Aliases) and install its browser extension.
-      Rule going forward: <strong>humans get the real address, companies get an
-      alias.</strong> Don't retrofit old accounts; migrate them when they email you.</li>
+      <li>Upgrade your free account, add your domain, and follow the DNS records it gives
+      you. DNS records are a few lines you paste into your registrar.</li>
+      <li>Make <code>you@yourdomain</code> your main address and forward your old inbox
+      to it. Keep the old account open and let it become an empty hallway.</li>
+      <li>This weekend, move the heavy hitters: banks, government, employer, and every
+      account's recovery address. The long tail shows itself in forwarded mail over time.</li>
     </ol>
+    <div class="p-foot">
+      <span>plans, trade-offs, and alternatives</span>
+      <span><a href="../tools/email-providers.html">Email Providers page →</a></span>
+    </div>
   </article>
 
-  <article class="provider a-aqua reveal">
+  <article class="provider a-yellow reveal" id="aliases">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/simplelogin.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>SimpleLogin</h3>
+      <span class="verdict">email aliases</span>
+    </div>
+    <div class="meta">
+      <span>~15 min</span><span>new</span>
+    </div>
+    <p>
+      <strong>The job:</strong> An alias is a forwarding address you can switch off. Giving
+      each company its own alias means a leak shows you who sold your address, and you can
+      kill a spammer's address without touching your real one.
+    </p>
+    <p>
+      <strong>Why SimpleLogin:</strong> It comes with the Proton plan from the last card, so
+      there is no extra account to manage.
+    </p>
+    <p>
+      <strong>Look for:</strong> Aliases that forward mail and let you reply, plus support
+      for your own domain.
+      <strong>Backup:</strong> Addy.io if you want an independent service.
+    </p>
+    <ol class="steps">
+      <li>Turn on aliases in your Proton settings and install the browser extension.</li>
+      <li>Follow one rule: people get your real address, companies get an alias. Do not
+      retrofit old accounts. Switch them when they email you.</li>
+      <li>Name each alias after the service in the note field as you create it. Without
+      that, you will be afraid to delete any of them in six months.</li>
+    </ol>
+    <div class="p-foot">
+      <span>plans, trade-offs, and alternatives</span>
+      <span><a href="../tools/alias-services.html">Alias Services page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-green reveal" id="hardware-keys">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/yubico.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>YubiKey ×2</h3>
+      <span class="verdict">hardware keys</span>
+    </div>
+    <div class="meta">
+      <span>~1 h</span><span>builds on: Ente Auth codes</span>
+    </div>
+    <p>
+      <strong>The job:</strong> A hardware key is a small device you tap to log in. It
+      replaces typed codes on your most important accounts. A fake login page can trick you
+      into typing a code, and it cannot trick a key.
+    </p>
+    <p>
+      <strong>Why YubiKey:</strong> It is the most widely supported key. Buy two, because
+      one lost key should never lock you out.
+    </p>
+    <p>
+      <strong>Look for:</strong> Support for FIDO2 (the standard behind phishing-proof
+      login), and the ability to register a spare.
+      <strong>Backup:</strong> Nitrokey if open-source firmware matters to you.
+    </p>
+    <ol class="steps">
+      <li>Buy two keys. Use one daily and keep one in a drawer.</li>
+      <li>Register <strong>both</strong> on your email, password manager, and banking where
+      supported. Then remove text-message login as a fallback.</li>
+      <li>Store the spare somewhere other than your bag. It only helps if it exists when
+      the main key doesn't.</li>
+    </ol>
+    <div class="p-foot">
+      <span>prices, models, and alternatives</span>
+      <span><a href="../tools/2fa.html">2FA &amp; Hardware Keys page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-yellow reveal" id="vpn">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/proton-vpn.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Proton VPN</h3>
+      <span class="verdict">VPN</span>
+    </div>
+    <div class="meta">
+      <span>~20 min</span><span>builds on: AdGuard DNS</span>
+    </div>
+    <p>
+      <strong>The job:</strong> A VPN hides what you do online from your internet provider
+      and from public Wi-Fi. It moves that trust to the VPN company, so choose one that
+      has been audited and promises not to keep logs.
+    </p>
+    <p>
+      <strong>Why Proton VPN:</strong> It is audited, fast, and it bundles with the Proton
+      account you already have, so you pay and sign in once.
+    </p>
+    <p>
+      <strong>Look for:</strong> Independent audits, a clear no-logs policy, and a kill
+      switch (it cuts your internet if the VPN drops).
+      <strong>Backup:</strong> Windscribe, the closest runner-up to Proton on everyday ease
+      of use, if you'd rather not tie your VPN to your Proton account.
+    </p>
+    <ol class="steps">
+      <li>Add it to your existing Proton plan and install it on your phone and computer.</li>
+      <li>Turn on the <strong>kill switch</strong> and <strong>NetShield</strong>, Proton's
+      built-in ad and tracker blocking.</li>
+      <li>Set it to connect automatically on untrusted Wi-Fi. Make it always on if speeds
+      hold up for you.</li>
+    </ol>
+    <div class="p-foot">
+      <span>prices, trade-offs, and alternatives</span>
+      <span><a href="../tools/vpns.html">VPNs page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-orange reveal" id="storage">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/filen.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Filen</h3>
+      <span class="verdict">cloud storage</span>
+    </div>
+    <div class="meta">
+      <span>~45 min</span><span>new</span>
+    </div>
+    <p>
+      <strong>The job:</strong> Cloud storage keeps your photos and files safe if a device
+      dies. An encrypted one replaces a cloud the company can read.
+    </p>
+    <p>
+      <strong>Why Filen:</strong> Even Filen cannot read what you store, and it has proper
+      apps on every system, Linux included.
+    </p>
+    <p>
+      <strong>Look for:</strong> Encryption where only you hold the key, apps for each of
+      your devices, and a way to export everything.
+      <strong>Backup:</strong> Tresorit if you want a polished, long-audited option and
+      don't mind paying more for it.
+    </p>
+    <ol class="steps">
+      <li>Create the account, turn on camera upload on your phone, and let it run overnight.</li>
+      <li>Start your old provider's export now (for Google, that is Takeout). Archives take
+      days, and the photo archive is the one people regret losing.</li>
+      <li>Move the documents you use. Leave the rest until you need them.</li>
+    </ol>
+    <div class="p-foot">
+      <span>plans, trade-offs, and alternatives</span>
+      <span><a href="../tools/cloud-storage.html">Cloud Storage &amp; Sync page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-red reveal" id="backup">
+    <div class="p-head">
+      <h3>An offline backup</h3>
+      <span class="verdict">backup</span>
+    </div>
+    <div class="meta">
+      <span>~1 h, then monthly</span><span>new</span>
+    </div>
+    <p>
+      <strong>The job:</strong> A backup is a second copy that your sync cannot overwrite.
+      Sync copies a mistake or a deletion to every device, and a backup lets you go back.
+    </p>
+    <p>
+      <strong>Why this one:</strong> An external drive with restic or BorgBackup (free tools
+      that keep encrypted, dated copies) costs little and works with any cloud.
+    </p>
+    <p>
+      <strong>Look for:</strong> Versioned copies (old versions are kept), encryption, and
+      a copy that is not always plugged in.
+    </p>
+    <ol class="steps">
+      <li>Buy an external drive and set the tool to back up your important folders.</li>
+      <li>Run it monthly and keep the drive unplugged in between.</li>
+      <li>Restore one file to prove it works. A backup you have never restored is a hope.</li>
+    </ol>
+    <div class="p-foot">
+      <span>drive prices vary</span>
+      <span>no category page for backups</span>
+    </div>
+  </article>
+
+  <article class="provider a-aqua reveal" id="notes">
     <div class="p-head">
       <span class="p-icon"><img src="../icons/notesnook.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Notesnook</h3>
       <span class="verdict">notes</span>
     </div>
     <div class="meta">
-      <span>free tier</span><span>~20 min</span><span><a href="../tools/notes.html">category page</a></span>
+      <span>~20 min</span><span>new</span>
     </div>
     <p>
-      Notesnook keeps your notes end-to-end encrypted, with clients on every
-      platform and a real export if you ever want to leave. <strong>Why it's
-      here:</strong> the average notes app is a diary a company can read, and this
-      one just isn't.
+      <strong>The job:</strong> Your notes read like a diary of your life. An encrypted
+      notes app replaces one where the company can read every page.
     </p>
-    <ol class="steps">
-      <li>Create an account, install the app on your phone and computer.</li>
-      <li>Import from your old notes app if it offers a plain export; a messy
-      import beats losing years of notes.</li>
-      <li>Turn on app lock (biometric or PIN) so an unlocked phone doesn't mean an
-      open notebook.</li>
-      <li>Send new notes here first, and migrate old ones as you actually need them.</li>
-    </ol>
-  </article>
-
-  <article class="provider a-green reveal">
-    <div class="p-head">
-      <span class="p-icon"><img src="../icons/yubico.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>YubiKey ×2</h3>
-      <span class="verdict">hardware 2fa</span>
-    </div>
-    <div class="meta">
-      <span>~€110 one-off</span><span>~1 h</span><span><a href="../tools/2fa.html">category page</a></span>
-    </div>
     <p>
-      YubiKeys give you phishing-proof login for the accounts that unlock the rest.
-      <strong>Why it's here:</strong> app codes can be phished in real time, hardware
-      keys can't. Buy two because one key is a lockout waiting to happen.
+      <strong>Why Notesnook:</strong> It encrypts your notes end to end, runs on every
+      platform, and offers a real export if you ever want to leave.
     </p>
-    <ol class="steps">
-      <li>Buy two YubiKey 5s (one USB-C/NFC for daily use, one for the drawer).
-      Look at <a href="../tools/2fa.html">Nitrokey</a> if open firmware matters to you.</li>
-      <li>Register <strong>both keys</strong> on: Proton, your password manager
-      (1Password supports keys natively, and Bitwarden supports FIDO2 keys even on
-      its free plan), Google
-      (while it exists), banking where supported.</li>
-      <li>Where keys are registered, remove SMS as a fallback method.</li>
-      <li>Backup key goes somewhere that isn't your bag. It only works if it exists
-      when the primary doesn't.</li>
-    </ol>
-  </article>
-
-  <article class="provider a-yellow reveal">
-    <div class="p-head">
-      <span class="p-icon"><img src="../icons/proton-vpn.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Proton VPN</h3>
-      <span class="verdict">network</span>
-    </div>
-    <div class="meta">
-      <span>~€5/mo (less bundled)</span><span>~20 min</span><span><a href="../tools/vpns.html">category page</a></span>
-    </div>
     <p>
-      Proton VPN is audited no-logs, fast, and it <strong>bundles with the Proton
-      Mail plan you just bought</strong> at a meaningful discount; at this tier the
-      suite deal is hard to beat. Why it's here: your ISP stops seeing where you go,
-      and public Wi-Fi stops being a consideration at all. Its free tier is a
-      genuinely usable fallback: unlimited data and no ads, just fewer server
-      locations and one device at a time. But the bundle discount here makes paying
-      the easy call.
-      (<a href="../tools/vpns.html">Mullvad</a> instead if anonymous payment matters
-      more than ecosystem value.)
+      <strong>Look for:</strong> End-to-end encryption, an app lock, and a plain export.
+      <strong>Backup:</strong> Obsidian if you want your notes as plain files on your own
+      device.
     </p>
     <ol class="steps">
-      <li>Upgrade to Proton Unlimited (or add VPN Plus) from your existing Proton
-      account, compare against paying separately; the bundle usually wins.</li>
-      <li>Install the app on phone and computer, sign in.</li>
-      <li>Turn on the <strong>kill switch</strong> and <strong>NetShield</strong>
-      (Proton's DNS-level ad/tracker blocking).</li>
-      <li>Set it to auto-connect on untrusted Wi-Fi at minimum; make it always-on if
-      speeds hold up for you.</li>
+      <li>Create an account and install the app on your phone and computer.</li>
+      <li>Import from your old notes app if it offers a plain export. A messy import beats
+      losing years of notes.</li>
+      <li>Turn on the app lock, and send new notes here first. Move old ones as you need
+      them.</li>
     </ol>
+    <div class="p-foot">
+      <span>plans, trade-offs, and alternatives</span>
+      <span><a href="../tools/notes.html">Notes page →</a></span>
+    </div>
   </article>
 
-  <article class="provider a-orange reveal">
-    <div class="p-head">
-      <span class="p-icon"><img src="../icons/filen.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Filen</h3>
-      <span class="verdict">Cloud Storage</span>
-    </div>
-    <div class="meta">
-      <span>from ~€2/mo · free tier</span><span>~45 min</span><span><a href="../tools/cloud-storage.html">category page</a></span>
-    </div>
-    <p>
-      Filen keeps your photos and files on a zero-knowledge E2EE cloud, with proper
-      clients on every OS, Linux included. <strong>Why it's here:</strong> "Google
-      can read my files" stops being true, without losing sync. (On a Proton
-      Unlimited bundle, Proton Drive covers the same job, unless you're on Linux,
-      where it has no sync client.)
-    </p>
-    <ol class="steps">
-      <li>Create a Filen account (10GB free covers the trial run) and turn on camera
-      upload on your phone; let it run overnight.</li>
-      <li>Start the Google Takeout export now: it takes days to arrive, and the
-      photos archive is the thing people regret not having.</li>
-      <li>Keep one versioned backup outside the sync loop: an external drive plus
-      restic/BorgBackup, monthly.</li>
-    </ol>
-  </article>
-
-  <article class="provider a-red reveal">
+  <article class="provider a-red reveal" id="data-brokers">
     <div class="p-head">
       <span class="p-icon"><img src="../icons/easyoptouts.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>EasyOptOuts</h3>
       <span class="verdict">data brokers</span>
     </div>
     <div class="meta">
-      <span>$19.99/yr</span><span>~20 min + ongoing</span><span><a href="../tools/data-removal.html">category page</a></span>
+      <span>~20 min, then ongoing</span><span>new</span>
     </div>
     <p>
-      EasyOptOuts scrubs your name, address, and phone number off the
-      people-search and data-broker sites that resell them, then keeps
-      re-removing you as those sites re-list you. <strong>Why it's here:</strong>
-      a locked-down inbox and an encrypted vault don't matter much if anyone can
-      still buy your home address for two dollars.
+      <strong>The job:</strong> Data brokers are sites that collect and resell your name,
+      address, and phone number. A removal service asks them to delete you, then keeps
+      checking, because they re-list you over time.
+    </p>
+    <p>
+      <strong>Why EasyOptOuts:</strong> It keeps removing you on a schedule, and a locked-down
+      inbox matters little if anyone can still buy your home address for a few dollars.
+    </p>
+    <p>
+      <strong>Look for:</strong> Ongoing re-removal, a clear list of the sites it covers,
+      and service where you live. EasyOptOuts serves US residents only.
+      <strong>Backup:</strong> Incogni or DeleteMe.
     </p>
     <ol class="steps">
-      <li>Sign up at easyoptouts.com and submit the personal details it needs to
-      find your listings: name, past addresses, birth year.</li>
-      <li>Let the first sweep run; it's the slowest one. Expect removals to land
-      over the following weeks.</li>
-      <li>Leave monitoring on: brokers re-list you on their own schedule, and
-      ongoing removal is the point, not a one-time cleanup.</li>
-      <li>Check the dashboard after the first month to confirm removals are
-      actually landing, then let it run quietly in the background.</li>
+      <li>Sign up and submit the details it needs to find your listings.</li>
+      <li>Let the first sweep run. It is the slowest, and removals land over weeks.</li>
+      <li>Leave monitoring on, and check the dashboard after the first month.</li>
     </ol>
+    <div class="p-foot">
+      <span>prices, coverage, and alternatives</span>
+      <span><a href="../tools/data-removal.html">Personal Data Removers page →</a></span>
+    </div>
   </article>
 
   <p class="section-label">after setup</p>
   <div class="notes">
     <p>
-      <strong>The email migration is a season, not a step.</strong> Three months of
-      forwarded mail will surface accounts you forgot existed. Each one: log in,
-      change address (or alias it), move on. The day forwarding goes quiet is the day
-      you've actually left.
+      <strong>The email move is a season, and it has no single day.</strong> Three months
+      of forwarded mail will surface accounts you forgot existed. For each one, log in and
+      change the address or alias it. The day forwarding goes quiet is the day you have
+      actually left.
     </p>
     <p>
-      <strong>Don't delete the Google account.</strong> Empty it, secure it with a key,
-      and keep it: old recovery paths, the odd service that demands it, and YouTube
-      comments you forgot about all live there. An account you control is safer than
-      one recycled.
+      <strong>Keep your old email account.</strong> Empty it and secure it with a key. Old
+      recovery paths and forgotten services still point there, and an account you control
+      is safer than one someone else recycles.
     </p>
     <p>
-      <strong>Common pitfall: alias sprawl without notes.</strong> Name each alias
-      after the service in SimpleLogin's note field as you create it, or in six
-      months you'll be scared to delete any of them.
-    </p>
-    <p>
-      <strong>Going further:</strong> if your threat model includes a specific
-      someone, or you want your phone itself out of the ecosystem, the
-      <a href="setup-hardened.html">hardened setup</a> is next. For most people,
-      though, <em>this tier is the destination.</em> Maintain it and live your life.
+      <strong>Going further:</strong> if a specific person or group is part of your threat,
+      or you want your phone itself out of the big companies' hands, the
+      <a href="setup-hardened.html">Hardened setup</a> is next. For most people,
+      <em>this level is the destination.</em> Maintain it and live your life.
     </p>
   </div>
 
-  <p class="section-label">checklist</p>
-  <ul class="checklist">
-    <li><strong>Beginner setup</strong> fully done (it's the foundation)</li>
-    <li><strong>Domain</strong> registered, WHOIS privacy on</li>
-    <li><strong>Proton Mail</strong> upgraded to Mail Plus, live on <code>you@yourdomain</code>, Gmail forwarding</li>
-    <li>Banks, government, employer, and recovery addresses <strong>migrated</strong></li>
-    <li><strong>SimpleLogin aliases</strong> on for all new signups, extension installed</li>
-    <li><strong>Notesnook</strong> installed, app lock on, new notes going here</li>
-    <li><strong>Two YubiKeys</strong> registered on Proton, your password manager, banking; SMS fallback removed</li>
-    <li><strong>Proton VPN</strong> with kill switch + NetShield, auto-connect on untrusted Wi-Fi</li>
-    <li>Photos and files on <strong>Filen</strong>, Takeout archive saved</li>
-    <li>One <strong>versioned offline backup</strong> that sync can't touch</li>
-    <li><strong>EasyOptOuts</strong> running, personal info submitted for removal</li>
-  </ul>
-
 </main>
+
+</div>
 
 <footer>
   <div class="wrap foot">
@@ -300,6 +433,11 @@
   function toggleNav(btn) {
     const links = document.getElementById('navlinks');
     const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  function toggleCats(btn) {
+    const open = btn.parentElement.classList.toggle('open');
     btn.setAttribute('aria-expanded', open);
   }
 

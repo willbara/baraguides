@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">anonymizing-networks</span></p>
 
     <h1>Anonymizing Networks</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 5 tools · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-05</b> · 5 tools · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       A VPN moves your trust from your ISP to one company. An anonymizing network is
@@ -135,6 +135,38 @@
       </div>
     </div>
 
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>relay</h4>
+        <p>A computer, usually run by a volunteer, that passes traffic along. Each relay only knows the hop before it and the hop after it.</p>
+      </div>
+      <div class="crit">
+        <h4>exit</h4>
+        <p>The last hop, where your traffic leaves the anonymizing network and reaches the normal web. The website sees the exit, not you.</p>
+      </div>
+      <div class="crit">
+        <h4>bridge</h4>
+        <p>An unlisted way into Tor, for places that block the public list of Tor relays.</p>
+      </div>
+      <div class="crit">
+        <h4>hidden service</h4>
+        <p>A site that lives inside the network itself. Tor calls them onion services and I2P calls them eepsites.</p>
+      </div>
+      <div class="crit">
+        <h4>clearnet</h4>
+        <p>The ordinary internet outside these networks.</p>
+      </div>
+      <div class="crit">
+        <h4>post-quantum</h4>
+        <p>Encryption built to withstand future quantum computers, which could break the kinds most sites use today.</p>
+      </div>
+      <div class="crit">
+        <h4>independent audit</h4>
+        <p>An outside security firm tests the code and reports what it found. It is a snapshot of one moment.</p>
+      </div>
+    </div>
+
     <p class="section-label">the tools</p>
 
     <!-- Tor -->
@@ -158,8 +190,8 @@
           <h5>good</h5>
           <ul>
             <li>No single relay can link you to your destination</li>
-            <li>The Tor Browser normalizes your fingerprint so you blend in with every other Tor user</li>
-            <li>Arti, the Rust reimplementation, now ships with congestion control on by default</li>
+            <li>Tor Browser makes every user's browser fingerprint look the same</li>
+            <li>Arti, Tor's Rust rewrite, now always has its speed-boosting congestion control on</li>
             <li>WebTunnel bridges disguise Tor traffic as ordinary HTTPS where it's blocked</li>
           </ul>
         </div>
@@ -193,6 +225,13 @@
         that have <strong>no proxy settings of their own</strong>. Guardian Project
         maintains both the Android and iOS versions and ships regular releases.
       </p>
+      <p>
+        Cure53 audited the Android app in May 2023, and that report is public.
+        Orbot 17.9.6 (September 2026) then fixed problems found by a newer independent
+        audit, including one rated high. The release notes don't name that auditor or
+        link its report. The Tor Project's own Android app, Tor VPN Beta, is a newer
+        option and is still in testing.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -200,13 +239,16 @@
             <li>Per-app routing on Android covers apps with no proxy settings of their own</li>
             <li>Whole-device mode when you want everything torified</li>
             <li>Actively maintained on both platforms</li>
+            <li>Public Cure53 audit (May 2023); more audit fixes shipped in 2026</li>
+            <li>Bridges are back on iOS (April 2026) after being removed</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
+            <li>2026 audit's auditor and report not named in release notes</li>
             <li>iOS is system-wide only: Apple's platform restrictions rule out per-app selection</li>
-            <li>There's no Tor Browser for iOS at all (Apple requires WebKit), so Orbot carries more of the load there</li>
+            <li>No Tor Browser exists for iOS, because Apple requires WebKit</li>
             <li>On Android, browse in Tor Browser and leave Orbot to the rest</li>
           </ul>
         </div>
@@ -232,6 +274,14 @@
         itself</strong> (called eepsites), and every participant relays traffic for
         others.
       </p>
+      <p>
+        Denial-of-service attacks hit the network in early 2026. Version 2.11.0
+        (February) added the first defenses. It also made post-quantum encryption the
+        default for traffic between you and the service you reach. A paper at the NDSS
+        2026 security conference showed researchers unmasking their own test hidden
+        services with 15 routers over eight months. They told I2P first, and the paper
+        says I2P patched the problem.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -239,6 +289,7 @@
             <li>Handles long-lived connections and torrenting better than Tor</li>
             <li>Java I2P bundles a real torrent client (I2PSnark), mail, and IRC</li>
             <li>i2pd gives you a lightweight C++ router for a VPS or a Raspberry Pi</li>
+            <li>Java I2P turned on post-quantum end-to-end encryption in February 2026</li>
           </ul>
         </div>
         <div class="cons">
@@ -247,12 +298,14 @@
             <li>Clearnet browsing is the weak spot: exits to the normal web (outproxies) are scarce</li>
             <li>Java I2P wants a few hundred megabytes of RAM</li>
             <li>i2pd bundles no apps: you pair it with external torrent or mail software</li>
+            <li>Hit by denial-of-service attacks in early 2026</li>
+            <li>Research unmasked test hidden services (NDSS 2026); I2P patched it</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
         <span class="price"><b>free</b> · open source</span>
-        <span><a href="https://geti2p.net" rel="noopener">geti2p.net →</a></span>
+        <span><a href="https://i2p.net" rel="noopener">i2p.net →</a></span>
       </div>
     </article>
 
@@ -266,10 +319,14 @@
         <span>free</span>
       </div>
       <p>
-        Snowflake isn't a separate network; it's <strong>a bridge into Tor</strong> for
-        people whose ISPs or governments block it. Traffic to blocked Tor entry points
-        gets disguised as ordinary video-call (WebRTC) traffic and relayed through
-        volunteers' browsers.
+        Snowflake is <strong>a bridge into Tor</strong> for people whose ISPs or
+        governments block it, so your traffic still ends up on the Tor network. Traffic
+        to blocked Tor entry points gets disguised as ordinary video-call (WebRTC)
+        traffic and relayed through volunteers' browsers.
+      </p>
+      <p>
+        Russia began blocking Snowflake's connections on 30 March 2026. The Tor Project
+        has pushed proxy updates since.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -277,15 +334,16 @@
           <ul>
             <li>Still actively recommended in the Tor Project's own circumvention guide</li>
             <li>Looks like ordinary video-call traffic on the wire</li>
-            <li>You can run a proxy in a browser tab and help someone else get through</li>
+            <li>You can run a proxy in a browser tab or an Android app</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
             <li>Only useful when Tor itself is blocked; otherwise plain Tor Browser is simpler</li>
-            <li>Not the answer everywhere: Tor's guide matches bridge types to regions, and sometimes that's WebTunnel instead</li>
+            <li>Not the answer everywhere: Tor's guide sometimes picks WebTunnel instead</li>
             <li>You still get Tor's speed, since everything ends up on the Tor network anyway</li>
+            <li>Russia began blocking it on 30 March 2026</li>
           </ul>
         </div>
       </div>
@@ -306,18 +364,26 @@
       </div>
       <p>
         Lokinet does onion routing at the network layer instead of per application, so
-        in principle <strong>any protocol can ride it</strong>. Development now sits
-        with the Session Technology Foundation (formerly the Oxen project). It's one
-        to watch, not the default.
+        in principle <strong>any protocol can ride it</strong>. Development moved from
+        the Oxen project to the Session Technology Foundation, which has been
+        rewriting Lokinet as Session Router since October 2025. Lokinet's last
+        release was in July 2025.
+      </p>
+      <p>
+        The Foundation lost all its paid staff in 2026 and now runs on donations,
+        according to its own June post. Lokinet's last Windows and macOS installers
+        date from November 2022. Session Router's first release said its Windows and
+        macOS apps and exit support were unfinished, and its GitHub releases so far are
+        Linux-only. Version 1.1.0 (October 2026) added post-quantum encryption. It's
+        one to watch, not the default.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Network-layer design: any protocol can ride it, not just a browser</li>
-            <li>An active organization behind it, with recent releases and updated bootstrap infrastructure</li>
+            <li>Session Router 1.1.0 (October 2026) adds post-quantum encryption</li>
             <li>Being integrated into the Session messenger as its transport layer</li>
-            <li>The standalone client stays live and installable on its own</li>
           </ul>
         </div>
         <div class="cons">
@@ -325,7 +391,9 @@
           <ul>
             <li>Far less studied than Tor, with a far smaller crowd to blend into</li>
             <li>Clearnet exits are limited</li>
-            <li>The May 2025 move to the Session Network model is a real reorganization, and recent</li>
+            <li>The Foundation lost all paid staff in 2026 and runs on donations</li>
+            <li>Last Windows and macOS installers are from November 2022</li>
+            <li>Session Router's GitHub releases are Linux-only so far</li>
           </ul>
         </div>
       </div>
@@ -375,15 +443,15 @@
       <p>
         <strong>Skip the VPN-plus-Tor layering debate.</strong> For most people, plain
         Tor Browser is the right call; adding a <a href="vpns.html">VPN</a> under or
-        over it rarely helps and can make things worse; the Tor Project's own guidance
+        over it rarely helps and can make things worse. The Tor Project's own guidance
         says to skip the combination unless you really know what you're doing. If Tor
         itself is blocked where you are, use a bridge like Snowflake or WebTunnel
         instead.
       </p>
       <p>
         <strong>Don't log in.</strong> Signing in to your real accounts over Tor
-        de-anonymizes you to those services instantly. Anonymity is a separate
-        identity, not a cloak over your existing one; your
+        de-anonymizes you to those services instantly. Anonymity works as a separate
+        identity that you keep apart from your existing accounts. Your
         <a href="../threat-modeling.html">threat model</a> decides whether you need it
         at all.
       </p>

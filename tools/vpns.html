@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">vpns</span></p>
 
     <h1>VPNs</h1>
-    <p class="updated">last updated <b>2026-11-04</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-05</b> · 7 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       A VPN does one thing: it moves trust from your internet provider to the VPN
@@ -112,7 +112,7 @@
       <span class="k">before you pick</span>
       The VPN industry runs on fear marketing and affiliate money. Most "best VPN"
       lists are ranked by commission, not merit. <em>This page has no affiliate links:
-      these three are here because of audits, track records, and honest engineering.</em>
+      these picks are here because of audits, track records, and honest engineering.</em>
       If a provider sponsors influencers heavily, ask yourself where that money comes from.
     </div>
 
@@ -136,6 +136,42 @@
       </div>
     </div>
 
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>no-logs policy</h4>
+        <p>A promise that the VPN keeps no record of what you do online. Only an outside check or a real-world test can show the promise holds.</p>
+      </div>
+      <div class="crit">
+        <h4>independent audit</h4>
+        <p>An outside security firm tests the VPN's apps or servers and publishes a report. It is a snapshot of one moment, so it can't promise anything about later.</p>
+      </div>
+      <div class="crit">
+        <h4>WireGuard</h4>
+        <p>A modern, fast set of rules for the encrypted tunnel between you and the VPN. OpenVPN is the older set of rules.</p>
+      </div>
+      <div class="crit">
+        <h4>multihop</h4>
+        <p>Your traffic passes through two VPN servers in a row. No single server sees both who you are and where you go.</p>
+      </div>
+      <div class="crit">
+        <h4>RAM-only servers</h4>
+        <p>Servers that keep everything in short-term memory, which empties on every reboot. Nothing sits on a disk for someone to seize.</p>
+      </div>
+      <div class="crit">
+        <h4>obfuscation</h4>
+        <p>Disguises VPN traffic so networks that block VPNs have a harder time spotting it. Proton and Windscribe call theirs Stealth.</p>
+      </div>
+      <div class="crit">
+        <h4>kill switch</h4>
+        <p>Cuts your internet if the VPN drops, so your real address never leaks.</p>
+      </div>
+      <div class="crit">
+        <h4>Five Eyes and 14 Eyes</h4>
+        <p>Groups of countries that share spy data. The Five Eyes are the US, UK, Canada, Australia, and New Zealand. The 14 Eyes add nine more, including Sweden.</p>
+      </div>
+    </div>
+
     <p class="section-label">recommendations</p>
 
     <!-- Proton VPN -->
@@ -152,31 +188,39 @@
         policy, a wide server network, and the practical kicker: <strong>bundling with
         <a href="email-providers.html">Proton Mail</a> at a meaningful discount</strong>.
         The suite deal is hard to beat on value alone. The free tier is also the only
-        one on the market worth recommending: no cap, no ads, and it's funded by the
-        paid plans instead of your traffic.
+        one on the market worth recommending. It has no data cap and no ads, and the
+        paid plans fund it instead of your traffic.
+      </p>
+      <p>
+        Securitum, an outside security firm, has audited the no-logs policy every
+        year since 2022, most recently in 2026. Proton's own ownership page names a
+        Swiss nonprofit, the Proton Foundation, as the main shareholder. It still
+        runs as a commercial company. In October 2026, 404 Media reported that CEO
+        Andy Yen called a request to security-test new code "loser thinking."
+        Proton admitted it had been too blunt.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Fast, audited, open-source apps on every platform</li>
-            <li>5th consecutive annual independent audit (Securitum), plus a SOC 2 Type II</li>
-            <li>Bundle pricing with Mail/Drive/Pass: one subscription, whole stack</li>
-            <li>Trustworthy free tier, rare enough to be notable</li>
+            <li>5th yearly Securitum no-logs audit, plus a SOC 2 Type II report</li>
+            <li>Bundle pricing with Mail, Drive, and Pass</li>
+            <li>Free tier: no data cap, 10 countries, one device</li>
             <li>Stealth protocol for networks that block VPNs</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>VC-backed and increasingly commercial: worth tracking, not currently a red flag</li>
-            <li>Account requires an email address (use an alias)</li>
-            <li>Not above jurisdiction; no VPN is. Switzerland helps, it doesn't exempt</li>
+            <li>Fast-growing commercial company; CEO criticized in October 2026</li>
+            <li>Account needs an email address; use an alias</li>
+            <li>Swiss jurisdiction helps but doesn't exempt it from court orders</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">free tier · paid from <b>~€5/mo</b> (less bundled)</span>
+        <span class="price">free tier · paid from <b>$3.49/mo</b> (2-year promo), then $83.88/yr</span>
         <span><a href="https://protonvpn.com" rel="noopener">protonvpn.com →</a></span>
       </div>
     </article>
@@ -194,27 +238,36 @@
         Mullvad is the privacy-first gold standard. You get a random account number,
         no email, no name, and you can pay by <strong>mailing cash in an
         envelope</strong>. It's a flat €5 a month forever, the servers are RAM-only,
-        the audits are frequent, and when Swedish police raided them in 2023 there
-        was nothing to take. If maximum network-level anonymity matters more to you
-        than convenience and ecosystem value, this is the correct answer.
+        and when Swedish police raided them in 2023 there was nothing to take. If
+        maximum network-level anonymity matters more to you than convenience and
+        ecosystem value, this is the correct answer.
+      </p>
+      <p>
+        Mullvad's audits are frequent. In 2026, X41 D-Sec checked its account and
+        payment systems in January, and Assured checked its new WireGuard code in
+        March. An Android app assessment passed in June. In July 2026, Mullvad said
+        one of its owners made a personal donation to the Örebro Party, a Swedish
+        political party. The company says it took no part and keeps its mission separate from its
+        founders' views.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Account is a number; payment can be cash or Monero</li>
-            <li>RAM-only infrastructure; minimal attack surface by design</li>
+            <li>RAM-only servers</li>
             <li>Raid-tested no-logs claim, the rarest credential there is</li>
-            <li>WireGuard-only now (OpenVPN fully retired Jan 2026), multihop, quantum-resistant tunnels</li>
+            <li>WireGuard only, with multihop and quantum-resistant tunnels</li>
+            <li>Three outside audits in 2026: payments, WireGuard code, Android app</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>No streaming-unblocking arms race: some services stay blocked</li>
-            <li>Port forwarding was removed entirely</li>
-            <li>OpenVPN is gone: no fallback protocol if WireGuard is blocked on your network</li>
-            <li>Fewer countries and conveniences than Proton: austerity is the product</li>
+            <li>Some streaming services stay blocked</li>
+            <li>No port forwarding, and OpenVPN is gone since January 2026</li>
+            <li>Fewer countries and conveniences than Proton</li>
+            <li>Owner's July 2026 party donation raised questions</li>
           </ul>
         </div>
       </div>
@@ -231,36 +284,44 @@
         <span class="verdict">the everyday alternative</span>
       </div>
       <div class="meta">
-        <span>🇨🇦 canada</span><span>audited no-logs</span><span>ad blocking</span><span>free tier</span>
+        <span>🇨🇦 canada</span><span>audited</span><span>ad blocking</span><span>free tier</span>
       </div>
       <p>
         Windscribe is the closest runner-up to Proton on everyday usability, and
-        it's transparent to a fault: <strong>NCC Group audited it in 2024</strong>,
-        and when a Greek prosecution tried to compel user data in 2025, Windscribe
-        had nothing to hand over. That's a real-world no-logs test. The team also
-        communicates like humans, not a legal department. The free tier is strong,
-        and the build-a-plan pricing means you only pay for the locations you use.
+        it's open about its record. Its audit page lists Leviathan Security Group
+        testing the desktop app (2021) and mobile apps (2022), and Packetlabs testing
+        its new server stack (June 2024). <strong>No audit of its no-logs claim is
+        listed.</strong> In April 2025, an Athens court dismissed charges against
+        founder Yegor Sak over a user's alleged hacking through a Windscribe server.
+        The team also communicates like humans, not a legal department.
+      </p>
+      <p>
+        The free tier is strong: 10 GB a month with a confirmed email, or 2 GB
+        without one. Build-a-plan pricing means you only pay for the locations you
+        use. You can also keep an account with no email, and you can pay cash by mail
+        for the one-year plan.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>NCC Group-audited (2024); withstood a real attempt to compel user data in 2025 with nothing to hand over</li>
+            <li>Greek case against its founder dismissed in April 2025</li>
             <li>Generous free tier; flexible à-la-carte pricing</li>
-            <li>Built-in blocker (R.O.B.E.R.T.) covers ads/trackers at the tunnel level</li>
+            <li>Accounts can skip email; mailed cash works for the one-year plan</li>
+            <li>Built-in blocker (R.O.B.E.R.T.) covers ads and trackers at the tunnel level</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
             <li>Canada is a Five Eyes jurisdiction, if that's in your model</li>
-            <li>Still a thinner audit trail than Proton or Mullvad despite the 2024 audit</li>
-            <li>No anonymous-signup story comparable to Mullvad's</li>
+            <li>Thinner audit trail than Proton or Mullvad, and no no-logs audit</li>
+            <li>Accounts without an email are hard to recover if lost</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">free tier · paid from <b>~$3/mo</b> build-a-plan</span>
+        <span class="price">free tier · paid from <b>$3/mo</b> build-a-plan · Pro <b>$69/yr</b></span>
         <span><a href="https://windscribe.com" rel="noopener">windscribe.com →</a></span>
       </div>
     </article>
@@ -275,13 +336,24 @@
         <span>🇬🇮 gibraltar</span><span>anonymous signup</span><span>multihop</span><span>audited</span><span>paid</span>
       </div>
       <p>
-        IVPN is privacy-first in the same lineage as Mullvad: you sign up with
-        nothing but a randomly generated <strong>account number</strong>, pay with
-        mailed-in cash or crypto, and get independently audited apps with multihop
-        connections that split your trust across two jurisdictions at once. IVPN has
+        IVPN is privacy-first in the same lineage as Mullvad. You sign up with
+        nothing but a randomly generated <strong>account number</strong> and pay with
+        mailed-in cash or crypto. Its apps are independently audited, and multihop
+        connections split your trust across two jurisdictions at once. IVPN has
         long published its own anti-marketing essays on why VPNs aren't a privacy
-        cure-all, and that kind of candor is rare in this industry and a strong
-        signal about who's actually running the place.
+        cure-all. That candor is rare in this industry and a strong signal about
+        who's actually running the place.
+      </p>
+      <p>
+        IVPN bought Safing, the maker of the Portmaster firewall, in December 2024.
+        In May 2026 it added a Plus plan with email aliasing (Mailx) and DNS filtering
+        (modDNS), and a Pro Suite plan that adds Portmaster Pro. Cure53 has audited
+        IVPN yearly, and the eighth audit was scheduled for July 2026. IVPN says its
+        only no-logs audit was in 2019 and it won't commission more, because audits
+        are snapshots. In August 2026, attackers used a flaw in BTCPay Server, the
+        software IVPN runs for Bitcoin payments. They took 0.6168 BTC of IVPN's own
+        money. IVPN says no customer data, customer funds, or VPN servers were
+        affected.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -289,21 +361,22 @@
           <ul>
             <li>No email or personal info required to create an account</li>
             <li>Cash and crypto payment options, same as Mullvad</li>
-            <li>Independently audited apps and infrastructure; on its 7th consecutive annual Cure53 audit</li>
-            <li>Multihop included in the base Standard plan, not gated to a pricier tier</li>
+            <li>Yearly Cure53 audits; the eighth was scheduled for July 2026</li>
+            <li>Multihop included in every plan, even Standard</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
             <li>Smaller server network than Proton or Mullvad</li>
-            <li>No meaningful free tier, short trial only</li>
-            <li>Less brand recognition; fewer eyes on it than the larger players</li>
+            <li>No free tier; a $2 weekly plan works as a trial</li>
+            <li>Bitcoin payment server hacked in August 2026; IVPN says no customer data lost</li>
+            <li>Only no-logs audit was in 2019, and IVPN won't commission more</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">from <b>~$3.90/mo</b> (3yr) · <b>$6/mo</b> month-to-month</span>
+        <span class="price">Standard <b>$60/yr</b> · <b>$6/mo</b> month-to-month · Pro Suite $100/yr</span>
         <span><a href="https://www.ivpn.net" rel="noopener">ivpn.net →</a></span>
       </div>
     </article>
@@ -318,37 +391,43 @@
         <span>multihop</span><span>wireguard</span><span>audited</span><span>paid</span>
       </div>
       <p>
-        Obscura is a newer architecture, not just a newer brand on the same old
-        design: it splits the VPN into two independently operated hops so that
-        <strong>no single party ever sees both who you are and what you're
-        doing</strong>. It's conceptually similar to Apple's iCloud Private Relay,
-        but it works as a standalone VPN instead of being tied to Apple's ecosystem
-        rules. It's available on macOS, iOS, and now Android, with Windows and Linux
-        in development behind a waitlist; keep in mind this is still newer,
-        less-proven infrastructure next to a decade-old operator.
+        Obscura is a VPN built on a newer design. It splits the connection into two
+        hops run by different parties, so that <strong>no single party ever sees both
+        who you are and what you're doing</strong>. Obscura runs the first hop, and
+        Mullvad's servers act as the exit hop. It's similar to Apple's iCloud Private
+        Relay, but it works as a standalone VPN instead of being tied to Apple's
+        ecosystem rules.
+      </p>
+      <p>
+        Apps now cover macOS, iOS, Android (May 2026), Windows (August 2026), and
+        Linux (September 2026), and the code is open source under GPLv3. Cure53
+        audited the macOS app and protocol in December 2025. Obscura's site lists no
+        audit of the newer apps, and it is still less proven than a decade-old
+        operator.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Split-trust, two-hop design: structurally resistant to a single operator seeing everything</li>
+            <li>Two-hop design: no single party sees your identity and traffic</li>
             <li>Modern WireGuard-based implementation</li>
-            <li>Clean, focused apps on Apple platforms and Android</li>
-            <li>Independently audited (Cure53, Dec 2025): no high/critical findings</li>
+            <li>Open source apps on every major desktop and phone platform</li>
+            <li>Cure53 audit of the macOS app (Dec 2025): no major vulnerabilities</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>New company, no long-term track record or raid history to point to yet</li>
-            <li>Windows and Linux apps are still in development (waitlist)</li>
-            <li>Smaller network and team than the established players</li>
+            <li>New company with no long-term track record or raid history</li>
+            <li>No audit listed for the Windows, Android, or Linux apps</li>
+            <li>Every exit runs on Mullvad's network</li>
+            <li>Smaller team than the established players</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price"><b>$8/mo</b></span>
-        <span><a href="https://obscura.net" rel="noopener">obscura.net →</a></span>
+        <span class="price"><b>$8/mo</b> · 5 devices</span>
+        <span><a href="https://obscura.com" rel="noopener">obscura.com →</a></span>
       </div>
     </article>
 
@@ -359,33 +438,43 @@
         <span class="verdict">the blind-operator pick</span>
       </div>
       <div class="meta">
-        <span>🇸🇪 sweden</span><span>audited no-logs</span><span>ram-only</span><span>wireguard</span><span>paid</span>
+        <span>🇸🇪 sweden</span><span>audited</span><span>ram-only</span><span>wireguard</span><span>paid</span>
       </div>
       <p>
-        What sets AzireVPN apart isn't diskless servers; it's
-        <strong>Blind Operator Mode 2.0</strong>: it cuts off admin access to
-        live servers entirely, so nobody on staff can reach real traffic. An
-        X41 D-Sec audit (April 2026) confirmed zero logging. It's
-        WireGuard-only and under Swedish jurisdiction, with the same 14 Eyes
-        caveat as Mullvad: no logs, nothing to hand over.
+        AzireVPN is a Swedish VPN built around <strong>Blind Operator Mode
+        2.0</strong>, which cuts off admin access to live servers so nobody on staff
+        can reach real traffic. It's WireGuard-only and under Swedish jurisdiction,
+        with the same 14 Eyes caveat as Mullvad. Azire says it keeps no logs, so
+        there is nothing to hand over.
+      </p>
+      <p>
+        Malwarebytes, a security software company, bought AzireVPN in November 2024.
+        The two now share servers and server software. The security firm X41 D-Sec
+        tested that shared setup from December 2025 to January 2026. It found 14
+        vulnerabilities: 2 critical, 8 medium, and 4 low. X41 also said the systems
+        look to be on a good security level, and the server images discard log
+        messages. With brief physical access, its testers could fully take over a
+        server. This was a security test, not a no-logs audit.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>X41 D-Sec audit (April 2026) confirmed zero IP, DNS, and traffic logging</li>
-            <li>Blind Operator Mode 2.0: admin access physically and logically severed on live servers, beyond standard diskless infrastructure</li>
-            <li>WireGuard-only since March 2025</li>
-            <li>Port forwarding supported, notable since Mullvad removed it entirely</li>
+            <li>X41 D-Sec audit (April 2026): overall a good security level</li>
+            <li>Server images discard logs; no SSH or console access</li>
+            <li>Blind Operator Mode 2.0: admin access to live servers cut off</li>
+            <li>WireGuard-only since OpenVPN ended in March 2025</li>
+            <li>Port forwarding supported, which Mullvad dropped</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Malwarebytes-owned since November 2024: a commercial security company, different character from the other picks here</li>
-            <li>First independent audit ever: a strong result, not yet a multi-year pattern</li>
+            <li>Owned by Malwarebytes since November 2024</li>
+            <li>Audit found 14 flaws, including 2 critical</li>
+            <li>Testers fully took over a server with brief physical access</li>
+            <li>Cash payments no longer accepted</li>
             <li>7-day refund window; 1-month plans excluded</li>
-            <li>Kill switch documented as on everywhere by default, but Q1 2026 independent testers reported inconsistent behavior: verify post-install</li>
           </ul>
         </div>
       </div>
@@ -452,19 +541,19 @@
         </thead>
         <tbody>
           <tr>
-            <td class="name">Proton VPN</td><td>🇨🇭 CH</td><td class="part">email needed</td><td class="part">cash via support</td><td class="yes">yes</td><td class="yes">yes</td><td>$5/mo</td>
+            <td class="name">Proton VPN</td><td>🇨🇭 CH</td><td class="part">email needed</td><td class="part">cash via support</td><td class="yes">yes</td><td class="yes">yes</td><td>$3.49/mo promo</td>
           </tr>
           <tr>
             <td class="name">Mullvad</td><td>🇸🇪 SE</td><td class="yes">account number</td><td class="yes">both</td><td class="yes">regularly</td><td class="no">no</td><td>$5/mo</td>
           </tr>
           <tr>
-            <td class="name">Windscribe</td><td>🇨🇦 CA</td><td class="part">email optional-ish</td><td class="part">crypto</td><td class="part">incident-tested</td><td class="yes">yes</td><td>~$3/mo</td>
+            <td class="name">Windscribe</td><td>🇨🇦 CA</td><td class="part">no email needed</td><td class="part">crypto, mailed cash</td><td class="part">apps and servers only</td><td class="yes">yes</td><td>~$3/mo</td>
           </tr>
           <tr>
-            <td class="name">IVPN</td><td>🇬🇮 GI</td><td class="yes">account number</td><td class="yes">both</td><td class="yes">regularly</td><td class="no">no</td><td>~$3.90/mo</td>
+            <td class="name">IVPN</td><td>🇬🇮 GI</td><td class="yes">account number</td><td class="yes">both</td><td class="yes">regularly</td><td class="no">no</td><td>~$5/mo</td>
           </tr>
           <tr>
-            <td class="name">Obscura VPN</td><td>🇺🇸 US</td><td class="yes">account number</td><td class="no">no</td><td class="yes">yes</td><td class="no">no</td><td>$8/mo</td>
+            <td class="name">Obscura VPN</td><td>🇺🇸 US</td><td class="yes">account number</td><td class="part">crypto</td><td class="part">macOS app only</td><td class="no">no</td><td>$8/mo</td>
           </tr>
           <tr>
             <td class="name">AzireVPN</td><td>🇸🇪 SE</td><td class="part">email needed</td><td class="no">no</td><td class="yes">yes</td><td class="no">no</td><td>~€3.75/mo</td>

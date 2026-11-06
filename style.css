@@ -433,6 +433,60 @@ td.name { font-weight: 500; color: var(--fg); }
 .part { color: var(--yellow); font-family: var(--mono); }
 .t-note { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); margin-top: 10px; }
 
+/* ---------- setup pages: sidebar extras, cards, facts ---------- */
+.cats li a.sl::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--dot); flex-shrink: 0; margin: 0 4px 0 1px;
+}
+.cats li a .n {
+  font-family: var(--mono); font-size: 11.5px; color: var(--dot);
+  width: 20px; flex-shrink: 0;
+}
+aside[aria-label="Setups"] li a.d-green  { --dot: var(--green); }
+aside[aria-label="Setups"] li a.d-yellow { --dot: var(--yellow); }
+aside[aria-label="Setups"] li a.d-red    { --dot: var(--red); }
+.provider[id] { scroll-margin-top: 92px; }
+.facts {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;
+  margin: 12px 0 16px; padding: 12px 0;
+  border-top: 1px solid var(--bg1); border-bottom: 1px solid var(--bg1);
+}
+.facts .l {
+  display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--fg-mute); margin-bottom: 3px;
+}
+.facts .v { display: block; font-size: 14.5px; color: var(--fg); }
+@media (max-width: 640px) {
+  .facts { grid-template-columns: 1fr; gap: 10px; }
+}
+
+/* ---------- setups ladder table (job by level) ---------- */
+.ladder { min-width: 760px; table-layout: fixed; }
+.ladder col.c-job { width: 17%; }
+.ladder thead th { vertical-align: bottom; border-bottom: 2px solid var(--bg2); font-size: 12.5px; }
+.ladder thead th.t-ess { color: var(--green);  border-bottom-color: var(--green); }
+.ladder thead th.t-std { color: var(--yellow); border-bottom-color: var(--yellow); }
+.ladder thead th.t-har { color: var(--red);    border-bottom-color: var(--red); }
+.ladder tbody tr:nth-child(even) { background: none; }
+.ladder tbody td { vertical-align: top; padding: 12px 16px; line-height: 1.45; }
+.ladder tbody tr:not(.group) td + td { border-left: 1px solid var(--bg1); }
+.ladder td.name { position: sticky; left: 0; background: var(--bg-hard); z-index: 1; }
+.ladder tr.group td {
+  background: var(--bg); color: var(--fg-mute);
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 8px 16px; border-left: none;
+}
+.ladder .pick { color: var(--fg); font-weight: 500; }
+.ladder .more { display: block; color: var(--fg-dim); font-size: 13px; margin-top: 2px; }
+.ladder .same, .ladder .none { color: var(--fg-mute); font-family: var(--mono); font-size: 12.5px; }
+.chg {
+  display: inline-block; margin-bottom: 4px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase;
+  border: 1px solid; border-radius: 3px; padding: 0 6px; line-height: 1.7;
+}
+.chg.build   { color: var(--aqua);   border-color: var(--aqua); }
+.chg.replace { color: var(--orange); border-color: var(--orange); }
+
 /* ---------- worth knowing / prose ---------- */
 .notes { max-width: 680px; }
 .notes p { color: var(--fg-dim); font-size: 15.5px; margin-bottom: 16px; }

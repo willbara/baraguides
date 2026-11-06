@@ -32,264 +32,488 @@
   </div>
 </nav>
 
-<main class="wrap content">
+<div class="wrap layout">
+
+  <aside class="cats" aria-label="Setups">
+    <button class="cats-toggle" aria-expanded="false" onclick="toggleCats(this)">this setup</button>
+    <p class="label">setups</p>
+    <ul>
+      <li><a href="index.html" class="sl d-mute">Overview</a></li>
+      <li><a href="setup-essentials.html" class="sl d-green">Essentials</a></li>
+      <li><a href="setup-standard.html" class="sl d-yellow">Standard</a></li>
+      <li><a href="setup-hardened.html" class="sl d-red current" aria-current="page">Hardened</a></li>
+    </ul>
+    <div class="divider"></div>
+    <p class="label">on this page</p>
+    <ul>
+      <li><a href="#phone" class="d-red"><span class="n">01</span>GrapheneOS on a Pixel</a></li>
+      <li><a href="#compartments" class="d-red"><span class="n">02</span>Compartmentalized identities</a></li>
+      <li><a href="#vpn" class="d-red"><span class="n">03</span>Mullvad</a></li>
+      <li><a href="#messaging" class="d-red"><span class="n">04</span>Session</a></li>
+      <li><a href="#pgp" class="d-red"><span class="n">05</span>Thunderbird with PGP</a></li>
+      <li><a href="#tor" class="d-red"><span class="n">06</span>Tor</a></li>
+      <li><a href="#computer" class="d-red"><span class="n">07</span>Qubes OS</a></li>
+      <li><a href="#tails" class="d-red"><span class="n">08</span>Tails on a USB stick</a></li>
+      <li><a href="#records" class="d-red"><span class="n">09</span>Payments &amp; public records</a></li>
+      <li><a href="#physical" class="d-red"><span class="n">10</span>Physical safety &amp; travel</a></li>
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="../threat-modeling.html" class="sl d-yellow">Threat modeling</a></li>
+      <li><a href="../tools/index.html" class="sl d-mute">All tools</a></li>
+    </ul>
+  </aside>
+
+<main>
 
   <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">setups</a><span class="sep">/</span><span class="here">hardened</span></p>
 
   <h1>Hardened Setup</h1>
-  <p class="updated">last updated <b>2026-08-02</b> · weeks, then a practice · ~€15/mo + hardware · <a href="../changelog.html">what changed</a></p>
+  <p class="updated">last updated <b>2026-11-05</b> · 10 changes · weeks, then a practice · <a href="../changelog.html">what changed</a></p>
 
   <p class="intro">
-    This tier delivers maximum practical security for people with real threats.
-    <strong>Who this is for:</strong> journalists protecting sources, activists,
-    abuse survivors with a determined ex, researchers in hostile jurisdictions,
-    anyone for whom a <em>specific someone</em> is part of the model. The friction
-    here is real and daily. If you're here out of curiosity, read on; if you're here
-    out of need, also seek advice specific to your situation: this page is a strong
-    baseline, not a complete answer.
+    Hardened is the strongest practical setup on this site, for people with a real threat.
+    The friction is real and daily. This page is a strong baseline and does not replace
+    advice written for your own situation.
   </p>
 
   <div class="headsup">
-    <span class="k">read this first</span>
-    At this tier, <em>habits beat tools.</em> A perfect setup operated carelessly
-    loses to a decent setup operated with discipline. The most common failure isn't
-    cryptographic: it's reusing an identity across compartments, once.
-    Prerequisites: the <a href="setup-beginner.html">beginner</a> and
-    <a href="setup-standard.html">standard</a> tiers, fully internalized.
+    <span class="k">get help first</span>
+    These groups are free, current, and run by people who do this professionally:
+    Access Now's Digital Security Helpline, the EFF's Surveillance Self-Defense guides,
+    and Freedom of the Press Foundation's training materials. For threats from a partner
+    or family member, the Coalition Against Stalkerware lists vetted local resources.
+    <em>If you are in danger now, contact one of them before changing anything.</em>
+  </div>
+
+  <div class="headsup">
+    <span class="k">what this replaces</span>
+    Hardened builds on <a href="setup-essentials.html">Essentials</a> and
+    <a href="setup-standard.html">Standard</a>, and swaps out a few pieces.
+    <em>Mullvad replaces Proton VPN. GrapheneOS replaces your phone's stock system.
+    Qubes replaces your normal computer for sensitive work.</em> Your Standard domain and
+    Proton account stay in your everyday compartment, and sensitive work gets its own
+    accounts. At this level, habits beat tools: the most common failure is reusing one
+    identity across two compartments, once.
+  </div>
+
+  <p class="section-label">start with the right track</p>
+  <div class="criteria three">
+    <div class="crit">
+      <h4>A person is watching me</h4>
+      <p>An ex-partner, relative, or coworker. Talk to a specialist first, because sudden
+      changes can alert them. Then do the cards marked <em>person</em>. The rest usually
+      isn't needed.</p>
+    </div>
+    <div class="crit">
+      <h4>An organization or state</h4>
+      <p>You are a journalist, activist, or researcher, or you work somewhere hostile.
+      Do every card, in order. The ones marked <em>organization</em> are written for you.</p>
+    </div>
+    <div class="crit">
+      <h4>I'm just curious</h4>
+      <p>Read on, but <a href="setup-standard.html">Standard</a> is the right place to stop.
+      This level charges daily friction for protection most people don't need.</p>
+    </div>
   </div>
 
   <p class="section-label">the setup</p>
 
-  <article class="provider a-red reveal">
+  <article class="provider a-red reveal" id="phone">
     <div class="p-head">
       <span class="p-icon"><img src="../icons/grapheneos.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>GrapheneOS on a Pixel</h3>
       <span class="verdict">phone</span>
     </div>
     <div class="meta">
-      <span>~€350+ hardware</span><span>~3 h</span><span><a href="../tools/mobile-os.html">category page</a></span>
+      <span>~3 h</span><span>replaces: your phone's stock system</span><span>for: person + organization</span>
     </div>
     <p>
-      GrapheneOS is the most hardened consumer OS you can put on a phone, with
-      Google optional and every app sandboxed from the rest. <strong>Why it's
-      here:</strong> the phone is the sensor package in your pocket, and at this
-      tier it has to be trustworthy, not just tidy.
+      <strong>The job:</strong> Your phone is a sensor package in your pocket: location,
+      microphone, contacts. A hardened phone system replaces the stock one with a version
+      built so apps cannot reach what you haven't allowed.
+    </p>
+    <p>
+      <strong>Why GrapheneOS:</strong> It is the most hardened consumer phone system
+      available, it keeps Google optional, and it sandboxes every app from the rest.
+    </p>
+    <p>
+      <strong>Look for:</strong> Fast security updates, control over each app's
+      permissions, and an install process you can verify.
     </p>
     <ol class="steps">
-      <li>Buy a supported Pixel: in cash, in person, if purchase records are in your
-      model.</li>
-      <li>Install via the official web installer (grapheneos.org) from a computer you
-      trust; verify the fingerprints it shows.</li>
-      <li>Skip sandboxed Play if you can live on F-Droid + Aurora Store; install it in
-      a separate profile if you can't.</li>
-      <li>Set a strong unlock passphrase (not just biometrics), enable the duress PIN,
-      and set auto-reboot (Settings → Security) so a seized phone returns to
-      before-first-unlock encryption.</li>
-      <li>Per-app: deny network to anything that doesn't need it; use storage scopes
-      instead of full storage access.</li>
-      <li>Install Orbot for anything where the destination itself needs to stay
-      hidden, not just the traffic on the way there; route individual apps through it
-      instead of the whole phone, so the ones that need speed still get it.</li>
+      <li>Buy a supported Pixel, in cash and in person if purchase records are part of
+      your threat. Install with the official web installer from a computer you trust and
+      verify the fingerprints it shows.</li>
+      <li>Set a strong unlock passphrase, turn on the duress PIN (a second PIN that wipes
+      the phone), and turn on auto-reboot so a seized phone returns to locked storage.</li>
+      <li>Get apps from F-Droid and Aurora Store. If you need Google Play, install it in a
+      separate profile. Deny network access to any app that doesn't need it.</li>
     </ol>
+    <div class="p-foot">
+      <span>models, trade-offs, and alternatives</span>
+      <span><a href="../tools/mobile-os.html">Mobile OS page →</a></span>
+    </div>
   </article>
 
-  <article class="provider a-purple reveal">
+  <article class="provider a-purple reveal" id="compartments">
     <div class="p-head">
       <h3>Compartmentalized identities</h3>
-      <span class="verdict">method, not software</span>
+      <span class="verdict">a habit</span>
     </div>
     <div class="meta">
-      <span>free</span><span>ongoing discipline</span><span>the actual hard part</span>
+      <span>ongoing discipline</span><span>new</span><span>for: person + organization</span>
     </div>
     <p>
-      Compartmentalization means keeping separate identities for separate contexts
-      (activism, work, personal), with <strong>no shared emails, phone numbers,
-      payment methods, usernames, or writing quirks</strong> across them. Why it's
-      here: most deanonymization isn't broken crypto; it's one careless link between
-      two lives.
+      <strong>The job:</strong> Compartments are separate identities for separate parts of
+      your life, such as activism, work, and personal. Most unmasking comes from one
+      careless link between two of them, and compartments remove the links.
+    </p>
+    <p>
+      <strong>Why this one:</strong> It needs no software, and every tool below only works
+      if you keep the walls up. It is the actual hard part.
+    </p>
+    <p>
+      <strong>Look for:</strong> No shared emails, phone numbers, payment methods,
+      usernames, or writing habits between compartments.
     </p>
     <ol class="steps">
-      <li>Write down your compartments and what belongs in each, on paper. Two is
-      manageable; four is a part-time job. Be honest.</li>
-      <li>Each compartment gets its own email (separate provider accounts, not
-      aliases of one), its own passwords, its own browser profile or device.</li>
-      <li>Sensitive compartments get their own payment rail: cash, Monero, or
-      prepaid cards bought with cash.</li>
-      <li>Never cross the streams: no logging into compartment A from compartment B's
-      browser, no shared profile photos, no same turns of phrase. One crossover can
-      retroactively link years of history.</li>
+      <li>Write your compartments on paper, with what belongs in each. Two is manageable.
+      Four is a part-time job.</li>
+      <li>Give each its own email account (separate accounts, not aliases of one), passwords,
+      and browser profile or device. Your Standard domain stays with the everyday one.</li>
+      <li>Give sensitive compartments their own payment method: cash, Monero, or prepaid
+      cards bought with cash.</li>
+      <li>Never cross over. No logging into one from another's browser, no shared profile
+      photos, no same turns of phrase. One slip can link years of history.</li>
     </ol>
+    <div class="p-foot">
+      <span>a method, so no product to pick</span>
+      <span><a href="../threat-modeling.html">threat modeling page →</a></span>
+    </div>
   </article>
 
-  <article class="provider a-blue reveal">
+  <article class="provider a-green reveal" id="vpn">
     <div class="p-head">
-      <span class="p-icon"><img src="../icons/qubes.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Qubes OS (or hardened Fedora)</h3>
-      <span class="verdict">desktop</span>
+      <span class="p-icon"><img src="../icons/mullvad.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Mullvad</h3>
+      <span class="verdict">VPN</span>
     </div>
     <div class="meta">
-      <span>free · capable hardware</span><span>a weekend</span><span><a href="../tools/desktop-os.html">category page</a></span>
+      <span>~20 min</span><span>replaces: Proton VPN</span><span>for: person + organization</span>
     </div>
     <p>
-      Qubes runs every task in its own disposable VM: compartmentalization is enforced
-      by architecture instead of willpower. <strong>Why it's here:</strong> it makes
-      the identity separation above mechanical. If your hardware or patience won't
-      carry Qubes, hardened Fedora is the honest fallback.
+      <strong>The job:</strong> A VPN at this level must not know who you are. The sensitive
+      compartment needs one you can pay for without a name attached to the account.
+    </p>
+    <p>
+      <strong>Why Mullvad:</strong> It gives you a random account number instead of an email,
+      and you can pay with cash by post or Monero.
+    </p>
+    <p>
+      <strong>Look for:</strong> Payment you can make anonymously, sign-up without personal
+      details, and independent audits.
+      <strong>Backup:</strong> IVPN if you want another no-account VPN.
     </p>
     <ol class="steps">
-      <li>Check the Qubes hardware compatibility list first: 16GB+ RAM, and it's
-      picky. Install with full-disk encryption (default).</li>
-      <li>Create one qube per compartment, color-coded; route the sensitive ones
-      through the built-in Whonix/Tor qubes.</li>
-      <li>Open every attachment and unknown link in a <strong>disposable VM</strong>:
-      this habit alone retires the most common attack on people like you.</li>
-      <li>Fedora fallback: FDE at install, automatic updates, Firefox or
-      <a href="../tools/browsers.html">LibreWolf</a>, separate user accounts per
-      compartment, USBGuard for unknown devices.</li>
+      <li>Pay with cash by post or Monero, inside the sensitive compartment.</li>
+      <li>Keep it always on, with the kill switch locked.</li>
     </ol>
+    <div class="p-foot">
+      <span>prices, trade-offs, and alternatives</span>
+      <span><a href="../tools/vpns.html">VPNs page →</a></span>
+    </div>
   </article>
 
-  <article class="provider a-yellow reveal">
+  <article class="provider a-blue reveal" id="messaging">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/session.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Session</h3>
+      <span class="verdict">messenger</span>
+    </div>
+    <div class="meta">
+      <span>~1 h</span><span>builds on: Signal</span><span>for: person + organization</span>
+    </div>
+    <p>
+      <strong>The job:</strong> At this level, who talks to whom, when, and how often matters
+      as much as what is said. Your sensitive chats need a messenger that asks for no phone
+      number or email and has no central server that can be forced to hand over records.
+    </p>
+    <p>
+      <strong>Why Session:</strong> It passes messages through community-run relays, so no
+      single company holds the records, and an account is just a generated ID. Keep Signal
+      for everyday chats.
+    </p>
+    <p>
+      <strong>Know the catch:</strong> Session has no forward secrecy yet, so a stolen
+      account key could expose past messages. Researchers found design flaws in 2026, and
+      the team shrank after a funding crisis. The Messengers page has the details.
+    </p>
+    <p>
+      <strong>Look for:</strong> No phone number or email required, little data kept, and
+      a way to keep talking when a network blocks messengers.
+      <strong>Backup:</strong> SimpleX or Signal are reasonable alternatives, especially
+      if Session is blocked where you are or your contacts won't switch. SimpleX has no
+      user identifiers at all. Signal needs a phone number, so use one that isn't yours if
+      your own number is a risk.
+    </p>
+    <ol class="steps">
+      <li>Install Session and create an account. Share your ID only inside the right
+      compartment, and turn on disappearing messages by default.</li>
+      <li>Confirm each contact's ID in person or over a channel you already trust, so
+      nobody can slip in an impostor.</li>
+      <li>If you use Signal for anything sensitive, share only your username, turn on
+      registration lock, and relay calls through Signal's servers so the other person
+      can't see your IP address. Verify safety numbers (a code that proves you're talking
+      to the right person) with anyone whose thread matters.</li>
+      <li>Install Briar (a messenger that needs no servers) with your closest contacts,
+      agreed on <em>before</em> the day the internet gets weird.</li>
+    </ol>
+    <div class="p-foot">
+      <span>trade-offs and alternatives</span>
+      <span><a href="../tools/messaging.html">Messengers page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-aqua reveal" id="pgp">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/thunderbird.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Thunderbird with PGP</h3>
+      <span class="verdict">encrypted email</span>
+    </div>
+    <div class="meta">
+      <span>~1 h</span><span>new</span><span>for: organization</span>
+    </div>
+    <p>
+      <strong>The job:</strong> Some sources and institutions only take email. PGP scrambles
+      the message body and attachments so only the recipient's key can read them, and a
+      signature proves who sent it. It replaces plain email for the few messages that must
+      use email.
+    </p>
+    <p>
+      <strong>Why Thunderbird:</strong> OpenPGP is built in, so there is no separate program
+      or plugin to install. The Email Providers page calls it the lowest-friction way to
+      actually use PGP.
+    </p>
+    <p>
+      <strong>Know the catch:</strong> PGP leaves subject lines, addresses, and most headers
+      readable on every server the mail crosses. A stolen key also exposes every past
+      message it protected. Prefer a messenger above whenever the other person can use one.
+    </p>
+    <p>
+      <strong>Look for:</strong> PGP built into the mail client, keys that only you hold,
+      and signatures you can check.
+      <strong>Backup:</strong> GnuPG, the reference tool, if you work from the command line.
+      Gpg4win on Windows and GPG Suite on macOS add a graphical key manager.
+    </p>
+    <ol class="steps">
+      <li>Install Thunderbird, add the email account for your sensitive compartment, and
+      create a PGP key for that address only.</li>
+      <li>Swap public keys with your contact. Check their key fingerprint (a short code that
+      identifies a key) over a separate channel you already trust.</li>
+      <li>Back up your private key and a revocation certificate (a file that cancels the
+      key if it's lost) somewhere offline. Test the whole flow with a friend first.</li>
+      <li>Write neutral subject lines, since they stay readable.</li>
+    </ol>
+    <div class="p-foot">
+      <span>clients, trade-offs, and alternatives</span>
+      <span><a href="../tools/email-providers.html#pgp">Email Providers page, PGP tools →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-aqua reveal" id="tor">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/tor-network.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Tor</h3>
+      <span class="verdict">hide the destination</span>
+    </div>
+    <div class="meta">
+      <span>~1 h</span><span>builds on: Brave</span><span>for: organization</span>
+    </div>
+    <p>
+      <strong>The job:</strong> Encryption hides what you send, but not which site or service
+      you reached. Tor hides that too, by passing your traffic through three relays run by
+      volunteers.
+    </p>
+    <p>
+      <strong>Why Tor:</strong> It is the longest-studied network for this job, and the
+      other tools here rely on it.
+    </p>
+    <p>
+      <strong>Look for:</strong> No single party that sees both who you are and where you
+      go, and a way around blocks.
+    </p>
+    <ol class="steps">
+      <li>Use Tor Browser for anything where the destination itself must stay hidden.</li>
+      <li>On your phone, install Orbot and route only the apps that need it. The rest keep
+      full speed.</li>
+      <li>If your network blocks Tor, turn on Snowflake. It makes volunteers' ordinary
+      browsers act as disposable entry points.</li>
+    </ol>
+    <div class="p-foot">
+      <span>trade-offs and alternatives</span>
+      <span><a href="../tools/anonymizing-networks.html">Anonymizing Networks page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-blue reveal" id="computer">
+    <div class="p-head">
+      <span class="p-icon"><img src="../icons/qubes.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Qubes OS</h3>
+      <span class="verdict">computer</span>
+    </div>
+    <div class="meta">
+      <span>a weekend</span><span>replaces: your normal computer, for sensitive work</span><span>for: organization</span>
+    </div>
+    <p>
+      <strong>The job:</strong> Qubes runs each task in its own sealed virtual machine, a
+      computer inside your computer. A booby-trapped attachment in one cannot reach the
+      others, so the walls between compartments are built in.
+    </p>
+    <p>
+      <strong>Why Qubes:</strong> It makes the identity separation above mechanical instead of
+      depending on willpower.
+    </p>
+    <p>
+      <strong>Look for:</strong> Isolation between tasks, disposable sessions, and full-disk
+      encryption.
+      <strong>Backup:</strong> Go with Qubes. Use a hardened Fedora setup (the last step) if
+      your laptop can't run it.
+    </p>
+    <ol class="steps">
+      <li>Check the Qubes hardware compatibility list first. Plan for 16 GB of memory or
+      more, and expect it to be picky.</li>
+      <li>Make one color-coded qube per compartment. Route the sensitive ones through the
+      built-in Whonix and Tor qubes. Open every attachment and unknown link in a
+      <strong>disposable</strong> qube, a throwaway session that is deleted afterward.</li>
+      <li>Fedora fallback: turn on full-disk encryption at install, automatic updates,
+      separate user accounts per compartment, and USBGuard (it blocks unknown USB devices).</li>
+    </ol>
+    <div class="p-foot">
+      <span>hardware needs and alternatives</span>
+      <span><a href="../tools/desktop-os.html">Desktop OS page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-yellow reveal" id="tails">
     <div class="p-head">
       <span class="p-icon"><img src="../icons/tails.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Tails on a USB stick</h3>
-      <span class="verdict">the sessions that can't exist</span>
+      <span class="verdict">one-off sessions</span>
     </div>
     <div class="meta">
-      <span>free + ~€10 stick</span><span>~1 h</span><span><a href="../tools/desktop-os.html">category page</a></span>
+      <span>~1 h</span><span>new</span><span>for: organization</span>
     </div>
     <p>
-      Tails boots on nearly any computer, routes everything through Tor, and forgets
-      everything at shutdown. <strong>Why it's here:</strong> for research, contact,
-      or whistleblowing where the work must leave no trace on the machine, including
-      a machine that isn't yours.
+      <strong>The job:</strong> Some work must leave no trace on the machine, including a
+      machine that isn't yours. Tails is a system on a USB stick that sends everything
+      through Tor and forgets it all at shutdown.
+    </p>
+    <p>
+      <strong>Why Tails:</strong> It starts on nearly any computer, and forgetting is the
+      whole point.
+    </p>
+    <p>
+      <strong>Look for:</strong> Nothing saved after shutdown, all traffic through Tor, and
+      a download you can verify.
     </p>
     <ol class="steps">
-      <li>Flash Tails to a quality USB stick following tails.net's verified
-      instructions.</li>
-      <li>Boot it once at home to learn the ropes <em>before</em> you need it under
-      pressure.</li>
-      <li>Add encrypted persistent storage only if you must keep state; amnesia is
-      the feature.</li>
-      <li>If sources contact you, learn SecureDrop/OnionShare on top, and test the
-      workflow end-to-end with a friend first.</li>
+      <li>Flash Tails to a good USB stick, following the verified instructions on tails.net.</li>
+      <li>Boot it once at home to learn it before you need it under pressure.</li>
+      <li>Skip persistent storage unless you must keep files.</li>
+      <li>If sources will contact you, learn SecureDrop or OnionShare, and test the whole
+      workflow with a friend first.</li>
     </ol>
+    <div class="p-foot">
+      <span>trade-offs and alternatives</span>
+      <span><a href="../tools/desktop-os.html">Desktop OS page →</a></span>
+    </div>
   </article>
 
-  <article class="provider a-aqua reveal">
+  <article class="provider a-red reveal" id="records">
     <div class="p-head">
-      <span class="p-icon"><img src="../icons/tor-network.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Anonymous-grade communications</h3>
-      <span class="verdict">messaging + network</span>
+      <h3>Payments &amp; public records</h3>
+      <span class="verdict">your footprint</span>
     </div>
     <div class="meta">
-      <span>free</span><span>~1 h</span><span><a href="../tools/messaging.html">category page</a></span>
+      <span>ongoing</span><span>builds on: EasyOptOuts</span><span>for: person + organization</span>
     </div>
     <p>
-      Signal carries hardened settings for daily life; SimpleX drops phone numbers
-      and usernames entirely; Briar keeps working when servers, or the internet
-      itself, can't be trusted; and Tor is the network underneath all of it, for
-      when the destination needs to stay hidden, not just the message. <strong>Why
-      it's here:</strong> at this tier, metadata (who, when, how often, from where)
-      is as sensitive as content, and it leaks at the network layer just as easily
-      as the app layer.
+      <strong>The job:</strong> The adversaries at this level subpoena databases and search
+      people-finder sites. They rarely break encryption, so your payments, address, and
+      records are the easy way in.
     </p>
-    <ol class="steps">
-      <li>Signal: username sharing only, disappearing messages default (1 day),
-      registration lock PIN on, "sealed sender from anyone" enabled, relay calls
-      through Signal's servers.</li>
-      <li>Verify safety numbers, in person or over a channel you already trust, with
-      anyone whose thread actually matters. An unverified "secure" chat is just a
-      normal chat with extra steps.</li>
-      <li>If the phone number itself is a risk, register Signal on a number that
-      isn't yours (a burner or VoIP number set up inside the right compartment),
-      or move that compartment to <a href="../tools/messaging.html">SimpleX</a>,
-      which has no user identifiers at all.</li>
-      <li>Install <a href="../tools/messaging.html">Briar</a> as the fallback channel
-      with your closest contacts, agreed on <em>before</em> the day the internet
-      gets weird.</li>
-      <li>Route anything that needs the destination itself hidden through Tor
-      Browser. If your network blocks Tor outright, <strong>Snowflake</strong> turns
-      volunteers' ordinary browsers into disposable bridges, so you can still reach
-      the Tor network from somewhere that's actively trying to stop you.</li>
-      <li>Email for anything sensitive: don't. If unavoidable, use PGP between
-      consenting adults who both know what they're doing, and still assume the
-      metadata leaks.</li>
-    </ol>
-  </article>
-
-  <article class="provider a-green reveal">
-    <div class="p-head">
-      <span class="p-icon"><img src="../icons/mullvad.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>Money &amp; footprint hygiene</h3>
-      <span class="verdict">the unglamorous layer</span>
-    </div>
-    <div class="meta">
-      <span>varies</span><span>ongoing</span><span>boring, decisive</span>
-    </div>
     <p>
-      Payments and public records betray more than packets do.
-      <strong>Why it's here:</strong> the adversaries this tier worries about
-      subpoena databases and search people-finder sites; they rarely break TLS.
+      <strong>Why this one:</strong> It is the unglamorous layer, and it decides more
+      outcomes than most apps.
+    </p>
+    <p>
+      <strong>Look for:</strong> Removals that repeat, an address that isn't your home, and
+      a frozen credit file.
     </p>
     <ol class="steps">
-      <li>Pay for Mullvad with cash by post (or Monero) inside the sensitive
-      compartment; keep it always-on with the kill switch locked.</li>
-      <li>Scrub people-search sites and data-broker sites, manually or via a removal
-      service, and re-check quarterly; they regrow like weeds.</li>
-      <li>Set up mail forwarding or a PO box so your street address stops appearing on
+      <li>Scrub people-search and data-broker sites, by hand or with a removal service. Check
+      again every quarter, because they grow back like weeds.</li>
+      <li>Use mail forwarding or a PO box so your street address stops appearing on
       shipping labels and registrations.</li>
-      <li>Lock your credit file (or your country's equivalent): it's free and closes
-      the identity-theft branch of the tree.</li>
-      <li>Cover physical safety where your model calls for it: hardware keys on your
-      person, devices never left unattended at borders, and a rehearsed answer for
-      'unlock this, please.'</li>
-      <li>Traveling: bring a stripped-down travel device instead of your daily one,
-      use a local prepaid SIM or travel eSIM bought with cash where that's legal, and
-      treat every border crossing as a compartment boundary of its own.</li>
+      <li>Freeze your credit file, or your country's equivalent. It is free and closes the
+      identity-theft path.</li>
     </ol>
+    <div class="p-foot">
+      <span>services, prices, and alternatives</span>
+      <span><a href="../tools/data-removal.html">Personal Data Removers page →</a></span>
+    </div>
+  </article>
+
+  <article class="provider a-orange reveal" id="physical">
+    <div class="p-head">
+      <h3>Physical safety &amp; travel</h3>
+      <span class="verdict">your devices in hand</span>
+    </div>
+    <div class="meta">
+      <span>ongoing</span><span>new</span><span>for: person + organization</span>
+    </div>
+    <p>
+      <strong>The job:</strong> Anyone who can get your devices can often beat encryption. A
+      plan made while calm replaces improvising at a border or a door.
+    </p>
+    <p>
+      <strong>Why this one:</strong> A rehearsed answer works far better than a clever one
+      made up on the spot.
+    </p>
+    <p>
+      <strong>Look for:</strong> A travel device you can afford to lose, and a SIM you can
+      buy with cash where that is legal.
+    </p>
+    <ol class="steps">
+      <li>Keep hardware keys on your person. Never leave devices unattended at borders.
+      Rehearse your answer to "unlock this, please."</li>
+      <li>Travel with a stripped-down device instead of your daily one.</li>
+      <li>Use a local prepaid SIM or travel eSIM bought with cash, where legal. Treat every
+      border crossing as a boundary between compartments.</li>
+    </ol>
+    <div class="p-foot">
+      <span>SIM options and alternatives</span>
+      <span><a href="../tools/cellular.html">Cellular Services page →</a></span>
+    </div>
   </article>
 
   <p class="section-label">after setup</p>
   <div class="notes">
     <p>
-      <strong>Drill the failure modes.</strong> What happens if the phone is seized
-      today? If the laptop is stolen? If a key is lost? Walk each scenario while
-      calm, and the answers should be "annoying," never "catastrophic." Where one is
-      catastrophic, that's the next thing to fix.
+      <strong>Drill the failure modes.</strong> Ask what happens if the phone is seized today,
+      if the laptop is stolen, or if a key is lost. Walk through each while calm. The answers
+      should be "annoying," never "catastrophic." Where one is catastrophic, fix it next.
     </p>
     <p>
-      <strong>Schedule maintenance like it's rent.</strong> Monthly: updates everywhere,
-      broker-site re-check, backup verification — restore one file. A backup you've
-      never restored is a hope, not a backup. Quarterly: compartment audit (what
-      leaked across? What got lazy?)
+      <strong>Schedule maintenance like rent.</strong> Monthly: updates everywhere, a
+      data-broker recheck, and a backup test where you restore one file. A backup you have
+      never restored is a hope. Quarterly: a compartment audit. Ask what leaked across and
+      what got lazy.
     </p>
     <p>
-      <strong>Common pitfall: the convenience relapse.</strong> Hardened setups erode
-      one "just this once" at a time. When friction genuinely exceeds the threat,
-      don't cheat silently: <em>re-model and downgrade deliberately.</em> An honest
-      Standard beats a leaky Hardened.
-    </p>
-    <p>
-      <strong>You don't have to do this alone.</strong> Access Now's Digital Security
-      Helpline, the EFF's Surveillance Self-Defense guides, and Freedom of the Press
-      Foundation's training materials are free, current, and written by people who do
-      this professionally. For intimate-partner threats, the Coalition Against
-      Stalkerware lists vetted local resources.
+      <strong>Watch for the convenience relapse.</strong> Hardened setups wear down one "just
+      this once" at a time. When the friction truly exceeds the threat, re-model and
+      downgrade on purpose. An honest Standard beats a leaky Hardened.
     </p>
   </div>
 
-  <p class="section-label">checklist</p>
-  <ul class="checklist">
-    <li><strong>Beginner + Standard</strong> done and habitual</li>
-    <li><strong>GrapheneOS</strong> flashed and verified; duress PIN + auto-reboot configured; Orbot installed for the apps that need it</li>
-    <li><strong>Compartments</strong> defined on paper; separate email/payment/browser per compartment</li>
-    <li><strong>Qubes</strong> (or hardened Fedora) with FDE; attachments open in disposables only</li>
-    <li><strong>Tails stick</strong> made, tested, and stored where you can reach it</li>
-    <li><strong>Signal hardened</strong> (registration lock, disappearing default), safety numbers verified; <strong>Briar</strong> agreed with key contacts</li>
-    <li><strong>Tor Browser</strong> ready for anything that needs the destination hidden; <strong>Snowflake</strong> bridges in reserve if Tor itself gets blocked</li>
-    <li>VPN paid <strong>anonymously</strong>, always-on in sensitive compartments</li>
-    <li>Broker sites scrubbed; credit frozen; mail forwarding in place; travel device and SIM sorted</li>
-    <li>Failure-mode drill done: every answer is "annoying," none is "catastrophic"</li>
-    <li>Maintenance recurring on a calendar you actually check</li>
-  </ul>
-
 </main>
+
+</div>
 
 <footer>
   <div class="wrap foot">
@@ -303,6 +527,11 @@
   function toggleNav(btn) {
     const links = document.getElementById('navlinks');
     const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+
+  function toggleCats(btn) {
+    const open = btn.parentElement.classList.toggle('open');
     btn.setAttribute('aria-expanded', open);
   }
 
