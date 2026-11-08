@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">notes</span></p>
 
     <h1>Notes</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 6 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-07</b> · 6 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Notes are where your unfiltered thinking lives: drafts, plans, journals,
@@ -111,8 +111,8 @@
 
     <div class="headsup">
       <span class="k">before you pick</span>
-      The two picks here aren't rivals; they're layers. Use an E2EE notes app for the
-      quick-capture, everywhere-synced stuff; use a local-first vault for
+      The two main picks here are layers. Use an E2EE notes app for the
+      quick-capture, everywhere-synced stuff, and a local-first vault for
       structured, long-form thinking. <em>Trying to force one tool to do both jobs is how people
       end up back on Google Keep.</em>
     </div>
@@ -121,7 +121,7 @@
     <div class="criteria">
       <div class="crit">
         <h4>encryption model</h4>
-        <p>E2EE means the sync server holds ciphertext. "Encrypted in transit" is not that; it just means HTTPS, which everything has.</p>
+        <p>E2EE means the sync server holds ciphertext. "Encrypted in transit" only means HTTPS, which everything has.</p>
       </div>
       <div class="crit">
         <h4>data ownership</h4>
@@ -133,7 +133,31 @@
       </div>
       <div class="crit">
         <h4>audit status</h4>
-        <p>Encryption claims need outside eyes. Both encrypted picks here publish independent audits: that's the bar.</p>
+        <p>Encryption claims need outside eyes. Standard Notes and Obsidian publish independent audits. Notesnook says it has had none.</p>
+      </div>
+    </div>
+
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>end-to-end encryption (E2EE)</h4>
+        <p>Your device scrambles notes before they sync, and only you hold the key. The company stores data it cannot read.</p>
+      </div>
+      <div class="crit">
+        <h4>zero-knowledge</h4>
+        <p>The provider has no way to read your notes, because it never has your key.</p>
+      </div>
+      <div class="crit">
+        <h4>local-first</h4>
+        <p>Your notes live as files on your own device. Syncing is optional and the app works offline.</p>
+      </div>
+      <div class="crit">
+        <h4>Markdown</h4>
+        <p>A plain-text format that uses simple symbols for headings and bold. Any text editor can open it.</p>
+      </div>
+      <div class="crit">
+        <h4>outliner</h4>
+        <p>A note style where every line is a nested bullet. You link bullets together instead of filing notes in folders.</p>
       </div>
     </div>
 
@@ -146,25 +170,31 @@
         <span class="verdict">the encrypted-sync pick</span>
       </div>
       <div class="meta">
-        <span>e2ee</span><span>open source</span><span>audited</span><span>all platforms</span><span>free tier</span>
+        <span>e2ee</span><span>open source</span><span>all platforms</span><span>free tier</span>
       </div>
       <p>
-        Notesnook is the current best answer for encrypted cloud notes: open source,
-        E2EE by design instead of as a bolted-on feature, independently audited, and
-        <strong>priced competitively with Standard Notes while offering a more
-        capable featureset</strong>. That means rich text, notebooks, tags, web
-        clipping, and publishing. It's the everywhere-synced, quick-capture layer
-        of the stack.
-        Pricing now splits into three paid tiers (Essential, Pro, Believer) instead
-        of one flat Pro plan.
+        Notesnook is the current best answer for encrypted cloud notes. It is open
+        source, including the sync server, and end-to-end encrypted (E2EE) by design.
+        It offers rich text, notebooks, tags, web clipping, and publishing, which
+        makes it the everywhere-synced, quick-capture layer of the stack.
+        <strong>Paid plans start at $19.99 a year</strong>, against $90 for Standard
+        Notes' formatted-note plan. Pricing split into Essential, Pro, and Believer
+        tiers in October 2025.
+      </p>
+      <p>
+        Notesnook says it has had no independent audit, so its encryption claims rest
+        on open code alone. It also published five security advisories in March and
+        April 2026. Two were rated critical: a booby-trapped note or web clip could
+        run code on the desktop app. Both are fixed in version 3.3.15 and later, and
+        version 3.4.0 (June 2026) says it now sandboxes the desktop app.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>E2EE on everything including attachments: zero-knowledge sync</li>
-            <li>Open source clients and server, with published audits</li>
-            <li>More features than the established alternative, at a comparable price</li>
+            <li>Open source clients and sync server</li>
+            <li>Paid plans start at $19.99 a year</li>
             <li>Proper export (Markdown/HTML) when you want out</li>
           </ul>
         </div>
@@ -172,7 +202,9 @@
           <h5>mind the</h5>
           <ul>
             <li>Smaller and less battle-tested historically than Standard Notes</li>
-            <li>Free tier is genuinely limited (no sync of attachments, fewer notebooks)</li>
+            <li>Free tier caps attachments at 50 MB a month</li>
+            <li>No independent audit published</li>
+            <li>Five security advisories in March and April 2026</li>
             <li>Search inside E2EE data has the usual speed limits</li>
           </ul>
         </div>
@@ -190,15 +222,22 @@
         <span class="verdict">the local-first pick</span>
       </div>
       <div class="meta">
-        <span>local-first</span><span>closed source</span><span>free tier</span>
+        <span>audited</span><span>local-first</span><span>closed source</span><span>free tier</span>
       </div>
       <p>
         Obsidian is a knowledge base for structured, long-form, interlinked thinking,
         built on <strong>plain Markdown files sitting in a folder you own</strong>.
         It's closed source, but local-first blunts most of what that usually costs:
-        your data never has to touch their servers at all. Sync the vault through
+        your data never has to touch their servers at all. Independent audits also
+        cover the apps (Cure53, 2023 and 2024) and Obsidian Sync (Cure53 in 2024,
+        Trail of Bits in December 2025). Sync the vault through
         <a href="cloud-storage.html">Filen or Syncthing</a> to keep the storage layer
         consistent with the rest of your stack instead of adding another vendor.
+      </p>
+      <p>
+        Community plugins can run code on your device. In April 2026 attackers
+        abused them against finance and crypto workers, though the victim had to
+        turn on plugin sync first (Elastic Security Labs).
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -206,21 +245,21 @@
           <ul>
             <li>Your notes are files: readable by anything, forever</li>
             <li>Backlinks, graph view, and a plugin ecosystem with no ceiling</li>
-            <li>Free for personal use; works fully offline</li>
+            <li>Free for everyone, work use included; works offline</li>
             <li>E2EE official sync exists if you'd rather pay than self-sync</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Closed source: local-first mitigates, doesn't erase, the trust question</li>
-            <li>Plugins are third-party code with vault access; install with judgment</li>
+            <li>Closed source, so you rely on its audits</li>
+            <li>Plugins are third-party code with vault access</li>
             <li>Mobile capture is heavier than a dedicated quick-notes app</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price"><b>free</b> personal · sync add-on ~€4/mo (or diy)</span>
+        <span class="price"><b>free</b> · sync add-on $4/mo billed yearly (or diy)</span>
         <span><a href="https://obsidian.md" rel="noopener">obsidian.md →</a></span>
       </div>
     </article>
@@ -235,11 +274,13 @@
         <span>e2ee</span><span>open source</span><span>audited</span><span>free tier</span>
       </div>
       <p>
-        Standard Notes is the elder statesman of encrypted notes: a decade of E2EE,
-        multiple published audits, and a deliberately boring reliability record, now
-        under Proton's roof. The honest comparison: it's <strong>more expensive and
-        less capable than Notesnook</strong> for most people. It earns its slot on
-        track record, and because Proton's ownership answers the longevity question.
+        Standard Notes is the elder statesman of encrypted notes: a decade of
+        end-to-end encryption, four published audits (2017 to 2022), and a
+        deliberately boring reliability record. It joined Proton in April 2024, and
+        Proton says it stays open source with its own plan and pricing. It is
+        <strong>more expensive and less capable than Notesnook</strong> for most
+        people, at $90 a year for formatted notes. It earns its slot on track record
+        and Proton's backing.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -253,14 +294,14 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Features live behind the priciest subscription on this page</li>
+            <li>Formatting and rich editors need the $90 a year plan</li>
             <li>Free tier is plain text only: no formatting at all</li>
-            <li>Development cadence has been sedate for years</li>
+            <li>Newest audit is from 2022</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">free tier · paid from <b>~€7/mo</b></span>
+        <span class="price">free tier · paid from <b>$90/yr</b></span>
         <span><a href="https://standardnotes.com" rel="noopener">standardnotes.com →</a></span>
       </div>
     </article>
@@ -276,31 +317,34 @@
       </div>
       <p>
         Logseq is the open-source counterpart to Obsidian: local-first Markdown (or
-        org-mode) built around an <strong>outliner model</strong>, where everything
-        is a bullet, days are the default unit, and structure comes from linking
-        instead of folders. As of May 2026 the project split in two: this entry
-        covers "Logseq OG," the original file-based Markdown app. A separate, newer
-        database-backed "Logseq" now exists and develops faster, but it's a
-        different app, and its new sync and mobile apps require a $15/mo sponsor
-        tier. If Obsidian's closed source bothers you, or daily journaling is your
-        way into notes, the Markdown version covered here is still a reasonable
-        place to start.
+        org-mode) built around an <strong>outliner model</strong>. Everything is a
+        bullet, days are the default unit, and structure comes from linking instead
+        of folders. If Obsidian's closed source bothers you, or daily journaling is
+        your way into notes, it's a reasonable place to start.
+      </p>
+      <p>
+        In April 2026 the project split in two. This entry covers "Logseq OG," the
+        original file-based Markdown app. It reached version 1.0.0 that month and
+        now gets only security and compatibility updates. A newer database-backed
+        "Logseq" is the main version going forward, but it is a different app and
+        still in beta. Its sync and mobile apps are in testing for Open Collective
+        supporters, who pay from $5 a month.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Fully open source and local-first: no trust questions at all</li>
-            <li>Outliner + daily-notes workflow is excellent for journaling</li>
-            <li>Same file-based freedom: sync with Syncthing/Filen, export is just files</li>
+            <li>Outliner and daily-notes workflow suits journaling</li>
+            <li>Plain files: sync with Syncthing or Filen, export is just files</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>This Markdown version ("Logseq OG") is now maintenance-only and feature-frozen; it never reached 1.0</li>
-            <li>The newer database-backed "Logseq" is actively developed but needs a $15/mo sponsor tier for sync and mobile</li>
-            <li>The outliner model genuinely isn't for everyone, try before committing</li>
+            <li>Logseq OG is maintenance-only: no new features</li>
+            <li>Newer database version is beta; testers pay from $5/mo</li>
+            <li>The outliner style isn't for everyone, so try it first</li>
             <li>Mobile apps trail desktop in polish</li>
           </ul>
         </div>
@@ -327,6 +371,12 @@
         everything before it leaves the device either way. It's the pick if you want
         E2EE notes without adopting a new sync provider just for them.
       </p>
+      <p>
+        Joplin shipped a lot of security fixes in late 2026: 17 GitHub security
+        advisories on 9 September (nine rated high), and a November review of Joplin Server that
+        the team ran with an AI tool and that led to over 50 fixes. Joplin Cloud is
+        already patched. Self-hosters need version 3.7.4 or later.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -334,7 +384,7 @@
             <li>End-to-end encryption applies regardless of which sync backend you pick</li>
             <li>Flexible sync: Nextcloud, Dropbox, WebDAV, S3, and more</li>
             <li>Open source, Markdown files, easy export</li>
-            <li>Official paid Joplin Cloud sync option exists too, if you'd rather not run your own backend</li>
+            <li>Optional paid Joplin Cloud sync, from €2.99/mo</li>
           </ul>
         </div>
         <div class="cons">
@@ -342,7 +392,7 @@
           <ul>
             <li>You're responsible for choosing and maintaining a sync backend</li>
             <li>UI is more utilitarian than Notesnook or Obsidian</li>
-            <li>Encryption must be turned on: it isn't forced by default</li>
+            <li>Encryption is off until you turn it on</li>
           </ul>
         </div>
       </div>
@@ -363,7 +413,8 @@
       </div>
       <p>
         Cryptee is end-to-end encrypted notes and photo storage in one place:
-        zero-knowledge, web-based, and it works offline as a PWA. It's
+        zero-knowledge, web-based, and it works offline as an installable web app. The
+        company is Estonian, founded in 2018, and funded by subscriptions. It's
         <strong>useful if you want one encrypted home for both written notes and a
         small personal photo library</strong> instead of running separate apps for
         each.
@@ -373,8 +424,9 @@
           <h5>good</h5>
           <ul>
             <li>E2EE, zero-knowledge for both notes and photos</li>
-            <li>Offline-capable PWA: no native app install required</li>
+            <li>Works offline as an installable web app</li>
             <li>One encrypted vault covers two different data types</li>
+            <li>Encrypted album sharing, paid plans only, up to 5 people</li>
           </ul>
         </div>
         <div class="cons">
@@ -383,12 +435,12 @@
             <li>Only the frontend is open source; the backend is closed</li>
             <li>Smaller, less established than the dedicated notes or photo specialists</li>
             <li>Web-based-first: native mobile experience is thinner</li>
-            <li>Not a full Google Photos replacement at scale; Ente Photos on the <a href="cloud-storage.html">Cloud Storage page</a> is the dedicated answer for large photo libraries</li>
+            <li>Suits small photo libraries: for big ones, see Ente on the <a href="cloud-storage.html">Cloud Storage page</a></li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">free tier · paid plans available</span>
+        <span class="price">free 100 MB · paid from <b>€3/mo</b> (10 GB)</span>
         <span><a href="https://crypt.ee" rel="noopener">crypt.ee →</a></span>
       </div>
     </article>
@@ -409,7 +461,7 @@
             <td class="name">Obsidian</td><td>local-first</td><td class="part">add-on or diy</td><td class="no">no</td><td class="yes">markdown files</td><td>free</td>
           </tr>
           <tr>
-            <td class="name">Standard Notes</td><td>cloud-first</td><td class="yes">yes</td><td class="yes">yes</td><td>exportable db</td><td>free / $7/mo</td>
+            <td class="name">Standard Notes</td><td>cloud-first</td><td class="yes">yes</td><td class="yes">yes</td><td>exportable db</td><td>free / $90/yr</td>
           </tr>
           <tr>
             <td class="name">Logseq</td><td>local-first</td><td class="part">diy</td><td class="yes">yes</td><td class="yes">markdown/org files</td><td>free</td>
@@ -418,7 +470,7 @@
             <td class="name">Joplin</td><td>local-first</td><td class="yes">yes (any backend)</td><td class="yes">yes</td><td class="yes">markdown files</td><td>free</td>
           </tr>
           <tr>
-            <td class="name">Cryptee</td><td>cloud-first</td><td class="yes">yes</td><td class="no">no</td><td>exportable, + photos</td><td>free / paid</td>
+            <td class="name">Cryptee</td><td>cloud-first</td><td class="yes">yes</td><td class="no">no</td><td>exportable, + photos</td><td>free / €3/mo</td>
           </tr>
         </tbody>
       </table>

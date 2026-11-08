@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">storage</span></p>
 
     <h1>Cloud Storage &amp; Sync</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 11 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-07</b> · 11 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Google Drive and Dropbox can read every file you give them: that's how search,
@@ -124,7 +124,7 @@
       </div>
       <div class="crit">
         <h4>cross-platform reality</h4>
-        <p>What matters isn't the platform list on the pricing page — it's the actual client quality on each. A "supported" OS with a half-working client isn't supported.</p>
+        <p>Check how the actual client behaves on each platform. A "supported" OS with a half-working client isn't supported.</p>
       </div>
       <div class="crit">
         <h4>sharing &amp; access</h4>
@@ -133,6 +133,26 @@
       <div class="crit">
         <h4>company viability</h4>
         <p>Your files should outlive the vendor's funding round. Smaller companies can be excellent, as long as you keep local copies regardless.</p>
+      </div>
+    </div>
+
+    <p class="section-label">plain-english key</p>
+    <div class="criteria">
+      <div class="crit">
+        <h4>zero-knowledge</h4>
+        <p>The provider has no way to read your files, because only you hold the key. It stores scrambled data.</p>
+      </div>
+      <div class="crit">
+        <h4>client-side encryption</h4>
+        <p>Your device scrambles files before they upload. If it happens on the provider's servers instead, the provider holds the key.</p>
+      </div>
+      <div class="crit">
+        <h4>peer-to-peer sync</h4>
+        <p>Your devices swap files directly with each other, with no company server in the middle.</p>
+      </div>
+      <div class="crit">
+        <h4>post-quantum</h4>
+        <p>Encryption built to withstand future quantum computers, which could break today's methods.</p>
       </div>
     </div>
 
@@ -155,12 +175,18 @@
         public roadmap, active community, real responsiveness. This is what the
         default cloud should look like.
       </p>
+      <p>
+        Filen rebuilt its mobile apps in mid-2026. Its free 10GB may be withheld
+        from signups over VPNs, Tor (a network that hides where your traffic comes
+        from), or proxies. We found no published independent audit, and Filen's
+        August and September 2026 update calls a formal audit "a separate step".
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Zero-knowledge E2EE by design, on every plan including free</li>
-            <li>Proper, open source clients across Windows/macOS/Linux/mobile</li>
+            <li>Open source clients for Windows, macOS, Linux, and mobile</li>
             <li>Aggressive recurring pricing on the tiers still on sale</li>
             <li>Public roadmap and a team that answers questions like people</li>
           </ul>
@@ -168,9 +194,9 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Lifetime plans are gone: Pro Lifetime sold out, Starter Lifetime paused with no promised return</li>
+            <li>Free 10GB may be withheld on VPN or Tor signups</li>
             <li>Smaller company, slower release cadence</li>
-            <li>Long-term viability is the bet, so keep local backups regardless (you should anyway)</li>
+            <li>No published independent audit yet</li>
             <li>Collaboration features are thinner than the big suites</li>
           </ul>
         </div>
@@ -196,6 +222,12 @@
         Proton Drive on reliability across systems</strong>. The edge is consistency:
         everything works, everywhere, all the time. You pay for that edge; if Filen's
         pace or size gives you pause, this is the premium answer.
+      </p>
+      <p>
+        Tresorit says its latest penetration test (a hired attack on its own
+        systems) ran in late 2025. The firm is unnamed, and Tresorit says it found
+        no critical or high-severity issues. Personal plans are Lite (50GB), Essential
+        (1TB), and Pro (4TB).
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -238,6 +270,11 @@
         across your laptop, phone, and that Raspberry Pi. It pairs beautifully with
         a KeePassXC vault, an Obsidian vault, or a notes folder.
       </p>
+      <p>
+        On phones, the official Android app was discontinued in December 2024. A
+        community app, Syncthing-Fork, carries on. Syncthing's own FAQ says it has no
+        plans to support iOS.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -253,7 +290,8 @@
           <ul>
             <li>Two devices must be on(line) to sync; an always-on node fixes this</li>
             <li>No web access or share links: it's sync, not a cloud drive</li>
-            <li>Android app is fine; iOS support is via a third-party app (Möbius Sync)</li>
+            <li>Official Android app ended in 2024; a community fork continues</li>
+            <li>No official iOS app; Möbius Sync is a third-party option</li>
           </ul>
         </div>
       </div>
@@ -278,7 +316,16 @@
         for <a href="email-providers.html">Proton Mail</a>, it's effectively included
         and worth using for photos and sharing. As a standalone primary it's harder
         to recommend right now: <strong>feature rollout is slow and Linux support is
-        notably poor</strong> — there's no sync client at all.
+        notably poor</strong>: there's no sync client at all. Proton confirmed in
+        June 2026 that a native one is in development, with no release date. Its
+        command-line tool, launched that month, cannot sync. Securitum, an outside
+        security firm, published Drive audits in 2021 and 2022.
+      </p>
+      <p>
+        Proton has also faced fresh criticism. In October 2026, 404 Media reported
+        that CEO Andy Yen called a request to security-test new code "loser
+        thinking". Proton later admitted it had been too blunt. The
+        <a href="email-providers.html#proton-mail">Proton Mail</a> card has more.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -294,14 +341,14 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Still no Linux sync client (web/CLI only for now), though Proton has confirmed a native one is in active development</li>
+            <li>No Linux sync client; the command-line tool can't sync</li>
             <li>Slow feature cadence compared to the rest of the Proton suite</li>
             <li>E2EE means no server-side search inside file contents</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">5GB free · 200GB from <b>~€4/mo</b></span>
+        <span class="price">5GB free · 200GB from <b>~$4/mo</b> yearly</span>
         <span><a href="https://proton.me/drive" rel="noopener">proton.me/drive →</a></span>
       </div>
     </article>
@@ -316,11 +363,12 @@
         <span>e2ee</span><span>open source</span><span>audited</span><span>no account</span><span>free tier</span>
       </div>
       <p>
-        Cryptomator isn't storage: it's a <strong>transparent encryption layer for
-        storage you already have</strong>. Point it at Dropbox, Google Drive, or
-        OneDrive and it creates a vault the provider sees only as encrypted noise.
-        It's the pragmatic answer when work, family, or inertia keeps you on a
-        big-tech cloud but the contents are nobody's business.
+        Cryptomator is a <strong>transparent encryption layer for storage you
+        already have</strong>. Point it at Dropbox, Google Drive, or OneDrive and it
+        creates a vault the provider sees only as encrypted noise. It's the
+        pragmatic answer when work, family, or inertia keeps you on a big-tech cloud
+        but the contents are nobody's business. Its mobile apps rose to €29.99 in
+        January 2026.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -335,13 +383,13 @@
           <h5>mind the</h5>
           <ul>
             <li>Encrypted files can't use the provider's web preview/search/sharing</li>
-            <li>Mobile apps are a one-time purchase (~$30, up from ~$15 before Jan 2026)</li>
+            <li>Mobile apps are read-only until a €29.99 one-time purchase per platform</li>
             <li>Filename/structure metadata protection has limits; read their docs</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">desktop <b>free</b> · mobile ~$30 one-off</span>
+        <span class="price">desktop <b>free</b> · mobile €29.99 one-off</span>
         <span><a href="https://cryptomator.org" rel="noopener">cryptomator.org →</a></span>
       </div>
     </article>
@@ -356,10 +404,10 @@
         <span>self-hostable</span><span>open source</span><span>e2ee optional</span><span>free</span>
       </div>
       <p>
-        Nextcloud isn't just storage: it's a full self-hosted cloud suite covering
-        files, calendar, contacts, and office docs, all on <strong>hardware you
-        control entirely</strong>, and it's open source from top to bottom. The
-        trade-off is real: you become the sysadmin, and a neglected instance is
+        Nextcloud is a full self-hosted cloud suite covering files, calendar,
+        contacts, and office docs, all on <strong>hardware you control
+        entirely</strong>, and it's open source from top to bottom. The trade-off
+        is real: you become the sysadmin, and a neglected instance is
         worse than the big-tech cloud you left. It's worth it if you want full
         control and don't mind the setup work; otherwise one of the turnkey options
         above is the better fit.
@@ -378,7 +426,7 @@
           <ul>
             <li>You are the security team: updates, backups, exposure are on you</li>
             <li>More setup work than any turnkey option on this page</li>
-            <li>E2EE is available but is opt-in and less seamless than dedicated E2EE clouds</li>
+            <li>E2EE is opt-in, set up in apps only, and read-only in browsers</li>
           </ul>
         </div>
       </div>
@@ -400,12 +448,11 @@
       <p>
         pCloud is best known for its genuinely unusual <strong>lifetime
         plans</strong>: pay once, keep the storage. Switzerland is the company's
-        legal home, and Swiss FADP applies. But that's not where your files live:
-        data actually sits in Dallas (US) or Luxembourg (EU), whichever region you
-        pick. Client-side encryption exists, but <strong>it's a paid add-on, not the
-        default</strong>. Out of the box, pCloud is encrypted at rest like Dropbox,
-        not zero-knowledge. Turn on the add-on if you want the privacy story to
-        match the marketing.
+        legal home, and Swiss FADP applies. Your files sit in Dallas (US) or
+        Luxembourg (EU), whichever region you pick. Client-side encryption is
+        <strong>a paid add-on</strong>. Out of the box, pCloud encrypts files at
+        rest like Dropbox and can still read them. Turn on the add-on if you want
+        the privacy story to match the marketing.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -423,6 +470,7 @@
             <li>Client-side encryption is <strong>not on by default</strong>: it's a separate paid add-on</li>
             <li>Without that add-on, pCloud can read your files like any standard cloud</li>
             <li>Lifetime plans bet on the company's longevity for a very long time</li>
+            <li>Free accounts are deleted after 12 months of inactivity</li>
           </ul>
         </div>
       </div>
@@ -442,28 +490,33 @@
         <span>e2ee</span><span>free tier</span>
       </div>
       <p>
-        Mega offers a genuinely generous free tier and client-side, "zero-knowledge"
-        encryption claims that hold up technically. The honest caveat is the
-        company's history: <strong>Mega has a checkered ownership and legal
-        past</strong>, tracing back to Kim Dotcom and years of controversy. The
-        current encryption claims stand on their own merits, but the history is
-        worth knowing before you trust it with anything sensitive.
+        Mega offers a genuinely generous free tier and client-side "zero-knowledge"
+        encryption. The honest caveat is the company's history:
+        <strong>Mega has a checkered ownership and legal past</strong>, tracing back
+        to Kim Dotcom and years of controversy.
+      </p>
+      <p>
+        In 2022, ETH Zurich researchers published five attacks on Mega's encryption
+        that a malicious server could use. Mega said it patched three and promised
+        fixes for the other two, and we found no confirmation those landed. Weigh
+        both before trusting it with anything sensitive.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>20GB free tier is among the most generous in the category</li>
-            <li>Client-side encryption with reasonable technical claims</li>
+            <li>Client-side encryption on every account</li>
             <li>Cross-platform clients including Linux</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Checkered ownership/legal history (Kim Dotcom era), worth knowing even if unrelated to current crypto</li>
+            <li>Checkered ownership and legal history from the Kim Dotcom era</li>
+            <li>2022 ETH Zurich attacks on its encryption; full fix unconfirmed</li>
             <li>Less independent audit history than Tresorit or Cryptomator</li>
-            <li>Encryption SDK is open source for review, but the full client apps are closed source</li>
+            <li>Only the SDK is open source; app code is review-only</li>
             <li>Sharing features can undercut the zero-knowledge story if used carelessly</li>
           </ul>
         </div>
@@ -490,6 +543,12 @@
         libraries. It's the most complete answer right now to "I want to leave
         Google Photos but keep automatic, encrypted backup".
       </p>
+      <p>
+        Cure53, an outside security firm, reviewed Ente's platform in March 2023 and
+        October 2025. Ente fixed 12 of the 15 issues from 2025, including every
+        critical and high one. In February 2026 Ente also launched Locker, a separate
+        app for documents and notes.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -497,19 +556,20 @@
             <li>End-to-end encrypted photo and video backup, automatic on mobile</li>
             <li>Open source clients and server</li>
             <li>From the same team behind Ente Auth: consistent track record</li>
+            <li>Cure53 audits in 2023 and 2025; critical and high issues fixed</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Photos and videos only, not a general file-storage replacement</li>
-            <li>Smaller free tier than dedicated general-purpose clouds</li>
+            <li>Built for photos; Locker holds documents but is no file drive</li>
+            <li>Locker is capped at 100 items on the free plan</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">10GB free · paid tiers available</span>
-        <span><a href="https://ente.io" rel="noopener">ente.io →</a></span>
+        <span class="price">10GB free · paid from <b>~$2.49/mo</b></span>
+        <span><a href="https://ente.com" rel="noopener">ente.com →</a></span>
       </div>
     </article>
 
@@ -523,7 +583,8 @@
         <span>client-side encryption option</span><span>proprietary crypto</span><span>not independently audited</span><span>cheap</span>
       </div>
       <p>
-        IceDrive is cheap, with a client-side encryption option on paper. The catch:
+        IceDrive is cheap, with a client-side encryption option on paid plans. It
+        uses Twofish, a less common cipher than the usual AES. The catch:
         <strong>that encryption implementation is proprietary and hasn't received the
         kind of independent audit that Cryptomator or Tresorit have</strong>. It's
         drawn real scrutiny and skepticism in the privacy community as a result. It
@@ -534,13 +595,14 @@
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Inexpensive plans with a client-side encryption option</li>
+            <li>Cheap first-year promos; lifetime plans still on sale</li>
             <li>Reasonably polished apps across platforms</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
+            <li>Encryption is paid-only; the free plan has none</li>
             <li>Proprietary crypto implementation, not independently audited like the established E2EE players</li>
             <li>Privacy community skepticism specifically around the encryption claims</li>
             <li>Treat as "exists and is cheap" rather than a strong recommendation for sensitive files</li>
@@ -548,7 +610,7 @@
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">low-cost plans</span>
+        <span class="price">10GB free · 2TB <b>$8.99/mo</b> list · lifetime plans</span>
         <span><a href="https://icedrive.net" rel="noopener">icedrive.net →</a></span>
       </div>
     </article>
@@ -569,6 +631,12 @@
         major flaws found), and both the client and server are open source. It also
         holds GDPR, ISO 27001, SOC 2, and HIPAA certifications.
       </p>
+      <p>
+        Lifetime plans bought earlier cover storage only. Internxt's April 2026 help
+        article says WebDAV (a standard way to connect other apps), the command-line
+        tool, and backups are sold separately for them. Its newer Ultimate plan
+        includes them.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -582,15 +650,15 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Rebranded from a decentralized ICO project to a centralized cloud, though marketing still leans on "distributed nodes"</li>
-            <li>WebDAV, CLI, and backups were stripped from lifetime plans; restoring them costs €480–500+</li>
-            <li>2.6/5 Trustpilot (~1,300 reviews), with widespread reports of sync failures, file loss, and slow support</li>
-            <li>Post-quantum and zero-knowledge claims aren't independently audited yet</li>
+            <li>Rebranded from a decentralized ICO project but still markets "distributed nodes"</li>
+            <li>Older lifetime plans exclude WebDAV, CLI, and backups; Ultimate adds them</li>
+            <li>Heavily criticized for sync failures, lost files, and slow support</li>
+            <li>The audit's published scope doesn't mention post-quantum encryption</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">free tier · paid plans available</span>
+        <span class="price">1GB free · lifetime plans available</span>
         <span><a href="https://internxt.com" rel="noopener">internxt.com →</a></span>
       </div>
     </article>
@@ -614,10 +682,10 @@
             <td class="name">Syncthing</td><td>p2p sync</td><td class="yes">no provider</td><td class="yes">yes (fully)</td><td class="no">no</td><td>free</td>
           </tr>
           <tr>
-            <td class="name">Proton Drive</td><td>e2ee cloud</td><td class="yes">no</td><td class="yes">yes</td><td class="yes">yes</td><td>free–€4/mo</td>
+            <td class="name">Proton Drive</td><td>e2ee cloud</td><td class="yes">no</td><td class="yes">yes</td><td class="yes">yes</td><td>free–~$4/mo</td>
           </tr>
           <tr>
-            <td class="name">Cryptomator</td><td>encryption layer</td><td class="yes">no (vault)</td><td class="yes">yes (fully)</td><td class="no">not encrypted ones</td><td>free–~$30</td>
+            <td class="name">Cryptomator</td><td>encryption layer</td><td class="yes">no (vault)</td><td class="yes">yes (fully)</td><td class="no">not encrypted ones</td><td>free–~€30</td>
           </tr>
           <tr>
             <td class="name">Nextcloud</td><td>self-hosted suite</td><td class="part">depends on setup</td><td class="yes">yes (fully)</td><td class="yes">yes</td><td>free (your hardware)</td>
@@ -635,7 +703,7 @@
             <td class="name">IceDrive</td><td>cloud (e2ee option)</td><td class="part">unaudited claim</td><td class="no">no (closed)</td><td class="yes">yes</td><td>low-cost</td>
           </tr>
           <tr>
-            <td class="name">Internxt</td><td>e2ee cloud (claimed)</td><td class="part">unaudited claim</td><td class="yes">yes</td><td class="yes">yes</td><td>free–paid</td>
+            <td class="name">Internxt</td><td>e2ee cloud (claimed)</td><td class="part">no (claimed; in audit scope)</td><td class="yes">yes</td><td class="yes">yes</td><td>free–paid</td>
           </tr>
         </tbody>
       </table>

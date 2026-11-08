@@ -408,11 +408,11 @@ Plain list of every service on the site, by category. Everything else (reviews, 
 
 ##### Notesnook · *the encrypted-sync pick*
 
-`e2ee` · `open source` · `audited` · `all platforms` · `free tier`
+`e2ee` · `open source` · `all platforms` · `free tier`
 
 ##### Obsidian · *the local-first pick*
 
-`local-first` · `closed source` · `free tier`
+`audited` · `local-first` · `closed source` · `free tier`
 
 ##### Standard Notes · *the established pick*
 

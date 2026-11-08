@@ -1091,7 +1091,6 @@ window.SITE_INDEX = [
     "pills": [
       "e2ee",
       "open source",
-      "audited",
       "all platforms",
       "free tier"
     ]
@@ -1102,6 +1101,7 @@ window.SITE_INDEX = [
     "page": "tools/notes.html",
     "anchor": "obsidian",
     "pills": [
+      "audited",
       "local-first",
       "closed source",
       "free tier"
