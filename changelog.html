@@ -46,6 +46,19 @@
     unexplained, <a href="about.html#contact">call it out</a>.
   </p>
 
+  <div class="log-filter" hidden>
+    <div class="log-row">
+      <input type="search" id="log-q" placeholder="Filter entries..." aria-label="Filter entries by text" autocomplete="off" spellcheck="false">
+      <select id="log-cat" aria-label="Filter by category"><option value="">all categories</option></select>
+    </div>
+    <div class="log-row">
+      <div class="log-types" role="group" aria-label="Filter by change type"></div>
+      <p class="log-count" aria-live="polite"></p>
+      <button type="button" class="log-reset" hidden>clear</button>
+    </div>
+  </div>
+  <p class="log-empty" hidden>No entries match those filters.</p>
+
   <div class="log">
 
     <div class="log-entry reveal">
@@ -2085,6 +2098,93 @@
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
   }
+
+  // changelog filter: text, category (from each entry's first link), and change type.
+  // State mirrors to the URL (?cat=messaging&type=fix&q=audit) so filtered views can be linked.
+  (function () {
+    const bar = document.querySelector('.log-filter');
+    const entries = [...document.querySelectorAll('.log-entry')];
+    if (!bar || !entries.length) return;
+    const q = document.getElementById('log-q');
+    const cat = document.getElementById('log-cat');
+    const typesBox = bar.querySelector('.log-types');
+    const count = bar.querySelector('.log-count');
+    const reset = bar.querySelector('.log-reset');
+    const empty = document.querySelector('.log-empty');
+    const TYPES = { add: 'additions', update: 'updates', fix: 'corrections', remove: 'removals' };
+
+    function categoryOf(el) {
+      const a = el.querySelector('.log-links a');
+      const path = a ? a.getAttribute('href').split('#')[0] : '';
+      if (path.startsWith('setups/')) return 'setups';
+      if (path.startsWith('tools/') || path === 'threat-modeling.html') {
+        return path.replace(/^tools\//, '').replace(/\.html$/, '').replace(/-/g, ' ');
+      }
+      return 'site';
+    }
+    const data = entries.map(el => {
+      const tag = el.querySelector('.log-tag');
+      const type = tag ? Object.keys(TYPES).find(t => tag.classList.contains('lt-' + t)) || '' : '';
+      return { el, cat: categoryOf(el), type, text: el.textContent.toLowerCase() };
+    });
+
+    const catCounts = {};
+    data.forEach(d => { catCounts[d.cat] = (catCounts[d.cat] || 0) + 1; });
+    Object.keys(catCounts).sort().forEach(c => {
+      cat.add(new Option(c + ' (' + catCounts[c] + ')', c));
+    });
+
+    let type = '';
+    const buttons = [['', 'all']].concat(
+      Object.keys(TYPES).filter(t => data.some(d => d.type === t)).map(t => [t, TYPES[t]])
+    ).map(([value, label]) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = label;
+      b.dataset.type = value;
+      if (value) b.className = 'lt-' + value;
+      b.addEventListener('click', () => { type = value; apply(); });
+      typesBox.appendChild(b);
+      return b;
+    });
+
+    function apply(skipUrl) {
+      const words = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+      let shown = 0, last = null;
+      data.forEach(d => {
+        const ok = (!cat.value || d.cat === cat.value) &&
+                   (!type || d.type === type) &&
+                   words.every(w => d.text.includes(w));
+        d.el.hidden = !ok;
+        d.el.classList.remove('last-shown');
+        if (ok) { shown++; last = d.el; }
+      });
+      if (last) last.classList.add('last-shown');
+      buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.type === type));
+      const filtered = shown !== data.length;
+      count.textContent = filtered ? shown + ' of ' + data.length + ' entries' : data.length + ' entries';
+      reset.hidden = !(words.length || cat.value || type);
+      empty.hidden = shown > 0;
+      if (skipUrl) return;
+      const params = new URLSearchParams();
+      if (cat.value) params.set('cat', cat.value);
+      if (type) params.set('type', type);
+      if (q.value.trim()) params.set('q', q.value.trim());
+      const qs = params.toString();
+      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+    }
+
+    const params = new URLSearchParams(location.search);
+    if (catCounts[params.get('cat')]) cat.value = params.get('cat');
+    if (TYPES[params.get('type')]) type = params.get('type');
+    q.value = params.get('q') || '';
+
+    q.addEventListener('input', () => apply());
+    cat.addEventListener('change', () => apply());
+    reset.addEventListener('click', () => { q.value = ''; cat.value = ''; type = ''; apply(); q.focus(); });
+    bar.hidden = false;
+    apply(true);
+  })();
 </script>
 
 <script src="site-search/site-index.js"></script>

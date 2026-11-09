@@ -96,7 +96,20 @@ nav.top {
 .site-search li a:hover { background: var(--bg1); text-decoration: none; }
 .site-search li a .cat { color: var(--fg-mute); font-size: 12px; white-space: nowrap; }
 .site-search li.empty { padding: 7px 10px; font: 400 13px var(--mono); color: var(--fg-mute); }
-@media (max-width: 480px) { .site-search { width: min(200px, 45vw); margin-right: 10px; } }
+@media (max-width: 480px) {
+  .site-search { width: min(200px, 45vw); margin-right: 10px; }
+  /* the field is too narrow to hold results; drop them full-width under the
+     nav (sticky nav.top is the containing block once .site-search is static) */
+  .site-search { position: static; }
+  .site-search ul { left: 24px; right: 24px; top: 56px; }
+}
+/* touch screens: iOS Safari zooms into any field under 16px on focus and stays
+   zoomed, so text fields go to 16px; filter buttons get a thumb-sized height */
+@media (pointer: coarse) {
+  .site-search input, .log-filter input, .log-filter select { font-size: 16px; }
+  .log-filter input, .log-filter select { min-height: 40px; }
+  .log-filter .log-types button { padding: 6px 12px; }
+}
 
 /* ---------- hero (landing / threat modeling) ---------- */
 header.hero {
@@ -595,6 +608,43 @@ aside.guide li a.d-red    { --dot: var(--red); }
 .lt-fix    { color: var(--blue);   border-color: var(--blue);   }
 .lt-remove { color: var(--red);    border-color: var(--red);    }
 .log-links { font-family: var(--mono); font-size: 12.5px; color: var(--fg-mute); }
+.log-entry.last-shown { border-bottom: none; }
+.log-entry[hidden], .log-filter[hidden], .log-empty[hidden], .log-reset[hidden] { display: none; }
+
+/* changelog filter bar (behavior lives in the changelog.html inline script) */
+.log-filter {
+  max-width: 800px; display: flex; flex-direction: column; gap: 12px;
+  padding: 8px 0 20px; border-bottom: 1px solid var(--bg1);
+}
+.log-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.log-filter input, .log-filter select {
+  padding: 6px 10px; font: 400 13px var(--mono); color: var(--fg-dim);
+  background: var(--bg-hard); border: 1px solid var(--bg1); border-radius: var(--radius);
+  outline: none; transition: background 0.15s ease, border-color 0.15s ease;
+}
+.log-filter input { flex: 1 1 240px; min-width: 0; }
+.log-filter select { flex: 0 1 220px; min-width: 0; cursor: pointer; color-scheme: dark; }
+.log-filter input::placeholder { color: var(--fg-mute); }
+.log-filter input:focus, .log-filter select:focus { background: var(--bg-soft); border-color: var(--aqua); color: var(--fg); }
+.log-types { display: flex; flex-wrap: wrap; gap: 6px; }
+.log-types button {
+  font: 400 11px var(--mono); letter-spacing: 0.07em; text-transform: uppercase;
+  line-height: 1.7; padding: 2px 9px; border-radius: 3px; cursor: pointer;
+  background: transparent; border: 1px solid var(--bg2); color: var(--fg-dim);
+}
+.log-types button:hover { background: var(--bg1); }
+.log-types button[aria-pressed="true"] { background: var(--fg-dim); border-color: var(--fg-dim); color: var(--bg-hard); }
+.log-types button.lt-add[aria-pressed="true"]    { background: var(--green);  border-color: var(--green); }
+.log-types button.lt-update[aria-pressed="true"] { background: var(--yellow); border-color: var(--yellow); }
+.log-types button.lt-fix[aria-pressed="true"]    { background: var(--blue);   border-color: var(--blue); }
+.log-types button.lt-remove[aria-pressed="true"] { background: var(--red);    border-color: var(--red); }
+.log-count { margin: 0 0 0 auto; font: 400 12.5px var(--mono); color: var(--fg-mute); }
+.log-reset {
+  font: 400 12.5px var(--mono); color: var(--blue); background: none; border: none;
+  padding: 0; cursor: pointer;
+}
+.log-reset:hover { text-decoration: underline; text-underline-offset: 3px; }
+.log-empty { padding: 24px 0; font: 400 14px var(--mono); color: var(--fg-mute); }
 
 /* ---------- footer ---------- */
 footer { border-top: 1px solid var(--bg1); background: var(--bg-hard); padding: 30px 0; flex-shrink: 0; }
@@ -661,6 +711,7 @@ footer { border-top: 1px solid var(--bg1); background: var(--bg-hard); padding: 
   header.hero { padding: 64px 0 56px; }
   .grid { grid-template-columns: 1fr; }
   .log-entry { grid-template-columns: 1fr; gap: 6px; }
+  .log-filter select { flex-grow: 1; }
 }
 @media (max-width: 687px) {
   /* tables (min-width 640) always overflow at this width; fade the clipped
