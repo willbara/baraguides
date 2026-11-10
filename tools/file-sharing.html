@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">file-sharing</span></p>
 
     <h1>File Sharing</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 4 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-09</b> · 4 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       This is a different problem from <a href="cloud-storage.html">cloud storage</a>.
@@ -131,7 +131,7 @@
     <article class="provider a-green reveal" id="localsend">
       <div class="p-head">
         <span class="p-icon"><img src="../icons/localsend.svg" alt="" loading="lazy" onerror="this.style.display='none'"></span><h3>LocalSend</h3>
-        <span class="verdict">the default pick</span>
+        <span class="verdict">the local pick</span>
       </div>
       <div class="meta">
         <span>open source</span><span>peer-to-peer</span><span>no account</span><span>free</span>
@@ -143,21 +143,33 @@
         Android, and iOS all get proper native clients. If both devices are in the
         same room or on the same Wi-Fi, this is the obvious answer.
       </p>
+      <p>
+        People without the app can still join through a browser link on the same
+        network, but that link uses plain, unencrypted HTTP. An August 2025 advisory
+        rated critical, covering version 1.17.0 and earlier, says someone on the same
+        network can pose as another device and intercept a transfer. GitHub lists no
+        patched version. In August 2026 the maintainer said both devices have verified
+        each other's certificates since 1.18.0, but the advisory was never updated.
+        Neither its site nor its repository mentions a security audit.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Nothing ever touches a server: purely device-to-device</li>
-            <li>Open source, audited-by-readability, no telemetry</li>
+            <li>Open source, and its policy says it collects no data</li>
             <li>Genuinely cross-platform, including Linux and iOS</li>
+            <li>Browser link works for people without the app</li>
             <li>No account, no signup, no limits</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Both devices need to share a network; doesn't help over the open internet</li>
-            <li>No web fallback if one side can't install an app</li>
+            <li>Works only on a shared local network</li>
+            <li>Browser links are unencrypted HTTP</li>
+            <li>2025 critical advisory (1.17.0 and earlier) never updated</li>
+            <li>No security audit mentioned on its site or repo</li>
           </ul>
         </div>
       </div>
@@ -174,31 +186,41 @@
         <span class="verdict">the anonymity pick</span>
       </div>
       <div class="meta">
-        <span>open source</span><span>onion-routed</span><span>no account</span><span>free</span>
+        <span>open source</span><span>audited</span><span>onion-routed</span><span>no account</span><span>free</span>
       </div>
       <p>
-        OnionShare spins up a temporary Tor onion service right from your own machine
-        and hands you the address to share. <strong>No third-party server ever holds the
+        OnionShare spins up a temporary Tor onion service (a hidden address on the Tor
+        network) right from your own machine and hands you the address to share.
+        <strong>No third-party server ever holds the
         file</strong>: whoever you send the link to connects through Tor directly to
         your computer for as long as you keep it running. This is the tool journalists
         hand sources, and the one to reach for when the sender's identity matters as
         much as the file's contents.
+      </p>
+      <p>
+        Radically Open Security audited it in 2021 and found nothing rated critical or
+        high. All findings were fixed in version 2.5, and the Android app had its own
+        audit in 2023. In 2026, two bugs let a recipient pull files outside the share
+        through shortcuts (symlinks) inside it. Versions 2.6.4 (June) and 2.7 (October)
+        fixed them. Android and iOS apps also exist.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>No hosting provider in the loop: it's your machine, via Tor</li>
-            <li>Also does anonymous chat and a temporary website, not just file drops</li>
-            <li>Open source, widely vetted by the security/journalism community</li>
+            <li>Also does anonymous chat and a temporary website</li>
+            <li>Open source, audited in 2021, all findings fixed</li>
+            <li>Android and iOS apps available</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
             <li>Your machine must stay online for the duration of the transfer</li>
-            <li>Tor adds real latency; not built for large files or speed</li>
+            <li>Slow over Tor, and a poor fit for large files</li>
             <li>Recipient needs Tor Browser to connect</li>
+            <li>Update first: two file-exposure bugs fixed in 2026</li>
           </ul>
         </div>
       </div>
@@ -221,9 +243,13 @@
         Buzzheavier is a simple, anonymous file host: drop a file, get a link, send
         it. <strong>It needs no signup for basic use</strong>, which makes it the
         low-friction option when LocalSend's same-network requirement or OnionShare's
-        Tor dependency don't fit — say, sending a file to someone over a chat app with
-        no other channel. It's a hosted, third-party service, so treat it as a
-        convenience, not a privacy-first pick.
+        Tor dependency don't fit, such as sending a file to someone over a chat app
+        with no other channel. It's a hosted, third-party service, so treat it as a
+        convenience and pick something else when privacy matters.
+      </p>
+      <p>
+        Its site says files are kept forever as long as they were downloaded 30 times
+        within the last 60 days.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -236,8 +262,9 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>A hosted third party handles the file in transit; not e2ee</li>
-            <li>Less scrutinized than the other tools on this page; don't put anything sensitive through it</li>
+            <li>Third-party host, not end-to-end encrypted</li>
+            <li>Expiry rule: 30 downloads in 60 days keeps a file forever</li>
+            <li>Less scrutinized: keep sensitive files off it</li>
           </ul>
         </div>
       </div>
@@ -257,26 +284,36 @@
         <span>open source</span><span>zero-knowledge</span><span>self-hostable</span><span>no account</span><span>free</span>
       </div>
       <p>
-        PrivateBin is an encrypted pastebin for text and code snippets, not files.
-        Your content is encrypted client-side before it ever reaches the server, so
-        <strong>the server stores ciphertext and never sees your paste</strong>. It's
-        open source and trivial to self-host if you want your own instance instead
+        PrivateBin is an encrypted pastebin, built mainly for text and code snippets.
+        Your content is encrypted in your browser before it reaches the server, so
+        <strong>the server stores scrambled data and never sees your paste</strong>.
+        It's open source and easy to self-host if you want your own instance instead
         of trusting a public one.
+      </p>
+      <p>
+        The catch is the website itself. An operator could serve altered code that
+        captures your key, so trust the operator or run your own. Attachments stay off
+        unless the operator turns them on. Attachment handling has needed repeated fixes
+        for cross-site scripting (attacks that run a stranger's code in your browser)
+        since October 2025, so check an instance runs 2.1.1 (November 2026) or newer.
+        The FAQ cites one security audit, from 2014.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>True zero-knowledge: encryption happens in the browser</li>
+            <li>Zero-knowledge: the server only stores encrypted data</li>
             <li>Burn-after-reading and expiring pastes built in</li>
-            <li>Self-host it in minutes if you don't want a public instance</li>
+            <li>Optional password protection</li>
+            <li>Self-hostable if you don't trust public instances</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Text/snippets only; not a file transfer tool</li>
-            <li>Public instances vary in trustworthiness; self-host if it matters</li>
+            <li>Mainly text; file attachments are off by default</li>
+            <li>Operator could serve code that steals your key</li>
+            <li>A dozen security advisories since October 2025</li>
           </ul>
         </div>
       </div>
@@ -296,16 +333,16 @@
         </thead>
         <tbody>
           <tr>
-            <td class="name">LocalSend</td><td>p2p, local network</td><td class="no">no</td><td class="no">n/a (no server)</td>
+            <td class="name">LocalSend</td><td>p2p, local network</td><td class="yes">no</td><td class="no">n/a (no server)</td>
           </tr>
           <tr>
-            <td class="name">OnionShare</td><td>tor onion service</td><td class="no">no</td><td class="yes">it's your machine</td>
+            <td class="name">OnionShare</td><td>tor onion service</td><td class="yes">no</td><td class="yes">it's your machine</td>
           </tr>
           <tr>
-            <td class="name">Buzzheavier</td><td>hosted</td><td class="no">no (basic use)</td><td class="no">no</td>
+            <td class="name">Buzzheavier</td><td>hosted</td><td class="yes">no (basic use)</td><td class="no">no</td>
           </tr>
           <tr>
-            <td class="name">PrivateBin</td><td>hosted (zero-knowledge)</td><td class="no">no</td><td class="yes">yes</td>
+            <td class="name">PrivateBin</td><td>hosted (zero-knowledge)</td><td class="yes">no</td><td class="yes">yes</td>
           </tr>
         </tbody>
       </table>

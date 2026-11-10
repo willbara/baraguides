@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">office</span></p>
 
     <h1>Office Suites</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 5 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-09</b> · 5 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Google Docs and Microsoft 365 mean every document you write is readable by the
@@ -139,10 +139,19 @@
         OnlyOffice has the strongest Microsoft format fidelity of any non-Microsoft
         suite: documents round-trip through .docx, .xlsx, and .pptx with fewer
         surprises than the alternatives. It's <strong>open source at the
-        core</strong>, works as a standalone desktop app with no account at all, and
-        can be self-hosted if you want real-time collaboration on infrastructure you
+        core</strong> and works as a standalone desktop app with no account at all.
+        You can also self-host it for real-time collaboration on infrastructure you
         control. It's the default starting point for most people leaving Microsoft
         or Google.
+      </p>
+      <p>
+        In March 2026, Nextcloud and IONOS launched Euro-Office, a fork (a separate
+        copy of the code that develops on its own) of OnlyOffice. OnlyOffice said the
+        fork broke its licence terms and put its Nextcloud partnership on hold.
+        Nextcloud disagreed. In May 2026 OnlyOffice rewrote the terms, swapping its
+        logo rule for attribution notices, and in August Nextcloud said it would update
+        Euro-Office to match. Docs 10.0 (October 2026) also pulled built-in AI out of
+        the open-source builds. It's now a separate add-on.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -150,16 +159,18 @@
           <ul>
             <li>Best-in-class compatibility with Office file formats</li>
             <li>Desktop app needs no account and no internet connection</li>
-            <li>Self-hostable for E2EE-adjacent collaboration on your own server</li>
+            <li>Self-hostable, so live collaboration can run on your own server</li>
+            <li>Self-hosted server no longer caps you at 20 open documents</li>
             <li>Open source core with an active project behind it</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>The hosted/cloud version is a separate commercial product; read which one you're using</li>
+            <li>Hosted cloud version is a separate commercial product</li>
             <li>Self-hosting real-time collaboration takes real setup effort</li>
             <li>Some enterprise-grade format edge cases still slip in complex files</li>
+            <li>Licence dispute with Nextcloud over the Euro-Office fork</li>
           </ul>
         </div>
       </div>
@@ -185,13 +196,22 @@
         .docx, .xlsx, and .pptx is excellent and improves every release, with a
         large, active open-source community behind it.
       </p>
+      <p>
+        In April 2026, The Document Foundation (TDF), the nonprofit behind
+        LibreOffice, removed the staff and partners of Collabora from its membership.
+        Collabora is one of the biggest companies that contributes code. It says it
+        will now put less into TDF's product, and the two disagree on why. TDF also
+        restarted LibreOffice Online, a browser version, in February 2026, but it
+        won't host it.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Completely free, open source, no account required at any point</li>
-            <li>Works fully offline by design; there's no cloud mode to opt out of</li>
-            <li>Mature, actively developed, huge install base means bugs get found fast</li>
+            <li>Free, open source, no account required</li>
+            <li>Works fully offline, with no cloud mode to opt out of</li>
+            <li>Mature, actively developed, with a huge install base</li>
+            <li>TDF says version 26.8 has no generative AI</li>
           </ul>
         </div>
         <div class="cons">
@@ -199,6 +219,7 @@
           <ul>
             <li>No built-in real-time multi-user collaboration</li>
             <li>Complex Office macros and embedded objects can still misbehave on open</li>
+            <li>Can't yet display some newer Microsoft chart types</li>
             <li>UI feels dated next to Google Docs or Microsoft 365</li>
           </ul>
         </div>
@@ -225,19 +246,26 @@
         the Apache Software Foundation. It still works, and some people stick with it
         out of familiarity, but there's no compelling reason to start here today.
       </p>
+      <p>
+        OpenOffice still gets updates, just slowly. Almost two years passed between its
+        December 2023 and November 2025 releases. The October 2026 release fixed 13
+        security flaws, including a critical one. A booby-trapped document could run
+        code on your computer as soon as you opened it.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>Free, open source, no account: same baseline as LibreOffice</li>
             <li>Familiar interface for anyone who used it pre-fork</li>
+            <li>Still gets security releases, latest in October 2026</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Development has slowed considerably since the LibreOffice fork</li>
-            <li>Fewer format-compatibility and security fixes land here, and slower</li>
+            <li>Development has slowed: almost two years between 4.1.15 and 4.1.16</li>
+            <li>No 64-bit Windows or native Apple Silicon build yet (4.2.0 pending)</li>
             <li>For most people, LibreOffice is simply the better version of this</li>
           </ul>
         </div>
@@ -264,6 +292,16 @@
         and zero-knowledge by design, and open source. It's the pick when live
         multi-person editing matters and encryption isn't optional.
       </p>
+      <p>
+        In October 2026, its office apps switched from OnlyOffice to Euro-Office, a fork
+        of OnlyOffice's code. CryptPad's parent company, XWiki, has been involved in
+        Euro-Office from the start (see the <a href="#onlyoffice">OnlyOffice</a> card
+        for the licence dispute). Germany's cybersecurity agency (BSI) had Uni Systems
+        audit the code, though CryptPad links no report. That audit found a flood flaw,
+        and attackers used it to knock cryptpad.fr offline for under three hours on
+        28 January 2026. Like any web app, it also relies on the host sending you
+        unmodified code.
+      </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
@@ -276,14 +314,15 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Office format import/export is functional but not as faithful as OnlyOffice/LibreOffice</li>
+            <li>No macros or OnlyOffice plugins in its office apps</li>
             <li>Free tier has storage and feature limits</li>
             <li>Browser-based: no offline-first desktop app</li>
+            <li>Instance still sees your IP address and browser details</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">free tier · paid plans for more storage</span>
+        <span class="price">free tier · paid plans from €5/month for more storage</span>
         <span><a href="https://cryptpad.org" rel="noopener">cryptpad.org →</a></span>
       </div>
     </article>
@@ -295,15 +334,25 @@
         <span class="verdict">the one to watch</span>
       </div>
       <div class="meta">
-        <span>decentralized</span><span>e2ee</span><span>free</span>
+        <span>audited</span><span>decentralized</span><span>e2ee</span><span>free</span>
       </div>
       <p>
         Fileverse is a newer, decentralized, web3-adjacent take on collaborative
         documents, built around user-owned data and end-to-end encryption instead of
         a company holding the master copy. The ideas are right, but <strong>it's
-        meaningfully less established than everything else on this page</strong>:
-        smaller team, shorter track record, less battle-testing. It's worth
-        watching, but not yet a default recommendation for documents that matter.
+        meaningfully less established than everything else on this page</strong>.
+        It's worth watching, but not yet a default recommendation for documents
+        that matter.
+      </p>
+      <p>
+        Its two apps, dDocs (documents) and dSheets (spreadsheets), are still in public
+        beta. You don't need an account, and documents stay in your browser unless you
+        choose to save them to IPFS (a decentralized storage network). Live editing goes
+        through a relay server. It only stores encrypted data, but it can see who is
+        connected. Dédalo audited dDocs in September 2025 (five findings, all fixed),
+        and Nethermind reviewed its contracts and identity code between 2023 and March
+        2026. Fileverse says dDocs added post-quantum encryption (built to hold up
+        against future quantum computers) in October 2026, after those reviews.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -312,7 +361,8 @@
             <li>End-to-end encrypted with a genuine user-ownership model</li>
             <li>Decentralized architecture avoids a single corporate custodian</li>
             <li>Free to use, actively iterating</li>
-            <li>Shipped a second product (dSheets) alongside dDocs, expanding beyond a single tool</li>
+            <li>A Backup Key gets your files back if the app goes down</li>
+            <li>Independent audits of dDocs and its supporting code</li>
           </ul>
         </div>
         <div class="cons">
@@ -367,6 +417,12 @@
         but complex macros, embedded objects, and unusual formatting can still
         misbehave across any non-Microsoft suite. Open your real documents (the ones with tables,
         tracked changes, and that one macro someone wrote in 2014) before committing.
+      </p>
+      <p>
+        <strong>Keep your suite updated.</strong>
+        Both LibreOffice and OpenOffice fixed file-opening flaws in
+        October 2026, some of which could run code on your computer. Install
+        updates when they come out, and be careful with files from strangers.
       </p>
     </div>
 

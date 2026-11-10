@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">financial</span></p>
 
     <h1>Financial Services</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 2 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-09</b> · 2 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Every merchant you pay gets your real card number, and every breach of
@@ -121,7 +121,7 @@
       </div>
       <div class="crit">
         <h4>identity requirement</h4>
-        <p>Some tools need just an email and a funding source; others want an SSN. The less deep-identity verification required, the less there is to leak.</p>
+        <p>Every card service here checks your identity first. Ask what it collects (an ID number, a photo, a selfie) and how long someone else keeps it. The less they hold, the less there is to leak.</p>
       </div>
     </div>
 
@@ -140,8 +140,18 @@
         Privacy.com lets you generate a new virtual debit card number for every
         merchant, cap each one at a set amount, and pause or close it in one
         tap. <strong>A breach at one subscription service never touches the
-        others</strong>: they each got a different number. The free tier covers
-        most people; paid tiers add more cards per month and cashback.
+        others</strong>: they each got a different number. The free Personal
+        plan covers 12 new cards a month. Paid plans raise that to 24, 36, or
+        60, and the top two add 1% cashback.
+      </p>
+      <p>
+        By default your bank sees the merchant name on each charge. Private
+        Spend Mode, turned on before you buy, hides it, but Privacy.com still
+        sees where you spend. Some users report being asked for a selfie and
+        photo ID by an outside verifier, and Privacy.com's policy says it keeps
+        identity-check data for five years after you close the account. Louis
+        Rossmann, a well-known tech YouTuber, withdrew his endorsement in
+        September 2026, and Privacy Guides forum users link it to these checks.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -150,20 +160,22 @@
             <li>Merchant-locked numbers contain breach damage to one card</li>
             <li>Spend limits and auto-expire kill forgotten subscriptions</li>
             <li>Close a card instantly without touching your real bank account</li>
-            <li>Free tier is genuinely usable, not a crippled trial</li>
+            <li>Free plan includes 12 new cards a month</li>
+            <li>Private Spend Mode hides merchant names from your bank</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>US-only: no service for most of the rest of the world</li>
-            <li>Still requires linking a real bank account or debit card to fund it</li>
+            <li>US citizens and legal residents only, funded from a US bank account</li>
             <li>Cards-only: no phone numbers, email aliases, or broader identity cover</li>
+            <li>Some users report selfie and photo ID checks</li>
+            <li>Keeps identity-check data five years after closure</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price"><b>free</b> tier · paid tiers add more cards &amp; cashback</span>
+        <span class="price"><b>free</b> tier · paid from $5/mo · cashback from $10/mo</span>
         <span><a href="https://privacy.com" rel="noopener">privacy.com →</a></span>
       </div>
     </article>
@@ -180,10 +192,17 @@
       <p>
         MySudo goes wider than cards: it bundles virtual card numbers with
         disposable phone numbers and email aliases into separate
-        <strong>"personas"</strong>, like one for online shopping, one for
-        classifieds, one for that one form you had to fill out once. The
-        financial piece is a feature of a broader identity-compartmentalization
-        tool, not the whole product.
+        <strong>"personas"</strong> (MySudo calls them Sudos), like one for
+        online shopping, one for classifieds, one for that one form you had to
+        fill out once. Cards are one feature of a broader
+        identity-compartmentalization tool.
+      </p>
+      <p>
+        Virtual cards need a paid plan and work in the US only. MySudo checks
+        your identity once through GBG IDology, an outside verifier that its
+        policy says keeps the data no more than 30 days. The policy does not
+        mention a selfie. Each card transaction adds a 2.99% + $0.31 fee, with
+        a $0.50 minimum.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -197,14 +216,15 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Subscription cost: no meaningful free tier for ongoing use</li>
-            <li>More moving parts than a cards-only tool; more to configure up front</li>
-            <li>Card network and regional support is narrower than a dedicated card service</li>
+            <li>Cards need a paid plan, from $19.99 a year</li>
+            <li>More to set up than a cards-only tool</li>
+            <li>Virtual cards are US-only</li>
+            <li>2.99% + $0.31 fee on each card transaction</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price"><b>subscription</b> · tiered by persona count</span>
+        <span class="price"><b>subscription</b> · cards need a paid plan from $19.99/yr</span>
         <span><a href="https://mysudo.com" rel="noopener">mysudo.com →</a></span>
       </div>
     </article>
@@ -222,7 +242,7 @@
             <td class="name">Privacy.com</td><td>cards only</td><td>free + paid tiers</td><td>US only</td>
           </tr>
           <tr>
-            <td class="name">MySudo</td><td>full identity personas (cards, phone, email)</td><td>subscription</td><td>broader, check current coverage</td>
+            <td class="name">MySudo</td><td>full identity personas (cards, phone, email)</td><td>paid for cards, from $19.99/yr</td><td>cards US only; phone numbers US, CA, UK</td>
           </tr>
         </tbody>
       </table>

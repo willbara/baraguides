@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">mobile-os</span></p>
 
     <h1>Mobile OS</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 4 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-09</b> · 4 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Your phone is the most personal computer you own and the most chatty: location,
@@ -149,14 +149,22 @@
         <span>🍎 apple only</span><span>closed source</span><span>free</span>
       </div>
       <p>
-        iOS is one of the strongest out-of-the-box privacy and security options
-        available <strong>without meaningful setup overhead</strong>. The Secure
-        Enclave isolates cryptographic material at the hardware level. Apple enforces
-        the app sandbox and permission model more strictly than almost anyone else in
-        consumer mobile. And Apple Pay tokenizes payments, which beats handing out
-        card numbers. It's appropriate for the vast majority of people, including those
-        with real operational-security needs where app compatibility and reliability
-        matter.
+        iOS is the software on iPhones, and it's one of the easiest ways to get
+        strong privacy and security <strong>without doing much setup</strong>. Apple
+        keeps your encryption keys in a protected part of the chip called the Secure
+        Enclave, away from the rest of the phone. It also controls what apps can
+        access more tightly than most phone makers do. Apple Pay uses a stand-in
+        number (a token) instead of your real card number. For most people,
+        including those with serious security needs, it's a sensible pick because
+        their apps keep working.
+      </p>
+      <p>
+        Newer iPhones add extra protection. The iPhone 17 and iPhone Air have Memory
+        Integrity Enforcement, which blocks a common kind of attack that abuses
+        software bugs. Lockdown Mode is an optional setting for people who may be
+        targeted because of who they are or what they do. Since June 2026, Apple has
+        also been running some Apple Intelligence (its AI features) requests on
+        Google Cloud servers, as a preview. Apple says the same privacy rules apply.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -166,6 +174,7 @@
             <li>Strictly enforced sandbox and permission prompts</li>
             <li>Apple Pay tokenization beats standard card transactions</li>
             <li>Fast, long-lived updates with zero effort from you</li>
+            <li>Lockdown Mode: optional extreme protection against spyware</li>
           </ul>
         </div>
         <div class="cons">
@@ -173,12 +182,13 @@
           <ul>
             <li>Closed source; the trust model is "Apple, entirely": a FAANG dependency</li>
             <li>No user-controlled OS attestation</li>
-            <li>iCloud backups (including iMessages) are <strong>not E2EE</strong> until you explicitly enable Advanced Data Protection: do it day one</li>
+            <li>iCloud backups (including iMessages) are <strong>not end-to-end encrypted</strong> until you turn on Advanced Data Protection</li>
+            <li>Advanced Data Protection is unavailable in the UK</li>
           </ul>
         </div>
       </div>
       <div class="p-foot">
-        <span class="price">os free · hardware from <b>~€500</b></span>
+        <span class="price">os free · new hardware from <b>~€850</b></span>
         <span><a href="https://www.apple.com/privacy/" rel="noopener">apple.com/privacy →</a></span>
       </div>
     </article>
@@ -193,14 +203,25 @@
         <span>open source</span><span>verified boot</span><span>sandboxed play</span><span>free</span>
       </div>
       <p>
-        If your threat model extends to nation-state adversaries, device seizure, or
-        verified OS attestation, GrapheneOS is the <strong>technically superior
-        choice</strong>: hardened memory allocator, stricter sandboxing, security
-        patches in days, and Google Play (if you want it) running as an ordinary
-        sandboxed app with no special privileges. It comes with real usability
-        trade-offs and app-compatibility friction that most people underestimate
-        until they're living with it daily. If you understand and accept that,
-        nothing else comes close.
+        GrapheneOS is a security-focused version of Android that runs on Google Pixel
+        phones. It's the <strong>technically superior choice</strong> if you worry
+        about a government-level attacker or a seized phone, or you want proof that
+        the system hasn't been tampered with. It makes common hacking tricks harder,
+        keeps apps walled off from each other, and gets security fixes within days.
+        Google's apps are optional, and if you add them they run like any other app,
+        with no special access.
+      </p>
+      <p>
+        The catch is that some apps don't work well on it, and many people don't
+        realize how much that matters until they live with it daily. If you can
+        accept that, nothing else comes close. GrapheneOS recommends Pixel 8 or
+        newer, which get seven years of updates.
+      </p>
+      <p>
+        It also has a duress PIN, a second PIN that wipes the phone when someone
+        enters it. Reports in July 2026 said a US activist faces a federal charge
+        after a duress PIN wiped a phone during a 2025 airport search. The activist
+        pleaded not guilty, and GrapheneOS says the feature is legal.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -215,8 +236,9 @@
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Pixel hardware only today (buying a Google phone to escape Google, yes, the irony is noted); a Motorola partnership for non-Pixel devices was announced for 2027, none shipped yet</li>
-            <li>Some banking apps refuse non-stock OSes; no Google Pay tap-to-pay, period</li>
+            <li>Pixel hardware only; Motorola flagships planned for 2027, none shipped</li>
+            <li>Google's support promise for Pixel 6 and 6 Pro ended October 2026</li>
+            <li>Some banking apps refuse non-stock OSes; no Google Wallet tap-to-pay</li>
             <li>The friction is daily, not just at setup; be honest about your tolerance</li>
           </ul>
         </div>
@@ -237,35 +259,37 @@
         <span>open source</span><span>nonprofit</span><span>free</span>
       </div>
       <p>
-        CalyxOS is de-Googled Android with a gentler philosophy: privacy-respecting
-        defaults that work out of the box, when a current build is available. The
-        CalyxOS project listed the build "Unsupported" from August 2025, after Google
-        cut back Pixel-specific AOSP source and CalyxOS had to rebuild its
-        release-signing infrastructure. Support has been gradually resuming through
-        2026, but as of writing it isn't back to a stable, fully supported release.
-        microG, an open
-        reimplementation of Google's service APIs, comes preinstalled but optional,
-        so push notifications and location work the way most apps expect without
-        talking to Google directly. It's less hardened than GrapheneOS and
-        friendlier on day one when it's in a supported state: <strong>the halfway
-        house between stock Android and the deep end</strong>.
+        CalyxOS is a version of Android with Google's tracking removed, built to be
+        easy to live with. It works well right after you install it, with little
+        tinkering. It includes microG, a free stand-in for Google's background
+        services. It's optional, and it lets notifications and location work in most
+        apps without your phone talking to Google directly. CalyxOS is less locked
+        down than GrapheneOS but easier to start with: <strong>a halfway house
+        between a regular Android phone and the deep end</strong>.
+      </p>
+      <p>
+        The project went quiet for most of a year. It paused in summer 2025 after the
+        Calyx Institute's founder and CalyxOS's lead developer left, and the team
+        decided to rebuild the keys it uses to sign its software. Official releases
+        returned on 1 July 2026 (Android 16), and Android 17 began rolling out on 1
+        October. If you're on an older build, you need to reinstall.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
             <li>microG covers most app expectations with far less Google exposure</li>
-            <li>Supports Fairphone: repairable hardware, not just Pixels</li>
+            <li>Supports Fairphone, Motorola, and SHIFT phones, not just Pixels</li>
             <li>Thoughtful defaults: Datura firewall per app, Tor integration</li>
           </ul>
         </div>
         <div class="cons">
           <h5>mind the</h5>
           <ul>
-            <li>Not currently back to a stable, fully-supported release after a 2025-2026 upstream disruption; check current status before relying on it as a daily driver</li>
-            <li>CalyxVPN is temporarily excluded from current builds</li>
-            <li>microG is a compatibility shim, not a security boundary: weaker isolation than sandboxed Play</li>
-            <li>Patches arrive on a monthly cadence, slower than GrapheneOS or Apple</li>
+            <li>No official releases for most of a year: paused 2025, back July 2026</li>
+            <li>May 2026 build left out CalyxVPN and the Chromium adblocker</li>
+            <li>microG gives weaker isolation than sandboxed Play</li>
+            <li>Monthly patches on Pixels; other phones a month or two behind</li>
             <li>Smaller team; fewer devices than Lineage</li>
           </ul>
         </div>
@@ -286,11 +310,19 @@
         <span>open source</span><span>free</span>
       </div>
       <p>
-        LineageOS is the community ROM that <strong>keeps abandoned phones
-        alive</strong>: a seven-year-old device running current Android with no
-        Google apps installed is a genuinely private machine and a landfill rescue
-        at once. The honest caveat: most builds relax verified boot and ship patches
-        slower, so treat it as the sustainability pick, not the security pick.
+        LineageOS is a free, community-made version of Android with no Google apps.
+        It <strong>keeps abandoned phones alive</strong>: a seven-year-old phone can
+        run a recent version of Android, stay private, and stay out of the landfill.
+        LineageOS 24, based on Android 17, launched in October 2026 for a growing
+        list of phones.
+      </p>
+      <p>
+        The oldest phones have limits. Those built on the Linux 4.4 and 4.9 kernels
+        (the core of the system) are now capped at LineageOS 22.2, which is based on
+        Android 15. Only LineageOS 21 and newer carry a full monthly security patch
+        label. Most phones also give up verified boot, a startup check that the
+        system hasn't been altered. That makes LineageOS a good way to save old
+        hardware and a weaker choice if security is your top concern.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -298,7 +330,8 @@
           <ul>
             <li>Enormous device support, your drawer phone probably qualifies</li>
             <li>Ships Google-free by default; you choose what to add</li>
-            <li>Two decades of community lineage (CyanogenMod heritage)</li>
+            <li>Ten years old this December, with CyanogenMod heritage</li>
+            <li>Unaffected by Google's developer verification (no Google apps)</li>
           </ul>
         </div>
         <div class="cons">
@@ -306,6 +339,7 @@
           <ul>
             <li>Verified boot usually lost; bootloader stays unlocked on most devices</li>
             <li>Patch speed varies per device maintainer</li>
+            <li>Oldest-kernel phones are capped at Android 15 (LineageOS 22.2)</li>
             <li>Quality differs wildly across the device list, research yours first</li>
           </ul>
         </div>
@@ -332,10 +366,10 @@
             <td class="name">GrapheneOS</td><td>Pixel only</td><td class="yes">optional, sandboxed</td><td class="yes">yes + attestation</td><td class="yes">days</td><td>maximum security</td>
           </tr>
           <tr>
-            <td class="name">CalyxOS</td><td>Pixel, Fairphone</td><td class="part">microG shim</td><td class="yes">yes</td><td class="part">monthly</td><td>easy de-Googling</td>
+            <td class="name">CalyxOS</td><td>Pixel, Fairphone, Motorola, SHIFT</td><td class="part">microG shim</td><td class="yes">yes</td><td class="part">monthly</td><td>easy de-Googling</td>
           </tr>
           <tr>
-            <td class="name">LineageOS</td><td class="yes">~200 models</td><td class="yes">none by default</td><td class="no">usually lost</td><td class="part">varies</td><td>reviving old phones</td>
+            <td class="name">LineageOS</td><td class="yes">370+ phones</td><td class="yes">none by default</td><td class="no">usually lost</td><td class="part">varies</td><td>reviving old phones</td>
           </tr>
         </tbody>
       </table>
@@ -346,10 +380,10 @@
     <div class="notes">
       <p>
         <strong>On iOS, the checklist is short but real.</strong> Turn on Advanced Data
-        Protection (Settings → iCloud → Advanced Data Protection) so backups are
-        actually E2EE, audit app permissions quarterly, and turn off the advertising
-        identifier (Settings → Privacy → Apple Advertising). That's most of the gap
-        closed.
+        Protection (Settings → your name → iCloud → Advanced Data Protection) so
+        backups are actually end-to-end encrypted, audit app permissions quarterly, and turn off
+        personalized ads (Settings → Privacy &amp; Security → Apple Advertising).
+        That's most of the gap closed.
       </p>
       <p>
         <strong>On de-Googled Android, get apps from open stores first.</strong>

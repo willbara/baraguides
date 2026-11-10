@@ -432,13 +432,13 @@ Plain list of every service on the site, by category. Everything else (reviews, 
 
 ### File Sharing
 
-##### LocalSend · *the default pick*
+##### LocalSend · *the local pick*
 
 `open source` · `peer-to-peer` · `no account` · `free`
 
 ##### OnionShare · *the anonymity pick*
 
-`open source` · `onion-routed` · `no account` · `free`
+`open source` · `audited` · `onion-routed` · `no account` · `free`
 
 ##### Buzzheavier · *the quick-link pick*
 
@@ -468,7 +468,7 @@ Plain list of every service on the site, by category. Everything else (reviews, 
 
 ##### Fileverse · *the one to watch*
 
-`decentralized` · `e2ee` · `free`
+`audited` · `decentralized` · `e2ee` · `free`
 
 ### Encryption
 

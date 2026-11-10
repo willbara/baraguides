@@ -99,7 +99,7 @@
     <p class="crumb"><a href="../index.html">~</a><span class="sep">/</span><a href="index.html">tools</a><span class="sep">/</span><span class="here">encryption</span></p>
 
     <h1>Encryption</h1>
-    <p class="updated">last updated <b>2026-08-02</b> · 3 recommendations · <a href="../changelog.html">what changed</a></p>
+    <p class="updated">last updated <b>2026-11-09</b> · 3 recommendations · <a href="../changelog.html">what changed</a></p>
 
     <p class="intro">
       Full-disk and container encryption means a lost or stolen device is a
@@ -144,19 +144,26 @@
         <span>open source</span><span>audited</span><span>desktop app</span><span>hidden volumes</span><span>free</span>
       </div>
       <p>
-        VeraCrypt is the successor to TrueCrypt and the obvious default: open source,
-        independently audited, and available on Windows, macOS, and Linux with the
-        same container and full-disk encryption options on each. It supports
-        <strong>hidden volumes</strong>: a decoy password reveals an innocuous volume
-        while the real data sits in a separate, deniable container. It's mature, well
-        documented, and actively maintained since it picked up where TrueCrypt's
-        abrupt 2014 shutdown left off.
+        VeraCrypt is the successor to TrueCrypt and the obvious default. It's open
+        source and works the same way on Windows, macOS, and Linux. Its
+        <strong>hidden volumes</strong> let a decoy password open an innocent-looking
+        volume while your real data stays hidden. It has been maintained since
+        TrueCrypt shut down in 2014, and independent audits came in 2016 (Quarkslab)
+        and 2020 (Fraunhofer SIT, for Germany's cybersecurity agency).
+      </p>
+      <p>
+        In early 2026, Microsoft suspended the account that signs VeraCrypt's Windows
+        drivers and boot loader, then said it would restore it. Version 1.26.29 (June
+        2026) added Argon2id, a newer way to turn your password into a key. It also
+        fixed a Windows bug that could weaken hidden volumes in file containers made
+        with 1.26.6 to 1.26.28, so recreate any you rely on. If you encrypt a Windows
+        system drive, rebuild your Rescue Disk when VeraCrypt asks.
       </p>
       <div class="pros-cons">
         <div class="pros">
           <h5>good</h5>
           <ul>
-            <li>Open source with a completed independent security audit</li>
+            <li>Open source with independent audits in 2016 and 2020</li>
             <li>Full-disk, partition, and container encryption on every major OS</li>
             <li>Hidden volumes for genuine plausible deniability</li>
             <li>No subscription, no account, no telemetry</li>
@@ -166,8 +173,10 @@
           <h5>mind the</h5>
           <ul>
             <li>Interface is dated and unforgiving of mistakes: read before you click</li>
-            <li>No mobile apps; reading a VeraCrypt volume on a phone is awkward at best</li>
+            <li>No mobile apps, so volumes are awkward to read on a phone</li>
             <li>Boot-time full-disk encryption setup is unforgiving if interrupted</li>
+            <li>Last public audit was in 2020</li>
+            <li>2026 Microsoft account suspension delayed Windows updates</li>
           </ul>
         </div>
       </div>
@@ -187,12 +196,12 @@
         <span>linux only</span><span>open source</span><span>free</span>
       </div>
       <p>
-        LUKS is Linux's native disk-encryption standard, built into the kernel's
-        <code>dm-crypt</code> subsystem and offered as a checkbox by nearly every
-        distro installer. There's no separate app to install or trust:
-        <strong>it's the encryption you already get</strong> by ticking "encrypt my
-        drive" when you install Ubuntu, Fedora, or most anything else. It's open
-        source, widely deployed, and battle-tested across the entire Linux ecosystem.
+        LUKS is Linux's standard disk encryption. It's built into the kernel (as
+        <code>dm-crypt</code>), and nearly every distro installer offers it as a
+        checkbox. There's no separate app to install or trust:
+        <strong>it's the encryption you already get</strong> when you tick "encrypt my
+        drive" on Ubuntu, Fedora, and most others. It's open source and used almost
+        everywhere on Linux.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -209,7 +218,7 @@
           <ul>
             <li>Linux-only: no native Windows or macOS support</li>
             <li>No plausible-deniability story; a LUKS header is identifiable as such</li>
-            <li>TPM-bound auto-unlock (e.g. Clevis) can be defeated via physical TPM-bus sniffing on some hardware; a plain passphrase unlock isn't affected</li>
+            <li>TPM auto-unlock (e.g. Clevis) can be sniffed off the chip bus</li>
             <li>Recovery requires care: losing the header or all key slots means the data is gone</li>
           </ul>
         </div>
@@ -230,16 +239,21 @@
         <span>windows only</span><span>closed source</span><span>paid</span>
       </div>
       <p>
-        BitLocker is Windows' built-in encryption option, and it's a real step up
-        from an unencrypted drive, but it comes with a few caveats worth knowing.
-        <strong>It's closed source</strong>, so unlike VeraCrypt, you can't
-        independently verify what it's actually doing under the hood, and Microsoft
-        controls the whole thing end to end. The bigger catch: on <strong>Home
-        edition</strong>, you typically get "device encryption," which by default
-        <strong>uploads your recovery key to your Microsoft account</strong>, meaning
-        Microsoft (and anyone who compels or breaches Microsoft) holds a copy of the
-        key. If you want full BitLocker with local-only key control, you'll need Pro
-        or Enterprise.
+        BitLocker is Windows' built-in encryption, and it beats leaving a drive
+        unencrypted. <strong>It's closed source</strong>, so unlike VeraCrypt you
+        can't check what it does, and Microsoft controls all of it. Full BitLocker
+        needs Windows Pro or Enterprise. Home gets a simpler "device encryption"
+        instead. The bigger catch is the recovery key. If you sign in with a Microsoft account,
+        automatic device encryption <strong>uploads the key to that account</strong>,
+        so Microsoft holds a copy. Forbes reported in January 2026 that Microsoft gave
+        the FBI keys for three laptops in a Guam fraud case. Microsoft says it can't
+        hand over keys that were never uploaded. On Pro or Enterprise, you choose where
+        the key goes.
+      </p>
+      <p>
+        In May 2026, a researcher published YellowKey, a USB-stick bypass for Windows
+        11 drives unlocked by the TPM (the computer's security chip) alone. Microsoft
+        fixed it on 9 June and says a startup PIN also protects against it.
       </p>
       <div class="pros-cons">
         <div class="pros">
@@ -254,9 +268,10 @@
           <h5>mind the</h5>
           <ul>
             <li>Closed source: no independent way to verify the implementation</li>
-            <li>Home edition's device encryption escrows your key to a Microsoft account by default</li>
+            <li>Automatic device encryption uploads your key to a Microsoft account</li>
             <li>Full control over key storage requires Pro/Enterprise, not Home</li>
             <li>No plausible deniability and no cross-platform volumes</li>
+            <li>TPM-only unlock beaten by YellowKey in May 2026; fixed in June</li>
           </ul>
         </div>
       </div>

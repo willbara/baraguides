@@ -1174,6 +1174,7 @@ window.SITE_INDEX = [
     "anchor": "onionshare",
     "pills": [
       "open source",
+      "audited",
       "onion-routed",
       "no account",
       "free"
@@ -1257,6 +1258,7 @@ window.SITE_INDEX = [
     "page": "tools/office-suites.html",
     "anchor": "fileverse",
     "pills": [
+      "audited",
       "decentralized",
       "e2ee",
       "free"
